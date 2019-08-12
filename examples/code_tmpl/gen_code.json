@@ -1,0 +1,9 @@
+[
+    {
+        "tmpl": "{tmpl}/init_tables.py.mako",
+        "mode": "single",
+        "output": "code_{filename}_tables.py",
+        "fixcode": "autopep8",
+        "disable": false
+    }
+]

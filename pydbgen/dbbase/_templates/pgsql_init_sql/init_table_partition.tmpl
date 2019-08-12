@@ -1,0 +1,8 @@
+CREATE TABLE {{dbname}}.{{table_name}} PARTITION OF {{dbname}}.{{'_'.join(table_name.split('_')[:-1])}}
+FOR VALUES FROM ('{{start_date}}') TO ('{{end_date}}');
+
+{%if partition_keys != table['keys'] %}
+CREATE UNIQUE INDEX "{{ dbname }}_{{ table_name }}_primary" ON {{ dbname }}.{{ table_name }} USING btree (
+    {{','.join(table['keys'])}}
+);
+{% end %}

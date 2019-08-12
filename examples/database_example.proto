@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+// package account;
+
+import "examples/table_example.proto";
+import "pydbgen/dbbase/data_define.proto";
+
+// TABLESPACES
+message user_spaces {
+    option (msg_type) = TABLESPACE;
+    option (location) = "/var/tables/user_spaces";
+
+}
+
+// table_group1
+message table_group1 {
+    option (msg_type) = TABLE_GROUP;
+
+    user_info user_info = 1;
+}
+
+
+// users
+message users {
+    option (msg_type) = DATABASE;
+
+    table_group1 table_group1 = 1;
+}
+
+// trade
+message trade {
+    option (msg_type) = DATABASE;
+
+    user_info user_info = 1[(sharding_mode)=SM_ENABLE, (sharding_key)='userId'];
+    order order = 2[(sharding_mode)=SM_RANGE_DAY, (sharding_key)='orderTime'];
+}
+
+// output
+message output {
+    option (msg_type) = OUTPUT;
+
+    users users = 1;
+    trade trade = 2[(sharding_mode)=SM_RANGE_MONTH, (sharding_date_begin)='20190101', (sharding_date_end)='20200101'];
+}
+

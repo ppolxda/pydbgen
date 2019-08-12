@@ -1,0 +1,682 @@
+{
+    "TABLES": {
+        "type": "package",
+        "name": "TABLES",
+        "members": {
+            "user_info": {
+                "type": "message",
+                "name": "user_info",
+                "msg_type": "TABLE",
+                "database": [
+                    "trade",
+                    "users"
+                ],
+                "sharding": {
+                    "users": "SM_DISABLE",
+                    "trade": "SM_DISABLE"
+                },
+                "fields": [
+                    {
+                        "name": "userId",
+                        "type": "int32",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "userId"
+                        },
+                        "db_options": {
+                            "key": true,
+                            "inc": true
+                        }
+                    },
+                    {
+                        "name": "loginCode",
+                        "type": "string",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "loginCode"
+                        },
+                        "db_options": {
+                            "maxlen": 32
+                        }
+                    },
+                    {
+                        "name": "userName",
+                        "type": "string",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "userName"
+                        },
+                        "db_options": {
+                            "maxlen": 16
+                        }
+                    },
+                    {
+                        "name": "nikeName",
+                        "type": "string",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "nikeName"
+                        },
+                        "db_options": {
+                            "maxlen": 16
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "type": "string",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "phone"
+                        },
+                        "db_options": {
+                            "maxlen": 16
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "email"
+                        },
+                        "db_options": {
+                            "maxlen": 32
+                        }
+                    },
+                    {
+                        "name": "others",
+                        "type": "jsonb",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".jsonb",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "others"
+                        },
+                        "db_options": {
+                            "maxlen": 256,
+                            "defval": "{}"
+                        }
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {
+                    "t_sharding_key": {
+                        "type": "message",
+                        "name": "t_sharding_key",
+                        "members": {},
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "SHARDING_KEY",
+                            "is_unique": true
+                        },
+                        "fields": [
+                            {
+                                "name": "userId",
+                                "type": "int32",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "userId"
+                                },
+                                "db_options": {
+                                    "sort": "HASHED"
+                                }
+                            }
+                        ]
+                    },
+                    "logincode_unique": {
+                        "type": "message",
+                        "name": "logincode_unique",
+                        "members": {},
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "UNIQUE_KEY",
+                            "is_unique": false
+                        },
+                        "fields": [
+                            {
+                                "name": "loginCode",
+                                "type": "string",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "loginCode"
+                                },
+                                "db_options": {}
+                            }
+                        ]
+                    },
+                    "phone_index": {
+                        "type": "message",
+                        "name": "phone_index",
+                        "members": {},
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "INDEX_KEY",
+                            "is_unique": false
+                        },
+                        "fields": [
+                            {
+                                "name": "phone",
+                                "type": "string",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "phone"
+                                },
+                                "db_options": {}
+                            }
+                        ]
+                    }
+                }
+            },
+            "order": {
+                "type": "message",
+                "name": "order",
+                "msg_type": "TABLE",
+                "database": [
+                    "trade"
+                ],
+                "sharding": {
+                    "trade": "SM_DISABLE"
+                },
+                "fields": [
+                    {
+                        "name": "oderId",
+                        "type": "int32",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "oderId"
+                        },
+                        "db_options": {
+                            "key": true,
+                            "inc": true
+                        }
+                    },
+                    {
+                        "name": "orderTime",
+                        "type": "datetime",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".datetime",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "orderTime"
+                        },
+                        "db_options": {}
+                    },
+                    {
+                        "name": "userId",
+                        "type": "int32",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "userId"
+                        },
+                        "db_options": {}
+                    },
+                    {
+                        "name": "symbol",
+                        "type": "string",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "symbol"
+                        },
+                        "db_options": {
+                            "maxlen": 16
+                        }
+                    },
+                    {
+                        "name": "qty",
+                        "type": "float",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": "",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "qty"
+                        },
+                        "db_options": {
+                            "declen": 32,
+                            "decpoint": 8
+                        }
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {
+                    "t_sharding_key": {
+                        "type": "message",
+                        "name": "t_sharding_key",
+                        "members": {},
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "SHARDING_KEY",
+                            "is_unique": true
+                        },
+                        "fields": [
+                            {
+                                "name": "oderId",
+                                "type": "int32",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "oderId"
+                                },
+                                "db_options": {
+                                    "sort": "DESC"
+                                }
+                            }
+                        ]
+                    },
+                    "order_sharding": {
+                        "type": "message",
+                        "name": "order_sharding",
+                        "members": {},
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "SHARDING_KEY",
+                            "is_unique": false
+                        },
+                        "fields": [
+                            {
+                                "name": "userId",
+                                "type": "string",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "userId"
+                                },
+                                "db_options": {
+                                    "sort": "DESC"
+                                }
+                            }
+                        ]
+                    },
+                    "phone_index": {
+                        "type": "message",
+                        "name": "phone_index",
+                        "members": {},
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "INDEX_KEY",
+                            "is_unique": false
+                        },
+                        "fields": [
+                            {
+                                "name": "phone",
+                                "type": "string",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "phone"
+                                },
+                                "db_options": {}
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "TABLESPACES": {
+        "type": "package",
+        "name": "TABLESPACES",
+        "members": {
+            "user_spaces": {
+                "type": "message",
+                "name": "user_spaces",
+                "msg_type": "TABLESPACE",
+                "fields": [],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "/var/tables/user_spaces",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {}
+            }
+        }
+    },
+    "TABLE_GROUPS": {
+        "type": "package",
+        "name": "TABLE_GROUPS",
+        "members": {
+            "table_group1": {
+                "type": "message",
+                "name": "table_group1",
+                "msg_type": "TABLE_GROUP",
+                "fields": [
+                    {
+                        "name": "user_info",
+                        "type": "user_info",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".user_info",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "userInfo"
+                        },
+                        "db_options": {}
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {}
+            }
+        }
+    },
+    "DATABASES": {
+        "type": "package",
+        "name": "DATABASES",
+        "members": {
+            "users": {
+                "type": "message",
+                "name": "users",
+                "msg_type": "DATABASE",
+                "fields": [
+                    {
+                        "name": "table_group1",
+                        "type": "table_group1",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".table_group1",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "tableGroup1"
+                        },
+                        "db_options": {}
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {}
+            },
+            "trade": {
+                "type": "message",
+                "name": "trade",
+                "msg_type": "DATABASE",
+                "fields": [
+                    {
+                        "name": "user_info",
+                        "type": "user_info",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".user_info",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "userInfo"
+                        },
+                        "db_options": {
+                            "sharding_mode": "SM_ENABLE",
+                            "sharding_key": "userId"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "type": "order",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".order",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "order"
+                        },
+                        "db_options": {
+                            "sharding_mode": "SM_RANGE_DAY",
+                            "sharding_key": "orderTime"
+                        }
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {}
+            }
+        }
+    },
+    "OUTPUTS": {
+        "type": "package",
+        "name": "OUTPUTS",
+        "members": {
+            "output": {
+                "type": "message",
+                "name": "output",
+                "msg_type": "OUTPUT",
+                "fields": [
+                    {
+                        "name": "users",
+                        "type": "users",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".users",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "users"
+                        },
+                        "db_options": {}
+                    },
+                    {
+                        "name": "trade",
+                        "type": "trade",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".trade",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "trade"
+                        },
+                        "db_options": {
+                            "sharding_mode": "SM_RANGE_MONTH",
+                            "sharding_date_begin": "20190101",
+                            "sharding_date_end": "20200101"
+                        }
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {}
+            }
+        }
+    },
+    "ENUMS": {
+        "type": "package",
+        "name": "ENUMS",
+        "members": {}
+    },
+    "CLASSS": {
+        "type": "package",
+        "name": "CLASSS",
+        "members": {}
+    }
+}

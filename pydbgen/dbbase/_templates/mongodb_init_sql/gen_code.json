@@ -1,0 +1,36 @@
+[
+    {
+        "tmpl": "{tmpl}/mongodb_init_sql/init_database.js.mako",
+        "mode": "single",
+        "output": "mongodb_{filename}_database.js",
+        "fixcode": "fix_blankline",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/mongodb_init_sql/init_tables.js.mako",
+        "mode": "single",
+        "output": "mongodb_{filename}_tables.js",
+        "fixcode": "fix_blankline",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/mongodb_init_sql/init_tables_no_sharding.js.mako",
+        "mode": "single",
+        "output": "mongodb_{filename}_tables_no_sharding.js",
+        "fixcode": "fix_blankline",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/mongodb_init_sql/init_indexs.js.mako",
+        "mode": "single",
+        "output": "mongodb_{filename}_index.js",
+        "fixcode": "fix_blankline",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/mongodb_init_sql/init_json.json.mako",
+        "mode": "single",
+        "output": "mongodb_{filename}_json.json",
+        "disable": false
+    }
+]

@@ -1,0 +1,1 @@
+python -m pydbgen.protoc -I./ --custom_out=./examples/out --plugin=protoc-gen-custom=py_pdb_json ./examples/database_example.proto

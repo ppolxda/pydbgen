@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.douban.com/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+grpcio-tools = "*"
+mako = "*"
+
+[dev-packages]
+pylint = "*"
+"pep8" = "*"
+"autopep8" = "*"
+
+[requires]
+python_version = "3.6"

@@ -1,0 +1,289 @@
+#! python
+# -*- coding: utf-8 -*-
+"""
+@create: 2017-11-17 14:58:29.
+
+@author: ppolxda
+
+@desc:
+"""
+from __future__ import absolute_import, division, print_function, unicode_literals  # noqa
+import os
+import re
+import six
+import sys
+import json
+import copy
+import codecs
+import argparse
+import autopep8
+import pkg_resources
+from google.protobuf.compiler import plugin_pb2 as plugin
+from pydbgen.dbbase.protoc_gen_json import generate_json
+from pydbgen.gen_funcs import generate_file
+from pydbgen.gen_funcs import camel_to_snake
+from pydbgen.gen_funcs import remove_blank_line
+
+
+class Cmdoptions(object):
+
+    def __init__(self):
+        # pjoin = os.path.join
+        # FILEPATH = os.path.abspath(os.path.dirname(__file__))
+        TMPLPATH_DEFINE = '{tmpl}'
+        TMPLPATH = self.get_tmpl_path()
+
+        args = self.parse_args()
+        self.tmplpath = TMPLPATH
+        self.config = self.get_config_path(args)
+        self.encoding = args.encoding
+        self.step_files = args.step_files.split(',')
+
+        if not self.config:
+            raise TypeError('--config not set')
+
+        self.config = self.config.replace(TMPLPATH_DEFINE, self.tmplpath)
+
+        with codecs.open(self.config) as fs:
+            self.json_conf = json.loads(fs.read())
+
+        def fmt_json(data):
+            data['tmpl'] = data['tmpl'].replace(TMPLPATH_DEFINE, self.tmplpath)
+            return data
+
+        self.json_conf = list(map(fmt_json, self.json_conf))
+
+    def get_config_path(self, args):
+        DB_CONFIG = os.environ.get('DB_CONFIG', None)
+        if DB_CONFIG:
+            return DB_CONFIG
+
+        return args.config
+
+    def get_tmpl_path(self):
+        DB_TMLP = os.environ.get('DB_TMLP', None)
+        if DB_TMLP:
+            return DB_TMLP
+
+        return pkg_resources.resource_filename(
+            'pydbgen.dbbase', os.path.join('', '_templates'))
+
+    @property
+    def package_path(self):
+        return 'pydbgen.dbbase.protoc_gen_tmpl_multi'
+
+    @property
+    def default_config_path(self):
+        return '{tmpl}/pycode/pycode.json'
+
+    def parse_args(self):
+        parser = argparse.ArgumentParser(description=self.package_path)
+
+        parser.add_argument('-s', '--step_files',
+                            type=str,
+                            default='pydbgen,google/protobuf',
+                            help='step files list(",")')
+
+        parser.add_argument('-c', '--config',
+                            default=self.default_config_path,
+                            help='templates json path ({tmpl} default pydbgen/_templates)')  # noqa
+
+        parser.add_argument('-e', '--encoding',
+                            default='utf8',
+                            help='output encoding(default: utf8)')
+
+        return parser.parse_args()
+
+
+class ProtoPlugins(object):
+
+    def __init__(self):
+        self.opts = Cmdoptions()
+
+    def init_table_json(self, _json_table):
+        assert isinstance(_json_table, dict)
+
+        ENUMS = _json_table.get('ENUMS', {}).get('members', {})
+        for tables in ENUMS.values():
+            tables['fieldsval'] = {}
+            for field in tables['fields']:
+                tables['fieldsval'][field['name']] = field
+
+        return _json_table
+
+    def generate_code(self, request, response):
+        # filepath0 = request.file_to_generate[0]
+        # filename = filepath0[:filepath0.rfind('.')]
+        opts = self.opts
+        json_data = generate_json(request, opts.step_files)
+        _json_data = self.init_table_json(json_data)
+
+        for config in opts.json_conf:
+            tmpl = config['tmpl']
+            json_data = copy.deepcopy(_json_data)
+            if not isinstance(config, dict):
+                raise TypeError('config invaild')
+
+            disable = config.get('disable', False)
+            if disable:
+                continue
+
+            mode = config.get('mode', 'single')
+            mode_match = re.match(
+                r'^(tables|enums|table_groups|databases|classs)_multi$', mode)
+            if mode_match:
+                _obj = mode_match.group(1)
+
+                self.generate_code_multi(
+                    request, response, tmpl,
+                    config, json_data, _obj
+                )
+            elif mode == 'single':
+                self.generate_code_signal(
+                    request, response, tmpl, config, json_data)
+            else:
+                raise TypeError('config mode invaild')
+
+    def generate_code_signal(self, request, response,
+                             tmpl, config, json_data):
+        output = config.get('output', 'auto')
+        fixcode = config.get('fixcode', None)
+        upsert = config.get('upsert', True)
+
+        if output == 'auto':
+            filepath0 = request.file_to_generate[0]
+            filename1 = filepath0[:filepath0.rfind('.')]
+            fpath = '{}_helper.py'.format(filename1)
+        else:
+            filepath0 = request.file_to_generate[0]
+            filepath0 = filepath0.replace('\\', '/')
+            filename1 = filepath0[:filepath0.rfind('/') + 1]
+            if filepath0.rfind('/') >= 0:
+                filename = filepath0[filepath0.rfind(
+                    '/') + 1:filepath0.rfind('.')]
+            else:
+                filename = filepath0[:filepath0.rfind('.')]
+
+            fpath = filename1 + \
+                output.format(filename=camel_to_snake(filename))
+
+        fpath2 = os.path.abspath(fpath)
+        if not upsert and os.path.exists(fpath2):
+            return
+
+        fout = response.file.add()
+        fout.name = fpath
+        fout.content = generate_file(tmpl, **json_data)
+
+        # fixcode
+        if fixcode == 'fix_blankline':
+            fout.content = remove_blank_line(fout.content)
+
+        elif fixcode == 'aoutpep8':
+            fout.content = autopep8.fix_code(fout.content)
+
+    def generate_code_multi(self, request, response,
+                            tmpl, config, json_data,
+                            objects):
+        output = config.get('output', 'auto')
+        fixcode = config.get('fixcode', None)
+        upsert = config.get('upsert', True)
+        filepath0 = request.file_to_generate[0]
+        filepath0 = filepath0.replace('\\', '/')
+        filename1 = filepath0[:filepath0.rfind('/') + 1]
+        keys = '{%s}' % objects[:-1]
+
+        _objects = json_data.get(objects.upper(), {}).get('members', {})
+
+        def gen_file(_upsert, objname, tconfig):
+            fpath = filename1 + \
+                output.format(objname=camel_to_snake(objname))
+
+            fpath2 = os.path.abspath(fpath)
+            if not _upsert and os.path.exists(fpath2):
+                return
+
+            fout = response.file.add()
+            tconfig['objname'] = objname
+            tconfig['json_data'] = json_data
+            fout.content = generate_file(tmpl, **tconfig)
+            fout.name = fpath
+            # fixcode
+            if fixcode == 'fix_blankline':
+                fout.content = remove_blank_line(fout.content)
+
+            elif fixcode == 'aoutpep8':
+                fout.content = autopep8.fix_code(fout.content)
+
+        if objects == 'tables':
+            if keys not in output:
+                raise TypeError('config output error, missing ' + keys)
+
+            def gen_file2(_upsert, dbname, table, tconfig):
+                fpath = filename1 + output.format(db=camel_to_snake(dbname),
+                                                  table=camel_to_snake(table))
+
+                fpath2 = os.path.abspath(fpath)
+                if not _upsert and os.path.exists(fpath2):
+                    return
+
+                fout = response.file.add()
+                tconfig['db'] = dbname
+                fout.content = generate_file(tmpl, **tconfig)
+                fout.name = fpath
+                # fixcode
+                if fixcode == 'fix_blankline':
+                    fout.content = remove_blank_line(fout.content)
+
+                elif fixcode == 'aoutpep8':
+                    fout.content = autopep8.fix_code(fout.content)
+
+            for table, tconfig in _objects.items():
+                tconfig['json_data'] = json_data
+
+                if output.find('{db}') >= 0:
+                    for dbname in tconfig.get('database', []):
+                        gen_file2(upsert, dbname, table, tconfig)
+                else:
+                    gen_file2(upsert, '', table, tconfig)
+        else:
+            for objname, tconfig in _objects.items():
+                gen_file(upsert, objname, tconfig)
+
+    def main(self):
+        # Read request message from stdin
+        if six.PY2:
+            DATA = sys.stdin.read()
+        else:
+            DATA = sys.stdin.buffer.read()
+        # open('test.dat', 'wb').write(DATA)
+        # DATA = open('test.dat', 'rb').read()
+
+        # Parse request
+        REQUEST = plugin.CodeGeneratorRequest()
+        REQUEST.ParseFromString(DATA)
+
+        # Create response
+        RESPONSE = plugin.CodeGeneratorResponse()
+
+        # Generate code
+        self.generate_code(REQUEST, RESPONSE)
+
+        # Serialise response message
+        OUTPUT = RESPONSE.SerializeToString()
+        # open('tests.dat', 'wb').write(OUTPUT)
+
+        # Write to stdout
+        if six.PY2:
+            sys.stdout.write(OUTPUT)
+        else:
+            sys.stdout.buffer.write(OUTPUT)
+
+
+def main():
+    p = ProtoPlugins()
+    p.main()
+
+
+if __name__ == '__main__':
+    main()

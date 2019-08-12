@@ -1,2 +1,2 @@
-# protobuf-db-plugin
-protobuf-db-plugin
+# pydbgen
+pydbgen

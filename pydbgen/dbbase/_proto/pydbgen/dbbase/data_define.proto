@@ -1,0 +1,126 @@
+syntax = "proto3";
+import "google/protobuf/descriptor.proto";
+
+
+message datetime {
+
+}
+
+message date {
+
+}
+
+message any {
+
+}
+
+message json {
+
+}
+
+message jsonb {
+
+}
+
+
+enum EnumDefineType {
+    NONE = 0; // NONE
+    TABLE = 1; // TABLE
+    TABLE_GROUP = 2; // TABLE_GROUP
+    DATABASE = 3; // DATABASE
+    TABLESPACE = 4; // pgsql TABLESPACE
+    CLASS = 5; // CLASS
+    OUTPUT = 6; // OUPUT
+    INDEX = 7; // INDEX
+}
+
+
+enum EnumIndexType {
+    NONE_KEY = 0; // NONE_KEY
+    INDEX_KEY = 1; // INDEX_KEY
+    UNIQUE_KEY = 2; // UNIQUE_KEY
+    FOREIGN_KEY = 3; // FOREIGN_KEY
+    SHARDING_KEY = 4; // SHARDING_KEY
+}
+
+
+enum EnumIsEnable {
+    DISABLE = 0;  // DISABLE
+    ENABLE = 1;  // ENABLE
+}
+
+enum EnumShardingMode {
+    SM_DISABLE = 0;  // SM_DISABLE
+    SM_ENABLE = 1;  // SM_ENABLE
+
+    SM_HASHED = 2;  // SM_HASHED
+    SM_RANGE = 3;  // SM_RANGE
+
+    SM_RANGE_YEAR = 4;  // SM_RANGE_YEAR
+    SM_RANGE_MONTH = 5;  // SM_RANGE_MONTH
+    SM_RANGE_DAY = 6;  // SM_RANGE_MONTH
+    SM_RANGE_ID = 7; // SM_RANGE_ID
+
+    SM_PARTITION_YEAR = 8;  // SM_PARTITION_YEAR
+    SM_PARTITION_MONTH = 9;  // SM_PARTITION_MONTH
+    SM_PARTITION_DAY = 10;  // SM_PARTITION_DAY
+    SM_PARTITION_ID = 11; // SM_PARTITION_ID
+}
+
+enum EnumSortType {
+    ASC = 0;  // ASC
+    DESC = 1;  // DESC
+    HASHED = 2;  // HASHED
+}
+
+enum EnumBulkOrdered {
+    ORDERED = 0;  // ORDERED
+    UNORDERED = 1;  // UNORDERED
+}
+
+
+extend google.protobuf.MessageOptions {
+    EnumDefineType msg_type = 100001;  // Message DefineType
+    EnumIndexType index_type = 100011;  // Message DefineType
+    bool is_unique = 100012;  // Message DefineType
+
+    bool is_sharding_not_unique = 100002;  // Message is_sharding_not_unique
+
+    // mongodb options
+    EnumBulkOrdered bulk_ordered = 100009;  // bulk_ordered
+
+    // pgsql TABLESPACE path
+    string location  = 100010;  // location
+}
+
+extend google.protobuf.FieldOptions {
+    int32 maxlen = 90001;  // string|byte max length
+    int32 minlen = 90002;  // string|byte min length
+
+    int32 maxval = 90003;  // int|float max value
+    int32 minval = 90004;  // int|float min value
+
+    int32 declen = 90005;  // decimal length
+    int32 decpoint = 90006;  // decimal point length
+
+    bool key = 90007;  // PRIMARY
+    bool inc = 90008;  // AUTO_INCREMENT
+    bool update = 90009;  // is allow update
+    string defval = 900010;
+    // bool not_check = 900011;
+    EnumSortType sort = 900012;  // use for index
+
+    // pgsql TABLESPACE name
+    string space = 900015;  // table_key
+
+    // sharding_mode config
+    EnumShardingMode sharding_mode = 900016;  // Message sharding_mode
+    string sharding_key = 900022;  // sharding_key
+
+    int32 sharding_step = 900017;  // sharding_step
+    int32 sharding_max = 900018;  // sharding_max
+    int32 sharding_min = 900019;  // sharding_min
+
+    string sharding_date_begin = 900020;  // sharding_date_begin
+    string sharding_date_end = 900021;  // sharding_date_end
+}

@@ -50,17 +50,12 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "pdb_protoc=pydbgen.protoc:main",
-            "pdb_json=pydbgen.dbbase.protoc_gen_json:main",
-            "pdb_mysql=pydbgen.dbbase.protoc_gen_mysql:main",
-            "pdb_pgsql=pydbgen.dbbase.protoc_gen_pgsql:main",
-            "pdb_mongodb=pydbgen.dbbase.protoc_gen_mongodb:main",
-            "pdb_tmpl=pydbgen.dbbase.protoc_gen_tmpl_multi:main",
-            # "pdb_pycode=pydbgen.dbbase.protoc_gen_pycode:main",
-            # "pdb_pymdbcode=pydbgen.dbbase.protoc_gen_pymdbcode:main",
-
-            # "pdb_msg_json=pydbgen.msgclass.protoc_gen_json:main",
-            # "pdb_msg_pycode=pydbgen.msgclass.protoc_gen_pycode:main",
+            "pydbgen=pydbgen.protoc:main",
+            "protoc-gen-pydbjson=pydbgen.dbbase.protoc_gen_json:main",
+            "protoc-gen-pydbmysql=pydbgen.dbbase.protoc_gen_mysql:main",
+            "protoc-gen-pydbpgsql=pydbgen.dbbase.protoc_gen_pgsql:main",
+            "protoc-gen-pydbmongo=pydbgen.dbbase.protoc_gen_mongodb:main",
+            "protoc-gen-pydbtmpl=pydbgen.dbbase.protoc_gen_tmpl_multi:main",
         ]
     },
     # scripts=bin_list_build(),

@@ -3,7 +3,7 @@
 ## install
 
 ```bash
-pip3 install https://github.com/ppolxda/pydbgen
+ pip3 install git+https://github.com/ppolxda/pydbgen
 ```
 
 ## gen proto
@@ -26,7 +26,7 @@ pydbgen -I./ --pydbmysql_out=./examples/out ./examples/database_example.proto
 pydbgen -I./ --pydbpgsql_out=./examples/out ./examples/database_example.proto
 ```
 
-### gen pydbmongo init script
+### gen mongodb init script
 
 ```bash
 pydbgen -I./ --pydbmongo_out=./examples/out ./examples/database_example.proto

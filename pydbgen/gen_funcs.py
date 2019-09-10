@@ -4,7 +4,7 @@ u"""
 
 @author: name
 
-@desc: 
+@desc:
 """
 import re
 import six
@@ -350,7 +350,7 @@ def loop_datbases(_json):
                 yield dbname, _db_config, db_config['db_options']
 
 
-def loop_tables(_json):
+def loop_all_tables(_json):
     for dbname, db_config, db_opts in loop_datbases(_json):
 
         for t_config in db_config['fields']:
@@ -386,6 +386,18 @@ def loop_tables(_json):
                     'TABLES or TABLE_GROUPS members not has {}'.format(t_name))
 
 
+def loop_tables(_json):
+    for dbname, tname, tconfig, topts in loop_all_tables(_json):
+        if not topts.get('is_temp', False):
+            yield dbname, tname, tconfig, topts
+
+
+def loop_temp_tables(_json):
+    for dbname, tname, tconfig, topts in loop_all_tables(_json):
+        if topts.get('is_temp', False):
+            yield dbname, tname, tconfig, topts
+
+
 def loop_indexs(_json):
     for dbname, tname, tconfig, topts in loop_tables(_json):
         for iname, iconfig in tconfig['members'].items():
@@ -394,15 +406,18 @@ def loop_indexs(_json):
 
             yield (dbname, tname, iname, iconfig, tconfig, topts)
 
+
 def loop_tablespaces(_json):
     for tsname, tsconfig in _json['TABLESPACES']['members'].items():
         yield tsname, tsconfig
+
 
 def generate_file(template_name, **kwargs):
     u"""generate_file."""
     # template_loader = template.Loader(options.fs_tmpl)
     with codecs.open(template_name, 'rb', encoding='utf8') as fs:
         tmpl = fs.read()
+
     kwargs['codecs'] = codecs
     kwargs['tmplpath'] = template_name[:template_name.rfind('/', 1)]
     kwargs['class_name'] = snake_to_camel
@@ -420,6 +435,11 @@ def generate_file(template_name, **kwargs):
 
     kwargs['loop_datbases'] = functools.partial(loop_datbases, kwargs.copy())
     kwargs['loop_tables'] = functools.partial(loop_tables, kwargs.copy())
+    kwargs['loop_temp_tables'] = functools.partial(
+        loop_temp_tables, kwargs.copy()
+    )
     kwargs['loop_indexs'] = functools.partial(loop_indexs, kwargs.copy())
-    kwargs['loop_tablespaces'] = functools.partial(loop_tablespaces, kwargs.copy())
+    kwargs['loop_tablespaces'] = functools.partial(
+        loop_tablespaces, kwargs.copy()
+    )
     return Template(tmpl).render(**kwargs)

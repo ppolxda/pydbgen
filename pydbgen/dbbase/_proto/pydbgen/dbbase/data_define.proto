@@ -94,6 +94,9 @@ extend google.protobuf.MessageOptions {
 }
 
 extend google.protobuf.FieldOptions {
+    //  ----------------------------------------------
+    //              field options of table
+    //  ----------------------------------------------
     int32 maxlen = 90001;  // string|byte max length
     int32 minlen = 90002;  // string|byte min length
 
@@ -110,8 +113,15 @@ extend google.protobuf.FieldOptions {
     // bool not_check = 900011;
     EnumSortType sort = 900012;  // use for index
 
+    //  ----------------------------------------------
+    //              table options of database
+    //  ----------------------------------------------
     // pgsql TABLESPACE name
     string space = 900015;  // table_key
+    // relational database
+    // define a temp table
+    bool is_temp = 900023;
+
 
     // sharding_mode config
     EnumShardingMode sharding_mode = 900016;  // Message sharding_mode

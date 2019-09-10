@@ -1,10 +1,10 @@
 // ----------------------------
-// -- Table for users user_info {}
+// -- Table for users user_info {'space': 'user_spaces'}
 // ----------------------------
 db = db.getSiblingDB('users');
 db.getCollection('user_info').createIndex({ "loginCode": 1 }, { 'background': true, 'unique': 'true' });
 // ----------------------------
-// -- Table for users user_info {}
+// -- Table for users user_info {'space': 'user_spaces'}
 // ----------------------------
 db = db.getSiblingDB('users');
 db.getCollection('user_info').createIndex({ "phone": 1 }, { 'background': true, 'unique': 'false' });

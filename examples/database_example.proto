@@ -5,18 +5,18 @@ syntax = "proto3";
 import "examples/table_example.proto";
 import "pydbgen/dbbase/data_define.proto";
 
+
 // TABLESPACES
 message user_spaces {
     option (msg_type) = TABLESPACE;
     option (location) = "/var/tables/user_spaces";
-
 }
 
 // table_group1
 message table_group1 {
     option (msg_type) = TABLE_GROUP;
 
-    user_info user_info = 1;
+    user_info user_info = 1[(space)='user_spaces'];
 }
 
 
@@ -35,11 +35,20 @@ message trade {
     order order = 2[(sharding_mode)=SM_RANGE_DAY, (sharding_key)='orderTime'];
 }
 
+// test
+message trade_temp {
+    option (msg_type) = DATABASE;
+
+    user_info user_info = 1[(is_temp)=true];
+    order order = 2[(is_temp)=true];
+}
+
 // output
 message output {
     option (msg_type) = OUTPUT;
 
     users users = 1;
     trade trade = 2[(sharding_mode)=SM_RANGE_MONTH, (sharding_date_begin)='20190101', (sharding_date_end)='20200101'];
+    trade_temp trade_temp = 3;
 }
 

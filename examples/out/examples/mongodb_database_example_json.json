@@ -9,11 +9,13 @@
                 "msg_type": "TABLE",
                 "database": [
                     "trade",
+                    "trade_temp",
                     "users"
                 ],
                 "sharding": {
                     "users": "SM_DISABLE",
-                    "trade": "SM_DISABLE"
+                    "trade": "SM_DISABLE",
+                    "trade_temp": "SM_DISABLE"
                 },
                 "fields": [
                     {
@@ -249,10 +251,12 @@
                 "name": "order",
                 "msg_type": "TABLE",
                 "database": [
-                    "trade"
+                    "trade",
+                    "trade_temp"
                 ],
                 "sharding": {
-                    "trade": "SM_DISABLE"
+                    "trade": "SM_DISABLE",
+                    "trade_temp": "SM_DISABLE"
                 },
                 "fields": [
                     {
@@ -499,7 +503,9 @@
                             "default_value": "",
                             "json_name": "userInfo"
                         },
-                        "db_options": {}
+                        "db_options": {
+                            "space": "user_spaces"
+                        }
                     }
                 ],
                 "options": {
@@ -609,6 +615,57 @@
                     "is_unique": false
                 },
                 "members": {}
+            },
+            "trade_temp": {
+                "type": "message",
+                "name": "trade_temp",
+                "msg_type": "DATABASE",
+                "fields": [
+                    {
+                        "name": "user_info",
+                        "type": "user_info",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".user_info",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "userInfo"
+                        },
+                        "db_options": {
+                            "is_temp": true
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "type": "order",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".order",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "order"
+                        },
+                        "db_options": {
+                            "is_temp": true
+                        }
+                    }
+                ],
+                "options": {
+                    "message_set_wire_format": false,
+                    "no_standard_descriptor_accessor": false,
+                    "deprecated": false,
+                    "map_entry": false
+                },
+                "db_options": {
+                    "is_sharding_not_unique": false,
+                    "bulk_ordered": "ORDERED",
+                    "location": "",
+                    "index_type": "NONE_KEY",
+                    "is_unique": false
+                },
+                "members": {}
             }
         }
     },
@@ -650,6 +707,19 @@
                             "sharding_date_begin": "20190101",
                             "sharding_date_end": "20200101"
                         }
+                    },
+                    {
+                        "name": "trade_temp",
+                        "type": "trade_temp",
+                        "comments": "",
+                        "options": {
+                            "label": "optional",
+                            "type_name": ".trade_temp",
+                            "extendee": "",
+                            "default_value": "",
+                            "json_name": "tradeTemp"
+                        },
+                        "db_options": {}
                     }
                 ],
                 "options": {

@@ -1,5 +1,5 @@
 -- ----------------------------
--- -- Table for users user_info {}
+-- -- Table for users user_info {'space': 'user_spaces'}
 -- ----------------------------
 -- DROP TABLE IF EXISTS users.user_info;
 CREATE TABLE users.user_info (
@@ -11,9 +11,10 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
+TABLESPACE "user_spaces"
 ;
 -- ----------------------------
 -- -- Table for trade_201901 user_info {'sharding_mode': 'SM_ENABLE', 'sharding_date_begin': '20190101', 'sharding_date_end': '20200101', 'sharding_key': 'userId'}
@@ -28,7 +29,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -43,7 +44,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58,7 +59,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -73,7 +74,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -88,7 +89,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -103,7 +104,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -118,7 +119,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -133,7 +134,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -148,7 +149,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -163,7 +164,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -178,7 +179,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -193,7 +194,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -208,7 +209,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -223,7 +224,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -238,7 +239,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -253,7 +254,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -268,7 +269,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -283,7 +284,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -298,7 +299,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -313,7 +314,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -328,7 +329,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -343,7 +344,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -358,7 +359,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -373,7 +374,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -388,7 +389,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -403,7 +404,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -418,7 +419,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -433,7 +434,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -448,7 +449,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -463,7 +464,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -478,7 +479,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -493,7 +494,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -508,7 +509,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -523,7 +524,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -538,7 +539,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -553,7 +554,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -568,7 +569,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -583,7 +584,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -598,7 +599,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -613,7 +614,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -628,7 +629,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -643,7 +644,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -658,7 +659,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -673,7 +674,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -688,7 +689,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -703,7 +704,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -718,7 +719,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -733,7 +734,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -748,7 +749,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -763,7 +764,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -778,7 +779,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -793,7 +794,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -808,7 +809,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -823,7 +824,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -838,7 +839,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -853,7 +854,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -868,7 +869,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -883,7 +884,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -898,7 +899,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -913,7 +914,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -928,7 +929,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -943,7 +944,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -958,7 +959,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -973,7 +974,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -988,7 +989,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1003,7 +1004,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1018,7 +1019,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1033,7 +1034,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1048,7 +1049,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1063,7 +1064,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1078,7 +1079,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1093,7 +1094,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1108,7 +1109,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1123,7 +1124,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1138,7 +1139,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1153,7 +1154,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1168,7 +1169,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1183,7 +1184,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1198,7 +1199,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1213,7 +1214,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1228,7 +1229,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1243,7 +1244,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1258,7 +1259,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1273,7 +1274,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1288,7 +1289,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1303,7 +1304,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1318,7 +1319,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1333,7 +1334,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1348,7 +1349,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1363,7 +1364,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1378,7 +1379,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1393,7 +1394,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1408,7 +1409,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1423,7 +1424,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1438,7 +1439,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1453,7 +1454,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1468,7 +1469,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1483,7 +1484,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1498,7 +1499,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1513,7 +1514,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1528,7 +1529,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1543,7 +1544,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1558,7 +1559,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1573,7 +1574,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1588,7 +1589,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1603,7 +1604,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1618,7 +1619,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1633,7 +1634,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1648,7 +1649,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1663,7 +1664,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1678,7 +1679,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1693,7 +1694,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1708,7 +1709,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1723,7 +1724,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1738,7 +1739,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1753,7 +1754,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1768,7 +1769,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1783,7 +1784,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1798,7 +1799,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1813,7 +1814,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1828,7 +1829,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1843,7 +1844,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1858,7 +1859,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1873,7 +1874,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1888,7 +1889,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1903,7 +1904,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1918,7 +1919,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1933,7 +1934,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1948,7 +1949,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1963,7 +1964,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1978,7 +1979,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -1993,7 +1994,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2008,7 +2009,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2023,7 +2024,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2038,7 +2039,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2053,7 +2054,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2068,7 +2069,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2083,7 +2084,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2098,7 +2099,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2113,7 +2114,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2128,7 +2129,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2143,7 +2144,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2158,7 +2159,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2173,7 +2174,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2188,7 +2189,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2203,7 +2204,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2218,7 +2219,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2233,7 +2234,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2248,7 +2249,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2263,7 +2264,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2278,7 +2279,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2293,7 +2294,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2308,7 +2309,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2323,7 +2324,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2338,7 +2339,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2353,7 +2354,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2368,7 +2369,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2383,7 +2384,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2398,7 +2399,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2413,7 +2414,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2428,7 +2429,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2443,7 +2444,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2458,7 +2459,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2473,7 +2474,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2488,7 +2489,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2503,7 +2504,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2518,7 +2519,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2533,7 +2534,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2548,7 +2549,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2563,7 +2564,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2578,7 +2579,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2593,7 +2594,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2608,7 +2609,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2623,7 +2624,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2638,7 +2639,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2653,7 +2654,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2668,7 +2669,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2683,7 +2684,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2698,7 +2699,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2713,7 +2714,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2728,7 +2729,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2743,7 +2744,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2758,7 +2759,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2773,7 +2774,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2788,7 +2789,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2803,7 +2804,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2818,7 +2819,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2833,7 +2834,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2848,7 +2849,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2863,7 +2864,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2878,7 +2879,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2893,7 +2894,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2908,7 +2909,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2923,7 +2924,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2938,7 +2939,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2953,7 +2954,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2968,7 +2969,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2983,7 +2984,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -2998,7 +2999,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3013,7 +3014,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3028,7 +3029,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3043,7 +3044,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3058,7 +3059,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3073,7 +3074,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3088,7 +3089,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3103,7 +3104,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3118,7 +3119,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3133,7 +3134,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3148,7 +3149,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3163,7 +3164,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3178,7 +3179,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3193,7 +3194,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3208,7 +3209,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3223,7 +3224,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3238,7 +3239,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3253,7 +3254,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3268,7 +3269,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3283,7 +3284,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3298,7 +3299,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3313,7 +3314,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3328,7 +3329,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3343,7 +3344,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3358,7 +3359,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3373,7 +3374,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3388,7 +3389,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3403,7 +3404,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3418,7 +3419,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3433,7 +3434,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3448,7 +3449,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3463,7 +3464,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3478,7 +3479,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3493,7 +3494,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3508,7 +3509,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3523,7 +3524,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3538,7 +3539,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3553,7 +3554,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3568,7 +3569,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3583,7 +3584,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3598,7 +3599,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3613,7 +3614,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3628,7 +3629,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3643,7 +3644,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3658,7 +3659,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3673,7 +3674,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3688,7 +3689,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3703,7 +3704,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3718,7 +3719,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3733,7 +3734,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3748,7 +3749,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3763,7 +3764,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3778,7 +3779,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3793,7 +3794,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3808,7 +3809,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3823,7 +3824,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3838,7 +3839,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3853,7 +3854,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3868,7 +3869,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3883,7 +3884,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3898,7 +3899,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3913,7 +3914,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3928,7 +3929,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3943,7 +3944,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3958,7 +3959,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3973,7 +3974,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -3988,7 +3989,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4003,7 +4004,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4018,7 +4019,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4033,7 +4034,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4048,7 +4049,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4063,7 +4064,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4078,7 +4079,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4093,7 +4094,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4108,7 +4109,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4123,7 +4124,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4138,7 +4139,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4153,7 +4154,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4168,7 +4169,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4183,7 +4184,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4198,7 +4199,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4213,7 +4214,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4228,7 +4229,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4243,7 +4244,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4258,7 +4259,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4273,7 +4274,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4288,7 +4289,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4303,7 +4304,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4318,7 +4319,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4333,7 +4334,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4348,7 +4349,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4363,7 +4364,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4378,7 +4379,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4393,7 +4394,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4408,7 +4409,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4423,7 +4424,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4438,7 +4439,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4453,7 +4454,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4468,7 +4469,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4483,7 +4484,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4498,7 +4499,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4513,7 +4514,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4528,7 +4529,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4543,7 +4544,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4558,7 +4559,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4573,7 +4574,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4588,7 +4589,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4603,7 +4604,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4618,7 +4619,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4633,7 +4634,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4648,7 +4649,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4663,7 +4664,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4678,7 +4679,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4693,7 +4694,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4708,7 +4709,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4723,7 +4724,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4738,7 +4739,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4753,7 +4754,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4768,7 +4769,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4783,7 +4784,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4798,7 +4799,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4813,7 +4814,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4828,7 +4829,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4843,7 +4844,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4858,7 +4859,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4873,7 +4874,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4888,7 +4889,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4903,7 +4904,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4918,7 +4919,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4933,7 +4934,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4948,7 +4949,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4963,7 +4964,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4978,7 +4979,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -4993,7 +4994,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5008,7 +5009,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5023,7 +5024,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5038,7 +5039,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5053,7 +5054,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5068,7 +5069,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5083,7 +5084,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5098,7 +5099,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5113,7 +5114,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5128,7 +5129,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5143,7 +5144,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5158,7 +5159,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5173,7 +5174,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5188,7 +5189,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5203,7 +5204,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5218,7 +5219,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5233,7 +5234,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5248,7 +5249,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5263,7 +5264,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5278,7 +5279,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5293,7 +5294,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5308,7 +5309,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5323,7 +5324,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5338,7 +5339,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5353,7 +5354,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5368,7 +5369,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5383,7 +5384,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5398,7 +5399,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5413,7 +5414,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5428,7 +5429,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5443,7 +5444,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5458,7 +5459,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5473,7 +5474,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5488,7 +5489,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5503,7 +5504,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5520,7 +5521,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -5535,7 +5536,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5550,7 +5551,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5565,7 +5566,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5580,7 +5581,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5595,7 +5596,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5610,7 +5611,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5625,7 +5626,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5640,7 +5641,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5655,7 +5656,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5670,7 +5671,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5685,7 +5686,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5700,7 +5701,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5715,7 +5716,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5730,7 +5731,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5745,7 +5746,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5760,7 +5761,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5775,7 +5776,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5790,7 +5791,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5805,7 +5806,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5820,7 +5821,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5835,7 +5836,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5850,7 +5851,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5865,7 +5866,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5880,7 +5881,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5895,7 +5896,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5910,7 +5911,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5925,7 +5926,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5940,7 +5941,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5955,7 +5956,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5970,7 +5971,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -5985,7 +5986,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6000,7 +6001,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6015,7 +6016,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6030,7 +6031,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6045,7 +6046,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6060,7 +6061,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6075,7 +6076,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6090,7 +6091,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6105,7 +6106,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6120,7 +6121,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6135,7 +6136,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6150,7 +6151,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6165,7 +6166,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6180,7 +6181,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6195,7 +6196,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6210,7 +6211,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6225,7 +6226,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6240,7 +6241,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6255,7 +6256,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6270,7 +6271,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6285,7 +6286,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6300,7 +6301,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6315,7 +6316,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6330,7 +6331,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6345,7 +6346,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6360,7 +6361,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6375,7 +6376,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6390,7 +6391,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6405,7 +6406,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6420,7 +6421,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6435,7 +6436,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6450,7 +6451,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6465,7 +6466,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6480,7 +6481,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6495,7 +6496,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6510,7 +6511,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6525,7 +6526,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6540,7 +6541,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6555,7 +6556,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6570,7 +6571,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6585,7 +6586,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6600,7 +6601,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6615,7 +6616,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6630,7 +6631,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6645,7 +6646,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6660,7 +6661,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6675,7 +6676,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6690,7 +6691,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6705,7 +6706,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6720,7 +6721,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6735,7 +6736,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6750,7 +6751,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6765,7 +6766,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6780,7 +6781,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6795,7 +6796,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6810,7 +6811,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6825,7 +6826,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6840,7 +6841,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6855,7 +6856,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6870,7 +6871,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6885,7 +6886,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6900,7 +6901,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6915,7 +6916,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6930,7 +6931,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6945,7 +6946,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6960,7 +6961,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6975,7 +6976,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -6990,7 +6991,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7005,7 +7006,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7020,7 +7021,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7035,7 +7036,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7050,7 +7051,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7065,7 +7066,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7080,7 +7081,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7095,7 +7096,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7110,7 +7111,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7125,7 +7126,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7140,7 +7141,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7155,7 +7156,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7170,7 +7171,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7185,7 +7186,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7200,7 +7201,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7215,7 +7216,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7230,7 +7231,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7245,7 +7246,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7260,7 +7261,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7275,7 +7276,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7290,7 +7291,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7305,7 +7306,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7320,7 +7321,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7335,7 +7336,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7350,7 +7351,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7365,7 +7366,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7380,7 +7381,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7395,7 +7396,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7410,7 +7411,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7425,7 +7426,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7440,7 +7441,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7455,7 +7456,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7470,7 +7471,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7485,7 +7486,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7500,7 +7501,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7515,7 +7516,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7530,7 +7531,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7545,7 +7546,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7560,7 +7561,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7575,7 +7576,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7590,7 +7591,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7605,7 +7606,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7620,7 +7621,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7635,7 +7636,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7650,7 +7651,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7665,7 +7666,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7680,7 +7681,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7695,7 +7696,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7710,7 +7711,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7725,7 +7726,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7740,7 +7741,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7755,7 +7756,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7770,7 +7771,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7785,7 +7786,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7800,7 +7801,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7815,7 +7816,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7830,7 +7831,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7845,7 +7846,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7860,7 +7861,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7875,7 +7876,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7890,7 +7891,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7905,7 +7906,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7920,7 +7921,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7935,7 +7936,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7950,7 +7951,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7965,7 +7966,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7980,7 +7981,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -7995,7 +7996,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8010,7 +8011,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8025,7 +8026,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8040,7 +8041,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8055,7 +8056,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8070,7 +8071,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8085,7 +8086,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8100,7 +8101,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8115,7 +8116,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8130,7 +8131,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8145,7 +8146,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8160,7 +8161,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8175,7 +8176,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8190,7 +8191,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8205,7 +8206,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8220,7 +8221,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8235,7 +8236,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8250,7 +8251,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8265,7 +8266,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8280,7 +8281,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8295,7 +8296,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8310,7 +8311,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8325,7 +8326,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8340,7 +8341,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8355,7 +8356,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8370,7 +8371,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8385,7 +8386,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8400,7 +8401,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8415,7 +8416,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8430,7 +8431,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8445,7 +8446,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8460,7 +8461,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8475,7 +8476,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8490,7 +8491,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8505,7 +8506,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8520,7 +8521,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8535,7 +8536,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8550,7 +8551,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8565,7 +8566,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8580,7 +8581,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8595,7 +8596,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8610,7 +8611,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8625,7 +8626,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8640,7 +8641,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8655,7 +8656,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8670,7 +8671,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8685,7 +8686,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8700,7 +8701,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8715,7 +8716,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8730,7 +8731,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8745,7 +8746,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8760,7 +8761,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8775,7 +8776,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8790,7 +8791,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8805,7 +8806,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8820,7 +8821,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8835,7 +8836,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8850,7 +8851,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8865,7 +8866,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8880,7 +8881,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8895,7 +8896,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8910,7 +8911,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8925,7 +8926,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8940,7 +8941,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8955,7 +8956,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8970,7 +8971,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -8985,7 +8986,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9000,7 +9001,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9015,7 +9016,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9030,7 +9031,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9045,7 +9046,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9060,7 +9061,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9075,7 +9076,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9090,7 +9091,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9105,7 +9106,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9120,7 +9121,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9135,7 +9136,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9150,7 +9151,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9165,7 +9166,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9180,7 +9181,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9195,7 +9196,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9210,7 +9211,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9225,7 +9226,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9240,7 +9241,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9255,7 +9256,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9270,7 +9271,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9285,7 +9286,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9300,7 +9301,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9315,7 +9316,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9330,7 +9331,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9345,7 +9346,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9360,7 +9361,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9375,7 +9376,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9390,7 +9391,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9405,7 +9406,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9420,7 +9421,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9435,7 +9436,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9450,7 +9451,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9465,7 +9466,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9480,7 +9481,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9495,7 +9496,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9510,7 +9511,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9525,7 +9526,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9540,7 +9541,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9555,7 +9556,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9570,7 +9571,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9585,7 +9586,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9600,7 +9601,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9615,7 +9616,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9630,7 +9631,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9645,7 +9646,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9660,7 +9661,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9675,7 +9676,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9690,7 +9691,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9705,7 +9706,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9720,7 +9721,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9735,7 +9736,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9750,7 +9751,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9765,7 +9766,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9780,7 +9781,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9795,7 +9796,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9810,7 +9811,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9825,7 +9826,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9840,7 +9841,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9855,7 +9856,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9870,7 +9871,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9885,7 +9886,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9900,7 +9901,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9915,7 +9916,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9930,7 +9931,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9945,7 +9946,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9960,7 +9961,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9975,7 +9976,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -9990,7 +9991,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10005,7 +10006,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10020,7 +10021,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10035,7 +10036,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10050,7 +10051,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10065,7 +10066,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10080,7 +10081,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10095,7 +10096,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10110,7 +10111,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10125,7 +10126,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10140,7 +10141,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10155,7 +10156,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10170,7 +10171,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10185,7 +10186,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10200,7 +10201,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10215,7 +10216,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10230,7 +10231,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10245,7 +10246,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10260,7 +10261,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10275,7 +10276,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10290,7 +10291,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10305,7 +10306,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10320,7 +10321,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10335,7 +10336,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10350,7 +10351,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10365,7 +10366,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10380,7 +10381,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10395,7 +10396,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10410,7 +10411,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10425,7 +10426,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10440,7 +10441,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10455,7 +10456,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10470,7 +10471,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10485,7 +10486,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10500,7 +10501,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10515,7 +10516,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10530,7 +10531,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10545,7 +10546,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10560,7 +10561,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10575,7 +10576,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10590,7 +10591,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10605,7 +10606,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10620,7 +10621,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10635,7 +10636,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10650,7 +10651,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10665,7 +10666,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10680,7 +10681,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10695,7 +10696,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10710,7 +10711,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10725,7 +10726,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10740,7 +10741,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10755,7 +10756,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10770,7 +10771,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10785,7 +10786,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10800,7 +10801,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10815,7 +10816,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10830,7 +10831,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10845,7 +10846,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10860,7 +10861,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10875,7 +10876,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10890,7 +10891,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10905,7 +10906,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10920,7 +10921,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10935,7 +10936,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10950,7 +10951,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10965,7 +10966,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10980,7 +10981,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -10995,7 +10996,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11012,7 +11013,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -11027,7 +11028,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11042,7 +11043,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11057,7 +11058,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11072,7 +11073,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11087,7 +11088,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11102,7 +11103,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11117,7 +11118,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11132,7 +11133,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11147,7 +11148,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11162,7 +11163,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11177,7 +11178,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11192,7 +11193,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11207,7 +11208,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11222,7 +11223,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11237,7 +11238,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11252,7 +11253,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11267,7 +11268,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11282,7 +11283,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11297,7 +11298,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11312,7 +11313,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11327,7 +11328,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11342,7 +11343,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11357,7 +11358,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11372,7 +11373,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11387,7 +11388,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11402,7 +11403,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11417,7 +11418,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11432,7 +11433,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11447,7 +11448,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11462,7 +11463,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11477,7 +11478,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11492,7 +11493,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11507,7 +11508,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11522,7 +11523,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11537,7 +11538,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11552,7 +11553,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11567,7 +11568,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11582,7 +11583,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11597,7 +11598,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11612,7 +11613,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11627,7 +11628,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11642,7 +11643,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11657,7 +11658,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11672,7 +11673,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11687,7 +11688,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11702,7 +11703,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11717,7 +11718,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11732,7 +11733,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11747,7 +11748,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11762,7 +11763,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11777,7 +11778,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11792,7 +11793,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11807,7 +11808,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11822,7 +11823,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11837,7 +11838,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11852,7 +11853,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11867,7 +11868,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11882,7 +11883,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11897,7 +11898,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11912,7 +11913,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11927,7 +11928,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11942,7 +11943,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11957,7 +11958,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11972,7 +11973,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -11987,7 +11988,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12002,7 +12003,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12017,7 +12018,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12032,7 +12033,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12047,7 +12048,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12062,7 +12063,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12077,7 +12078,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12092,7 +12093,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12107,7 +12108,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12122,7 +12123,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12137,7 +12138,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12152,7 +12153,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12167,7 +12168,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12182,7 +12183,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12197,7 +12198,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12212,7 +12213,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12227,7 +12228,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12242,7 +12243,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12257,7 +12258,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12272,7 +12273,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12287,7 +12288,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12302,7 +12303,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12317,7 +12318,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12332,7 +12333,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12347,7 +12348,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12362,7 +12363,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12377,7 +12378,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12392,7 +12393,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12407,7 +12408,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12422,7 +12423,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12437,7 +12438,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12452,7 +12453,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12467,7 +12468,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12482,7 +12483,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12497,7 +12498,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12512,7 +12513,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12527,7 +12528,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12542,7 +12543,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12557,7 +12558,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12572,7 +12573,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12587,7 +12588,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12602,7 +12603,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12617,7 +12618,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12632,7 +12633,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12647,7 +12648,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12662,7 +12663,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12677,7 +12678,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12692,7 +12693,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12707,7 +12708,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12722,7 +12723,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12737,7 +12738,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12752,7 +12753,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12767,7 +12768,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12782,7 +12783,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12797,7 +12798,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12812,7 +12813,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12827,7 +12828,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12842,7 +12843,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12857,7 +12858,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12872,7 +12873,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12887,7 +12888,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12902,7 +12903,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12917,7 +12918,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12932,7 +12933,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12947,7 +12948,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12962,7 +12963,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12977,7 +12978,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -12992,7 +12993,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13007,7 +13008,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13022,7 +13023,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13037,7 +13038,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13052,7 +13053,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13067,7 +13068,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13082,7 +13083,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13097,7 +13098,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13112,7 +13113,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13127,7 +13128,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13142,7 +13143,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13157,7 +13158,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13172,7 +13173,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13187,7 +13188,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13202,7 +13203,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13217,7 +13218,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13232,7 +13233,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13247,7 +13248,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13262,7 +13263,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13277,7 +13278,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13292,7 +13293,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13307,7 +13308,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13322,7 +13323,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13337,7 +13338,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13352,7 +13353,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13367,7 +13368,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13382,7 +13383,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13397,7 +13398,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13412,7 +13413,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13427,7 +13428,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13442,7 +13443,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13457,7 +13458,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13472,7 +13473,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13487,7 +13488,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13502,7 +13503,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13517,7 +13518,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13532,7 +13533,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13547,7 +13548,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13562,7 +13563,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13577,7 +13578,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13592,7 +13593,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13607,7 +13608,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13622,7 +13623,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13637,7 +13638,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13652,7 +13653,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13667,7 +13668,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13682,7 +13683,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13697,7 +13698,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13712,7 +13713,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13727,7 +13728,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13742,7 +13743,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13757,7 +13758,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13772,7 +13773,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13787,7 +13788,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13802,7 +13803,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13817,7 +13818,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13832,7 +13833,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13847,7 +13848,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13862,7 +13863,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13877,7 +13878,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13892,7 +13893,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13907,7 +13908,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13922,7 +13923,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13937,7 +13938,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13952,7 +13953,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13967,7 +13968,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13982,7 +13983,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -13997,7 +13998,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14012,7 +14013,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14027,7 +14028,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14042,7 +14043,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14057,7 +14058,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14072,7 +14073,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14087,7 +14088,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14102,7 +14103,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14117,7 +14118,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14132,7 +14133,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14147,7 +14148,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14162,7 +14163,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14177,7 +14178,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14192,7 +14193,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14207,7 +14208,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14222,7 +14223,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14237,7 +14238,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14252,7 +14253,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14267,7 +14268,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14282,7 +14283,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14297,7 +14298,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14312,7 +14313,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14327,7 +14328,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14342,7 +14343,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14357,7 +14358,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14372,7 +14373,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14387,7 +14388,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14402,7 +14403,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14417,7 +14418,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14432,7 +14433,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14447,7 +14448,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14462,7 +14463,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14477,7 +14478,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14492,7 +14493,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14507,7 +14508,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14522,7 +14523,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14537,7 +14538,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14552,7 +14553,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14567,7 +14568,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14582,7 +14583,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14597,7 +14598,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14612,7 +14613,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14627,7 +14628,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14642,7 +14643,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14657,7 +14658,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14672,7 +14673,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14687,7 +14688,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14702,7 +14703,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14717,7 +14718,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14732,7 +14733,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14747,7 +14748,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14762,7 +14763,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14777,7 +14778,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14792,7 +14793,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14807,7 +14808,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14822,7 +14823,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14837,7 +14838,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14852,7 +14853,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14867,7 +14868,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14882,7 +14883,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14897,7 +14898,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14912,7 +14913,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14927,7 +14928,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14942,7 +14943,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14957,7 +14958,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14972,7 +14973,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -14987,7 +14988,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15002,7 +15003,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15017,7 +15018,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15032,7 +15033,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15047,7 +15048,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15062,7 +15063,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15077,7 +15078,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15092,7 +15093,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15107,7 +15108,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15122,7 +15123,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15137,7 +15138,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15152,7 +15153,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15167,7 +15168,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15182,7 +15183,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15197,7 +15198,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15212,7 +15213,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15227,7 +15228,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15242,7 +15243,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15257,7 +15258,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15272,7 +15273,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15287,7 +15288,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15302,7 +15303,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15317,7 +15318,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15332,7 +15333,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15347,7 +15348,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15362,7 +15363,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15377,7 +15378,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15392,7 +15393,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15407,7 +15408,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15422,7 +15423,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15437,7 +15438,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15452,7 +15453,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15467,7 +15468,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15482,7 +15483,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15497,7 +15498,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15512,7 +15513,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15527,7 +15528,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15542,7 +15543,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15557,7 +15558,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15572,7 +15573,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15587,7 +15588,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15602,7 +15603,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15617,7 +15618,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15632,7 +15633,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15647,7 +15648,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15662,7 +15663,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15677,7 +15678,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15692,7 +15693,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15707,7 +15708,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15722,7 +15723,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15737,7 +15738,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15752,7 +15753,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15767,7 +15768,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15782,7 +15783,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15797,7 +15798,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15812,7 +15813,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15827,7 +15828,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15842,7 +15843,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15857,7 +15858,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15872,7 +15873,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15887,7 +15888,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15902,7 +15903,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15917,7 +15918,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15932,7 +15933,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15947,7 +15948,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15962,7 +15963,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15977,7 +15978,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -15992,7 +15993,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16007,7 +16008,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16022,7 +16023,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16037,7 +16038,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16052,7 +16053,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16067,7 +16068,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16082,7 +16083,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16097,7 +16098,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16112,7 +16113,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16127,7 +16128,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16142,7 +16143,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16157,7 +16158,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16172,7 +16173,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16187,7 +16188,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16202,7 +16203,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16217,7 +16218,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16232,7 +16233,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16247,7 +16248,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16262,7 +16263,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16277,7 +16278,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16292,7 +16293,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16307,7 +16308,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16322,7 +16323,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16337,7 +16338,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16352,7 +16353,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16367,7 +16368,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16382,7 +16383,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16397,7 +16398,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16412,7 +16413,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16427,7 +16428,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16442,7 +16443,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16457,7 +16458,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16472,7 +16473,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16487,7 +16488,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16504,7 +16505,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -16519,7 +16520,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16534,7 +16535,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16549,7 +16550,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16564,7 +16565,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16579,7 +16580,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16594,7 +16595,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16609,7 +16610,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16624,7 +16625,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16639,7 +16640,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16654,7 +16655,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16669,7 +16670,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16684,7 +16685,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16699,7 +16700,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16714,7 +16715,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16729,7 +16730,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16744,7 +16745,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16759,7 +16760,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16774,7 +16775,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16789,7 +16790,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16804,7 +16805,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16819,7 +16820,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16834,7 +16835,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16849,7 +16850,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16864,7 +16865,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16879,7 +16880,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16894,7 +16895,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16909,7 +16910,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16924,7 +16925,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16939,7 +16940,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16954,7 +16955,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16969,7 +16970,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16984,7 +16985,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -16999,7 +17000,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17014,7 +17015,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17029,7 +17030,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17044,7 +17045,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17059,7 +17060,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17074,7 +17075,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17089,7 +17090,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17104,7 +17105,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17119,7 +17120,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17134,7 +17135,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17149,7 +17150,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17164,7 +17165,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17179,7 +17180,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17194,7 +17195,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17209,7 +17210,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17224,7 +17225,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17239,7 +17240,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17254,7 +17255,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17269,7 +17270,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17284,7 +17285,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17299,7 +17300,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17314,7 +17315,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17329,7 +17330,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17344,7 +17345,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17359,7 +17360,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17374,7 +17375,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17389,7 +17390,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17404,7 +17405,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17419,7 +17420,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17434,7 +17435,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17449,7 +17450,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17464,7 +17465,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17479,7 +17480,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17494,7 +17495,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17509,7 +17510,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17524,7 +17525,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17539,7 +17540,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17554,7 +17555,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17569,7 +17570,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17584,7 +17585,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17599,7 +17600,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17614,7 +17615,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17629,7 +17630,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17644,7 +17645,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17659,7 +17660,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17674,7 +17675,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17689,7 +17690,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17704,7 +17705,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17719,7 +17720,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17734,7 +17735,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17749,7 +17750,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17764,7 +17765,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17779,7 +17780,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17794,7 +17795,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17809,7 +17810,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17824,7 +17825,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17839,7 +17840,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17854,7 +17855,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17869,7 +17870,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17884,7 +17885,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17899,7 +17900,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17914,7 +17915,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17929,7 +17930,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17944,7 +17945,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17959,7 +17960,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17974,7 +17975,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -17989,7 +17990,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18004,7 +18005,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18019,7 +18020,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18034,7 +18035,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18049,7 +18050,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18064,7 +18065,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18079,7 +18080,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18094,7 +18095,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18109,7 +18110,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18124,7 +18125,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18139,7 +18140,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18154,7 +18155,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18169,7 +18170,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18184,7 +18185,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18199,7 +18200,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18214,7 +18215,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18229,7 +18230,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18244,7 +18245,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18259,7 +18260,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18274,7 +18275,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18289,7 +18290,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18304,7 +18305,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18319,7 +18320,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18334,7 +18335,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18349,7 +18350,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18364,7 +18365,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18379,7 +18380,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18394,7 +18395,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18409,7 +18410,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18424,7 +18425,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18439,7 +18440,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18454,7 +18455,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18469,7 +18470,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18484,7 +18485,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18499,7 +18500,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18514,7 +18515,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18529,7 +18530,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18544,7 +18545,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18559,7 +18560,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18574,7 +18575,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18589,7 +18590,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18604,7 +18605,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18619,7 +18620,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18634,7 +18635,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18649,7 +18650,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18664,7 +18665,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18679,7 +18680,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18694,7 +18695,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18709,7 +18710,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18724,7 +18725,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18739,7 +18740,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18754,7 +18755,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18769,7 +18770,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18784,7 +18785,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18799,7 +18800,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18814,7 +18815,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18829,7 +18830,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18844,7 +18845,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18859,7 +18860,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18874,7 +18875,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18889,7 +18890,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18904,7 +18905,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18919,7 +18920,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18934,7 +18935,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18949,7 +18950,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18964,7 +18965,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18979,7 +18980,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -18994,7 +18995,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19009,7 +19010,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19024,7 +19025,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19039,7 +19040,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19054,7 +19055,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19069,7 +19070,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19084,7 +19085,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19099,7 +19100,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19114,7 +19115,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19129,7 +19130,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19144,7 +19145,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19159,7 +19160,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19174,7 +19175,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19189,7 +19190,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19204,7 +19205,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19219,7 +19220,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19234,7 +19235,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19249,7 +19250,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19264,7 +19265,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19279,7 +19280,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19294,7 +19295,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19309,7 +19310,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19324,7 +19325,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19339,7 +19340,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19354,7 +19355,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19369,7 +19370,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19384,7 +19385,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19399,7 +19400,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19414,7 +19415,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19429,7 +19430,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19444,7 +19445,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19459,7 +19460,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19474,7 +19475,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19489,7 +19490,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19504,7 +19505,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19519,7 +19520,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19534,7 +19535,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19549,7 +19550,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19564,7 +19565,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19579,7 +19580,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19594,7 +19595,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19609,7 +19610,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19624,7 +19625,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19639,7 +19640,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19654,7 +19655,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19669,7 +19670,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19684,7 +19685,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19699,7 +19700,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19714,7 +19715,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19729,7 +19730,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19744,7 +19745,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19759,7 +19760,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19774,7 +19775,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19789,7 +19790,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19804,7 +19805,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19819,7 +19820,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19834,7 +19835,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19849,7 +19850,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19864,7 +19865,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19879,7 +19880,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19894,7 +19895,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19909,7 +19910,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19924,7 +19925,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19939,7 +19940,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19954,7 +19955,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19969,7 +19970,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19984,7 +19985,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -19999,7 +20000,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20014,7 +20015,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20029,7 +20030,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20044,7 +20045,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20059,7 +20060,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20074,7 +20075,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20089,7 +20090,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20104,7 +20105,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20119,7 +20120,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20134,7 +20135,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20149,7 +20150,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20164,7 +20165,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20179,7 +20180,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20194,7 +20195,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20209,7 +20210,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20224,7 +20225,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20239,7 +20240,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20254,7 +20255,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20269,7 +20270,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20284,7 +20285,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20299,7 +20300,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20314,7 +20315,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20329,7 +20330,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20344,7 +20345,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20359,7 +20360,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20374,7 +20375,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20389,7 +20390,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20404,7 +20405,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20419,7 +20420,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20434,7 +20435,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20449,7 +20450,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20464,7 +20465,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20479,7 +20480,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20494,7 +20495,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20509,7 +20510,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20524,7 +20525,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20539,7 +20540,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20554,7 +20555,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20569,7 +20570,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20584,7 +20585,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20599,7 +20600,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20614,7 +20615,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20629,7 +20630,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20644,7 +20645,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20659,7 +20660,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20674,7 +20675,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20689,7 +20690,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20704,7 +20705,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20719,7 +20720,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20734,7 +20735,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20749,7 +20750,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20764,7 +20765,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20779,7 +20780,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20794,7 +20795,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20809,7 +20810,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20824,7 +20825,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20839,7 +20840,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20854,7 +20855,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20869,7 +20870,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20884,7 +20885,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20899,7 +20900,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20914,7 +20915,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20929,7 +20930,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20944,7 +20945,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20959,7 +20960,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20974,7 +20975,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -20989,7 +20990,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21004,7 +21005,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21019,7 +21020,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21034,7 +21035,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21049,7 +21050,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21064,7 +21065,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21079,7 +21080,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21094,7 +21095,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21109,7 +21110,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21124,7 +21125,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21139,7 +21140,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21154,7 +21155,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21169,7 +21170,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21184,7 +21185,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21199,7 +21200,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21214,7 +21215,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21229,7 +21230,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21244,7 +21245,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21259,7 +21260,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21274,7 +21275,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21289,7 +21290,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21304,7 +21305,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21319,7 +21320,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21334,7 +21335,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21349,7 +21350,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21364,7 +21365,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21379,7 +21380,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21394,7 +21395,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21409,7 +21410,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21424,7 +21425,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21439,7 +21440,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21454,7 +21455,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21469,7 +21470,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21484,7 +21485,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21499,7 +21500,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21514,7 +21515,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21529,7 +21530,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21544,7 +21545,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21559,7 +21560,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21574,7 +21575,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21589,7 +21590,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21604,7 +21605,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21619,7 +21620,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21634,7 +21635,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21649,7 +21650,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21664,7 +21665,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21679,7 +21680,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21694,7 +21695,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21709,7 +21710,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21724,7 +21725,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21739,7 +21740,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21754,7 +21755,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21769,7 +21770,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21784,7 +21785,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21799,7 +21800,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21814,7 +21815,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21829,7 +21830,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21844,7 +21845,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21859,7 +21860,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21874,7 +21875,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21889,7 +21890,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21904,7 +21905,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21919,7 +21920,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21934,7 +21935,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21949,7 +21950,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21964,7 +21965,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21979,7 +21980,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -21996,7 +21997,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -22011,7 +22012,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22026,7 +22027,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22041,7 +22042,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22056,7 +22057,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22071,7 +22072,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22086,7 +22087,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22101,7 +22102,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22116,7 +22117,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22131,7 +22132,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22146,7 +22147,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22161,7 +22162,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22176,7 +22177,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22191,7 +22192,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22206,7 +22207,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22221,7 +22222,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22236,7 +22237,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22251,7 +22252,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22266,7 +22267,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22281,7 +22282,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22296,7 +22297,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22311,7 +22312,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22326,7 +22327,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22341,7 +22342,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22356,7 +22357,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22371,7 +22372,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22386,7 +22387,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22401,7 +22402,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22416,7 +22417,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22431,7 +22432,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22446,7 +22447,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22461,7 +22462,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22476,7 +22477,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22491,7 +22492,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22506,7 +22507,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22521,7 +22522,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22536,7 +22537,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22551,7 +22552,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22566,7 +22567,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22581,7 +22582,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22596,7 +22597,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22611,7 +22612,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22626,7 +22627,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22641,7 +22642,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22656,7 +22657,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22671,7 +22672,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22686,7 +22687,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22701,7 +22702,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22716,7 +22717,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22731,7 +22732,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22746,7 +22747,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22761,7 +22762,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22776,7 +22777,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22791,7 +22792,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22806,7 +22807,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22821,7 +22822,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22836,7 +22837,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22851,7 +22852,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22866,7 +22867,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22881,7 +22882,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22896,7 +22897,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22911,7 +22912,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22926,7 +22927,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22941,7 +22942,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22956,7 +22957,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22971,7 +22972,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -22986,7 +22987,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23001,7 +23002,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23016,7 +23017,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23031,7 +23032,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23046,7 +23047,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23061,7 +23062,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23076,7 +23077,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23091,7 +23092,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23106,7 +23107,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23121,7 +23122,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23136,7 +23137,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23151,7 +23152,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23166,7 +23167,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23181,7 +23182,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23196,7 +23197,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23211,7 +23212,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23226,7 +23227,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23241,7 +23242,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23256,7 +23257,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23271,7 +23272,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23286,7 +23287,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23301,7 +23302,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23316,7 +23317,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23331,7 +23332,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23346,7 +23347,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23361,7 +23362,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23376,7 +23377,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23391,7 +23392,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23406,7 +23407,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23421,7 +23422,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23436,7 +23437,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23451,7 +23452,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23466,7 +23467,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23481,7 +23482,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23496,7 +23497,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23511,7 +23512,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23526,7 +23527,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23541,7 +23542,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23556,7 +23557,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23571,7 +23572,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23586,7 +23587,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23601,7 +23602,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23616,7 +23617,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23631,7 +23632,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23646,7 +23647,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23661,7 +23662,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23676,7 +23677,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23691,7 +23692,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23706,7 +23707,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23721,7 +23722,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23736,7 +23737,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23751,7 +23752,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23766,7 +23767,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23781,7 +23782,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23796,7 +23797,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23811,7 +23812,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23826,7 +23827,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23841,7 +23842,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23856,7 +23857,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23871,7 +23872,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23886,7 +23887,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23901,7 +23902,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23916,7 +23917,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23931,7 +23932,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23946,7 +23947,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23961,7 +23962,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23976,7 +23977,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -23991,7 +23992,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24006,7 +24007,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24021,7 +24022,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24036,7 +24037,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24051,7 +24052,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24066,7 +24067,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24081,7 +24082,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24096,7 +24097,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24111,7 +24112,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24126,7 +24127,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24141,7 +24142,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24156,7 +24157,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24171,7 +24172,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24186,7 +24187,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24201,7 +24202,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24216,7 +24217,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24231,7 +24232,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24246,7 +24247,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24261,7 +24262,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24276,7 +24277,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24291,7 +24292,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24306,7 +24307,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24321,7 +24322,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24336,7 +24337,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24351,7 +24352,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24366,7 +24367,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24381,7 +24382,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24396,7 +24397,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24411,7 +24412,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24426,7 +24427,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24441,7 +24442,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24456,7 +24457,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24471,7 +24472,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24486,7 +24487,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24501,7 +24502,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24516,7 +24517,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24531,7 +24532,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24546,7 +24547,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24561,7 +24562,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24576,7 +24577,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24591,7 +24592,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24606,7 +24607,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24621,7 +24622,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24636,7 +24637,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24651,7 +24652,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24666,7 +24667,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24681,7 +24682,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24696,7 +24697,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24711,7 +24712,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24726,7 +24727,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24741,7 +24742,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24756,7 +24757,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24771,7 +24772,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24786,7 +24787,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24801,7 +24802,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24816,7 +24817,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24831,7 +24832,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24846,7 +24847,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24861,7 +24862,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24876,7 +24877,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24891,7 +24892,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24906,7 +24907,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24921,7 +24922,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24936,7 +24937,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24951,7 +24952,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24966,7 +24967,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24981,7 +24982,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -24996,7 +24997,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25011,7 +25012,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25026,7 +25027,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25041,7 +25042,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25056,7 +25057,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25071,7 +25072,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25086,7 +25087,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25101,7 +25102,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25116,7 +25117,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25131,7 +25132,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25146,7 +25147,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25161,7 +25162,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25176,7 +25177,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25191,7 +25192,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25206,7 +25207,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25221,7 +25222,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25236,7 +25237,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25251,7 +25252,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25266,7 +25267,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25281,7 +25282,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25296,7 +25297,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25311,7 +25312,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25326,7 +25327,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25341,7 +25342,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25356,7 +25357,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25371,7 +25372,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25386,7 +25387,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25401,7 +25402,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25416,7 +25417,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25431,7 +25432,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25446,7 +25447,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25461,7 +25462,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25476,7 +25477,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25491,7 +25492,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25506,7 +25507,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25521,7 +25522,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25536,7 +25537,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25551,7 +25552,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25566,7 +25567,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25581,7 +25582,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25596,7 +25597,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25611,7 +25612,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25626,7 +25627,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25641,7 +25642,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25656,7 +25657,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25671,7 +25672,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25686,7 +25687,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25701,7 +25702,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25716,7 +25717,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25731,7 +25732,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25746,7 +25747,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25761,7 +25762,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25776,7 +25777,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25791,7 +25792,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25806,7 +25807,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25821,7 +25822,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25836,7 +25837,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25851,7 +25852,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25866,7 +25867,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25881,7 +25882,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25896,7 +25897,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25911,7 +25912,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25926,7 +25927,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25941,7 +25942,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25956,7 +25957,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25971,7 +25972,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -25986,7 +25987,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26001,7 +26002,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26016,7 +26017,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26031,7 +26032,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26046,7 +26047,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26061,7 +26062,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26076,7 +26077,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26091,7 +26092,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26106,7 +26107,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26121,7 +26122,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26136,7 +26137,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26151,7 +26152,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26166,7 +26167,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26181,7 +26182,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26196,7 +26197,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26211,7 +26212,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26226,7 +26227,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26241,7 +26242,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26256,7 +26257,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26271,7 +26272,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26286,7 +26287,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26301,7 +26302,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26316,7 +26317,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26331,7 +26332,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26346,7 +26347,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26361,7 +26362,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26376,7 +26377,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26391,7 +26392,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26406,7 +26407,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26421,7 +26422,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26436,7 +26437,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26451,7 +26452,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26466,7 +26467,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26481,7 +26482,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26496,7 +26497,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26511,7 +26512,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26526,7 +26527,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26541,7 +26542,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26556,7 +26557,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26571,7 +26572,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26586,7 +26587,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26601,7 +26602,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26616,7 +26617,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26631,7 +26632,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26646,7 +26647,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26661,7 +26662,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26676,7 +26677,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26691,7 +26692,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26706,7 +26707,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26721,7 +26722,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26736,7 +26737,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26751,7 +26752,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26766,7 +26767,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26781,7 +26782,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26796,7 +26797,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26811,7 +26812,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26826,7 +26827,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26841,7 +26842,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26856,7 +26857,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26871,7 +26872,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26886,7 +26887,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26901,7 +26902,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26916,7 +26917,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26931,7 +26932,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26946,7 +26947,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26961,7 +26962,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26976,7 +26977,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -26991,7 +26992,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27006,7 +27007,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27021,7 +27022,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27036,7 +27037,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27051,7 +27052,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27066,7 +27067,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27081,7 +27082,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27096,7 +27097,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27111,7 +27112,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27126,7 +27127,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27141,7 +27142,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27156,7 +27157,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27171,7 +27172,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27186,7 +27187,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27201,7 +27202,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27216,7 +27217,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27231,7 +27232,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27246,7 +27247,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27261,7 +27262,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27276,7 +27277,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27291,7 +27292,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27306,7 +27307,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27321,7 +27322,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27336,7 +27337,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27351,7 +27352,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27366,7 +27367,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27381,7 +27382,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27396,7 +27397,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27411,7 +27412,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27426,7 +27427,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27441,7 +27442,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27456,7 +27457,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27471,7 +27472,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27488,7 +27489,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -27503,7 +27504,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27518,7 +27519,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27533,7 +27534,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27548,7 +27549,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27563,7 +27564,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27578,7 +27579,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27593,7 +27594,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27608,7 +27609,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27623,7 +27624,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27638,7 +27639,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27653,7 +27654,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27668,7 +27669,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27683,7 +27684,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27698,7 +27699,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27713,7 +27714,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27728,7 +27729,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27743,7 +27744,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27758,7 +27759,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27773,7 +27774,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27788,7 +27789,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27803,7 +27804,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27818,7 +27819,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27833,7 +27834,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27848,7 +27849,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27863,7 +27864,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27878,7 +27879,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27893,7 +27894,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27908,7 +27909,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27923,7 +27924,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27938,7 +27939,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27953,7 +27954,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27968,7 +27969,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27983,7 +27984,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -27998,7 +27999,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28013,7 +28014,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28028,7 +28029,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28043,7 +28044,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28058,7 +28059,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28073,7 +28074,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28088,7 +28089,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28103,7 +28104,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28118,7 +28119,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28133,7 +28134,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28148,7 +28149,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28163,7 +28164,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28178,7 +28179,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28193,7 +28194,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28208,7 +28209,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28223,7 +28224,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28238,7 +28239,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28253,7 +28254,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28268,7 +28269,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28283,7 +28284,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28298,7 +28299,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28313,7 +28314,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28328,7 +28329,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28343,7 +28344,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28358,7 +28359,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28373,7 +28374,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28388,7 +28389,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28403,7 +28404,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28418,7 +28419,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28433,7 +28434,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28448,7 +28449,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28463,7 +28464,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28478,7 +28479,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28493,7 +28494,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28508,7 +28509,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28523,7 +28524,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28538,7 +28539,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28553,7 +28554,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28568,7 +28569,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28583,7 +28584,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28598,7 +28599,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28613,7 +28614,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28628,7 +28629,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28643,7 +28644,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28658,7 +28659,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28673,7 +28674,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28688,7 +28689,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28703,7 +28704,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28718,7 +28719,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28733,7 +28734,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28748,7 +28749,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28763,7 +28764,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28778,7 +28779,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28793,7 +28794,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28808,7 +28809,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28823,7 +28824,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28838,7 +28839,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28853,7 +28854,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28868,7 +28869,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28883,7 +28884,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28898,7 +28899,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28913,7 +28914,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28928,7 +28929,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28943,7 +28944,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28958,7 +28959,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28973,7 +28974,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -28988,7 +28989,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29003,7 +29004,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29018,7 +29019,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29033,7 +29034,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29048,7 +29049,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29063,7 +29064,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29078,7 +29079,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29093,7 +29094,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29108,7 +29109,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29123,7 +29124,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29138,7 +29139,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29153,7 +29154,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29168,7 +29169,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29183,7 +29184,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29198,7 +29199,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29213,7 +29214,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29228,7 +29229,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29243,7 +29244,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29258,7 +29259,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29273,7 +29274,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29288,7 +29289,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29303,7 +29304,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29318,7 +29319,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29333,7 +29334,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29348,7 +29349,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29363,7 +29364,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29378,7 +29379,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29393,7 +29394,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29408,7 +29409,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29423,7 +29424,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29438,7 +29439,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29453,7 +29454,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29468,7 +29469,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29483,7 +29484,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29498,7 +29499,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29513,7 +29514,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29528,7 +29529,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29543,7 +29544,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29558,7 +29559,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29573,7 +29574,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29588,7 +29589,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29603,7 +29604,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29618,7 +29619,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29633,7 +29634,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29648,7 +29649,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29663,7 +29664,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29678,7 +29679,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29693,7 +29694,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29708,7 +29709,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29723,7 +29724,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29738,7 +29739,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29753,7 +29754,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29768,7 +29769,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29783,7 +29784,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29798,7 +29799,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29813,7 +29814,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29828,7 +29829,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29843,7 +29844,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29858,7 +29859,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29873,7 +29874,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29888,7 +29889,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29903,7 +29904,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29918,7 +29919,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29933,7 +29934,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29948,7 +29949,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29963,7 +29964,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29978,7 +29979,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -29993,7 +29994,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30008,7 +30009,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30023,7 +30024,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30038,7 +30039,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30053,7 +30054,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30068,7 +30069,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30083,7 +30084,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30098,7 +30099,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30113,7 +30114,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30128,7 +30129,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30143,7 +30144,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30158,7 +30159,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30173,7 +30174,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30188,7 +30189,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30203,7 +30204,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30218,7 +30219,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30233,7 +30234,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30248,7 +30249,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30263,7 +30264,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30278,7 +30279,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30293,7 +30294,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30308,7 +30309,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30323,7 +30324,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30338,7 +30339,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30353,7 +30354,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30368,7 +30369,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30383,7 +30384,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30398,7 +30399,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30413,7 +30414,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30428,7 +30429,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30443,7 +30444,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30458,7 +30459,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30473,7 +30474,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30488,7 +30489,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30503,7 +30504,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30518,7 +30519,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30533,7 +30534,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30548,7 +30549,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30563,7 +30564,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30578,7 +30579,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30593,7 +30594,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30608,7 +30609,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30623,7 +30624,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30638,7 +30639,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30653,7 +30654,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30668,7 +30669,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30683,7 +30684,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30698,7 +30699,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30713,7 +30714,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30728,7 +30729,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30743,7 +30744,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30758,7 +30759,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30773,7 +30774,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30788,7 +30789,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30803,7 +30804,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30818,7 +30819,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30833,7 +30834,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30848,7 +30849,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30863,7 +30864,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30878,7 +30879,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30893,7 +30894,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30908,7 +30909,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30923,7 +30924,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30938,7 +30939,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30953,7 +30954,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30968,7 +30969,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30983,7 +30984,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -30998,7 +30999,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31013,7 +31014,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31028,7 +31029,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31043,7 +31044,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31058,7 +31059,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31073,7 +31074,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31088,7 +31089,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31103,7 +31104,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31118,7 +31119,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31133,7 +31134,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31148,7 +31149,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31163,7 +31164,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31178,7 +31179,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31193,7 +31194,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31208,7 +31209,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31223,7 +31224,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31238,7 +31239,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31253,7 +31254,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31268,7 +31269,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31283,7 +31284,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31298,7 +31299,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31313,7 +31314,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31328,7 +31329,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31343,7 +31344,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31358,7 +31359,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31373,7 +31374,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31388,7 +31389,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31403,7 +31404,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31418,7 +31419,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31433,7 +31434,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31448,7 +31449,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31463,7 +31464,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31478,7 +31479,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31493,7 +31494,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31508,7 +31509,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31523,7 +31524,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31538,7 +31539,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31553,7 +31554,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31568,7 +31569,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31583,7 +31584,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31598,7 +31599,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31613,7 +31614,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31628,7 +31629,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31643,7 +31644,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31658,7 +31659,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31673,7 +31674,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31688,7 +31689,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31703,7 +31704,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31718,7 +31719,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31733,7 +31734,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31748,7 +31749,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31763,7 +31764,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31778,7 +31779,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31793,7 +31794,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31808,7 +31809,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31823,7 +31824,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31838,7 +31839,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31853,7 +31854,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31868,7 +31869,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31883,7 +31884,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31898,7 +31899,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31913,7 +31914,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31928,7 +31929,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31943,7 +31944,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31958,7 +31959,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31973,7 +31974,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -31988,7 +31989,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32003,7 +32004,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32018,7 +32019,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32033,7 +32034,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32048,7 +32049,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32063,7 +32064,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32078,7 +32079,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32093,7 +32094,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32108,7 +32109,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32123,7 +32124,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32138,7 +32139,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32153,7 +32154,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32168,7 +32169,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32183,7 +32184,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32198,7 +32199,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32213,7 +32214,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32228,7 +32229,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32243,7 +32244,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32258,7 +32259,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32273,7 +32274,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32288,7 +32289,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32303,7 +32304,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32318,7 +32319,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32333,7 +32334,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32348,7 +32349,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32363,7 +32364,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32378,7 +32379,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32393,7 +32394,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32408,7 +32409,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32423,7 +32424,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32438,7 +32439,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32453,7 +32454,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32468,7 +32469,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32483,7 +32484,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32498,7 +32499,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32513,7 +32514,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32528,7 +32529,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32543,7 +32544,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32558,7 +32559,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32573,7 +32574,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32588,7 +32589,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32603,7 +32604,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32618,7 +32619,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32633,7 +32634,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32648,7 +32649,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32663,7 +32664,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32678,7 +32679,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32693,7 +32694,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32708,7 +32709,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32723,7 +32724,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32738,7 +32739,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32753,7 +32754,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32768,7 +32769,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32783,7 +32784,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32798,7 +32799,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32813,7 +32814,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32828,7 +32829,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32843,7 +32844,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32858,7 +32859,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32873,7 +32874,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32888,7 +32889,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32903,7 +32904,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32918,7 +32919,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32933,7 +32934,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32948,7 +32949,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32963,7 +32964,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -32980,7 +32981,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -32995,7 +32996,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33010,7 +33011,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33025,7 +33026,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33040,7 +33041,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33055,7 +33056,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33070,7 +33071,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33085,7 +33086,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33100,7 +33101,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33115,7 +33116,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33130,7 +33131,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33145,7 +33146,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33160,7 +33161,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33175,7 +33176,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33190,7 +33191,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33205,7 +33206,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33220,7 +33221,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33235,7 +33236,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33250,7 +33251,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33265,7 +33266,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33280,7 +33281,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33295,7 +33296,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33310,7 +33311,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33325,7 +33326,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33340,7 +33341,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33355,7 +33356,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33370,7 +33371,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33385,7 +33386,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33400,7 +33401,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33415,7 +33416,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33430,7 +33431,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33445,7 +33446,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33460,7 +33461,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33475,7 +33476,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33490,7 +33491,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33505,7 +33506,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33520,7 +33521,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33535,7 +33536,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33550,7 +33551,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33565,7 +33566,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33580,7 +33581,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33595,7 +33596,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33610,7 +33611,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33625,7 +33626,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33640,7 +33641,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33655,7 +33656,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33670,7 +33671,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33685,7 +33686,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33700,7 +33701,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33715,7 +33716,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33730,7 +33731,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33745,7 +33746,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33760,7 +33761,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33775,7 +33776,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33790,7 +33791,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33805,7 +33806,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33820,7 +33821,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33835,7 +33836,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33850,7 +33851,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33865,7 +33866,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33880,7 +33881,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33895,7 +33896,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33910,7 +33911,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33925,7 +33926,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33940,7 +33941,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33955,7 +33956,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33970,7 +33971,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -33985,7 +33986,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34000,7 +34001,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34015,7 +34016,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34030,7 +34031,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34045,7 +34046,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34060,7 +34061,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34075,7 +34076,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34090,7 +34091,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34105,7 +34106,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34120,7 +34121,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34135,7 +34136,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34150,7 +34151,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34165,7 +34166,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34180,7 +34181,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34195,7 +34196,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34210,7 +34211,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34225,7 +34226,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34240,7 +34241,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34255,7 +34256,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34270,7 +34271,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34285,7 +34286,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34300,7 +34301,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34315,7 +34316,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34330,7 +34331,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34345,7 +34346,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34360,7 +34361,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34375,7 +34376,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34390,7 +34391,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34405,7 +34406,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34420,7 +34421,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34435,7 +34436,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34450,7 +34451,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34465,7 +34466,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34480,7 +34481,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34495,7 +34496,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34510,7 +34511,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34525,7 +34526,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34540,7 +34541,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34555,7 +34556,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34570,7 +34571,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34585,7 +34586,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34600,7 +34601,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34615,7 +34616,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34630,7 +34631,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34645,7 +34646,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34660,7 +34661,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34675,7 +34676,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34690,7 +34691,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34705,7 +34706,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34720,7 +34721,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34735,7 +34736,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34750,7 +34751,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34765,7 +34766,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34780,7 +34781,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34795,7 +34796,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34810,7 +34811,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34825,7 +34826,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34840,7 +34841,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34855,7 +34856,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34870,7 +34871,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34885,7 +34886,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34900,7 +34901,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34915,7 +34916,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34930,7 +34931,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34945,7 +34946,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34960,7 +34961,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34975,7 +34976,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -34990,7 +34991,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35005,7 +35006,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35020,7 +35021,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35035,7 +35036,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35050,7 +35051,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35065,7 +35066,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35080,7 +35081,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35095,7 +35096,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35110,7 +35111,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35125,7 +35126,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35140,7 +35141,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35155,7 +35156,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35170,7 +35171,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35185,7 +35186,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35200,7 +35201,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35215,7 +35216,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35230,7 +35231,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35245,7 +35246,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35260,7 +35261,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35275,7 +35276,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35290,7 +35291,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35305,7 +35306,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35320,7 +35321,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35335,7 +35336,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35350,7 +35351,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35365,7 +35366,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35380,7 +35381,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35395,7 +35396,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35410,7 +35411,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35425,7 +35426,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35440,7 +35441,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35455,7 +35456,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35470,7 +35471,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35485,7 +35486,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35500,7 +35501,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35515,7 +35516,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35530,7 +35531,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35545,7 +35546,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35560,7 +35561,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35575,7 +35576,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35590,7 +35591,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35605,7 +35606,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35620,7 +35621,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35635,7 +35636,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35650,7 +35651,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35665,7 +35666,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35680,7 +35681,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35695,7 +35696,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35710,7 +35711,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35725,7 +35726,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35740,7 +35741,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35755,7 +35756,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35770,7 +35771,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35785,7 +35786,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35800,7 +35801,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35815,7 +35816,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35830,7 +35831,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35845,7 +35846,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35860,7 +35861,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35875,7 +35876,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35890,7 +35891,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35905,7 +35906,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35920,7 +35921,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35935,7 +35936,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35950,7 +35951,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35965,7 +35966,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35980,7 +35981,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -35995,7 +35996,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36010,7 +36011,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36025,7 +36026,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36040,7 +36041,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36055,7 +36056,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36070,7 +36071,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36085,7 +36086,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36100,7 +36101,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36115,7 +36116,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36130,7 +36131,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36145,7 +36146,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36160,7 +36161,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36175,7 +36176,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36190,7 +36191,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36205,7 +36206,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36220,7 +36221,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36235,7 +36236,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36250,7 +36251,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36265,7 +36266,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36280,7 +36281,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36295,7 +36296,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36310,7 +36311,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36325,7 +36326,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36340,7 +36341,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36355,7 +36356,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36370,7 +36371,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36385,7 +36386,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36400,7 +36401,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36415,7 +36416,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36430,7 +36431,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36445,7 +36446,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36460,7 +36461,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36475,7 +36476,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36490,7 +36491,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36505,7 +36506,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36520,7 +36521,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36535,7 +36536,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36550,7 +36551,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36565,7 +36566,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36580,7 +36581,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36595,7 +36596,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36610,7 +36611,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36625,7 +36626,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36640,7 +36641,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36655,7 +36656,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36670,7 +36671,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36685,7 +36686,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36700,7 +36701,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36715,7 +36716,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36730,7 +36731,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36745,7 +36746,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36760,7 +36761,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36775,7 +36776,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36790,7 +36791,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36805,7 +36806,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36820,7 +36821,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36835,7 +36836,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36850,7 +36851,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36865,7 +36866,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36880,7 +36881,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36895,7 +36896,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36910,7 +36911,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36925,7 +36926,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36940,7 +36941,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36955,7 +36956,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36970,7 +36971,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -36985,7 +36986,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37000,7 +37001,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37015,7 +37016,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37030,7 +37031,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37045,7 +37046,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37060,7 +37061,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37075,7 +37076,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37090,7 +37091,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37105,7 +37106,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37120,7 +37121,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37135,7 +37136,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37150,7 +37151,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37165,7 +37166,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37180,7 +37181,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37195,7 +37196,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37210,7 +37211,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37225,7 +37226,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37240,7 +37241,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37255,7 +37256,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37270,7 +37271,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37285,7 +37286,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37300,7 +37301,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37315,7 +37316,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37330,7 +37331,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37345,7 +37346,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37360,7 +37361,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37375,7 +37376,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37390,7 +37391,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37405,7 +37406,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37420,7 +37421,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37435,7 +37436,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37450,7 +37451,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37465,7 +37466,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37480,7 +37481,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37495,7 +37496,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37510,7 +37511,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37525,7 +37526,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37540,7 +37541,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37555,7 +37556,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37570,7 +37571,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37585,7 +37586,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37600,7 +37601,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37615,7 +37616,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37630,7 +37631,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37645,7 +37646,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37660,7 +37661,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37675,7 +37676,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37690,7 +37691,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37705,7 +37706,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37720,7 +37721,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37735,7 +37736,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37750,7 +37751,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37765,7 +37766,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37780,7 +37781,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37795,7 +37796,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37810,7 +37811,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37825,7 +37826,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37840,7 +37841,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37855,7 +37856,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37870,7 +37871,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37885,7 +37886,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37900,7 +37901,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37915,7 +37916,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37930,7 +37931,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37945,7 +37946,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37960,7 +37961,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37975,7 +37976,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -37990,7 +37991,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38005,7 +38006,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38020,7 +38021,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38035,7 +38036,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38050,7 +38051,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38065,7 +38066,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38080,7 +38081,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38095,7 +38096,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38110,7 +38111,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38125,7 +38126,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38140,7 +38141,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38155,7 +38156,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38170,7 +38171,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38185,7 +38186,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38200,7 +38201,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38215,7 +38216,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38230,7 +38231,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38245,7 +38246,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38260,7 +38261,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38275,7 +38276,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38290,7 +38291,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38305,7 +38306,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38320,7 +38321,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38335,7 +38336,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38350,7 +38351,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38365,7 +38366,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38380,7 +38381,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38395,7 +38396,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38410,7 +38411,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38425,7 +38426,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38440,7 +38441,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38455,7 +38456,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38472,7 +38473,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -38487,7 +38488,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38502,7 +38503,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38517,7 +38518,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38532,7 +38533,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38547,7 +38548,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38562,7 +38563,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38577,7 +38578,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38592,7 +38593,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38607,7 +38608,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38622,7 +38623,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38637,7 +38638,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38652,7 +38653,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38667,7 +38668,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38682,7 +38683,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38697,7 +38698,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38712,7 +38713,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38727,7 +38728,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38742,7 +38743,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38757,7 +38758,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38772,7 +38773,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38787,7 +38788,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38802,7 +38803,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38817,7 +38818,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38832,7 +38833,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38847,7 +38848,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38862,7 +38863,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38877,7 +38878,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38892,7 +38893,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38907,7 +38908,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38922,7 +38923,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38937,7 +38938,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38952,7 +38953,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38967,7 +38968,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38982,7 +38983,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -38997,7 +38998,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39012,7 +39013,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39027,7 +39028,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39042,7 +39043,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39057,7 +39058,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39072,7 +39073,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39087,7 +39088,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39102,7 +39103,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39117,7 +39118,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39132,7 +39133,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39147,7 +39148,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39162,7 +39163,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39177,7 +39178,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39192,7 +39193,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39207,7 +39208,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39222,7 +39223,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39237,7 +39238,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39252,7 +39253,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39267,7 +39268,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39282,7 +39283,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39297,7 +39298,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39312,7 +39313,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39327,7 +39328,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39342,7 +39343,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39357,7 +39358,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39372,7 +39373,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39387,7 +39388,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39402,7 +39403,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39417,7 +39418,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39432,7 +39433,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39447,7 +39448,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39462,7 +39463,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39477,7 +39478,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39492,7 +39493,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39507,7 +39508,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39522,7 +39523,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39537,7 +39538,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39552,7 +39553,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39567,7 +39568,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39582,7 +39583,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39597,7 +39598,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39612,7 +39613,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39627,7 +39628,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39642,7 +39643,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39657,7 +39658,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39672,7 +39673,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39687,7 +39688,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39702,7 +39703,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39717,7 +39718,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39732,7 +39733,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39747,7 +39748,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39762,7 +39763,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39777,7 +39778,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39792,7 +39793,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39807,7 +39808,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39822,7 +39823,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39837,7 +39838,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39852,7 +39853,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39867,7 +39868,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39882,7 +39883,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39897,7 +39898,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39912,7 +39913,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39927,7 +39928,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39942,7 +39943,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39957,7 +39958,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39972,7 +39973,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -39987,7 +39988,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40002,7 +40003,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40017,7 +40018,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40032,7 +40033,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40047,7 +40048,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40062,7 +40063,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40077,7 +40078,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40092,7 +40093,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40107,7 +40108,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40122,7 +40123,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40137,7 +40138,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40152,7 +40153,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40167,7 +40168,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40182,7 +40183,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40197,7 +40198,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40212,7 +40213,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40227,7 +40228,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40242,7 +40243,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40257,7 +40258,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40272,7 +40273,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40287,7 +40288,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40302,7 +40303,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40317,7 +40318,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40332,7 +40333,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40347,7 +40348,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40362,7 +40363,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40377,7 +40378,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40392,7 +40393,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40407,7 +40408,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40422,7 +40423,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40437,7 +40438,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40452,7 +40453,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40467,7 +40468,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40482,7 +40483,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40497,7 +40498,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40512,7 +40513,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40527,7 +40528,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40542,7 +40543,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40557,7 +40558,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40572,7 +40573,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40587,7 +40588,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40602,7 +40603,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40617,7 +40618,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40632,7 +40633,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40647,7 +40648,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40662,7 +40663,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40677,7 +40678,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40692,7 +40693,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40707,7 +40708,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40722,7 +40723,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40737,7 +40738,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40752,7 +40753,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40767,7 +40768,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40782,7 +40783,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40797,7 +40798,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40812,7 +40813,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40827,7 +40828,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40842,7 +40843,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40857,7 +40858,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40872,7 +40873,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40887,7 +40888,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40902,7 +40903,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40917,7 +40918,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40932,7 +40933,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40947,7 +40948,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40962,7 +40963,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40977,7 +40978,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -40992,7 +40993,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41007,7 +41008,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41022,7 +41023,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41037,7 +41038,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41052,7 +41053,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41067,7 +41068,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41082,7 +41083,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41097,7 +41098,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41112,7 +41113,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41127,7 +41128,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41142,7 +41143,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41157,7 +41158,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41172,7 +41173,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41187,7 +41188,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41202,7 +41203,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41217,7 +41218,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41232,7 +41233,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41247,7 +41248,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41262,7 +41263,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41277,7 +41278,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41292,7 +41293,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41307,7 +41308,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41322,7 +41323,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41337,7 +41338,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41352,7 +41353,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41367,7 +41368,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41382,7 +41383,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41397,7 +41398,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41412,7 +41413,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41427,7 +41428,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41442,7 +41443,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41457,7 +41458,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41472,7 +41473,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41487,7 +41488,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41502,7 +41503,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41517,7 +41518,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41532,7 +41533,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41547,7 +41548,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41562,7 +41563,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41577,7 +41578,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41592,7 +41593,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41607,7 +41608,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41622,7 +41623,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41637,7 +41638,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41652,7 +41653,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41667,7 +41668,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41682,7 +41683,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41697,7 +41698,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41712,7 +41713,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41727,7 +41728,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41742,7 +41743,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41757,7 +41758,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41772,7 +41773,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41787,7 +41788,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41802,7 +41803,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41817,7 +41818,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41832,7 +41833,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41847,7 +41848,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41862,7 +41863,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41877,7 +41878,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41892,7 +41893,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41907,7 +41908,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41922,7 +41923,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41937,7 +41938,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41952,7 +41953,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41967,7 +41968,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41982,7 +41983,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -41997,7 +41998,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42012,7 +42013,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42027,7 +42028,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42042,7 +42043,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42057,7 +42058,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42072,7 +42073,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42087,7 +42088,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42102,7 +42103,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42117,7 +42118,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42132,7 +42133,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42147,7 +42148,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42162,7 +42163,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42177,7 +42178,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42192,7 +42193,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42207,7 +42208,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42222,7 +42223,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42237,7 +42238,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42252,7 +42253,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42267,7 +42268,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42282,7 +42283,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42297,7 +42298,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42312,7 +42313,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42327,7 +42328,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42342,7 +42343,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42357,7 +42358,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42372,7 +42373,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42387,7 +42388,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42402,7 +42403,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42417,7 +42418,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42432,7 +42433,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42447,7 +42448,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42462,7 +42463,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42477,7 +42478,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42492,7 +42493,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42507,7 +42508,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42522,7 +42523,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42537,7 +42538,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42552,7 +42553,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42567,7 +42568,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42582,7 +42583,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42597,7 +42598,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42612,7 +42613,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42627,7 +42628,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42642,7 +42643,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42657,7 +42658,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42672,7 +42673,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42687,7 +42688,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42702,7 +42703,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42717,7 +42718,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42732,7 +42733,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42747,7 +42748,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42762,7 +42763,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42777,7 +42778,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42792,7 +42793,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42807,7 +42808,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42822,7 +42823,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42837,7 +42838,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42852,7 +42853,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42867,7 +42868,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42882,7 +42883,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42897,7 +42898,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42912,7 +42913,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42927,7 +42928,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42942,7 +42943,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42957,7 +42958,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42972,7 +42973,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -42987,7 +42988,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43002,7 +43003,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43017,7 +43018,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43032,7 +43033,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43047,7 +43048,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43062,7 +43063,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43077,7 +43078,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43092,7 +43093,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43107,7 +43108,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43122,7 +43123,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43137,7 +43138,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43152,7 +43153,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43167,7 +43168,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43182,7 +43183,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43197,7 +43198,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43212,7 +43213,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43227,7 +43228,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43242,7 +43243,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43257,7 +43258,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43272,7 +43273,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43287,7 +43288,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43302,7 +43303,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43317,7 +43318,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43332,7 +43333,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43347,7 +43348,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43362,7 +43363,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43377,7 +43378,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43392,7 +43393,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43407,7 +43408,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43422,7 +43423,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43437,7 +43438,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43452,7 +43453,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43467,7 +43468,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43482,7 +43483,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43497,7 +43498,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43512,7 +43513,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43527,7 +43528,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43542,7 +43543,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43557,7 +43558,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43572,7 +43573,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43587,7 +43588,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43602,7 +43603,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43617,7 +43618,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43632,7 +43633,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43647,7 +43648,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43662,7 +43663,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43677,7 +43678,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43692,7 +43693,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43707,7 +43708,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43722,7 +43723,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43737,7 +43738,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43752,7 +43753,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43767,7 +43768,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43782,7 +43783,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43797,7 +43798,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43812,7 +43813,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43827,7 +43828,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43842,7 +43843,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43857,7 +43858,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43872,7 +43873,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43887,7 +43888,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43902,7 +43903,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43917,7 +43918,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43932,7 +43933,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43947,7 +43948,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43964,7 +43965,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -43979,7 +43980,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -43994,7 +43995,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44009,7 +44010,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44024,7 +44025,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44039,7 +44040,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44054,7 +44055,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44069,7 +44070,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44084,7 +44085,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44099,7 +44100,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44114,7 +44115,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44129,7 +44130,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44144,7 +44145,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44159,7 +44160,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44174,7 +44175,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44189,7 +44190,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44204,7 +44205,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44219,7 +44220,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44234,7 +44235,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44249,7 +44250,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44264,7 +44265,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44279,7 +44280,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44294,7 +44295,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44309,7 +44310,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44324,7 +44325,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44339,7 +44340,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44354,7 +44355,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44369,7 +44370,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44384,7 +44385,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44399,7 +44400,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44414,7 +44415,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44429,7 +44430,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44444,7 +44445,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44459,7 +44460,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44474,7 +44475,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44489,7 +44490,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44504,7 +44505,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44519,7 +44520,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44534,7 +44535,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44549,7 +44550,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44564,7 +44565,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44579,7 +44580,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44594,7 +44595,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44609,7 +44610,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44624,7 +44625,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44639,7 +44640,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44654,7 +44655,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44669,7 +44670,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44684,7 +44685,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44699,7 +44700,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44714,7 +44715,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44729,7 +44730,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44744,7 +44745,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44759,7 +44760,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44774,7 +44775,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44789,7 +44790,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44804,7 +44805,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44819,7 +44820,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44834,7 +44835,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44849,7 +44850,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44864,7 +44865,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44879,7 +44880,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44894,7 +44895,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44909,7 +44910,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44924,7 +44925,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44939,7 +44940,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44954,7 +44955,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44969,7 +44970,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44984,7 +44985,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -44999,7 +45000,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45014,7 +45015,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45029,7 +45030,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45044,7 +45045,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45059,7 +45060,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45074,7 +45075,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45089,7 +45090,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45104,7 +45105,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45119,7 +45120,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45134,7 +45135,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45149,7 +45150,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45164,7 +45165,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45179,7 +45180,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45194,7 +45195,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45209,7 +45210,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45224,7 +45225,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45239,7 +45240,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45254,7 +45255,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45269,7 +45270,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45284,7 +45285,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45299,7 +45300,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45314,7 +45315,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45329,7 +45330,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45344,7 +45345,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45359,7 +45360,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45374,7 +45375,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45389,7 +45390,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45404,7 +45405,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45419,7 +45420,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45434,7 +45435,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45449,7 +45450,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45464,7 +45465,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45479,7 +45480,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45494,7 +45495,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45509,7 +45510,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45524,7 +45525,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45539,7 +45540,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45554,7 +45555,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45569,7 +45570,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45584,7 +45585,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45599,7 +45600,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45614,7 +45615,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45629,7 +45630,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45644,7 +45645,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45659,7 +45660,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45674,7 +45675,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45689,7 +45690,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45704,7 +45705,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45719,7 +45720,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45734,7 +45735,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45749,7 +45750,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45764,7 +45765,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45779,7 +45780,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45794,7 +45795,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45809,7 +45810,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45824,7 +45825,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45839,7 +45840,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45854,7 +45855,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45869,7 +45870,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45884,7 +45885,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45899,7 +45900,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45914,7 +45915,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45929,7 +45930,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45944,7 +45945,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45959,7 +45960,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45974,7 +45975,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -45989,7 +45990,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46004,7 +46005,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46019,7 +46020,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46034,7 +46035,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46049,7 +46050,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46064,7 +46065,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46079,7 +46080,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46094,7 +46095,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46109,7 +46110,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46124,7 +46125,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46139,7 +46140,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46154,7 +46155,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46169,7 +46170,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46184,7 +46185,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46199,7 +46200,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46214,7 +46215,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46229,7 +46230,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46244,7 +46245,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46259,7 +46260,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46274,7 +46275,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46289,7 +46290,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46304,7 +46305,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46319,7 +46320,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46334,7 +46335,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46349,7 +46350,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46364,7 +46365,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46379,7 +46380,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46394,7 +46395,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46409,7 +46410,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46424,7 +46425,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46439,7 +46440,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46454,7 +46455,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46469,7 +46470,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46484,7 +46485,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46499,7 +46500,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46514,7 +46515,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46529,7 +46530,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46544,7 +46545,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46559,7 +46560,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46574,7 +46575,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46589,7 +46590,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46604,7 +46605,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46619,7 +46620,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46634,7 +46635,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46649,7 +46650,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46664,7 +46665,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46679,7 +46680,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46694,7 +46695,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46709,7 +46710,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46724,7 +46725,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46739,7 +46740,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46754,7 +46755,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46769,7 +46770,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46784,7 +46785,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46799,7 +46800,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46814,7 +46815,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46829,7 +46830,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46844,7 +46845,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46859,7 +46860,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46874,7 +46875,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46889,7 +46890,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46904,7 +46905,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46919,7 +46920,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46934,7 +46935,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46949,7 +46950,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46964,7 +46965,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46979,7 +46980,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -46994,7 +46995,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47009,7 +47010,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47024,7 +47025,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47039,7 +47040,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47054,7 +47055,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47069,7 +47070,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47084,7 +47085,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47099,7 +47100,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47114,7 +47115,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47129,7 +47130,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47144,7 +47145,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47159,7 +47160,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47174,7 +47175,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47189,7 +47190,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47204,7 +47205,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47219,7 +47220,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47234,7 +47235,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47249,7 +47250,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47264,7 +47265,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47279,7 +47280,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47294,7 +47295,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47309,7 +47310,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47324,7 +47325,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47339,7 +47340,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47354,7 +47355,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47369,7 +47370,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47384,7 +47385,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47399,7 +47400,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47414,7 +47415,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47429,7 +47430,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47444,7 +47445,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47459,7 +47460,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47474,7 +47475,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47489,7 +47490,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47504,7 +47505,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47519,7 +47520,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47534,7 +47535,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47549,7 +47550,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47564,7 +47565,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47579,7 +47580,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47594,7 +47595,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47609,7 +47610,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47624,7 +47625,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47639,7 +47640,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47654,7 +47655,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47669,7 +47670,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47684,7 +47685,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47699,7 +47700,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47714,7 +47715,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47729,7 +47730,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47744,7 +47745,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47759,7 +47760,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47774,7 +47775,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47789,7 +47790,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47804,7 +47805,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47819,7 +47820,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47834,7 +47835,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47849,7 +47850,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47864,7 +47865,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47879,7 +47880,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47894,7 +47895,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47909,7 +47910,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47924,7 +47925,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47939,7 +47940,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47954,7 +47955,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47969,7 +47970,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47984,7 +47985,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -47999,7 +48000,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48014,7 +48015,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48029,7 +48030,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48044,7 +48045,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48059,7 +48060,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48074,7 +48075,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48089,7 +48090,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48104,7 +48105,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48119,7 +48120,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48134,7 +48135,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48149,7 +48150,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48164,7 +48165,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48179,7 +48180,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48194,7 +48195,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48209,7 +48210,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48224,7 +48225,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48239,7 +48240,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48254,7 +48255,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48269,7 +48270,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48284,7 +48285,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48299,7 +48300,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48314,7 +48315,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48329,7 +48330,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48344,7 +48345,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48359,7 +48360,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48374,7 +48375,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48389,7 +48390,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48404,7 +48405,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48419,7 +48420,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48434,7 +48435,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48449,7 +48450,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48464,7 +48465,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48479,7 +48480,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48494,7 +48495,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48509,7 +48510,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48524,7 +48525,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48539,7 +48540,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48554,7 +48555,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48569,7 +48570,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48584,7 +48585,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48599,7 +48600,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48614,7 +48615,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48629,7 +48630,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48644,7 +48645,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48659,7 +48660,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48674,7 +48675,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48689,7 +48690,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48704,7 +48705,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48719,7 +48720,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48734,7 +48735,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48749,7 +48750,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48764,7 +48765,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48779,7 +48780,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48794,7 +48795,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48809,7 +48810,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48824,7 +48825,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48839,7 +48840,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48854,7 +48855,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48869,7 +48870,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48884,7 +48885,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48899,7 +48900,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48914,7 +48915,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48929,7 +48930,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48944,7 +48945,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48959,7 +48960,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48974,7 +48975,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -48989,7 +48990,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49004,7 +49005,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49019,7 +49020,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49034,7 +49035,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49049,7 +49050,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49064,7 +49065,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49079,7 +49080,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49094,7 +49095,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49109,7 +49110,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49124,7 +49125,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49139,7 +49140,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49154,7 +49155,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49169,7 +49170,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49184,7 +49185,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49199,7 +49200,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49214,7 +49215,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49229,7 +49230,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49244,7 +49245,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49259,7 +49260,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49274,7 +49275,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49289,7 +49290,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49304,7 +49305,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49319,7 +49320,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49334,7 +49335,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49349,7 +49350,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49364,7 +49365,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49379,7 +49380,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49394,7 +49395,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49409,7 +49410,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49424,7 +49425,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49439,7 +49440,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49456,7 +49457,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -49471,7 +49472,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49486,7 +49487,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49501,7 +49502,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49516,7 +49517,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49531,7 +49532,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49546,7 +49547,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49561,7 +49562,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49576,7 +49577,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49591,7 +49592,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49606,7 +49607,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49621,7 +49622,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49636,7 +49637,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49651,7 +49652,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49666,7 +49667,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49681,7 +49682,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49696,7 +49697,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49711,7 +49712,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49726,7 +49727,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49741,7 +49742,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49756,7 +49757,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49771,7 +49772,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49786,7 +49787,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49801,7 +49802,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49816,7 +49817,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49831,7 +49832,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49846,7 +49847,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49861,7 +49862,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49876,7 +49877,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49891,7 +49892,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49906,7 +49907,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49921,7 +49922,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49936,7 +49937,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49951,7 +49952,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49966,7 +49967,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49981,7 +49982,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -49996,7 +49997,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50011,7 +50012,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50026,7 +50027,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50041,7 +50042,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50056,7 +50057,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50071,7 +50072,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50086,7 +50087,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50101,7 +50102,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50116,7 +50117,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50131,7 +50132,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50146,7 +50147,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50161,7 +50162,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50176,7 +50177,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50191,7 +50192,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50206,7 +50207,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50221,7 +50222,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50236,7 +50237,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50251,7 +50252,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50266,7 +50267,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50281,7 +50282,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50296,7 +50297,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50311,7 +50312,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50326,7 +50327,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50341,7 +50342,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50356,7 +50357,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50371,7 +50372,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50386,7 +50387,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50401,7 +50402,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50416,7 +50417,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50431,7 +50432,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50446,7 +50447,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50461,7 +50462,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50476,7 +50477,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50491,7 +50492,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50506,7 +50507,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50521,7 +50522,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50536,7 +50537,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50551,7 +50552,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50566,7 +50567,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50581,7 +50582,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50596,7 +50597,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50611,7 +50612,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50626,7 +50627,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50641,7 +50642,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50656,7 +50657,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50671,7 +50672,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50686,7 +50687,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50701,7 +50702,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50716,7 +50717,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50731,7 +50732,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50746,7 +50747,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50761,7 +50762,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50776,7 +50777,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50791,7 +50792,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50806,7 +50807,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50821,7 +50822,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50836,7 +50837,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50851,7 +50852,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50866,7 +50867,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50881,7 +50882,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50896,7 +50897,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50911,7 +50912,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50926,7 +50927,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50941,7 +50942,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50956,7 +50957,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50971,7 +50972,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -50986,7 +50987,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51001,7 +51002,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51016,7 +51017,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51031,7 +51032,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51046,7 +51047,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51061,7 +51062,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51076,7 +51077,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51091,7 +51092,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51106,7 +51107,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51121,7 +51122,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51136,7 +51137,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51151,7 +51152,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51166,7 +51167,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51181,7 +51182,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51196,7 +51197,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51211,7 +51212,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51226,7 +51227,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51241,7 +51242,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51256,7 +51257,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51271,7 +51272,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51286,7 +51287,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51301,7 +51302,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51316,7 +51317,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51331,7 +51332,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51346,7 +51347,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51361,7 +51362,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51376,7 +51377,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51391,7 +51392,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51406,7 +51407,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51421,7 +51422,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51436,7 +51437,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51451,7 +51452,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51466,7 +51467,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51481,7 +51482,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51496,7 +51497,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51511,7 +51512,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51526,7 +51527,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51541,7 +51542,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51556,7 +51557,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51571,7 +51572,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51586,7 +51587,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51601,7 +51602,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51616,7 +51617,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51631,7 +51632,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51646,7 +51647,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51661,7 +51662,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51676,7 +51677,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51691,7 +51692,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51706,7 +51707,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51721,7 +51722,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51736,7 +51737,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51751,7 +51752,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51766,7 +51767,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51781,7 +51782,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51796,7 +51797,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51811,7 +51812,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51826,7 +51827,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51841,7 +51842,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51856,7 +51857,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51871,7 +51872,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51886,7 +51887,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51901,7 +51902,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51916,7 +51917,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51931,7 +51932,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51946,7 +51947,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51961,7 +51962,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51976,7 +51977,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -51991,7 +51992,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52006,7 +52007,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52021,7 +52022,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52036,7 +52037,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52051,7 +52052,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52066,7 +52067,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52081,7 +52082,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52096,7 +52097,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52111,7 +52112,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52126,7 +52127,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52141,7 +52142,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52156,7 +52157,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52171,7 +52172,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52186,7 +52187,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52201,7 +52202,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52216,7 +52217,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52231,7 +52232,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52246,7 +52247,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52261,7 +52262,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52276,7 +52277,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52291,7 +52292,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52306,7 +52307,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52321,7 +52322,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52336,7 +52337,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52351,7 +52352,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52366,7 +52367,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52381,7 +52382,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52396,7 +52397,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52411,7 +52412,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52426,7 +52427,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52441,7 +52442,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52456,7 +52457,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52471,7 +52472,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52486,7 +52487,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52501,7 +52502,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52516,7 +52517,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52531,7 +52532,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52546,7 +52547,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52561,7 +52562,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52576,7 +52577,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52591,7 +52592,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52606,7 +52607,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52621,7 +52622,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52636,7 +52637,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52651,7 +52652,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52666,7 +52667,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52681,7 +52682,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52696,7 +52697,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52711,7 +52712,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52726,7 +52727,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52741,7 +52742,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52756,7 +52757,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52771,7 +52772,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52786,7 +52787,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52801,7 +52802,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52816,7 +52817,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52831,7 +52832,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52846,7 +52847,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52861,7 +52862,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52876,7 +52877,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52891,7 +52892,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52906,7 +52907,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52921,7 +52922,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52936,7 +52937,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52951,7 +52952,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52966,7 +52967,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52981,7 +52982,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -52996,7 +52997,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53011,7 +53012,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53026,7 +53027,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53041,7 +53042,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53056,7 +53057,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53071,7 +53072,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53086,7 +53087,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53101,7 +53102,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53116,7 +53117,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53131,7 +53132,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53146,7 +53147,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53161,7 +53162,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53176,7 +53177,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53191,7 +53192,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53206,7 +53207,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53221,7 +53222,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53236,7 +53237,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53251,7 +53252,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53266,7 +53267,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53281,7 +53282,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53296,7 +53297,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53311,7 +53312,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53326,7 +53327,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53341,7 +53342,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53356,7 +53357,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53371,7 +53372,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53386,7 +53387,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53401,7 +53402,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53416,7 +53417,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53431,7 +53432,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53446,7 +53447,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53461,7 +53462,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53476,7 +53477,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53491,7 +53492,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53506,7 +53507,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53521,7 +53522,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53536,7 +53537,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53551,7 +53552,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53566,7 +53567,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53581,7 +53582,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53596,7 +53597,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53611,7 +53612,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53626,7 +53627,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53641,7 +53642,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53656,7 +53657,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53671,7 +53672,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53686,7 +53687,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53701,7 +53702,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53716,7 +53717,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53731,7 +53732,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53746,7 +53747,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53761,7 +53762,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53776,7 +53777,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53791,7 +53792,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53806,7 +53807,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53821,7 +53822,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53836,7 +53837,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53851,7 +53852,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53866,7 +53867,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53881,7 +53882,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53896,7 +53897,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53911,7 +53912,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53926,7 +53927,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53941,7 +53942,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53956,7 +53957,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53971,7 +53972,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -53986,7 +53987,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54001,7 +54002,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54016,7 +54017,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54031,7 +54032,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54046,7 +54047,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54061,7 +54062,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54076,7 +54077,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54091,7 +54092,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54106,7 +54107,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54121,7 +54122,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54136,7 +54137,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54151,7 +54152,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54166,7 +54167,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54181,7 +54182,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54196,7 +54197,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54211,7 +54212,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54226,7 +54227,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54241,7 +54242,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54256,7 +54257,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54271,7 +54272,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54286,7 +54287,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54301,7 +54302,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54316,7 +54317,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54331,7 +54332,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54346,7 +54347,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54361,7 +54362,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54376,7 +54377,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54391,7 +54392,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54406,7 +54407,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54421,7 +54422,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54436,7 +54437,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54451,7 +54452,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54466,7 +54467,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54481,7 +54482,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54496,7 +54497,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54511,7 +54512,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54526,7 +54527,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54541,7 +54542,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54556,7 +54557,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54571,7 +54572,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54586,7 +54587,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54601,7 +54602,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54616,7 +54617,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54631,7 +54632,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54646,7 +54647,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54661,7 +54662,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54676,7 +54677,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54691,7 +54692,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54706,7 +54707,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54721,7 +54722,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54736,7 +54737,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54751,7 +54752,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54766,7 +54767,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54781,7 +54782,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54796,7 +54797,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54811,7 +54812,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54826,7 +54827,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54841,7 +54842,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54856,7 +54857,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54871,7 +54872,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54886,7 +54887,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54901,7 +54902,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54916,7 +54917,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54931,7 +54932,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54948,7 +54949,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -54963,7 +54964,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54978,7 +54979,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -54993,7 +54994,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55008,7 +55009,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55023,7 +55024,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55038,7 +55039,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55053,7 +55054,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55068,7 +55069,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55083,7 +55084,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55098,7 +55099,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55113,7 +55114,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55128,7 +55129,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55143,7 +55144,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55158,7 +55159,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55173,7 +55174,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55188,7 +55189,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55203,7 +55204,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55218,7 +55219,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55233,7 +55234,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55248,7 +55249,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55263,7 +55264,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55278,7 +55279,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55293,7 +55294,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55308,7 +55309,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55323,7 +55324,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55338,7 +55339,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55353,7 +55354,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55368,7 +55369,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55383,7 +55384,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55398,7 +55399,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55413,7 +55414,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55428,7 +55429,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55443,7 +55444,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55458,7 +55459,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55473,7 +55474,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55488,7 +55489,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55503,7 +55504,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55518,7 +55519,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55533,7 +55534,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55548,7 +55549,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55563,7 +55564,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55578,7 +55579,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55593,7 +55594,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55608,7 +55609,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55623,7 +55624,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55638,7 +55639,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55653,7 +55654,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55668,7 +55669,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55683,7 +55684,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55698,7 +55699,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55713,7 +55714,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55728,7 +55729,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55743,7 +55744,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55758,7 +55759,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55773,7 +55774,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55788,7 +55789,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55803,7 +55804,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55818,7 +55819,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55833,7 +55834,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55848,7 +55849,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55863,7 +55864,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55878,7 +55879,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55893,7 +55894,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55908,7 +55909,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55923,7 +55924,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55938,7 +55939,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55953,7 +55954,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55968,7 +55969,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55983,7 +55984,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -55998,7 +55999,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56013,7 +56014,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56028,7 +56029,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56043,7 +56044,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56058,7 +56059,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56073,7 +56074,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56088,7 +56089,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56103,7 +56104,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56118,7 +56119,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56133,7 +56134,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56148,7 +56149,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56163,7 +56164,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56178,7 +56179,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56193,7 +56194,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56208,7 +56209,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56223,7 +56224,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56238,7 +56239,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56253,7 +56254,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56268,7 +56269,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56283,7 +56284,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56298,7 +56299,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56313,7 +56314,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56328,7 +56329,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56343,7 +56344,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56358,7 +56359,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56373,7 +56374,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56388,7 +56389,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56403,7 +56404,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56418,7 +56419,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56433,7 +56434,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56448,7 +56449,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56463,7 +56464,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56478,7 +56479,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56493,7 +56494,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56508,7 +56509,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56523,7 +56524,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56538,7 +56539,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56553,7 +56554,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56568,7 +56569,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56583,7 +56584,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56598,7 +56599,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56613,7 +56614,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56628,7 +56629,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56643,7 +56644,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56658,7 +56659,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56673,7 +56674,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56688,7 +56689,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56703,7 +56704,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56718,7 +56719,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56733,7 +56734,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56748,7 +56749,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56763,7 +56764,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56778,7 +56779,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56793,7 +56794,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56808,7 +56809,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56823,7 +56824,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56838,7 +56839,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56853,7 +56854,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56868,7 +56869,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56883,7 +56884,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56898,7 +56899,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56913,7 +56914,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56928,7 +56929,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56943,7 +56944,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56958,7 +56959,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56973,7 +56974,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -56988,7 +56989,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57003,7 +57004,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57018,7 +57019,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57033,7 +57034,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57048,7 +57049,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57063,7 +57064,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57078,7 +57079,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57093,7 +57094,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57108,7 +57109,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57123,7 +57124,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57138,7 +57139,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57153,7 +57154,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57168,7 +57169,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57183,7 +57184,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57198,7 +57199,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57213,7 +57214,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57228,7 +57229,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57243,7 +57244,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57258,7 +57259,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57273,7 +57274,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57288,7 +57289,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57303,7 +57304,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57318,7 +57319,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57333,7 +57334,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57348,7 +57349,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57363,7 +57364,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57378,7 +57379,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57393,7 +57394,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57408,7 +57409,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57423,7 +57424,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57438,7 +57439,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57453,7 +57454,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57468,7 +57469,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57483,7 +57484,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57498,7 +57499,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57513,7 +57514,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57528,7 +57529,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57543,7 +57544,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57558,7 +57559,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57573,7 +57574,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57588,7 +57589,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57603,7 +57604,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57618,7 +57619,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57633,7 +57634,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57648,7 +57649,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57663,7 +57664,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57678,7 +57679,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57693,7 +57694,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57708,7 +57709,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57723,7 +57724,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57738,7 +57739,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57753,7 +57754,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57768,7 +57769,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57783,7 +57784,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57798,7 +57799,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57813,7 +57814,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57828,7 +57829,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57843,7 +57844,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57858,7 +57859,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57873,7 +57874,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57888,7 +57889,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57903,7 +57904,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57918,7 +57919,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57933,7 +57934,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57948,7 +57949,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57963,7 +57964,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57978,7 +57979,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -57993,7 +57994,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58008,7 +58009,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58023,7 +58024,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58038,7 +58039,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58053,7 +58054,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58068,7 +58069,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58083,7 +58084,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58098,7 +58099,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58113,7 +58114,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58128,7 +58129,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58143,7 +58144,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58158,7 +58159,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58173,7 +58174,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58188,7 +58189,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58203,7 +58204,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58218,7 +58219,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58233,7 +58234,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58248,7 +58249,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58263,7 +58264,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58278,7 +58279,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58293,7 +58294,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58308,7 +58309,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58323,7 +58324,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58338,7 +58339,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58353,7 +58354,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58368,7 +58369,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58383,7 +58384,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58398,7 +58399,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58413,7 +58414,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58428,7 +58429,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58443,7 +58444,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58458,7 +58459,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58473,7 +58474,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58488,7 +58489,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58503,7 +58504,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58518,7 +58519,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58533,7 +58534,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58548,7 +58549,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58563,7 +58564,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58578,7 +58579,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58593,7 +58594,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58608,7 +58609,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58623,7 +58624,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58638,7 +58639,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58653,7 +58654,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58668,7 +58669,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58683,7 +58684,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58698,7 +58699,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58713,7 +58714,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58728,7 +58729,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58743,7 +58744,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58758,7 +58759,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58773,7 +58774,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58788,7 +58789,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58803,7 +58804,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58818,7 +58819,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58833,7 +58834,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58848,7 +58849,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58863,7 +58864,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58878,7 +58879,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58893,7 +58894,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58908,7 +58909,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58923,7 +58924,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58938,7 +58939,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58953,7 +58954,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58968,7 +58969,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58983,7 +58984,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -58998,7 +58999,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59013,7 +59014,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59028,7 +59029,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59043,7 +59044,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59058,7 +59059,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59073,7 +59074,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59088,7 +59089,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59103,7 +59104,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59118,7 +59119,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59133,7 +59134,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59148,7 +59149,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59163,7 +59164,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59178,7 +59179,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59193,7 +59194,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59208,7 +59209,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59223,7 +59224,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59238,7 +59239,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59253,7 +59254,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59268,7 +59269,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59283,7 +59284,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59298,7 +59299,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59313,7 +59314,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59328,7 +59329,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59343,7 +59344,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59358,7 +59359,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59373,7 +59374,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59388,7 +59389,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59403,7 +59404,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59418,7 +59419,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59433,7 +59434,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59448,7 +59449,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59463,7 +59464,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59478,7 +59479,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59493,7 +59494,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59508,7 +59509,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59523,7 +59524,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59538,7 +59539,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59553,7 +59554,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59568,7 +59569,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59583,7 +59584,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59598,7 +59599,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59613,7 +59614,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59628,7 +59629,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59643,7 +59644,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59658,7 +59659,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59673,7 +59674,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59688,7 +59689,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59703,7 +59704,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59718,7 +59719,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59733,7 +59734,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59748,7 +59749,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59763,7 +59764,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59778,7 +59779,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59793,7 +59794,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59808,7 +59809,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59823,7 +59824,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59838,7 +59839,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59853,7 +59854,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59868,7 +59869,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59883,7 +59884,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59898,7 +59899,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59913,7 +59914,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59928,7 +59929,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59943,7 +59944,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59958,7 +59959,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59973,7 +59974,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -59988,7 +59989,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60003,7 +60004,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60018,7 +60019,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60033,7 +60034,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60048,7 +60049,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60063,7 +60064,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60078,7 +60079,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60093,7 +60094,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60108,7 +60109,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60123,7 +60124,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60138,7 +60139,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60153,7 +60154,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60168,7 +60169,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60183,7 +60184,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60198,7 +60199,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60213,7 +60214,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60228,7 +60229,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60243,7 +60244,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60258,7 +60259,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60273,7 +60274,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60288,7 +60289,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60303,7 +60304,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60318,7 +60319,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60333,7 +60334,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60348,7 +60349,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60363,7 +60364,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60378,7 +60379,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60393,7 +60394,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60408,7 +60409,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60423,7 +60424,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60440,7 +60441,7 @@ userName varchar(16) NOT NULL ,
 nikeName varchar(16) NOT NULL ,
 phone varchar(16) NOT NULL ,
 email varchar(32) NOT NULL ,
-others jsonb NOT NULL DEFAULT '{}';
+others jsonb NOT NULL DEFAULT '{}',
 PRIMARY KEY (userId)
 )
 ;
@@ -60455,7 +60456,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60470,7 +60471,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60485,7 +60486,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60500,7 +60501,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60515,7 +60516,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60530,7 +60531,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60545,7 +60546,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60560,7 +60561,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60575,7 +60576,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60590,7 +60591,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60605,7 +60606,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60620,7 +60621,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60635,7 +60636,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60650,7 +60651,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60665,7 +60666,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60680,7 +60681,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60695,7 +60696,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60710,7 +60711,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60725,7 +60726,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60740,7 +60741,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60755,7 +60756,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60770,7 +60771,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60785,7 +60786,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60800,7 +60801,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60815,7 +60816,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60830,7 +60831,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60845,7 +60846,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60860,7 +60861,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60875,7 +60876,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60890,7 +60891,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60905,7 +60906,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60920,7 +60921,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60935,7 +60936,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60950,7 +60951,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60965,7 +60966,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60980,7 +60981,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -60995,7 +60996,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61010,7 +61011,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61025,7 +61026,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61040,7 +61041,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61055,7 +61056,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61070,7 +61071,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61085,7 +61086,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61100,7 +61101,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61115,7 +61116,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61130,7 +61131,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61145,7 +61146,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61160,7 +61161,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61175,7 +61176,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61190,7 +61191,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61205,7 +61206,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61220,7 +61221,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61235,7 +61236,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61250,7 +61251,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61265,7 +61266,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61280,7 +61281,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61295,7 +61296,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61310,7 +61311,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61325,7 +61326,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61340,7 +61341,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61355,7 +61356,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61370,7 +61371,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61385,7 +61386,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61400,7 +61401,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61415,7 +61416,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61430,7 +61431,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61445,7 +61446,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61460,7 +61461,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61475,7 +61476,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61490,7 +61491,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61505,7 +61506,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61520,7 +61521,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61535,7 +61536,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61550,7 +61551,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61565,7 +61566,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61580,7 +61581,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61595,7 +61596,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61610,7 +61611,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61625,7 +61626,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61640,7 +61641,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61655,7 +61656,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61670,7 +61671,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61685,7 +61686,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61700,7 +61701,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61715,7 +61716,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61730,7 +61731,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61745,7 +61746,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61760,7 +61761,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61775,7 +61776,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61790,7 +61791,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61805,7 +61806,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61820,7 +61821,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61835,7 +61836,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61850,7 +61851,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61865,7 +61866,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61880,7 +61881,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61895,7 +61896,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61910,7 +61911,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61925,7 +61926,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61940,7 +61941,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61955,7 +61956,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61970,7 +61971,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -61985,7 +61986,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62000,7 +62001,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62015,7 +62016,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62030,7 +62031,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62045,7 +62046,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62060,7 +62061,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62075,7 +62076,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62090,7 +62091,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62105,7 +62106,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62120,7 +62121,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62135,7 +62136,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62150,7 +62151,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62165,7 +62166,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62180,7 +62181,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62195,7 +62196,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62210,7 +62211,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62225,7 +62226,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62240,7 +62241,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62255,7 +62256,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62270,7 +62271,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62285,7 +62286,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62300,7 +62301,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62315,7 +62316,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62330,7 +62331,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62345,7 +62346,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62360,7 +62361,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62375,7 +62376,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62390,7 +62391,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62405,7 +62406,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62420,7 +62421,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62435,7 +62436,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62450,7 +62451,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62465,7 +62466,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62480,7 +62481,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62495,7 +62496,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62510,7 +62511,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62525,7 +62526,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62540,7 +62541,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62555,7 +62556,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62570,7 +62571,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62585,7 +62586,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62600,7 +62601,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62615,7 +62616,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62630,7 +62631,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62645,7 +62646,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62660,7 +62661,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62675,7 +62676,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62690,7 +62691,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62705,7 +62706,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62720,7 +62721,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62735,7 +62736,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62750,7 +62751,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62765,7 +62766,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62780,7 +62781,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62795,7 +62796,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62810,7 +62811,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62825,7 +62826,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62840,7 +62841,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62855,7 +62856,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62870,7 +62871,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62885,7 +62886,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62900,7 +62901,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62915,7 +62916,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62930,7 +62931,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62945,7 +62946,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62960,7 +62961,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62975,7 +62976,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -62990,7 +62991,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63005,7 +63006,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63020,7 +63021,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63035,7 +63036,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63050,7 +63051,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63065,7 +63066,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63080,7 +63081,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63095,7 +63096,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63110,7 +63111,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63125,7 +63126,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63140,7 +63141,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63155,7 +63156,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63170,7 +63171,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63185,7 +63186,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63200,7 +63201,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63215,7 +63216,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63230,7 +63231,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63245,7 +63246,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63260,7 +63261,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63275,7 +63276,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63290,7 +63291,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63305,7 +63306,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63320,7 +63321,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63335,7 +63336,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63350,7 +63351,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63365,7 +63366,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63380,7 +63381,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63395,7 +63396,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63410,7 +63411,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63425,7 +63426,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63440,7 +63441,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63455,7 +63456,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63470,7 +63471,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63485,7 +63486,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63500,7 +63501,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63515,7 +63516,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63530,7 +63531,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63545,7 +63546,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63560,7 +63561,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63575,7 +63576,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63590,7 +63591,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63605,7 +63606,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63620,7 +63621,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63635,7 +63636,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63650,7 +63651,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63665,7 +63666,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63680,7 +63681,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63695,7 +63696,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63710,7 +63711,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63725,7 +63726,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63740,7 +63741,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63755,7 +63756,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63770,7 +63771,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63785,7 +63786,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63800,7 +63801,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63815,7 +63816,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63830,7 +63831,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63845,7 +63846,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63860,7 +63861,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63875,7 +63876,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63890,7 +63891,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63905,7 +63906,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63920,7 +63921,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63935,7 +63936,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63950,7 +63951,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63965,7 +63966,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63980,7 +63981,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -63995,7 +63996,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64010,7 +64011,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64025,7 +64026,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64040,7 +64041,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64055,7 +64056,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64070,7 +64071,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64085,7 +64086,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64100,7 +64101,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64115,7 +64116,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64130,7 +64131,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64145,7 +64146,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64160,7 +64161,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64175,7 +64176,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64190,7 +64191,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64205,7 +64206,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64220,7 +64221,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64235,7 +64236,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64250,7 +64251,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64265,7 +64266,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64280,7 +64281,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64295,7 +64296,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64310,7 +64311,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64325,7 +64326,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64340,7 +64341,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64355,7 +64356,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64370,7 +64371,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64385,7 +64386,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64400,7 +64401,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64415,7 +64416,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64430,7 +64431,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64445,7 +64446,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64460,7 +64461,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64475,7 +64476,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64490,7 +64491,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64505,7 +64506,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64520,7 +64521,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64535,7 +64536,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64550,7 +64551,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64565,7 +64566,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64580,7 +64581,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64595,7 +64596,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64610,7 +64611,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64625,7 +64626,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64640,7 +64641,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64655,7 +64656,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64670,7 +64671,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64685,7 +64686,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64700,7 +64701,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64715,7 +64716,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64730,7 +64731,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64745,7 +64746,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64760,7 +64761,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64775,7 +64776,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64790,7 +64791,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64805,7 +64806,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64820,7 +64821,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64835,7 +64836,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64850,7 +64851,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64865,7 +64866,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64880,7 +64881,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64895,7 +64896,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64910,7 +64911,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64925,7 +64926,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64940,7 +64941,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64955,7 +64956,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64970,7 +64971,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -64985,7 +64986,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65000,7 +65001,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65015,7 +65016,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65030,7 +65031,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65045,7 +65046,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65060,7 +65061,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65075,7 +65076,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65090,7 +65091,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65105,7 +65106,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65120,7 +65121,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65135,7 +65136,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65150,7 +65151,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65165,7 +65166,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65180,7 +65181,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65195,7 +65196,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65210,7 +65211,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65225,7 +65226,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65240,7 +65241,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65255,7 +65256,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65270,7 +65271,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65285,7 +65286,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65300,7 +65301,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65315,7 +65316,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65330,7 +65331,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65345,7 +65346,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65360,7 +65361,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65375,7 +65376,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65390,7 +65391,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65405,7 +65406,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65420,7 +65421,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65435,7 +65436,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65450,7 +65451,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65465,7 +65466,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65480,7 +65481,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65495,7 +65496,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65510,7 +65511,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65525,7 +65526,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65540,7 +65541,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65555,7 +65556,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65570,7 +65571,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65585,7 +65586,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65600,7 +65601,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65615,7 +65616,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65630,7 +65631,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65645,7 +65646,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65660,7 +65661,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65675,7 +65676,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65690,7 +65691,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65705,7 +65706,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65720,7 +65721,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65735,7 +65736,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65750,7 +65751,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65765,7 +65766,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65780,7 +65781,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65795,7 +65796,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65810,7 +65811,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65825,7 +65826,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65840,7 +65841,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65855,7 +65856,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65870,7 +65871,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65885,7 +65886,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65900,7 +65901,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;
@@ -65915,7 +65916,7 @@ oderId serial8 NOT NULL ,
 orderTime timestamp NOT NULL ,
 userId int8 NOT NULL ,
 symbol varchar(16) NOT NULL ,
-qty decimal(32,8) NOT NULL ;
+qty decimal(32,8) NOT NULL ,
 PRIMARY KEY (oderId)
 )
 ;

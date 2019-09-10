@@ -1,5 +1,5 @@
 // ----------------------------
-// -- Table for users user_info {}
+// -- Table for users user_info {'space': 'user_spaces'}
 // ----------------------------
 sh.shardCollection('users.user_info', { "userId": 'hashed' }, true);
 // ----------------------------

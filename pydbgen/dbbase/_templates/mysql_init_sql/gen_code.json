@@ -14,6 +14,16 @@
         "disable": false
     },
     {
+        "tmpl": "{tmpl}/mysql_init_sql/init_tables.sql.mako",
+        "mode": "single",
+        "output": "mysql_{filename}_temp_tables.sql",
+        "fixcode": "fix_blankline",
+        "disable": false,
+        "args": {
+            "is_temp": true
+        }
+    },
+    {
         "tmpl": "{tmpl}/mysql_init_sql/init_indexs.sql.mako",
         "mode": "single",
         "output": "mysql_{filename}_index.sql",

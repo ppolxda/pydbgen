@@ -21,6 +21,16 @@
         "disable": false
     },
     {
+        "tmpl": "{tmpl}/pgsql_init_sql/init_tables.sql.mako",
+        "mode": "single",
+        "output": "pgsql_{filename}_temp_tables.sql",
+        "fixcode": "fix_blankline",
+        "disable": false,
+        "args": {
+            "is_temp": true
+        }
+    },
+    {
         "tmpl": "{tmpl}/pgsql_init_sql/init_indexs.sql.mako",
         "mode": "single",
         "output": "pgsql_{filename}_index.sql",

@@ -1,5 +1,5 @@
 // ----------------------------
-// -- Table for users user_info {}
+// -- Table for users user_info {'space': 'user_spaces'}
 // ----------------------------
 db = db.getSiblingDB('users');
 db.getCollection('user_info').createIndex({ "userId": 'hashed' }, { 'background': true, 'unique': true });

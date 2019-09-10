@@ -121,6 +121,7 @@ class ProtoPlugins(object):
         for config in opts.json_conf:
             tmpl = config['tmpl']
             json_data = copy.deepcopy(_json_data)
+            json_data['gen_config'] = config.get('args', {})
             if not isinstance(config, dict):
                 raise TypeError('config invaild')
 
@@ -130,7 +131,8 @@ class ProtoPlugins(object):
 
             mode = config.get('mode', 'single')
             mode_match = re.match(
-                r'^(tables|enums|table_groups|databases|classs)_multi$', mode)
+                r'^(tables|enums|table_groups|databases|classs)_multi$', mode
+            )
             if mode_match:
                 _obj = mode_match.group(1)
 
@@ -140,7 +142,8 @@ class ProtoPlugins(object):
                 )
             elif mode == 'single':
                 self.generate_code_signal(
-                    request, response, tmpl, config, json_data)
+                    request, response, tmpl, config, json_data
+                )
             else:
                 raise TypeError('config mode invaild')
 
@@ -159,8 +162,9 @@ class ProtoPlugins(object):
             filepath0 = filepath0.replace('\\', '/')
             filename1 = filepath0[:filepath0.rfind('/') + 1]
             if filepath0.rfind('/') >= 0:
-                filename = filepath0[filepath0.rfind(
-                    '/') + 1:filepath0.rfind('.')]
+                filename = filepath0[
+                    filepath0.rfind('/') + 1: filepath0.rfind('.')
+                ]
             else:
                 filename = filepath0[:filepath0.rfind('.')]
 

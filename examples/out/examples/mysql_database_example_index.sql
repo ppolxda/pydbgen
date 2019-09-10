@@ -1,5 +1,5 @@
 -- ----------------------------
--- -- Table for users user_info {}
+-- -- Table for users user_info {'space': 'user_spaces'}
 -- ----------------------------
 ALTER TABLE `users`.`user_info`
 ADD UNIQUE INDEX `logincode_unique` (`loginCode`) USING BTREE,

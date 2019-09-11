@@ -2,7 +2,7 @@
     def get_sort(field):
         return '1' if field['db_options'].get('sort', 'ASC') == 'ASC' else '\'hashed\'' if field['db_options'].get('sort', 'ASC') == 'HASHED' else '-1'
 %>
-% for dbname, tname, iname, iconfig, tconfig, topts in loop_indexs():
+% for dbname, tname, iname, iconfig, tconfig, topts in loop_indexs(p2r=True):
     % if iconfig['db_options']['index_type'] != 'SHARDING_KEY':
         <% continue %>
     % endif

@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x11\x64\x61ta_define.proto\x1a google/protobuf/descriptor.proto\"\n\n\x08\x64\x61tetime\"\x06\n\x04\x64\x61te\"\x05\n\x03\x61ny\"\x06\n\x04json\"\x07\n\x05jsonb*v\n\x0e\x45numDefineType\x12\x08\n\x04NONE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\x0f\n\x0bTABLE_GROUP\x10\x02\x12\x0c\n\x08\x44\x41TABASE\x10\x03\x12\x0e\n\nTABLESPACE\x10\x04\x12\t\n\x05\x43LASS\x10\x05\x12\n\n\x06OUTPUT\x10\x06\x12\t\n\x05INDEX\x10\x07*_\n\rEnumIndexType\x12\x0c\n\x08NONE_KEY\x10\x00\x12\r\n\tINDEX_KEY\x10\x01\x12\x0e\n\nUNIQUE_KEY\x10\x02\x12\x0f\n\x0b\x46OREIGN_KEY\x10\x03\x12\x10\n\x0cSHARDING_KEY\x10\x04*\'\n\x0c\x45numIsEnable\x12\x0b\n\x07\x44ISABLE\x10\x00\x12\n\n\x06\x45NABLE\x10\x01*\xf2\x01\n\x10\x45numShardingMode\x12\x0e\n\nSM_DISABLE\x10\x00\x12\r\n\tSM_ENABLE\x10\x01\x12\r\n\tSM_HASHED\x10\x02\x12\x0c\n\x08SM_RANGE\x10\x03\x12\x11\n\rSM_RANGE_YEAR\x10\x04\x12\x12\n\x0eSM_RANGE_MONTH\x10\x05\x12\x10\n\x0cSM_RANGE_DAY\x10\x06\x12\x0f\n\x0bSM_RANGE_ID\x10\x07\x12\x15\n\x11SM_PARTITION_YEAR\x10\x08\x12\x16\n\x12SM_PARTITION_MONTH\x10\t\x12\x14\n\x10SM_PARTITION_DAY\x10\n\x12\x13\n\x0fSM_PARTITION_ID\x10\x0b*-\n\x0c\x45numSortType\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\x12\n\n\x06HASHED\x10\x02*-\n\x0f\x45numBulkOrdered\x12\x0b\n\x07ORDERED\x10\x00\x12\r\n\tUNORDERED\x10\x01:D\n\x08msg_type\x12\x1f.google.protobuf.MessageOptions\x18\xa1\x8d\x06 \x01(\x0e\x32\x0f.EnumDefineType:E\n\nindex_type\x12\x1f.google.protobuf.MessageOptions\x18\xab\x8d\x06 \x01(\x0e\x32\x0e.EnumIndexType:4\n\tis_unique\x12\x1f.google.protobuf.MessageOptions\x18\xac\x8d\x06 \x01(\x08:A\n\x16is_sharding_not_unique\x12\x1f.google.protobuf.MessageOptions\x18\xa2\x8d\x06 \x01(\x08:I\n\x0c\x62ulk_ordered\x12\x1f.google.protobuf.MessageOptions\x18\xa9\x8d\x06 \x01(\x0e\x32\x10.EnumBulkOrdered:3\n\x08location\x12\x1f.google.protobuf.MessageOptions\x18\xaa\x8d\x06 \x01(\t:/\n\x06maxlen\x12\x1d.google.protobuf.FieldOptions\x18\x91\xbf\x05 \x01(\x05:/\n\x06minlen\x12\x1d.google.protobuf.FieldOptions\x18\x92\xbf\x05 \x01(\x05:/\n\x06maxval\x12\x1d.google.protobuf.FieldOptions\x18\x93\xbf\x05 \x01(\x05:/\n\x06minval\x12\x1d.google.protobuf.FieldOptions\x18\x94\xbf\x05 \x01(\x05:/\n\x06\x64\x65\x63len\x12\x1d.google.protobuf.FieldOptions\x18\x95\xbf\x05 \x01(\x05:1\n\x08\x64\x65\x63point\x12\x1d.google.protobuf.FieldOptions\x18\x96\xbf\x05 \x01(\x05:,\n\x03key\x12\x1d.google.protobuf.FieldOptions\x18\x97\xbf\x05 \x01(\x08:,\n\x03inc\x12\x1d.google.protobuf.FieldOptions\x18\x98\xbf\x05 \x01(\x08:/\n\x06update\x12\x1d.google.protobuf.FieldOptions\x18\x99\xbf\x05 \x01(\x08:/\n\x06\x64\x65\x66val\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xf7\x36 \x01(\t:<\n\x04sort\x12\x1d.google.protobuf.FieldOptions\x18\xac\xf7\x36 \x01(\x0e\x32\r.EnumSortType:.\n\x05space\x12\x1d.google.protobuf.FieldOptions\x18\xaf\xf7\x36 \x01(\t:0\n\x07is_temp\x12\x1d.google.protobuf.FieldOptions\x18\xb7\xf7\x36 \x01(\x08:I\n\rsharding_mode\x12\x1d.google.protobuf.FieldOptions\x18\xb0\xf7\x36 \x01(\x0e\x32\x11.EnumShardingMode:5\n\x0csharding_key\x12\x1d.google.protobuf.FieldOptions\x18\xb6\xf7\x36 \x01(\t:6\n\rsharding_step\x12\x1d.google.protobuf.FieldOptions\x18\xb1\xf7\x36 \x01(\x05:5\n\x0csharding_max\x12\x1d.google.protobuf.FieldOptions\x18\xb2\xf7\x36 \x01(\x05:5\n\x0csharding_min\x12\x1d.google.protobuf.FieldOptions\x18\xb3\xf7\x36 \x01(\x05:<\n\x13sharding_date_begin\x12\x1d.google.protobuf.FieldOptions\x18\xb4\xf7\x36 \x01(\t::\n\x11sharding_date_end\x12\x1d.google.protobuf.FieldOptions\x18\xb5\xf7\x36 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x11\x64\x61ta_define.proto\x1a google/protobuf/descriptor.proto\"\n\n\x08\x64\x61tetime\"\x06\n\x04\x64\x61te\"\x05\n\x03\x61ny\"\x06\n\x04json\"\x07\n\x05jsonb*v\n\x0e\x45numDefineType\x12\x08\n\x04NONE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\x0f\n\x0bTABLE_GROUP\x10\x02\x12\x0c\n\x08\x44\x41TABASE\x10\x03\x12\x0e\n\nTABLESPACE\x10\x04\x12\t\n\x05\x43LASS\x10\x05\x12\n\n\x06OUTPUT\x10\x06\x12\t\n\x05INDEX\x10\x07*_\n\rEnumIndexType\x12\x0c\n\x08NONE_KEY\x10\x00\x12\r\n\tINDEX_KEY\x10\x01\x12\x0e\n\nUNIQUE_KEY\x10\x02\x12\x0f\n\x0b\x46OREIGN_KEY\x10\x03\x12\x10\n\x0cSHARDING_KEY\x10\x04*\'\n\x0c\x45numIsEnable\x12\x0b\n\x07\x44ISABLE\x10\x00\x12\n\n\x06\x45NABLE\x10\x01*\xa2\x02\n\x10\x45numShardingMode\x12\x0e\n\nSM_DISABLE\x10\x00\x12\r\n\tSM_ENABLE\x10\x01\x12\r\n\tSM_HASHED\x10\x02\x12\x0c\n\x08SM_RANGE\x10\x03\x12\x11\n\rSM_RANGE_YEAR\x10\n\x12\x14\n\x10SM_RANGE_QUARTER\x10\x0b\x12\x12\n\x0eSM_RANGE_MONTH\x10\x0c\x12\x10\n\x0cSM_RANGE_DAY\x10\r\x12\x0f\n\x0bSM_RANGE_ID\x10\x0e\x12\x15\n\x11SM_PARTITION_YEAR\x10\x14\x12\x18\n\x14SM_PARTITION_QUARTER\x10\x15\x12\x16\n\x12SM_PARTITION_MONTH\x10\x16\x12\x14\n\x10SM_PARTITION_DAY\x10\x17\x12\x13\n\x0fSM_PARTITION_ID\x10\x18*-\n\x0c\x45numSortType\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\x12\n\n\x06HASHED\x10\x02*-\n\x0f\x45numBulkOrdered\x12\x0b\n\x07ORDERED\x10\x00\x12\r\n\tUNORDERED\x10\x01:D\n\x08msg_type\x12\x1f.google.protobuf.MessageOptions\x18\xa1\x8d\x06 \x01(\x0e\x32\x0f.EnumDefineType:E\n\nindex_type\x12\x1f.google.protobuf.MessageOptions\x18\xab\x8d\x06 \x01(\x0e\x32\x0e.EnumIndexType:4\n\tis_unique\x12\x1f.google.protobuf.MessageOptions\x18\xac\x8d\x06 \x01(\x08:A\n\x16is_sharding_not_unique\x12\x1f.google.protobuf.MessageOptions\x18\xa2\x8d\x06 \x01(\x08:I\n\x0c\x62ulk_ordered\x12\x1f.google.protobuf.MessageOptions\x18\xa9\x8d\x06 \x01(\x0e\x32\x10.EnumBulkOrdered:3\n\x08location\x12\x1f.google.protobuf.MessageOptions\x18\xaa\x8d\x06 \x01(\t:/\n\x06maxlen\x12\x1d.google.protobuf.FieldOptions\x18\x91\xbf\x05 \x01(\x05:/\n\x06minlen\x12\x1d.google.protobuf.FieldOptions\x18\x92\xbf\x05 \x01(\x05:/\n\x06maxval\x12\x1d.google.protobuf.FieldOptions\x18\x93\xbf\x05 \x01(\x05:/\n\x06minval\x12\x1d.google.protobuf.FieldOptions\x18\x94\xbf\x05 \x01(\x05:/\n\x06\x64\x65\x63len\x12\x1d.google.protobuf.FieldOptions\x18\x95\xbf\x05 \x01(\x05:1\n\x08\x64\x65\x63point\x12\x1d.google.protobuf.FieldOptions\x18\x96\xbf\x05 \x01(\x05:,\n\x03key\x12\x1d.google.protobuf.FieldOptions\x18\x97\xbf\x05 \x01(\x08:,\n\x03inc\x12\x1d.google.protobuf.FieldOptions\x18\x98\xbf\x05 \x01(\x08:/\n\x06update\x12\x1d.google.protobuf.FieldOptions\x18\x99\xbf\x05 \x01(\x08:/\n\x06\x64\x65\x66val\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xf7\x36 \x01(\t:<\n\x04sort\x12\x1d.google.protobuf.FieldOptions\x18\xac\xf7\x36 \x01(\x0e\x32\r.EnumSortType:.\n\x05space\x12\x1d.google.protobuf.FieldOptions\x18\xaf\xf7\x36 \x01(\t:0\n\x07is_temp\x12\x1d.google.protobuf.FieldOptions\x18\xb7\xf7\x36 \x01(\x08:I\n\rsharding_mode\x12\x1d.google.protobuf.FieldOptions\x18\xb0\xf7\x36 \x01(\x0e\x32\x11.EnumShardingMode:5\n\x0csharding_key\x12\x1d.google.protobuf.FieldOptions\x18\xb6\xf7\x36 \x01(\t:6\n\rsharding_step\x12\x1d.google.protobuf.FieldOptions\x18\xb1\xf7\x36 \x01(\x05:5\n\x0csharding_max\x12\x1d.google.protobuf.FieldOptions\x18\xb2\xf7\x36 \x01(\x05:5\n\x0csharding_min\x12\x1d.google.protobuf.FieldOptions\x18\xb3\xf7\x36 \x01(\x05:<\n\x13sharding_date_begin\x12\x1d.google.protobuf.FieldOptions\x18\xb4\xf7\x36 \x01(\t::\n\x11sharding_date_end\x12\x1d.google.protobuf.FieldOptions\x18\xb5\xf7\x36 \x01(\tb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
@@ -154,42 +154,50 @@ _ENUMSHARDINGMODE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_RANGE_YEAR', index=4, number=4,
+      name='SM_RANGE_YEAR', index=4, number=10,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_RANGE_MONTH', index=5, number=5,
+      name='SM_RANGE_QUARTER', index=5, number=11,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_RANGE_DAY', index=6, number=6,
+      name='SM_RANGE_MONTH', index=6, number=12,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_RANGE_ID', index=7, number=7,
+      name='SM_RANGE_DAY', index=7, number=13,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_PARTITION_YEAR', index=8, number=8,
+      name='SM_RANGE_ID', index=8, number=14,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_PARTITION_MONTH', index=9, number=9,
+      name='SM_PARTITION_YEAR', index=9, number=20,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_PARTITION_DAY', index=10, number=10,
+      name='SM_PARTITION_QUARTER', index=10, number=21,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SM_PARTITION_ID', index=11, number=11,
+      name='SM_PARTITION_MONTH', index=11, number=22,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SM_PARTITION_DAY', index=12, number=23,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SM_PARTITION_ID', index=13, number=24,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=358,
-  serialized_end=600,
+  serialized_end=648,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMSHARDINGMODE)
 
@@ -215,8 +223,8 @@ _ENUMSORTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=602,
-  serialized_end=647,
+  serialized_start=650,
+  serialized_end=695,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMSORTTYPE)
 
@@ -238,8 +246,8 @@ _ENUMBULKORDERED = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=649,
-  serialized_end=694,
+  serialized_start=697,
+  serialized_end=742,
 )
 _sym_db.RegisterEnumDescriptor(_ENUMBULKORDERED)
 
@@ -263,14 +271,16 @@ SM_DISABLE = 0
 SM_ENABLE = 1
 SM_HASHED = 2
 SM_RANGE = 3
-SM_RANGE_YEAR = 4
-SM_RANGE_MONTH = 5
-SM_RANGE_DAY = 6
-SM_RANGE_ID = 7
-SM_PARTITION_YEAR = 8
-SM_PARTITION_MONTH = 9
-SM_PARTITION_DAY = 10
-SM_PARTITION_ID = 11
+SM_RANGE_YEAR = 10
+SM_RANGE_QUARTER = 11
+SM_RANGE_MONTH = 12
+SM_RANGE_DAY = 13
+SM_RANGE_ID = 14
+SM_PARTITION_YEAR = 20
+SM_PARTITION_QUARTER = 21
+SM_PARTITION_MONTH = 22
+SM_PARTITION_DAY = 23
+SM_PARTITION_ID = 24
 ASC = 0
 DESC = 1
 HASHED = 2

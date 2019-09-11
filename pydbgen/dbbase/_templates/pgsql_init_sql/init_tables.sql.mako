@@ -48,7 +48,8 @@
 % for dbname, tname, tconfig, topts in loop_func():
 <% pkey = [field['name'] for field in tconfig['fields'] if field['db_options']['key']] %>
 ## <% has_pkey = pkey and (not partition_keys or partition_keys == pkey): %>
-<% has_pkey = pkey %>
+<% is_partitions = is_partition(topts) %>
+<% has_pkey = pkey and not is_partitions %>
 -- ----------------------------
 -- -- Table for ${dbname} ${tname} ${dict(topts)}
 -- ----------------------------
@@ -85,11 +86,27 @@ ${field['name']} int2 NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields']
 PRIMARY KEY (${ key_fmt(pkey) })
 % endif
 )
-## % if partition_keys:
-## PARTITION BY RANGE (${','.join(partition_keys)})
-## % endif
+% if is_partitions:
+PARTITION BY RANGE (${ key_fmt(topts['sharding_key'].split(',')) })
+% endif
 % if topts.get('space', None):
 TABLESPACE "${topts['space']}"
 % endif
 ;
+
+% if is_partitions:
+    % for pname, start, end in loop_sharding_range2(tname, topts, p2r=True):
+CREATE TABLE ${dbname}.${pname} PARTITION OF ${dbname}.${tname}
+FOR VALUES FROM ('${start}') TO ('${end}');
+    % endfor
+    % if pkey:
+CREATE UNIQUE INDEX "${dbname}.${tname}_primary" ON ${dbname}.${tname} USING btree (
+    ${ key_fmt(topts['sharding_key'].split(',') + pkey) }
+)
+        % if topts.get('space', None):
+TABLESPACE "${topts['space']}"
+        % endif
+;
+    % endif
+% endif
 % endfor

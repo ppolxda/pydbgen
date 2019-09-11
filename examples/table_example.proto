@@ -60,13 +60,7 @@ message order {
 
     message order_sharding {
         option (msg_type) = INDEX;
-        option (index_type) = SHARDING_KEY;
-        string userId = 1[(sort)=DESC];
-    }
-
-    message phone_index {
-        option (msg_type) = INDEX;
         option (index_type) = INDEX_KEY;
-        string phone = 1;
+        string userId = 1[(sort)=DESC];
     }
 }

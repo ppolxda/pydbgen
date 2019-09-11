@@ -55,8 +55,9 @@ EnumIndexType = data_define_pb2.EnumIndexType
 #     data_define_pb2.defval,
 # ]
 SHAIDING_RANGE_ID = {'SM_RANGE_ID'}
-SHAIDING_RANGE_DATE = {'SM_RANGE_YEAR', 'SM_RANGE_MONTH', 'SM_RANGE_DAY'}
-SHAIDING_PARTITION_DATE = {'SM_PARTITION_YEAR',
+SHAIDING_RANGE_DATE = {'SM_RANGE_YEAR', 'SM_RANGE_QUARTER',
+                       'SM_RANGE_MONTH', 'SM_RANGE_DAY'}
+SHAIDING_PARTITION_DATE = {'SM_PARTITION_YEAR', 'SM_PARTITION_QUARTER',
                            'SM_PARTITION_MONTH', 'SM_PARTITION_DAY'}
 SHAIDING_PARTITION_ID = {'SM_PARTITION_ID'}
 SHAIDING_RANGE = (SHAIDING_RANGE_ID | SHAIDING_RANGE_DATE |
@@ -293,9 +294,9 @@ def strip(val):
 def create_dict_path(output_dict, path, **kwargs):
     u"""create_dict_path.
 
-    :param output: dict 
+    :param output: dict
     :param path: string   a.b.c
-    :returns: dict 
+    :returns: dict
     """
     dot_pot = path.find('.')
     if dot_pot > 0:
@@ -360,13 +361,15 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
         # Parse request
         for item, package, local_path in traverse(proto_file):
             package_full = package + '.' + item.name
-            is_in_set(name_list, package_full, 'package path name duplicate[{}]')
+            is_in_set(name_list, package_full,
+                      'package path name duplicate[{}]')
 
             if isinstance(item, DescriptorProto):
                 msg_type = item.options.Extensions[data_define_pb2.msg_type]
                 msg_type = EnumDefineType.Name(msg_type)
                 if msg_type == 'TABLE':
-                    is_in_set(table_name_list, item.name, 'table name duplicate[{}]')
+                    is_in_set(table_name_list, item.name,
+                              'table name duplicate[{}]')
 
             output_one = create_dict_path(
                 output, package_full, type='package')
@@ -485,7 +488,17 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
         table['database'] = list(set(table['database']))
         table['database'].sort()
         table['sharding'][db['name']] = db['db_options'].get(
-            'sharding_mode', 'SM_DISABLE')
+            'sharding_mode', 'SM_DISABLE'
+        )
+        table_fields = {i['name'] for i in table['fields']}
+        for index in table['members'].values():
+            index_fields = {i['name'] for i in index['fields']}
+            diff = index_fields - table_fields
+            if diff:
+                raise TypeError(
+                    'index field invaild[table {}][index {}][keys {}]'.format(
+                        table['name'], index['name'], diff)
+                )
 
     # new table databases config
     for dbname, dbconfig in output['DATABASES']['members'].items():
@@ -498,6 +511,9 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
             else:
                 table = output['TABLES']['members'][_table['type']]
                 append_database(dbconfig, table)
+
+    for table in output['TABLES']['members']:
+        pass
     return output
 
 

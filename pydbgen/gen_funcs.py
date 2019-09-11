@@ -15,6 +15,46 @@ import functools
 import pkg_resources
 from mako.template import Template
 
+SHAIDING_RANGE_ID = {'SM_RANGE_ID'}
+SHAIDING_RANGE_DATE = {'SM_RANGE_YEAR', 'SM_RANGE_QUARTER',
+                       'SM_RANGE_MONTH', 'SM_RANGE_DAY'}
+SHAIDING_PARTITION_DATE = {'SM_PARTITION_YEAR', 'SM_PARTITION_QUARTER',
+                           'SM_PARTITION_MONTH', 'SM_PARTITION_DAY'}
+SHAIDING_PARTITION_ID = {'SM_PARTITION_ID'}
+SHAIDING_RANGE = (SHAIDING_RANGE_ID | SHAIDING_RANGE_DATE |
+                  SHAIDING_PARTITION_DATE | SHAIDING_PARTITION_ID)
+
+SHAIDING_P2R = {
+    'SM_PARTITION_YEAR': 'SM_RANGE_YEAR',
+    'SM_PARTITION_QUARTER': 'SM_RANGE_QUARTER',
+    'SM_PARTITION_MONTH': 'SM_RANGE_MONTH',
+    'SM_PARTITION_DAY': 'SM_RANGE_DAY'
+}
+
+
+def partition2range(mode):
+    if isinstance(mode, dict):
+        mode = mode.get('sharding_mode', 'SM_DISABLE')
+    return SHAIDING_P2R[mode]
+
+
+def is_partition(mode):
+    if isinstance(mode, dict):
+        mode = mode.get('sharding_mode', 'SM_DISABLE')
+    return mode in SHAIDING_PARTITION_DATE
+
+
+def is_range(mode):
+    if isinstance(mode, dict):
+        mode = mode.get('sharding_mode', 'SM_DISABLE')
+    return mode in SHAIDING_RANGE_DATE
+
+
+def is_shaiding(mode):
+    if isinstance(mode, dict):
+        mode = mode.get('sharding_mode', 'SM_DISABLE')
+    return mode in SHAIDING_RANGE
+
 
 class Field(object):
 
@@ -225,6 +265,11 @@ def datetime2month_string(_datetime):
     return _datetime.strftime('%Y%m')
 
 
+def datetime2quarter_string(_datetime):
+    assert isinstance(_datetime, datetime.datetime)
+    return '{}Q{}'.format(_datetime.year, (_datetime.month - 1) // 3 + 1)
+
+
 def datetime2date_string(_datetime):
     assert isinstance(_datetime, datetime.datetime)
     return _datetime.strftime('%Y%m%d')
@@ -288,52 +333,72 @@ def loop_datetime_range(_start, _end, days=0, months=0, years=0):
 
 
 def loop_datetime_range2(_start, _end, days=0, months=0, years=0):
-    for i in loop_datetime(_start, _end, days, months, years):
-        if years > 0:
-            _end = i.replace(year=i.year + 1) - \
-                datetime.timedelta(seconds=1)
-            yield i, _end
-
-        elif months > 0:
-            div, mod = divmod(i.month + months - 1, 12)
-            _end = i.replace(year=i.year + div, month=mod + 1) - \
-                datetime.timedelta(seconds=1)
-            yield i, _end
-
-        elif days > 0:
-            _end = i + datetime.timedelta(days=days) - \
-                datetime.timedelta(seconds=1)
-            yield i, _end
-        else:
-            raise TypeError('loop_datetime days=0, months=0 invaild')
+    for i, _end in loop_datetime_range(_start, _end, days, months, years):
+        yield i, _end - datetime.timedelta(seconds=1)
 
 
-def loop_sharding(name, _dbconfig):
+def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
     sharding_mode = _dbconfig.get('sharding_mode', 'SM_DISABLE')  # noqa
     sharding_date_begin = string2datetime(_dbconfig.get('sharding_date_begin', '1900-01-01'))  # noqa
     sharding_date_end = string2datetime(_dbconfig.get('sharding_date_end', '1900-01-01'))  # noqa
     sharding_step = _dbconfig.get('sharding_step', 5000000)  # noqa
     sharding_max = _dbconfig.get('sharding_max', 0)  # noqa
     sharding_min = _dbconfig.get('sharding_min', 0)  # noqa
+    if mode:
+        sharding_mode = mode
+
+    if p2r and is_partition(sharding_mode):
+        sharding_mode = partition2range(sharding_mode)
 
     if sharding_mode == 'SM_RANGE_ID':
         for _i in range(sharding_min, sharding_max, sharding_step):
-            yield name + '_' + str(_i)
+            yield name + '_' + str(_i), _i, _i + sharding_step - 1
     elif sharding_mode == 'SM_RANGE_YEAR':
-        for _date in loop_datetime(sharding_date_begin,
-                                   sharding_date_end, years=1):
-            yield name + '_' + datetime2year_string(_date)
+        for start_date, end_date in loop_datetime_range(
+                sharding_date_begin, sharding_date_end, years=1):
+
+            yield ('_'.join([name, datetime2year_string(start_date)]),
+                   start_date, end_date)
+    elif sharding_mode == 'SM_RANGE_QUARTER':
+        qr = None
+        for start_date, end_date in loop_datetime_range(
+                sharding_date_begin, sharding_date_end, months=1):
+            _qr = datetime2quarter_string(start_date)
+            if qr == _qr:
+                continue
+
+            qr = _qr
+            yield ('_'.join([name, _qr]), start_date, end_date)
+
     elif sharding_mode == 'SM_RANGE_MONTH':
-        for _date in loop_datetime(sharding_date_begin,
-                                   sharding_date_end, months=1):
-            yield name + '_' + datetime2month_string(_date)
+        for start_date, end_date in loop_datetime_range(
+                sharding_date_begin, sharding_date_end, months=1):
+            yield ('_'.join([name, datetime2month_string(start_date)]),
+                   start_date, end_date)
+
     elif sharding_mode == 'SM_RANGE_DAY':
-        for _date in loop_datetime(sharding_date_begin,
-                                   sharding_date_end, days=1):
-            yield name + '_' + datetime2date_string(_date)
+        for start_date, end_date in loop_datetime_range(
+                sharding_date_begin, sharding_date_end, days=1):
+            yield ('_'.join([name, datetime2date_string(start_date)]),
+                   start_date, end_date)
+
     # elif sharding_mode == 'SM_ENABLE':
     #     yield name
     else:
+        yield name, None, None
+
+
+def loop_sharding_range2(name, _dbconfig, mode=None, p2r=False):
+    for name, start, end in loop_sharding_range(name, _dbconfig, mode, p2r):
+        if isinstance(start, datetime.datetime):
+            start -= datetime.timedelta(seconds=1)
+        if isinstance(end, datetime.datetime):
+            end -= datetime.timedelta(seconds=1)
+        yield name, start, end
+
+
+def loop_sharding(name, _dbconfig, mode=None, p2r=False):
+    for name, _, _ in loop_sharding_range(name, _dbconfig, mode, p2r):
         yield name
 
 
@@ -350,7 +415,7 @@ def loop_datbases(_json):
                 yield dbname, _db_config, db_config['db_options']
 
 
-def loop_all_tables(_json):
+def loop_all_tables(_json, p2r=False):
     for dbname, db_config, db_opts in loop_datbases(_json):
 
         for t_config in db_config['fields']:
@@ -369,7 +434,8 @@ def loop_all_tables(_json):
                     opts = db_opts.copy()
                     opts.update(tt['db_options'])
 
-                    for tname in loop_sharding(_t_config['name'], opts):
+                    for tname in loop_sharding(
+                            _t_config['name'], opts, p2r=p2r):
                         yield dbname, tname, _t_config, opts
 
             elif t_name in _json['TABLES']['members']:
@@ -378,7 +444,7 @@ def loop_all_tables(_json):
                 opts = db_opts.copy()
                 opts.update(t_config['db_options'])
 
-                for tname in loop_sharding(_t_config['name'], opts):
+                for tname in loop_sharding(_t_config['name'], opts, p2r=p2r):
                     yield dbname, tname, _t_config, opts
 
             else:
@@ -386,20 +452,20 @@ def loop_all_tables(_json):
                     'TABLES or TABLE_GROUPS members not has {}'.format(t_name))
 
 
-def loop_tables(_json):
-    for dbname, tname, tconfig, topts in loop_all_tables(_json):
+def loop_tables(_json, p2r=False):
+    for dbname, tname, tconfig, topts in loop_all_tables(_json, p2r):
         if not topts.get('is_temp', False):
             yield dbname, tname, tconfig, topts
 
 
-def loop_temp_tables(_json):
-    for dbname, tname, tconfig, topts in loop_all_tables(_json):
+def loop_temp_tables(_json, p2r=False):
+    for dbname, tname, tconfig, topts in loop_all_tables(_json, p2r):
         if topts.get('is_temp', False):
             yield dbname, tname, tconfig, topts
 
 
-def loop_indexs(_json):
-    for dbname, tname, tconfig, topts in loop_tables(_json):
+def loop_indexs(_json, p2r=False):
+    for dbname, tname, tconfig, topts in loop_tables(_json, p2r):
         for iname, iconfig in tconfig['members'].items():
             if iconfig['msg_type'] != 'INDEX':
                 continue
@@ -433,6 +499,13 @@ def generate_file(template_name, **kwargs):
     kwargs['timedelta'] = datetime.timedelta
     kwargs['json_dumps'] = json.dumps
 
+    kwargs['is_partition'] = is_partition
+    kwargs['is_range'] = is_range
+    kwargs['is_shaiding'] = is_shaiding
+
+    kwargs['loop_sharding'] = loop_sharding
+    kwargs['loop_sharding_range'] = loop_sharding_range
+    kwargs['loop_sharding_range2'] = loop_sharding_range2
     kwargs['loop_datbases'] = functools.partial(loop_datbases, kwargs.copy())
     kwargs['loop_tables'] = functools.partial(loop_tables, kwargs.copy())
     kwargs['loop_temp_tables'] = functools.partial(

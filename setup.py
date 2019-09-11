@@ -6,10 +6,10 @@ u"""
 
 @desc:
 """
-import os
-import sys
-import codecs
-import shutil
+# import os
+# import sys
+# import codecs
+# import shutil
 from setuptools import setup, find_packages, findall
 from pkg_resources import load_entry_point
 
@@ -18,18 +18,18 @@ from pkg_resources import load_entry_point
 # print(findall('pydbgen/_templates'))
 # print(findall('pydbgen/_proto'))
 # print(os.path.join(sys.prefix, 'MyApp', 'CBV'))
-is_py2 = sys.version_info.major == 2
-is_windows = sys.platform.startswith('win')
+# is_py2 = sys.version_info.major == 2
+# is_windows = sys.platform.startswith('win')
 
 
-def lf2crlf(path, encoding='utf8'):
-    with codecs.open(path, 'r', encoding=encoding) as fs:
-        data = fs.read()
+# def lf2crlf(path, encoding='utf8'):
+#     with codecs.open(path, 'r', encoding=encoding) as fs:
+#         data = fs.read()
 
-    with codecs.open(path, 'w', encoding=encoding) as fs:
-        data = data.replace('\r', '')
-        data = data.replace('\n', '\r\n')
-        fs.write(data)
+#     with codecs.open(path, 'w', encoding=encoding) as fs:
+#         data = data.replace('\r', '')
+#         data = data.replace('\n', '\r\n')
+#         fs.write(data)
 
 
 datas = findall('pydbgen/dbbase/_proto')
@@ -39,7 +39,7 @@ datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(
     name="pydbgen",
-    version="0.0.1",
+    version="0.0.2",
     install_requires=[
         'mako',
         'autopep8',
@@ -60,10 +60,10 @@ setup(
         ]
     },
     # scripts=bin_list_build(),
-    python_requires=">=2.7",
+    python_requires=">=3.6",
     author="ppolxda",
     author_email="sa@sa.com",
-    description="This is an pybcexapis Package",
+    description="pydbgen",
     license="PSF",
     keywords="examples",
     # url="http://example.com/HelloWorld/",

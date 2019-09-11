@@ -41,7 +41,8 @@
 % for dbname, tname, tconfig, topts in loop_tables():
 <% pkey = [field['name'] for field in tconfig['fields'] if field['db_options']['key']] %>
 ## <% has_pkey = pkey and (not partition_keys or partition_keys == pkey): %>
-<% has_pkey = pkey %>
+<% is_partitions = is_partition(topts) %>
+<% has_pkey = pkey and not is_partitions %>
 -- ----------------------------
 -- -- Table for ${dbname} ${tname} ${dict(topts)}
 -- ----------------------------
@@ -78,5 +79,12 @@ PRIMARY KEY (${ key_fmt(pkey) })
 )
 ENGINE=InnoDB
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+% if is_partitions:
+PARTITION BY RANGE (${ key_fmt(topts['sharding_key'].split(',')) }) (
+    <% partitions = ['PARTITION p{0}{1} VALUES LESS THAN (\'{2}\')'.format(dbname, pname, end) for pname, start, end in loop_sharding_range(tname, topts, p2r=True)] %>
+${',\n    '.join(partitions)}
+    PARTITION future VALUES LESS THAN MAXVALUE
+)
+% endif
 ;
 % endfor

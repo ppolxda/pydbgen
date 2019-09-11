@@ -398,7 +398,7 @@
                             "is_sharding_not_unique": false,
                             "bulk_ordered": "ORDERED",
                             "location": "",
-                            "index_type": "SHARDING_KEY",
+                            "index_type": "INDEX_KEY",
                             "is_unique": false
                         },
                         "fields": [
@@ -416,40 +416,6 @@
                                 "db_options": {
                                     "sort": "DESC"
                                 }
-                            }
-                        ]
-                    },
-                    "phone_index": {
-                        "type": "message",
-                        "name": "phone_index",
-                        "members": {},
-                        "msg_type": "INDEX",
-                        "options": {
-                            "message_set_wire_format": false,
-                            "no_standard_descriptor_accessor": false,
-                            "deprecated": false,
-                            "map_entry": false
-                        },
-                        "db_options": {
-                            "is_sharding_not_unique": false,
-                            "bulk_ordered": "ORDERED",
-                            "location": "",
-                            "index_type": "INDEX_KEY",
-                            "is_unique": false
-                        },
-                        "fields": [
-                            {
-                                "name": "phone",
-                                "type": "string",
-                                "comments": "",
-                                "options": {
-                                    "label": "optional",
-                                    "type_name": "",
-                                    "extendee": "",
-                                    "default_value": "",
-                                    "json_name": "phone"
-                                },
-                                "db_options": {}
                             }
                         ]
                     }
@@ -596,7 +562,7 @@
                             "json_name": "order"
                         },
                         "db_options": {
-                            "sharding_mode": "SM_RANGE_DAY",
+                            "sharding_mode": "SM_PARTITION_DAY",
                             "sharding_key": "orderTime"
                         }
                     }
@@ -703,7 +669,7 @@
                             "json_name": "trade"
                         },
                         "db_options": {
-                            "sharding_mode": "SM_RANGE_MONTH",
+                            "sharding_mode": "SM_RANGE_QUARTER",
                             "sharding_date_begin": "20190101",
                             "sharding_date_end": "20200101"
                         }

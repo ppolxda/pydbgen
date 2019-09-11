@@ -102,8 +102,8 @@ extend google.protobuf.FieldOptions {
     int32 maxlen = 90001;  // string|byte max length
     int32 minlen = 90002;  // string|byte min length
 
-    int32 maxval = 90003;  // int|float max value
-    int32 minval = 90004;  // int|float min value
+    float maxval = 90003;  // int|float max value
+    float minval = 90004;  // int|float min value
 
     int32 declen = 90005;  // decimal length
     int32 decpoint = 90006;  // decimal point length

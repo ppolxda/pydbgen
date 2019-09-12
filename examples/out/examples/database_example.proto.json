@@ -137,7 +137,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {
                     "t_sharding_key": {
@@ -156,7 +158,9 @@
                             "bulk_ordered": "ORDERED",
                             "location": "",
                             "index_type": "SHARDING_KEY",
-                            "is_unique": true
+                            "is_unique": true,
+                            "foreign_update": "FA_NONE",
+                            "foreign_delete": "FA_NONE"
                         },
                         "fields": [
                             {
@@ -192,7 +196,9 @@
                             "bulk_ordered": "ORDERED",
                             "location": "",
                             "index_type": "UNIQUE_KEY",
-                            "is_unique": false
+                            "is_unique": false,
+                            "foreign_update": "FA_NONE",
+                            "foreign_delete": "FA_NONE"
                         },
                         "fields": [
                             {
@@ -226,7 +232,9 @@
                             "bulk_ordered": "ORDERED",
                             "location": "",
                             "index_type": "INDEX_KEY",
-                            "is_unique": false
+                            "is_unique": false,
+                            "foreign_update": "FA_NONE",
+                            "foreign_delete": "FA_NONE"
                         },
                         "fields": [
                             {
@@ -344,7 +352,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {
                     "t_sharding_key": {
@@ -363,7 +373,9 @@
                             "bulk_ordered": "ORDERED",
                             "location": "",
                             "index_type": "SHARDING_KEY",
-                            "is_unique": true
+                            "is_unique": true,
+                            "foreign_update": "FA_NONE",
+                            "foreign_delete": "FA_NONE"
                         },
                         "fields": [
                             {
@@ -383,6 +395,79 @@
                             }
                         ]
                     },
+                    "userid_foreign": {
+                        "type": "message",
+                        "name": "userid_foreign",
+                        "members": {
+                            "user_info": {
+                                "type": "message",
+                                "name": "user_info",
+                                "members": {},
+                                "msg_type": "INDEX",
+                                "options": {
+                                    "message_set_wire_format": false,
+                                    "no_standard_descriptor_accessor": false,
+                                    "deprecated": false,
+                                    "map_entry": false
+                                },
+                                "db_options": {
+                                    "is_sharding_not_unique": false,
+                                    "bulk_ordered": "ORDERED",
+                                    "location": "",
+                                    "index_type": "FOREIGN_KEY",
+                                    "is_unique": false,
+                                    "foreign_update": "FA_NONE",
+                                    "foreign_delete": "FA_NONE"
+                                },
+                                "fields": [
+                                    {
+                                        "name": "userId",
+                                        "type": "int32",
+                                        "comments": "",
+                                        "options": {
+                                            "label": "optional",
+                                            "type_name": "",
+                                            "extendee": "",
+                                            "default_value": "",
+                                            "json_name": "userId"
+                                        },
+                                        "db_options": {}
+                                    }
+                                ]
+                            }
+                        },
+                        "msg_type": "INDEX",
+                        "options": {
+                            "message_set_wire_format": false,
+                            "no_standard_descriptor_accessor": false,
+                            "deprecated": false,
+                            "map_entry": false
+                        },
+                        "db_options": {
+                            "is_sharding_not_unique": false,
+                            "bulk_ordered": "ORDERED",
+                            "location": "",
+                            "index_type": "FOREIGN_KEY",
+                            "is_unique": false,
+                            "foreign_update": "FA_CASCADE",
+                            "foreign_delete": "FA_RESTRICT"
+                        },
+                        "fields": [
+                            {
+                                "name": "userId",
+                                "type": "int32",
+                                "comments": "",
+                                "options": {
+                                    "label": "optional",
+                                    "type_name": "",
+                                    "extendee": "",
+                                    "default_value": "",
+                                    "json_name": "userId"
+                                },
+                                "db_options": {}
+                            }
+                        ]
+                    },
                     "order_sharding": {
                         "type": "message",
                         "name": "order_sharding",
@@ -399,7 +484,9 @@
                             "bulk_ordered": "ORDERED",
                             "location": "",
                             "index_type": "INDEX_KEY",
-                            "is_unique": false
+                            "is_unique": false,
+                            "foreign_update": "FA_NONE",
+                            "foreign_delete": "FA_NONE"
                         },
                         "fields": [
                             {
@@ -443,7 +530,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "/var/tables/user_spaces",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {}
             }
@@ -485,7 +574,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {}
             }
@@ -525,7 +616,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {}
             },
@@ -578,7 +671,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {}
             },
@@ -629,7 +724,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {}
             }
@@ -699,7 +796,9 @@
                     "bulk_ordered": "ORDERED",
                     "location": "",
                     "index_type": "NONE_KEY",
-                    "is_unique": false
+                    "is_unique": false,
+                    "foreign_update": "FA_NONE",
+                    "foreign_delete": "FA_NONE"
                 },
                 "members": {}
             }

@@ -23,7 +23,7 @@
     {
         "tmpl": "{tmpl}/pgsql_init_sql/init_tables.sql.mako",
         "mode": "single",
-        "output": "pgsql_{filename}_temp_tables.sql",
+        "output": "pgsql_{filename}_tables_temp.sql",
         "fixcode": "fix_blankline",
         "disable": false,
         "args": {

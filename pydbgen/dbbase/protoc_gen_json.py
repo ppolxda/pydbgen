@@ -540,8 +540,8 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
 
                     ropt = tables[tname]
                     index_fields = {i['name'] for i in topt['fields']}
-                    table_fields = {i['name'] for i in ropt['fields']}
-                    diff = index_fields - table_fields
+                    rtable_fields = {i['name'] for i in ropt['fields']}
+                    diff = index_fields - rtable_fields
                     if diff:
                         raise TypeError(
                             'foreign field invaild'

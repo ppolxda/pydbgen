@@ -16,7 +16,7 @@
     {
         "tmpl": "{tmpl}/mysql_init_sql/init_tables.sql.mako",
         "mode": "single",
-        "output": "mysql_{filename}_temp_tables.sql",
+        "output": "mysql_{filename}_tables_temp.sql",
         "fixcode": "fix_blankline",
         "disable": false,
         "args": {

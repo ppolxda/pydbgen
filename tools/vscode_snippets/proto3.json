@@ -82,8 +82,8 @@
             "message ${1}_foreign {",
             "    option (msg_type) = INDEX;",
             "    option (index_type) = FOREIGN_KEY;",
-            "    option (foreign_update) = ${3};",
-            "    option (foreign_delete) = ${3};",
+            "    option (foreign_update) = ${3|FA_NONE,FA_RESTRICT,FA_NO_ACTION,FA_CASCADE,FA_SET_NULL,FA_SET_DEFAULT|};",
+            "    option (foreign_delete) = ${3|FA_NONE,FA_RESTRICT,FA_NO_ACTION,FA_CASCADE,FA_SET_NULL,FA_SET_DEFAULT|};",
             "",
             "    ${4}",
             "",
@@ -124,7 +124,7 @@
     "float options one": {
         "prefix": "declen=36, decpoint=14, maxval=0, minval=0",
         "body": [
-            "(declen) = ${1:36}, decpoint = ${2:14}, (maxval) = ${3:0}, (minval) = ${4:0}"
+            "(declen) = ${1:36}, (decpoint) = ${2:14}, (maxval) = ${3:0}, (minval) = ${4:0}"
         ],
         "description": "float options"
     },
@@ -132,7 +132,7 @@
     "float options two": {
         "prefix": "declen=36, decpoint=14",
         "body": [
-            "(declen) = ${1:36}, decpoint = ${2:14}"
+            "(declen) = ${1:36}, (decpoint) = ${2:14}"
         ],
         "description": "float options"
     },

@@ -33,6 +33,7 @@ EnumDefineType = data_define_pb2.EnumDefineType
 EnumIsEnable = data_define_pb2.EnumIsEnable
 EnumBulkOrdered = data_define_pb2.EnumBulkOrdered
 EnumIndexType = data_define_pb2.EnumIndexType
+EnumForeignAction = data_define_pb2.EnumForeignAction
 
 
 # def conv_enums(key, val):
@@ -73,6 +74,8 @@ MY_MESSAGE_OPTIONS = [
 MY_MESSAGE_OPTIONS_NAME = {
     'msg_type': EnumDefineType,
     'index_type': EnumIndexType,
+    'foreign_update': EnumForeignAction,
+    'foreign_delete': EnumForeignAction,
     'sharding_mode': EnumShardingMode,
     'bulk_ordered': EnumBulkOrdered,
 }
@@ -254,8 +257,25 @@ def traverse(proto_file):
                                             EnumIndexType.Name(index_type)
                                         ))
 
-                    yield (nested_item,
-                           nested_package, path + local_path + message_path)
+                    yield (
+                        nested_item, nested_package,
+                        path + local_path + message_path
+                    )
+
+                    if index_type == data_define_pb2.FOREIGN_KEY:
+                        f_package = '%s.%s' % (
+                            nested_package, nested_item.name
+                        )
+
+                        for index3, fitem in enumerate(
+                                nested_item.nested_type):
+                            f_path = (EnumPathIndex.NESTED, index3)
+
+                            yield (
+                                fitem, f_package,
+                                path + local_path + message_path + f_path
+                            )
+                            break
 
                 # for index2, enum in enumerate(item.enum_type):
                 #     message_path = (EnumPathIndex.ENUM, index2)
@@ -368,8 +388,10 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                 msg_type = item.options.Extensions[data_define_pb2.msg_type]
                 msg_type = EnumDefineType.Name(msg_type)
                 if msg_type == 'TABLE':
-                    is_in_set(table_name_list, item.name,
-                              'table name duplicate[{}]')
+                    is_in_set(
+                        table_name_list, item.name,
+                        'table name duplicate[{}]'
+                    )
 
             output_one = create_dict_path(
                 output, package_full, type='package')
@@ -481,7 +503,7 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                 for key in SORT_KEYS if key in dbconfig
             ])
 
-    def append_database(db, table):
+    def append_database(db, table, tables):
         # table['db_key'] = get_db_key(db, table)
         # table['table_key'] = get_table_key(db, table)
         table['database'].append(db['name'])
@@ -500,6 +522,33 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                         table['name'], index['name'], diff)
                 )
 
+            if index['db_options'].get('index_type', None) == 'FOREIGN_KEY':
+                if len(index['members']) != 1:
+                    raise TypeError(
+                        'foreign key references table invaild'
+                        '[table {}][index {}]'.format(
+                            table['name'], index['name'])
+                    )
+
+                for tname, topt in index['members'].items():
+                    if tname not in tables:
+                        raise TypeError(
+                            'foreign key references table invaild'
+                            '[table {}][index {}][name {}]'.format(
+                                table['name'], index['name'], tname)
+                        )
+
+                    ropt = tables[tname]
+                    index_fields = {i['name'] for i in topt['fields']}
+                    table_fields = {i['name'] for i in ropt['fields']}
+                    diff = index_fields - table_fields
+                    if diff:
+                        raise TypeError(
+                            'foreign field invaild'
+                            '[table {}][index {}][keys {}]'.format(
+                                table['name'], index['name'], diff)
+                        )
+
     # new table databases config
     for dbname, dbconfig in output['DATABASES']['members'].items():
         for _table in dbconfig['fields']:
@@ -507,13 +556,12 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                 for table in (output['TABLE_GROUPS']['members']
                               [_table['type']]['fields']):
                     table = output['TABLES']['members'][table['type']]
-                    append_database(dbconfig, table)
+                    append_database(dbconfig, table,
+                                    output['TABLES']['members'])
             else:
                 table = output['TABLES']['members'][_table['type']]
-                append_database(dbconfig, table)
+                append_database(dbconfig, table, output['TABLES']['members'])
 
-    for table in output['TABLES']['members']:
-        pass
     return output
 
 

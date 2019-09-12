@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x11\x64\x61ta_define.proto\x1a google/protobuf/descriptor.proto\"\n\n\x08\x64\x61tetime\"\x06\n\x04\x64\x61te\"\x05\n\x03\x61ny\"\x06\n\x04json\"\x07\n\x05jsonb*v\n\x0e\x45numDefineType\x12\x08\n\x04NONE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\x0f\n\x0bTABLE_GROUP\x10\x02\x12\x0c\n\x08\x44\x41TABASE\x10\x03\x12\x0e\n\nTABLESPACE\x10\x04\x12\t\n\x05\x43LASS\x10\x05\x12\n\n\x06OUTPUT\x10\x06\x12\t\n\x05INDEX\x10\x07*_\n\rEnumIndexType\x12\x0c\n\x08NONE_KEY\x10\x00\x12\r\n\tINDEX_KEY\x10\x01\x12\x0e\n\nUNIQUE_KEY\x10\x02\x12\x0f\n\x0b\x46OREIGN_KEY\x10\x03\x12\x10\n\x0cSHARDING_KEY\x10\x04*\'\n\x0c\x45numIsEnable\x12\x0b\n\x07\x44ISABLE\x10\x00\x12\n\n\x06\x45NABLE\x10\x01*\xa2\x02\n\x10\x45numShardingMode\x12\x0e\n\nSM_DISABLE\x10\x00\x12\r\n\tSM_ENABLE\x10\x01\x12\r\n\tSM_HASHED\x10\x02\x12\x0c\n\x08SM_RANGE\x10\x03\x12\x11\n\rSM_RANGE_YEAR\x10\n\x12\x14\n\x10SM_RANGE_QUARTER\x10\x0b\x12\x12\n\x0eSM_RANGE_MONTH\x10\x0c\x12\x10\n\x0cSM_RANGE_DAY\x10\r\x12\x0f\n\x0bSM_RANGE_ID\x10\x0e\x12\x15\n\x11SM_PARTITION_YEAR\x10\x14\x12\x18\n\x14SM_PARTITION_QUARTER\x10\x15\x12\x16\n\x12SM_PARTITION_MONTH\x10\x16\x12\x14\n\x10SM_PARTITION_DAY\x10\x17\x12\x13\n\x0fSM_PARTITION_ID\x10\x18*-\n\x0c\x45numSortType\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\x12\n\n\x06HASHED\x10\x02*-\n\x0f\x45numBulkOrdered\x12\x0b\n\x07ORDERED\x10\x00\x12\r\n\tUNORDERED\x10\x01:D\n\x08msg_type\x12\x1f.google.protobuf.MessageOptions\x18\xa1\x8d\x06 \x01(\x0e\x32\x0f.EnumDefineType:E\n\nindex_type\x12\x1f.google.protobuf.MessageOptions\x18\xab\x8d\x06 \x01(\x0e\x32\x0e.EnumIndexType:4\n\tis_unique\x12\x1f.google.protobuf.MessageOptions\x18\xac\x8d\x06 \x01(\x08:A\n\x16is_sharding_not_unique\x12\x1f.google.protobuf.MessageOptions\x18\xa2\x8d\x06 \x01(\x08:I\n\x0c\x62ulk_ordered\x12\x1f.google.protobuf.MessageOptions\x18\xa9\x8d\x06 \x01(\x0e\x32\x10.EnumBulkOrdered:3\n\x08location\x12\x1f.google.protobuf.MessageOptions\x18\xaa\x8d\x06 \x01(\t:/\n\x06maxlen\x12\x1d.google.protobuf.FieldOptions\x18\x91\xbf\x05 \x01(\x05:/\n\x06minlen\x12\x1d.google.protobuf.FieldOptions\x18\x92\xbf\x05 \x01(\x05:/\n\x06maxval\x12\x1d.google.protobuf.FieldOptions\x18\x93\xbf\x05 \x01(\x02:/\n\x06minval\x12\x1d.google.protobuf.FieldOptions\x18\x94\xbf\x05 \x01(\x02:/\n\x06\x64\x65\x63len\x12\x1d.google.protobuf.FieldOptions\x18\x95\xbf\x05 \x01(\x05:1\n\x08\x64\x65\x63point\x12\x1d.google.protobuf.FieldOptions\x18\x96\xbf\x05 \x01(\x05:,\n\x03key\x12\x1d.google.protobuf.FieldOptions\x18\x97\xbf\x05 \x01(\x08:,\n\x03inc\x12\x1d.google.protobuf.FieldOptions\x18\x98\xbf\x05 \x01(\x08:/\n\x06update\x12\x1d.google.protobuf.FieldOptions\x18\x99\xbf\x05 \x01(\x08:/\n\x06\x64\x65\x66val\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xf7\x36 \x01(\t:<\n\x04sort\x12\x1d.google.protobuf.FieldOptions\x18\xac\xf7\x36 \x01(\x0e\x32\r.EnumSortType:.\n\x05space\x12\x1d.google.protobuf.FieldOptions\x18\xaf\xf7\x36 \x01(\t:0\n\x07is_temp\x12\x1d.google.protobuf.FieldOptions\x18\xb7\xf7\x36 \x01(\x08:I\n\rsharding_mode\x12\x1d.google.protobuf.FieldOptions\x18\xb0\xf7\x36 \x01(\x0e\x32\x11.EnumShardingMode:5\n\x0csharding_key\x12\x1d.google.protobuf.FieldOptions\x18\xb6\xf7\x36 \x01(\t:6\n\rsharding_step\x12\x1d.google.protobuf.FieldOptions\x18\xb1\xf7\x36 \x01(\x05:5\n\x0csharding_max\x12\x1d.google.protobuf.FieldOptions\x18\xb2\xf7\x36 \x01(\x05:5\n\x0csharding_min\x12\x1d.google.protobuf.FieldOptions\x18\xb3\xf7\x36 \x01(\x05:<\n\x13sharding_date_begin\x12\x1d.google.protobuf.FieldOptions\x18\xb4\xf7\x36 \x01(\t::\n\x11sharding_date_end\x12\x1d.google.protobuf.FieldOptions\x18\xb5\xf7\x36 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x11\x64\x61ta_define.proto\x1a google/protobuf/descriptor.proto\"\n\n\x08\x64\x61tetime\"\x06\n\x04\x64\x61te\"\x05\n\x03\x61ny\"\x06\n\x04json\"\x07\n\x05jsonb*v\n\x0e\x45numDefineType\x12\x08\n\x04NONE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\x0f\n\x0bTABLE_GROUP\x10\x02\x12\x0c\n\x08\x44\x41TABASE\x10\x03\x12\x0e\n\nTABLESPACE\x10\x04\x12\t\n\x05\x43LASS\x10\x05\x12\n\n\x06OUTPUT\x10\x06\x12\t\n\x05INDEX\x10\x07*_\n\rEnumIndexType\x12\x0c\n\x08NONE_KEY\x10\x00\x12\r\n\tINDEX_KEY\x10\x01\x12\x0e\n\nUNIQUE_KEY\x10\x02\x12\x0f\n\x0b\x46OREIGN_KEY\x10\x03\x12\x10\n\x0cSHARDING_KEY\x10\x04*\'\n\x0c\x45numIsEnable\x12\x0b\n\x07\x44ISABLE\x10\x00\x12\n\n\x06\x45NABLE\x10\x01*\xa2\x02\n\x10\x45numShardingMode\x12\x0e\n\nSM_DISABLE\x10\x00\x12\r\n\tSM_ENABLE\x10\x01\x12\r\n\tSM_HASHED\x10\x02\x12\x0c\n\x08SM_RANGE\x10\x03\x12\x11\n\rSM_RANGE_YEAR\x10\n\x12\x14\n\x10SM_RANGE_QUARTER\x10\x0b\x12\x12\n\x0eSM_RANGE_MONTH\x10\x0c\x12\x10\n\x0cSM_RANGE_DAY\x10\r\x12\x0f\n\x0bSM_RANGE_ID\x10\x0e\x12\x15\n\x11SM_PARTITION_YEAR\x10\x14\x12\x18\n\x14SM_PARTITION_QUARTER\x10\x15\x12\x16\n\x12SM_PARTITION_MONTH\x10\x16\x12\x14\n\x10SM_PARTITION_DAY\x10\x17\x12\x13\n\x0fSM_PARTITION_ID\x10\x18*-\n\x0c\x45numSortType\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\x12\n\n\x06HASHED\x10\x02*-\n\x0f\x45numBulkOrdered\x12\x0b\n\x07ORDERED\x10\x00\x12\r\n\tUNORDERED\x10\x01*x\n\x11\x45numForeignAction\x12\x0b\n\x07\x46\x41_NONE\x10\x00\x12\x0f\n\x0b\x46\x41_RESTRICT\x10\x01\x12\x10\n\x0c\x46\x41_NO_ACTION\x10\x02\x12\x0e\n\nFA_CASCADE\x10\x03\x12\x0f\n\x0b\x46\x41_SET_NULL\x10\x04\x12\x12\n\x0e\x46\x41_SET_DEFAULT\x10\x05:D\n\x08msg_type\x12\x1f.google.protobuf.MessageOptions\x18\xa1\x8d\x06 \x01(\x0e\x32\x0f.EnumDefineType:E\n\nindex_type\x12\x1f.google.protobuf.MessageOptions\x18\xab\x8d\x06 \x01(\x0e\x32\x0e.EnumIndexType:4\n\tis_unique\x12\x1f.google.protobuf.MessageOptions\x18\xac\x8d\x06 \x01(\x08:A\n\x16is_sharding_not_unique\x12\x1f.google.protobuf.MessageOptions\x18\xa2\x8d\x06 \x01(\x08:M\n\x0e\x66oreign_update\x12\x1f.google.protobuf.MessageOptions\x18\xad\x8d\x06 \x01(\x0e\x32\x12.EnumForeignAction:M\n\x0e\x66oreign_delete\x12\x1f.google.protobuf.MessageOptions\x18\xae\x8d\x06 \x01(\x0e\x32\x12.EnumForeignAction:I\n\x0c\x62ulk_ordered\x12\x1f.google.protobuf.MessageOptions\x18\xa9\x8d\x06 \x01(\x0e\x32\x10.EnumBulkOrdered:3\n\x08location\x12\x1f.google.protobuf.MessageOptions\x18\xaa\x8d\x06 \x01(\t:/\n\x06maxlen\x12\x1d.google.protobuf.FieldOptions\x18\x91\xbf\x05 \x01(\x05:/\n\x06minlen\x12\x1d.google.protobuf.FieldOptions\x18\x92\xbf\x05 \x01(\x05:/\n\x06maxval\x12\x1d.google.protobuf.FieldOptions\x18\x93\xbf\x05 \x01(\x02:/\n\x06minval\x12\x1d.google.protobuf.FieldOptions\x18\x94\xbf\x05 \x01(\x02:/\n\x06\x64\x65\x63len\x12\x1d.google.protobuf.FieldOptions\x18\x95\xbf\x05 \x01(\x05:1\n\x08\x64\x65\x63point\x12\x1d.google.protobuf.FieldOptions\x18\x96\xbf\x05 \x01(\x05:,\n\x03key\x12\x1d.google.protobuf.FieldOptions\x18\x97\xbf\x05 \x01(\x08:,\n\x03inc\x12\x1d.google.protobuf.FieldOptions\x18\x98\xbf\x05 \x01(\x08:/\n\x06update\x12\x1d.google.protobuf.FieldOptions\x18\x99\xbf\x05 \x01(\x08:/\n\x06\x64\x65\x66val\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xf7\x36 \x01(\t:<\n\x04sort\x12\x1d.google.protobuf.FieldOptions\x18\xac\xf7\x36 \x01(\x0e\x32\r.EnumSortType:.\n\x05space\x12\x1d.google.protobuf.FieldOptions\x18\xaf\xf7\x36 \x01(\t:0\n\x07is_temp\x12\x1d.google.protobuf.FieldOptions\x18\xb7\xf7\x36 \x01(\x08:I\n\rsharding_mode\x12\x1d.google.protobuf.FieldOptions\x18\xb0\xf7\x36 \x01(\x0e\x32\x11.EnumShardingMode:5\n\x0csharding_key\x12\x1d.google.protobuf.FieldOptions\x18\xb6\xf7\x36 \x01(\t:6\n\rsharding_step\x12\x1d.google.protobuf.FieldOptions\x18\xb1\xf7\x36 \x01(\x05:5\n\x0csharding_max\x12\x1d.google.protobuf.FieldOptions\x18\xb2\xf7\x36 \x01(\x05:5\n\x0csharding_min\x12\x1d.google.protobuf.FieldOptions\x18\xb3\xf7\x36 \x01(\x05:<\n\x13sharding_date_begin\x12\x1d.google.protobuf.FieldOptions\x18\xb4\xf7\x36 \x01(\t::\n\x11sharding_date_end\x12\x1d.google.protobuf.FieldOptions\x18\xb5\xf7\x36 \x01(\tb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
@@ -252,6 +252,45 @@ _ENUMBULKORDERED = _descriptor.EnumDescriptor(
 _sym_db.RegisterEnumDescriptor(_ENUMBULKORDERED)
 
 EnumBulkOrdered = enum_type_wrapper.EnumTypeWrapper(_ENUMBULKORDERED)
+_ENUMFOREIGNACTION = _descriptor.EnumDescriptor(
+  name='EnumForeignAction',
+  full_name='EnumForeignAction',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='FA_NONE', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FA_RESTRICT', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FA_NO_ACTION', index=2, number=2,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FA_CASCADE', index=3, number=3,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FA_SET_NULL', index=4, number=4,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FA_SET_DEFAULT', index=5, number=5,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=744,
+  serialized_end=864,
+)
+_sym_db.RegisterEnumDescriptor(_ENUMFOREIGNACTION)
+
+EnumForeignAction = enum_type_wrapper.EnumTypeWrapper(_ENUMFOREIGNACTION)
 NONE = 0
 TABLE = 1
 TABLE_GROUP = 2
@@ -286,6 +325,12 @@ DESC = 1
 HASHED = 2
 ORDERED = 0
 UNORDERED = 1
+FA_NONE = 0
+FA_RESTRICT = 1
+FA_NO_ACTION = 2
+FA_CASCADE = 3
+FA_SET_NULL = 4
+FA_SET_DEFAULT = 5
 
 MSG_TYPE_FIELD_NUMBER = 100001
 msg_type = _descriptor.FieldDescriptor(
@@ -319,9 +364,25 @@ is_sharding_not_unique = _descriptor.FieldDescriptor(
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   serialized_options=None, file=DESCRIPTOR)
+FOREIGN_UPDATE_FIELD_NUMBER = 100013
+foreign_update = _descriptor.FieldDescriptor(
+  name='foreign_update', full_name='foreign_update', index=4,
+  number=100013, type=14, cpp_type=8, label=1,
+  has_default_value=False, default_value=0,
+  message_type=None, enum_type=None, containing_type=None,
+  is_extension=True, extension_scope=None,
+  serialized_options=None, file=DESCRIPTOR)
+FOREIGN_DELETE_FIELD_NUMBER = 100014
+foreign_delete = _descriptor.FieldDescriptor(
+  name='foreign_delete', full_name='foreign_delete', index=5,
+  number=100014, type=14, cpp_type=8, label=1,
+  has_default_value=False, default_value=0,
+  message_type=None, enum_type=None, containing_type=None,
+  is_extension=True, extension_scope=None,
+  serialized_options=None, file=DESCRIPTOR)
 BULK_ORDERED_FIELD_NUMBER = 100009
 bulk_ordered = _descriptor.FieldDescriptor(
-  name='bulk_ordered', full_name='bulk_ordered', index=4,
+  name='bulk_ordered', full_name='bulk_ordered', index=6,
   number=100009, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -329,7 +390,7 @@ bulk_ordered = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 LOCATION_FIELD_NUMBER = 100010
 location = _descriptor.FieldDescriptor(
-  name='location', full_name='location', index=5,
+  name='location', full_name='location', index=7,
   number=100010, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -337,7 +398,7 @@ location = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MAXLEN_FIELD_NUMBER = 90001
 maxlen = _descriptor.FieldDescriptor(
-  name='maxlen', full_name='maxlen', index=6,
+  name='maxlen', full_name='maxlen', index=8,
   number=90001, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -345,7 +406,7 @@ maxlen = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MINLEN_FIELD_NUMBER = 90002
 minlen = _descriptor.FieldDescriptor(
-  name='minlen', full_name='minlen', index=7,
+  name='minlen', full_name='minlen', index=9,
   number=90002, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -353,7 +414,7 @@ minlen = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MAXVAL_FIELD_NUMBER = 90003
 maxval = _descriptor.FieldDescriptor(
-  name='maxval', full_name='maxval', index=8,
+  name='maxval', full_name='maxval', index=10,
   number=90003, type=2, cpp_type=6, label=1,
   has_default_value=False, default_value=float(0),
   message_type=None, enum_type=None, containing_type=None,
@@ -361,7 +422,7 @@ maxval = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MINVAL_FIELD_NUMBER = 90004
 minval = _descriptor.FieldDescriptor(
-  name='minval', full_name='minval', index=9,
+  name='minval', full_name='minval', index=11,
   number=90004, type=2, cpp_type=6, label=1,
   has_default_value=False, default_value=float(0),
   message_type=None, enum_type=None, containing_type=None,
@@ -369,7 +430,7 @@ minval = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 DECLEN_FIELD_NUMBER = 90005
 declen = _descriptor.FieldDescriptor(
-  name='declen', full_name='declen', index=10,
+  name='declen', full_name='declen', index=12,
   number=90005, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -377,7 +438,7 @@ declen = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 DECPOINT_FIELD_NUMBER = 90006
 decpoint = _descriptor.FieldDescriptor(
-  name='decpoint', full_name='decpoint', index=11,
+  name='decpoint', full_name='decpoint', index=13,
   number=90006, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -385,7 +446,7 @@ decpoint = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 KEY_FIELD_NUMBER = 90007
 key = _descriptor.FieldDescriptor(
-  name='key', full_name='key', index=12,
+  name='key', full_name='key', index=14,
   number=90007, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -393,7 +454,7 @@ key = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 INC_FIELD_NUMBER = 90008
 inc = _descriptor.FieldDescriptor(
-  name='inc', full_name='inc', index=13,
+  name='inc', full_name='inc', index=15,
   number=90008, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -401,7 +462,7 @@ inc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 UPDATE_FIELD_NUMBER = 90009
 update = _descriptor.FieldDescriptor(
-  name='update', full_name='update', index=14,
+  name='update', full_name='update', index=16,
   number=90009, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -409,7 +470,7 @@ update = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 DEFVAL_FIELD_NUMBER = 900010
 defval = _descriptor.FieldDescriptor(
-  name='defval', full_name='defval', index=15,
+  name='defval', full_name='defval', index=17,
   number=900010, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -417,7 +478,7 @@ defval = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SORT_FIELD_NUMBER = 900012
 sort = _descriptor.FieldDescriptor(
-  name='sort', full_name='sort', index=16,
+  name='sort', full_name='sort', index=18,
   number=900012, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -425,7 +486,7 @@ sort = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SPACE_FIELD_NUMBER = 900015
 space = _descriptor.FieldDescriptor(
-  name='space', full_name='space', index=17,
+  name='space', full_name='space', index=19,
   number=900015, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -433,7 +494,7 @@ space = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 IS_TEMP_FIELD_NUMBER = 900023
 is_temp = _descriptor.FieldDescriptor(
-  name='is_temp', full_name='is_temp', index=18,
+  name='is_temp', full_name='is_temp', index=20,
   number=900023, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -441,7 +502,7 @@ is_temp = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_MODE_FIELD_NUMBER = 900016
 sharding_mode = _descriptor.FieldDescriptor(
-  name='sharding_mode', full_name='sharding_mode', index=19,
+  name='sharding_mode', full_name='sharding_mode', index=21,
   number=900016, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -449,7 +510,7 @@ sharding_mode = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_KEY_FIELD_NUMBER = 900022
 sharding_key = _descriptor.FieldDescriptor(
-  name='sharding_key', full_name='sharding_key', index=20,
+  name='sharding_key', full_name='sharding_key', index=22,
   number=900022, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -457,7 +518,7 @@ sharding_key = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_STEP_FIELD_NUMBER = 900017
 sharding_step = _descriptor.FieldDescriptor(
-  name='sharding_step', full_name='sharding_step', index=21,
+  name='sharding_step', full_name='sharding_step', index=23,
   number=900017, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -465,7 +526,7 @@ sharding_step = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_MAX_FIELD_NUMBER = 900018
 sharding_max = _descriptor.FieldDescriptor(
-  name='sharding_max', full_name='sharding_max', index=22,
+  name='sharding_max', full_name='sharding_max', index=24,
   number=900018, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -473,7 +534,7 @@ sharding_max = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_MIN_FIELD_NUMBER = 900019
 sharding_min = _descriptor.FieldDescriptor(
-  name='sharding_min', full_name='sharding_min', index=23,
+  name='sharding_min', full_name='sharding_min', index=25,
   number=900019, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -481,7 +542,7 @@ sharding_min = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_DATE_BEGIN_FIELD_NUMBER = 900020
 sharding_date_begin = _descriptor.FieldDescriptor(
-  name='sharding_date_begin', full_name='sharding_date_begin', index=24,
+  name='sharding_date_begin', full_name='sharding_date_begin', index=26,
   number=900020, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -489,7 +550,7 @@ sharding_date_begin = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SHARDING_DATE_END_FIELD_NUMBER = 900021
 sharding_date_end = _descriptor.FieldDescriptor(
-  name='sharding_date_end', full_name='sharding_date_end', index=25,
+  name='sharding_date_end', full_name='sharding_date_end', index=27,
   number=900021, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=_b("").decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -627,10 +688,13 @@ DESCRIPTOR.enum_types_by_name['EnumIsEnable'] = _ENUMISENABLE
 DESCRIPTOR.enum_types_by_name['EnumShardingMode'] = _ENUMSHARDINGMODE
 DESCRIPTOR.enum_types_by_name['EnumSortType'] = _ENUMSORTTYPE
 DESCRIPTOR.enum_types_by_name['EnumBulkOrdered'] = _ENUMBULKORDERED
+DESCRIPTOR.enum_types_by_name['EnumForeignAction'] = _ENUMFOREIGNACTION
 DESCRIPTOR.extensions_by_name['msg_type'] = msg_type
 DESCRIPTOR.extensions_by_name['index_type'] = index_type
 DESCRIPTOR.extensions_by_name['is_unique'] = is_unique
 DESCRIPTOR.extensions_by_name['is_sharding_not_unique'] = is_sharding_not_unique
+DESCRIPTOR.extensions_by_name['foreign_update'] = foreign_update
+DESCRIPTOR.extensions_by_name['foreign_delete'] = foreign_delete
 DESCRIPTOR.extensions_by_name['bulk_ordered'] = bulk_ordered
 DESCRIPTOR.extensions_by_name['location'] = location
 DESCRIPTOR.extensions_by_name['maxlen'] = maxlen
@@ -696,6 +760,10 @@ index_type.enum_type = _ENUMINDEXTYPE
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(index_type)
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(is_unique)
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(is_sharding_not_unique)
+foreign_update.enum_type = _ENUMFOREIGNACTION
+google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(foreign_update)
+foreign_delete.enum_type = _ENUMFOREIGNACTION
+google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(foreign_delete)
 bulk_ordered.enum_type = _ENUMBULKORDERED
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(bulk_ordered)
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(location)

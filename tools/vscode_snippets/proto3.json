@@ -1,0 +1,671 @@
+{
+    /*
+        // Place your snippets for Protocol Buffers here. Each snippet is defined under a snippet name and has a prefix, body and
+        // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+        // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+        // same ids are connected.
+        // Example:
+        "Print to console": {
+            "prefix": "log",
+            "body": [
+                "console.log('$1');",
+                "$2"
+            ],
+            "description": "Log output to console"
+        }
+    */
+
+    // ---------------------------------------
+    //       import
+    // ---------------------------------------
+
+    "import file title": {
+        "prefix": "import file title",
+        "body": [
+            "syntax = \"proto3\";",
+            "",
+            "import \"pydbgen/dbbase/data_define.proto\";",
+            "import \"history/enums.proto\";"
+        ],
+        "description": "import file title"
+    },
+
+    "pydbgen import": {
+        "prefix": "pydbgen",
+        "body": [
+            "import \"pydbgen/dbbase/data_define.proto\";"
+        ],
+        "description": "pydbgen import"
+    },
+
+    "history import": {
+        "prefix": "history",
+        "body": [
+            "import \"history/enums.proto\";"
+        ],
+        "description": "history import"
+    },
+
+    // ---------------------------------------
+    //       message format
+    // ---------------------------------------
+
+    "index message": {
+        "prefix": "index message",
+        "body": [
+            "message ${1}_index {",
+            "    option (msg_type) = INDEX;",
+            "    option (index_type) = INDEX_KEY;",
+            "",
+            "    ${2}",
+            "}"
+        ],
+        "description": "index message"
+    },
+
+    "unique message": {
+        "prefix": "unique message",
+        "body": [
+            "message ${1}_unique {",
+            "    option (msg_type) = INDEX;",
+            "    option (index_type) = UNIQUE_KEY;",
+            "",
+            "    ${2}",
+            "}"
+        ],
+        "description": "unique options"
+    },
+
+    "foreign message": {
+        "prefix": "foreign message",
+        "body": [
+            "message ${1}_foreign {",
+            "    option (msg_type) = INDEX;",
+            "    option (index_type) = FOREIGN_KEY;",
+            "    option (foreign_update) = ${3};",
+            "    option (foreign_delete) = ${3};",
+            "",
+            "    ${4}",
+            "",
+            "    message ${2} {",
+            "        option (msg_type) = INDEX;",
+            "        option (index_type) = FOREIGN_KEY;",
+            "        ${5}",
+            "    }",
+            "}"
+        ],
+        "description": "unique options"
+    },
+
+    "table message": {
+        "prefix": "table message",
+        "body": [
+            "message ${1} {",
+            "    option (msg_type) = TABLE;",
+            "",
+            "    ${2}",
+            "}"
+        ],
+        "description": "table message"
+    },
+
+    // ---------------------------------------
+    //       field options
+    // ---------------------------------------
+
+    "string options": {
+        "prefix": "maxlen=0, minlen=0",
+        "body": [
+            "(maxlen) = ${1:0}, (minlen) = ${2:0}"
+        ],
+        "description": "string options"
+    },
+
+    "float options one": {
+        "prefix": "declen=36, decpoint=14, maxval=0, minval=0",
+        "body": [
+            "(declen) = ${1:36}, decpoint = ${2:14}, (maxval) = ${3:0}, (minval) = ${4:0}"
+        ],
+        "description": "float options"
+    },
+
+    "float options two": {
+        "prefix": "declen=36, decpoint=14",
+        "body": [
+            "(declen) = ${1:36}, decpoint = ${2:14}"
+        ],
+        "description": "float options"
+    },
+
+    "int options": {
+        "prefix": "maxval=0, minval=0",
+        "body": [
+            "(maxval) = ${1:0}, (minval) = ${2:0}"
+        ],
+        "description": "int options"
+    },
+
+    // ---------------------------------------
+    //       message options
+    // ---------------------------------------
+
+    "msg_type define": {
+        "prefix": "option (msg_type)",
+        "body": [
+            "option (msg_type) = ${1|TABLE,INDEX,DATABASE,TABLE_GROUP,TABLESPACE,CLASS,OUTPUT|};"
+        ],
+        "description": "msg_type define"
+    },
+
+    "index_type define": {
+        "prefix": "option (index_type)",
+        "body": [
+            "option (index_type) = ${1|UNIQUE_KEY,INDEX_KEY,FOREIGN_KEY,SHARDING_KEY|};"
+        ],
+        "description": "index_type define"
+    },
+
+    "is_unique define": {
+        "prefix": "option (is_unique)",
+        "body": [
+            "option (is_unique) = true;"
+        ],
+        "description": "is_unique define"
+    },
+
+    "is_sharding_not_unique define": {
+        "prefix": "option (is_sharding_not_unique)",
+        "body": [
+            "option (is_sharding_not_unique) = true;"
+        ],
+        "description": "is_sharding_not_unique define"
+    },
+
+    "bulk_ordered define": {
+        "prefix": "option (bulk_ordered)",
+        "body": [
+            "option (bulk_ordered) = ${1|ORDERED,UNORDERED|};"
+        ],
+        "description": "bulk_ordered define"
+    },
+
+    "location define": {
+        "prefix": "option (location)",
+        "body": [
+            "option (location) = ${1};"
+        ],
+        "description": "location define"
+    },
+
+    "foreign_update define": {
+        "prefix": "option (foreign_update)",
+        "body": [
+            "option (foreign_update) = ${1|FA_NONE,FA_RESTRICT,FA_NO_ACTION,FA_CASCADE,FA_SET_NULL,FA_SET_DEFAULT|};"
+        ],
+        "description": "foreign_update options"
+    },
+
+    "foreign_delete define": {
+        "prefix": "option (foreign_delete)",
+        "body": [
+            "option (foreign_delete) = ${1|FA_NONE,FA_RESTRICT,FA_NO_ACTION,FA_CASCADE,FA_SET_NULL,FA_SET_DEFAULT|};"
+        ],
+        "description": "foreign_delete options"
+    },
+
+    // ---------------------------------------
+    //       field options
+    // ---------------------------------------
+
+    "maxlen options": {
+        "prefix": "maxlen",
+        "body": [
+            "(maxlen) = ${1:0}"
+        ],
+        "description": "maxlen options"
+    },
+
+    "minlen options": {
+        "prefix": "minlen",
+        "body": [
+            "(minlen) = ${1:0}"
+        ],
+        "description": "minlen options"
+    },
+
+    "maxval options": {
+        "prefix": "maxval",
+        "body": [
+            "(maxval) = ${1:0}"
+        ],
+        "description": "maxval options"
+    },
+
+    "minval options": {
+        "prefix": "minval",
+        "body": [
+            "(minval) = ${1:0}"
+        ],
+        "description": "minval options"
+    },
+
+    "declen options": {
+        "prefix": "declen",
+        "body": [
+            "(declen) = ${1:0}"
+        ],
+        "description": "declen options"
+    },
+
+    "decpoint options": {
+        "prefix": "decpoint",
+        "body": [
+            "(decpoint) = ${1:0}"
+        ],
+        "description": "decpoint options"
+    },
+
+    "key options": {
+        "prefix": "key",
+        "body": [
+            "(key) = true"
+        ],
+        "description": "key options"
+    },
+
+    "inc options": {
+        "prefix": "inc",
+        "body": [
+            "(inc) = true"
+        ],
+        "description": "inc options"
+    },
+
+    "update options": {
+        "prefix": "update",
+        "body": [
+            "(update) = true"
+        ],
+        "description": "update options"
+    },
+
+    "defval options": {
+        "prefix": "defval",
+        "body": [
+            "(defval) = $1"
+        ],
+        "description": "defval options"
+    },
+
+    "sort options": {
+        "prefix": "sort",
+        "body": [
+            "(sort) = ${1|ASC,DESC,HASHED|}"
+        ],
+        "description": "sort options"
+    },
+
+    "is_temp options": {
+        "prefix": "is_temp",
+        "body": [
+            "(is_temp) = true"
+        ],
+        "description": "is_temp options"
+    },
+
+    "sharding_mode  options": {
+        "prefix": "sharding_mode",
+        "body": [
+            "(sharding_mode) = ${1|SM_ENABLE,SM_RANGE_YEAR,SM_RANGE_QUARTER,SM_RANGE_MONTH,SM_RANGE_DAY,SM_RANGE_ID,SM_PARTITION_YEAR,SM_PARTITION_QUARTER,SM_PARTITION_MONTH,SM_PARTITION_DAY,SM_PARTITION_ID,SM_RANGE,SM_HASHED|}"
+        ],
+        "description": "sharding_mode options"
+    },
+
+    "sharding_key  options": {
+        "prefix": "sharding_mode",
+        "body": [
+            "(sharding_key) = '${1}'"
+        ],
+        "description": "sharding_mode options"
+    },
+
+    "sharding_step options": {
+        "prefix": "sharding_step",
+        "body": [
+            "(sharding_step) = ${1}"
+        ],
+        "description": "sharding_step options"
+    },
+
+    "sharding_max options": {
+        "prefix": "sharding_max",
+        "body": [
+            "(sharding_max) = ${1}"
+        ],
+        "description": "sharding_max options"
+    },
+
+    "sharding_min options": {
+        "prefix": "sharding_min",
+        "body": [
+            "(sharding_min) = ${1}"
+        ],
+        "description": "sharding_min options"
+    },
+
+    "sharding_date_begin options": {
+        "prefix": "sharding_date_begin",
+        "body": [
+            "(sharding_date_begin) = '${1}'"
+        ],
+        "description": "sharding_date_begin options"
+    },
+
+    "sharding_date_end options": {
+        "prefix": "sharding_date_end",
+        "body": [
+            "(sharding_date_end) = '${1}'"
+        ],
+        "description": "sharding_date_end options"
+    },
+
+    // ---------------------------------------
+    //       ENUMS
+    // ---------------------------------------
+
+    "NONE ENUMS": {
+        "prefix": "NONE",
+        "body": [
+            "NONE"
+        ],
+        "description": "NONE ENUMS"
+    },
+
+    "TABLE ENUMS": {
+        "prefix": "TABLE",
+        "body": [
+            "TABLE"
+        ],
+        "description": "TABLE ENUMS"
+    },
+
+    "TABLE_GROUP ENUMS": {
+        "prefix": "TABLE_GROUP",
+        "body": [
+            "TABLE_GROUP"
+        ],
+        "description": "TABLE_GROUP ENUMS"
+    },
+
+    "DATABASE ENUMS": {
+        "prefix": "DATABASE",
+        "body": [
+            "DATABASE"
+        ],
+        "description": "DATABASE ENUMS"
+    },
+
+    "TABLESPACE ENUMS": {
+        "prefix": "TABLESPACE",
+        "body": [
+            "TABLESPACE"
+        ],
+        "description": "TABLESPACE ENUMS"
+    },
+
+    "CLASS ENUMS": {
+        "prefix": "CLASS",
+        "body": [
+            "CLASS"
+        ],
+        "description": "CLASS ENUMS"
+    },
+
+    "OUTPUT ENUMS": {
+        "prefix": "OUTPUT",
+        "body": [
+            "OUTPUT"
+        ],
+        "description": "OUTPUT ENUMS"
+    },
+
+    "INDEX ENUMS": {
+        "prefix": "INDEX",
+        "body": [
+            "INDEX"
+        ],
+        "description": "INDEX ENUMS"
+    },
+
+    "NONE_KEY ENUMS": {
+        "prefix": "NONE_KEY",
+        "body": [
+            "NONE_KEY"
+        ],
+        "description": "NONE_KEY ENUMS"
+    },
+
+    "INDEX_KEY ENUMS": {
+        "prefix": "INDEX_KEY",
+        "body": [
+            "INDEX_KEY"
+        ],
+        "description": "INDEX_KEY ENUMS"
+    },
+
+    "UNIQUE_KEY ENUMS": {
+        "prefix": "UNIQUE_KEY",
+        "body": [
+            "UNIQUE_KEY"
+        ],
+        "description": "UNIQUE_KEY ENUMS"
+    },
+
+    "FOREIGN_KEY ENUMS": {
+        "prefix": "FOREIGN_KEY",
+        "body": [
+            "FOREIGN_KEY"
+        ],
+        "description": "FOREIGN_KEY ENUMS"
+    },
+
+    "SHARDING_KEY ENUMS": {
+        "prefix": "SHARDING_KEY",
+        "body": [
+            "SHARDING_KEY"
+        ],
+        "description": "SHARDING_KEY ENUMS"
+    },
+
+    "DISABLE ENUMS": {
+        "prefix": "DISABLE",
+        "body": [
+            "DISABLE"
+        ],
+        "description": "DISABLE ENUMS"
+    },
+
+    "ENABLE ENUMS": {
+        "prefix": "ENABLE",
+        "body": [
+            "ENABLE"
+        ],
+        "description": "ENABLE ENUMS"
+    },
+
+    "SM_HASHED ENUMS": {
+        "prefix": "SM_HASHED",
+        "body": [
+            "SM_HASHED"
+        ],
+        "description": "SM_HASHED ENUMS"
+    },
+
+    "SM_RANGE ENUMS": {
+        "prefix": "SM_RANGE",
+        "body": [
+            "SM_RANGE"
+        ],
+        "description": "SM_RANGE ENUMS"
+    },
+
+    "SM_RANGE_YEAR ENUMS": {
+        "prefix": "SM_RANGE_YEAR",
+        "body": [
+            "SM_RANGE_YEAR"
+        ],
+        "description": "SM_RANGE_YEAR ENUMS"
+    },
+
+    "SM_RANGE_QUARTER ENUMS": {
+        "prefix": "SM_RANGE_QUARTER",
+        "body": [
+            "SM_RANGE_QUARTER"
+        ],
+        "description": "SM_RANGE_QUARTER ENUMS"
+    },
+
+    "SM_RANGE_MONTH ENUMS": {
+        "prefix": "SM_RANGE_MONTH",
+        "body": [
+            "SM_RANGE_MONTH"
+        ],
+        "description": "SM_RANGE_MONTH ENUMS"
+    },
+
+    "SM_RANGE_DAY ENUMS": {
+        "prefix": "SM_RANGE_DAY",
+        "body": [
+            "SM_RANGE_DAY"
+        ],
+        "description": "SM_RANGE_DAY ENUMS"
+    },
+
+    "SM_RANGE_ID ENUMS": {
+        "prefix": "SM_RANGE_ID",
+        "body": [
+            "SM_RANGE_ID"
+        ],
+        "description": "SM_RANGE_ID ENUMS"
+    },
+
+    "SM_PARTITION_YEAR ENUMS": {
+        "prefix": "SM_PARTITION_YEAR",
+        "body": [
+            "SM_PARTITION_YEAR"
+        ],
+        "description": "SM_PARTITION_YEAR ENUMS"
+    },
+
+    "SM_PARTITION_QUARTER ENUMS": {
+        "prefix": "SM_PARTITION_QUARTER",
+        "body": [
+            "SM_PARTITION_QUARTER"
+        ],
+        "description": "SM_PARTITION_QUARTER ENUMS"
+    },
+
+    "SM_PARTITION_MONTH ENUMS": {
+        "prefix": "SM_PARTITION_MONTH",
+        "body": [
+            "SM_PARTITION_MONTH"
+        ],
+        "description": "SM_PARTITION_MONTH ENUMS"
+    },
+
+    "SM_PARTITION_DAY ENUMS": {
+        "prefix": "SM_PARTITION_DAY",
+        "body": [
+            "SM_PARTITION_DAY"
+        ],
+        "description": "SM_PARTITION_DAY ENUMS"
+    },
+
+    "ASC ENUMS": {
+        "prefix": "ASC",
+        "body": [
+            "ASC"
+        ],
+        "description": "ASC ENUMS"
+    },
+
+    "DESC ENUMS": {
+        "prefix": "DESC",
+        "body": [
+            "DESC"
+        ],
+        "description": "DESC ENUMS"
+    },
+
+    "HASHED ENUMS": {
+        "prefix": "HASHED",
+        "body": [
+            "HASHED"
+        ],
+        "description": "HASHED ENUMS"
+    },
+
+    "ORDERED ENUMS": {
+        "prefix": "ORDERED",
+        "body": [
+            "ORDERED"
+        ],
+        "description": "ORDERED ENUMS"
+    },
+
+    "UNORDERED ENUMS": {
+        "prefix": "UNORDERED",
+        "body": [
+            "UNORDERED"
+        ],
+        "description": "UNORDERED ENUMS"
+    },
+
+    "FA_NONE ENUMS": {
+        "prefix": "FA_NONE",
+        "body": [
+            "FA_NONE"
+        ],
+        "description": "FA_NONE ENUMS"
+    },
+
+    "FA_RESTRICT ENUMS": {
+        "prefix": "FA_RESTRICT",
+        "body": [
+            "FA_RESTRICT"
+        ],
+        "description": "FA_RESTRICT ENUMS"
+    },
+
+    "FA_NO_ACTION ENUMS": {
+        "prefix": "FA_NO_ACTION",
+        "body": [
+            "FA_NO_ACTION"
+        ],
+        "description": "FA_NO_ACTION ENUMS"
+    },
+
+    "FA_CASCADE ENUMS": {
+        "prefix": "FA_CASCADE",
+        "body": [
+            "FA_CASCADE"
+        ],
+        "description": "FA_CASCADE ENUMS"
+    },
+
+    "FA_SET_NULL ENUMS": {
+        "prefix": "FA_SET_NULL",
+        "body": [
+            "FA_SET_NULL"
+        ],
+        "description": "FA_SET_NULL ENUMS"
+    },
+
+    "FA_SET_DEFAULT ENUMS": {
+        "prefix": "FA_SET_DEFAULT",
+        "body": [
+            "FA_SET_DEFAULT"
+        ],
+        "description": "FA_SET_DEFAULT ENUMS"
+    }
+}

@@ -421,35 +421,35 @@ def loop_all_tables(_json, p2r=False):
         for t_config in db_config['fields']:
             # assert o_name == db_config['name']
             t_name = t_config['name']
+            t_type = t_config['type']
 
-            if t_name in _json['TABLE_GROUPS']['members']:
-                tg_config = _json['TABLE_GROUPS']['members'][t_name]
+            if t_type in _json['TABLE_GROUPS']['members']:
+                tg_config = _json['TABLE_GROUPS']['members'][t_type]
 
                 for tt in tg_config['fields']:  # noqa
                     _t_config = _json['TABLES']['members'].get(tt['name'], None)  # noqa
                     if _t_config is None:
                         raise TypeError(
-                            'TABLES members not has {}'.format(t_name))
+                            'TABLES members not has {}'.format(t_type))
 
                     opts = db_opts.copy()
                     opts.update(tt['db_options'])
 
-                    for tname in loop_sharding(
-                            _t_config['name'], opts, p2r=p2r):
+                    for tname in loop_sharding(t_name, opts, p2r=p2r):
                         yield dbname, tname, _t_config, opts
 
-            elif t_name in _json['TABLES']['members']:
-                _t_config = _json['TABLES']['members'][t_name]
+            elif t_type in _json['TABLES']['members']:
+                _t_config = _json['TABLES']['members'][t_type]
 
                 opts = db_opts.copy()
                 opts.update(t_config['db_options'])
 
-                for tname in loop_sharding(_t_config['name'], opts, p2r=p2r):
+                for tname in loop_sharding(t_name, opts, p2r=p2r):
                     yield dbname, tname, _t_config, opts
 
             else:
                 raise TypeError(
-                    'TABLES or TABLE_GROUPS members not has {}'.format(t_name))
+                    'TABLES or TABLE_GROUPS members not has {}'.format(t_type))
 
 
 def loop_tables(_json, p2r=False):

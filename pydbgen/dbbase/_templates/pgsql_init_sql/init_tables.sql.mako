@@ -23,7 +23,7 @@
 </%def>
 <%def name="default_fmt(field)" filter="trim">
     % if field['db_options']['defval']:
-    DEFAULT '${ field['db_options']['defval']}'
+    DEFAULT ${ field['db_options']['defval']}
     % endif
 </%def>
 <%def name="array_fmt(field)" filter="trim">
@@ -59,9 +59,9 @@ CREATE ${TEMP_KEY}TABLE ${tname} (
 % else:
 -- DROP TABLE IF EXISTS ${dbname}.${tname};
 CREATE ${TEMP_KEY}TABLE ${dbname}.${tname} (
-% endif
 createtime timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updatetime timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+% endif
 % for field in tconfig['fields']:
     % if field['type'] == 'string':
 ${field['name']} varchar(${field['db_options']['maxlen']})${array_fmt(field)} NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}

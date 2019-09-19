@@ -427,6 +427,9 @@ def loop_all_tables(_json, p2r=False):
                 tg_config = _json['TABLE_GROUPS']['members'][t_type]
 
                 for tt in tg_config['fields']:  # noqa
+                    t_name = tt['name']
+                    t_type = tt['type']
+
                     _t_config = _json['TABLES']['members'].get(tt['type'], None)  # noqa
                     if _t_config is None:
                         raise TypeError(

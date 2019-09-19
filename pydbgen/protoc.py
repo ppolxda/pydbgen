@@ -1,9 +1,4 @@
-import re
-import os
 import sys
-import copy
-import codecs
-import argparse
 import pkg_resources
 from grpc_tools.protoc import main as _main
 

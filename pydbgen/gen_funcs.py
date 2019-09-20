@@ -275,15 +275,14 @@ def datetime2date_string(_datetime):
     return _datetime.strftime('%Y%m%d')
 
 
-def loop_datetime(_start, _end, days=0, months=0, years=0):
+def loop_datetime(_start, _end, days=0, months=0, years=0, quarters=0):
     assert isinstance(_start, datetime.datetime), '_start invaild [type {}][{}][{}]'.format(type(_start), _start, (_start, _end, days, months, years))  # noqa
     assert isinstance(_end, datetime.datetime), '_end invaild [type {}][{}][{}]'.format(type(_end), _end, (_start, _end, days, months, years))  # noqa
     assert isinstance(days, six.integer_types)
     assert isinstance(months, six.integer_types)
     assert isinstance(years, six.integer_types)
-    assert (days <= 0 and months > 0 and years <= 0) or \
-        (days > 0 and months <= 0 and years <= 0) or \
-        (days <= 0 and months <= 0 and years > 0)
+    assert isinstance(quarters, six.integer_types)
+    assert not (days <= 0 and months <= 0 and years <= 0 and quarters <= 0)
 
     if years > 0:
         _end = string2datetime(datetime2year_string(_end) + '0101')
@@ -310,12 +309,39 @@ def loop_datetime(_start, _end, days=0, months=0, years=0):
             yield _start
             _start += datetime.timedelta(days)
 
+    elif quarters > 0:
+        months = 1
+        s_year = _start.year
+        s_quarter = (_start.month - 1) // 3 + 1
+        s_month = (s_quarter - 1) * 3 + 1
+        e_year = _end.year
+        e_quarter = (_end.month - 1) // 3 + 1
+        e_month = (e_quarter - 1) * 3 + 1
+        c_rq = None
+
+        _start = string2datetime(
+            ''.join([str(s_year), '{:02d}'.format(s_month),  '01']))
+        _end = string2datetime(
+            ''.join([str(e_year), '{:02d}'.format(e_month),  '01']))
+
+        while _start < _end:
+            _qr = datetime2quarter_string(_start)
+            if c_rq is None or c_rq != _qr:
+                c_rq = _qr
+                yield _start
+
+            div, mod = divmod(_start.month + months - 1, 12)
+            _start = _start.replace(
+                year=_start.year + div,
+                month=mod + 1
+            )
+
     else:
         raise TypeError('loop_datetime days=0, months=0 invaild')
 
 
-def loop_datetime_range(_start, _end, days=0, months=0, years=0):
-    for i in loop_datetime(_start, _end, days, months, years):
+def loop_datetime_range(_start, _end, days=0, months=0, years=0, quarters=0):
+    for i in loop_datetime(_start, _end, days, months, years, quarters):
         if years > 0:
             _end = i.replace(year=i.year + 1)
             yield i, _end
@@ -328,13 +354,21 @@ def loop_datetime_range(_start, _end, days=0, months=0, years=0):
         elif days > 0:
             _end = i + datetime.timedelta(days=days)
             yield i, _end
+
+        elif quarters > 0:
+            months = 3
+            div, mod = divmod(i.month + months - 1, 12)
+            _end = i.replace(year=i.year + div, month=mod + 1)
+            yield i, _end
+
         else:
             raise TypeError('loop_datetime days=0, months=0 invaild')
 
 
-def loop_datetime_range2(_start, _end, days=0, months=0, years=0):
-    for i, _end in loop_datetime_range(_start, _end, days, months, years):
-        yield i, _end - datetime.timedelta(seconds=1)
+def loop_datetime_range2(_start, _end, days=0, months=0, years=0, quarters=0):
+    for i, _end in loop_datetime_range(_start, _end, days,
+                                       months, years, quarters):
+        yield i, _end - datetime.timedelta(milliseconds=1)
 
 
 def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
@@ -360,14 +394,9 @@ def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
             yield ('_'.join([name, datetime2year_string(start_date)]),
                    start_date, end_date)
     elif sharding_mode == 'SM_RANGE_QUARTER':
-        qr = None
         for start_date, end_date in loop_datetime_range(
-                sharding_date_begin, sharding_date_end, months=1):
+                sharding_date_begin, sharding_date_end, quarters=1):
             _qr = datetime2quarter_string(start_date)
-            if qr == _qr:
-                continue
-
-            qr = _qr
             yield ('_'.join([name, _qr]), start_date, end_date)
 
     elif sharding_mode == 'SM_RANGE_MONTH':
@@ -390,10 +419,10 @@ def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
 
 def loop_sharding_range2(name, _dbconfig, mode=None, p2r=False):
     for name, start, end in loop_sharding_range(name, _dbconfig, mode, p2r):
-        if isinstance(start, datetime.datetime):
-            start -= datetime.timedelta(seconds=1)
+        # if isinstance(start, datetime.datetime):
+        #     start -= datetime.timedelta(milliseconds=1)
         if isinstance(end, datetime.datetime):
-            end -= datetime.timedelta(seconds=1)
+            end -= datetime.timedelta(milliseconds=1)
         yield name, start, end
 
 
@@ -411,8 +440,17 @@ def loop_datbases(_json):
             if _db_config is None:
                 raise TypeError('DATABASES members not has {}'.format(db_name))
 
-            for dbname in loop_sharding(db_name, db_config['db_options']):
-                yield dbname, _db_config, db_config['db_options']
+            db_opts = db_config['db_options'].copy()
+            sharding_mode = db_opts.get('sharding_mode', 'SM_DISABLE')
+            for dbname, start, end in loop_sharding_range(db_name, db_config['db_options']):
+                if sharding_mode == 'SM_RANGE_ID':
+                    db_opts['sharding_max'] = start
+                    db_opts['sharding_min'] = end
+                else:
+                    db_opts['sharding_date_begin'] = str(start)
+                    db_opts['sharding_date_end'] = str(end)
+
+                yield dbname, _db_config, db_opts
 
 
 def loop_all_tables(_json, p2r=False):

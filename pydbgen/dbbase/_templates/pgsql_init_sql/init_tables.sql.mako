@@ -95,7 +95,7 @@ TABLESPACE "${topts['space']}"
 ;
 
 % if is_partitions:
-    % for pname, start, end in loop_sharding_range2(tname, topts, p2r=True):
+    % for pname, start, end in loop_sharding_range(tname, topts, p2r=True):
 CREATE TABLE ${dbname}.${pname} PARTITION OF ${dbname}.${tname}
 FOR VALUES FROM ('${start}') TO ('${end}');
     % endfor

@@ -121,7 +121,7 @@ class ProtoPlugins(object):
         for config in opts.json_conf:
             tmpl = config['tmpl']
             json_data = copy.deepcopy(_json_data)
-            json_data['gen_config'] = config.get('args', {})
+            json_data['cargs'] = config.get('args', {})
             if not isinstance(config, dict):
                 raise TypeError('config invaild')
 

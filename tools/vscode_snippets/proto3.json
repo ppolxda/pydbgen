@@ -109,6 +109,19 @@
         "description": "table message"
     },
 
+    "database message": {
+        "prefix": "database message",
+        "body": [
+            "message ${1} {",
+            "    option (msg_type) = DATABASE;",
+            "",
+            "    ${2}",
+            "}"
+        ],
+        "description": "database message"
+    },
+
+
     // ---------------------------------------
     //       field options
     // ---------------------------------------
@@ -124,7 +137,7 @@
     "float options one": {
         "prefix": "declen=36, decpoint=14, maxval=0, minval=0",
         "body": [
-            "(declen) = ${1:36}, (decpoint) = ${2:14}, (maxval) = ${3:0}, (minval) = ${4:0}"
+            "(declen) = ${1:36}, decpoint = ${2:14}, (maxval) = ${3:0}, (minval) = ${4:0}"
         ],
         "description": "float options"
     },
@@ -132,7 +145,7 @@
     "float options two": {
         "prefix": "declen=36, decpoint=14",
         "body": [
-            "(declen) = ${1:36}, (decpoint) = ${2:14}"
+            "(declen) = ${1:36}, decpoint = ${2:14}"
         ],
         "description": "float options"
     },
@@ -322,7 +335,7 @@
     },
 
     "sharding_key  options": {
-        "prefix": "sharding_mode",
+        "prefix": "sharding_key",
         "body": [
             "(sharding_key) = '${1}'"
         ],
@@ -491,6 +504,14 @@
             "ENABLE"
         ],
         "description": "ENABLE ENUMS"
+    },
+
+    "SM_ENABLE ENUMS": {
+        "prefix": "SM_ENABLE",
+        "body": [
+            "SM_ENABLE"
+        ],
+        "description": "SM_ENABLE ENUMS"
     },
 
     "SM_HASHED ENUMS": {

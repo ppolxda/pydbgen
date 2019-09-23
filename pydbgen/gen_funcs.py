@@ -411,8 +411,9 @@ def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
             yield ('_'.join([name, datetime2date_string(start_date)]),
                    start_date, end_date)
 
-    # elif sharding_mode == 'SM_ENABLE':
-    #     yield name
+    elif sharding_mode == 'SM_RANGE':
+        yield name, sharding_date_begin, sharding_date_end
+
     else:
         yield name, None, None
 
@@ -435,8 +436,9 @@ def loop_datbases(_json):
     for _, o_config in _json['OUTPUTS']['members'].items():
         for db_config in o_config['fields']:
             db_name = db_config['name']
+            db_type = db_config['type']
 
-            _db_config = _json['DATABASES']['members'].get(db_name, None)
+            _db_config = _json['DATABASES']['members'].get(db_type, None)
             if _db_config is None:
                 raise TypeError('DATABASES members not has {}'.format(db_name))
 
@@ -539,6 +541,7 @@ def generate_file(template_name, **kwargs):
     kwargs['string2date'] = string2date
     kwargs['timedelta'] = datetime.timedelta
     kwargs['json_dumps'] = json.dumps
+    kwargs['now'] = datetime.datetime.now
 
     kwargs['is_partition'] = is_partition
     kwargs['is_range'] = is_range

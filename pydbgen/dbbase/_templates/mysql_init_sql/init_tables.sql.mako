@@ -27,7 +27,7 @@
 <%def name="line_fmt(ilist, iname, has_pkey)" filter="trim">
     ${',' if ilist[-1] != iname else ',' if has_pkey else ''}
 </%def>
-% if gen_config.get('is_temp', False):
+% if cargs.get('is_temp', False):
     <%
         TEMP_KEY = 'TEMPORARY '
         loop_func = loop_temp_tables

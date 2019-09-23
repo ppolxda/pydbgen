@@ -18,11 +18,10 @@ import codecs
 import argparse
 import autopep8
 import pkg_resources
+from six.moves import reduce
 from google.protobuf.compiler import plugin_pb2 as plugin
 from pydbgen.dbbase.protoc_gen_json import generate_json
-from pydbgen.gen_funcs import generate_file
-from pydbgen.gen_funcs import camel_to_snake
-from pydbgen.gen_funcs import remove_blank_line
+from pydbgen import gen_funcs as gfuncs
 
 
 class Cmdoptions(object):
@@ -111,6 +110,30 @@ class ProtoPlugins(object):
 
         return _json_table
 
+    @classmethod
+    def auto_fmt(cls, context, fixcode):
+        if fixcode is None:
+            return context
+
+        elif isinstance(fixcode, six.string_types):
+            if fixcode == 'blankline':
+                context = gfuncs.remove_blank_line(context)
+            elif fixcode == 'trim':
+                context = gfuncs.trim(context)
+            elif fixcode == 'rtrim':
+                context = gfuncs.rtrim(context)
+            elif fixcode == 'ltrim':
+                context = gfuncs.ltrim(context)
+            elif fixcode == 'aoutpep8':
+                context = autopep8.fix_code(context)
+            return context
+
+        elif isinstance(fixcode, list):
+            return six.functools.reduce(cls.auto_fmt, fixcode, context)
+
+        else:
+            raise TypeError('fixcode invaild[{}]'.format(fixcode))
+
     def generate_code(self, request, response):
         # filepath0 = request.file_to_generate[0]
         # filename = filepath0[:filepath0.rfind('.')]
@@ -169,7 +192,7 @@ class ProtoPlugins(object):
                 filename = filepath0[:filepath0.rfind('.')]
 
             fpath = filename1 + \
-                output.format(filename=camel_to_snake(filename))
+                output.format(filename=gfuncs.camel_to_snake(filename))
 
         fpath2 = os.path.abspath(fpath)
         if not upsert and os.path.exists(fpath2):
@@ -177,14 +200,8 @@ class ProtoPlugins(object):
 
         fout = response.file.add()
         fout.name = fpath
-        fout.content = generate_file(tmpl, **json_data)
-
-        # fixcode
-        if fixcode == 'fix_blankline':
-            fout.content = remove_blank_line(fout.content)
-
-        elif fixcode == 'aoutpep8':
-            fout.content = autopep8.fix_code(fout.content)
+        fout.content = gfuncs.generate_file(tmpl, **json_data)
+        fout.content = self.auto_fmt(fout.content, fixcode)
 
     def generate_code_multi(self, request, response,
                             tmpl, config, json_data,
@@ -201,7 +218,7 @@ class ProtoPlugins(object):
 
         def gen_file(_upsert, objname, tconfig):
             fpath = filename1 + \
-                output.format(objname=camel_to_snake(objname))
+                output.format(objname=gfuncs.camel_to_snake(objname))
 
             fpath2 = os.path.abspath(fpath)
             if not _upsert and os.path.exists(fpath2):
@@ -210,22 +227,19 @@ class ProtoPlugins(object):
             fout = response.file.add()
             tconfig['objname'] = objname
             tconfig['json_data'] = json_data
-            fout.content = generate_file(tmpl, **tconfig)
+            fout.content = gfuncs.generate_file(tmpl, **tconfig)
+            fout.content = self.auto_fmt(fout.content, fixcode)
             fout.name = fpath
-            # fixcode
-            if fixcode == 'fix_blankline':
-                fout.content = remove_blank_line(fout.content)
-
-            elif fixcode == 'aoutpep8':
-                fout.content = autopep8.fix_code(fout.content)
 
         if objects == 'tables':
             if keys not in output:
                 raise TypeError('config output error, missing ' + keys)
 
             def gen_file2(_upsert, dbname, table, tconfig):
-                fpath = filename1 + output.format(db=camel_to_snake(dbname),
-                                                  table=camel_to_snake(table))
+                fpath = filename1 + output.format(
+                    db=gfuncs.camel_to_snake(dbname),
+                    table=gfuncs.camel_to_snake(table)
+                )
 
                 fpath2 = os.path.abspath(fpath)
                 if not _upsert and os.path.exists(fpath2):
@@ -233,14 +247,9 @@ class ProtoPlugins(object):
 
                 fout = response.file.add()
                 tconfig['db'] = dbname
-                fout.content = generate_file(tmpl, **tconfig)
+                fout.content = gfuncs.generate_file(tmpl, **tconfig)
+                fout.content = self.auto_fmt(fout.content, fixcode)
                 fout.name = fpath
-                # fixcode
-                if fixcode == 'fix_blankline':
-                    fout.content = remove_blank_line(fout.content)
-
-                elif fixcode == 'aoutpep8':
-                    fout.content = autopep8.fix_code(fout.content)
 
             for table, tconfig in _objects.items():
                 tconfig['json_data'] = json_data

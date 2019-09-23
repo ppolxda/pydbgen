@@ -34,7 +34,8 @@
 <%def name="line_fmt(ilist, iname, has_pkey)" filter="trim">
     ${',' if ilist[-1] != iname else ',' if has_pkey else ''}
 </%def>
-% if cargs.get('is_temp', False):
+<% is_temp = cargs.get('is_temp', False) %>
+% if is_temp:
     <%
         TEMP_KEY = 'TEMP '
         loop_func = loop_temp_tables
@@ -53,12 +54,12 @@
 -- ----------------------------
 -- -- Table for ${dbname} ${tname} ${dict(topts)}
 -- ----------------------------
-% if TEMP_KEY:
+% if is_temp:
 DROP TABLE IF EXISTS ${tname};
 CREATE ${TEMP_KEY}TABLE ${tname} (
 % else:
 -- DROP TABLE IF EXISTS ${dbname}.${tname};
-CREATE ${TEMP_KEY}TABLE ${dbname}.${tname} (
+CREATE TABLE ${dbname}.${tname} (
 createtime timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updatetime timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 % endif

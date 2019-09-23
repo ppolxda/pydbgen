@@ -134,17 +134,62 @@ def list_fmt_string(_list, fmt, keys):
     return map(lambda x: fmt.format(**x), list_fmt(_list, keys))
 
 
+def ltrim(text):
+    if isinstance(text, six.string_types):
+        index = '\n'
+    elif isinstance(text, six.binary_type):
+        index = b'\n'
+    else:
+        raise TypeError('trim text invaild ')
+
+    text = text.split(index)
+    text = [i.lstrip() for i in text]
+    return index.join(text)
+
+
+def rtrim(text):
+    if isinstance(text, six.string_types):
+        index = '\n'
+    elif isinstance(text, six.binary_type):
+        index = b'\n'
+    else:
+        raise TypeError('trim text invaild ')
+
+    text = text.split(index)
+    text = [i.rstrip() for i in text]
+    return index.join(text)
+
+
+def trim(text):
+    if isinstance(text, six.string_types):
+        index = '\n'
+    elif isinstance(text, six.binary_type):
+        index = b'\n'
+    else:
+        raise TypeError('trim text invaild ')
+
+    text = text.split(index)
+    text = [i.strip() for i in text]
+    return index.join(text)
+
+
 def remove_blank_line(text):
     if isinstance(text, six.string_types):
-        text = text.split('\n')
-        text = [i.strip() for i in text if i.strip() and i[0] != '\r']
-        return '\n'.join(text)
+        index = '\n'
+        rindex = '\n\n'
+        fix = '\r'
     elif isinstance(text, six.binary_type):
-        text = text.split(b'\n')
-        text = [i.strip() for i in text if i.strip() and i[0] != b'\r']
-        return b'\n'.join(text)
+        index = b'\n'
+        rindex = b'\n\n'
+        fix = '\r'
     else:
         raise TypeError('remove_blank_line text invaild ')
+
+    text = text.replace(fix, '')
+
+    while rindex in text:
+        text = text.replace(rindex, index)
+    return text
 
 
 def padding_switch_split(text, count=3, split=','):

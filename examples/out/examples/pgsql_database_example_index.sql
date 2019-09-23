@@ -1,3 +1,4 @@
+
 CREATE UNIQUE INDEX "users_user_info_logincode_unique" ON users.user_info USING btree (
 loginCode DESC
 );

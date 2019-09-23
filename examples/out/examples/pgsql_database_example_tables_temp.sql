@@ -1,3 +1,4 @@
+
 -- ----------------------------
 -- -- Table for trade_temp user_info {'sharding_date_begin': 'None', 'sharding_date_end': 'None', 'is_temp': True}
 -- ----------------------------

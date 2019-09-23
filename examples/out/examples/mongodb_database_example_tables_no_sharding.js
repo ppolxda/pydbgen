@@ -1,3 +1,4 @@
+
 // ----------------------------
 // -- Table for users user_info {'sharding_date_begin': 'None', 'sharding_date_end': 'None', 'space': 'user_spaces'}
 // ----------------------------

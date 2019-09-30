@@ -175,12 +175,12 @@ def trim(text):
 
 def remove_blank_line(text):
     if isinstance(text, six.string_types):
-        index = '\n'
-        rindex = '\n\n'
+        index = '\n\n'
+        rindex = '\n\n\n'
         fix = '\r'
     elif isinstance(text, six.binary_type):
-        index = b'\n'
-        rindex = b'\n\n'
+        index = b'\n\n'
+        rindex = b'\n\n\n'
         fix = '\r'
     else:
         raise TypeError('remove_blank_line text invaild ')
@@ -489,7 +489,8 @@ def loop_datbases(_json):
 
             db_opts = db_config['db_options'].copy()
             sharding_mode = db_opts.get('sharding_mode', 'SM_DISABLE')
-            for dbname, start, end in loop_sharding_range(db_name, db_config['db_options']):
+            for dbname, start, end in loop_sharding_range(
+                    db_name, db_config['db_options']):
                 if sharding_mode == 'SM_RANGE_ID':
                     db_opts['sharding_max'] = start
                     db_opts['sharding_min'] = end

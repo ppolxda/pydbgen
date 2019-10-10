@@ -502,43 +502,32 @@ def loop_datbases(_json):
 
 
 def loop_all_tables(_json, p2r=False):
+    def loop_table(_table):
+        # assert o_name == db_config['name']
+        t_name = _table['name']
+        t_type = _table['type']
+
+        if t_type in _json['TABLES']['members']:
+            table = _json['TABLES']['members'][t_type]
+            yield t_name, table, _table
+        elif t_type in _json['TABLE_GROUPS']['members']:
+            tgroup = _json['TABLE_GROUPS']['members'][t_type]
+            for table in tgroup['fields']:
+                yield from loop_table(table)
+        else:
+            raise TypeError(
+                '[{}]TABLES or TABLE_GROUPS '
+                'members not has {}'.format(t_name, t_type)
+            )
+
     for dbname, db_config, db_opts in loop_datbases(_json):
-
-        for t_config in db_config['fields']:
-            # assert o_name == db_config['name']
-            t_name = t_config['name']
-            t_type = t_config['type']
-
-            if t_type in _json['TABLE_GROUPS']['members']:
-                tg_config = _json['TABLE_GROUPS']['members'][t_type]
-
-                for tt in tg_config['fields']:  # noqa
-                    t_name = tt['name']
-                    t_type = tt['type']
-
-                    _t_config = _json['TABLES']['members'].get(tt['type'], None)  # noqa
-                    if _t_config is None:
-                        raise TypeError(
-                            'TABLES members not has {}'.format(t_type))
-
-                    opts = db_opts.copy()
-                    opts.update(tt['db_options'])
-
-                    for tname in loop_sharding(t_name, opts, p2r=p2r):
-                        yield dbname, tname, _t_config, opts
-
-            elif t_type in _json['TABLES']['members']:
-                _t_config = _json['TABLES']['members'][t_type]
-
+        for _t_config in db_config['fields']:
+            for t_name, t_config, t_opts in loop_table(_t_config):
                 opts = db_opts.copy()
-                opts.update(t_config['db_options'])
+                opts.update(t_opts['db_options'])
 
                 for tname in loop_sharding(t_name, opts, p2r=p2r):
-                    yield dbname, tname, _t_config, opts
-
-            else:
-                raise TypeError(
-                    'TABLES or TABLE_GROUPS members not has {}'.format(t_type))
+                    yield dbname, tname, t_config, opts
 
 
 def loop_tables(_json, p2r=False):

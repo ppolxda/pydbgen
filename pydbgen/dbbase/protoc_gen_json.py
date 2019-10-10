@@ -549,18 +549,28 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                                 table['name'], index['name'], diff)
                         )
 
-    # new table databases config
-    for dbname, dbconfig in output['DATABASES']['members'].items():
-        for _table in dbconfig['fields']:
-            if _table['type'] in output['TABLE_GROUPS']['members']:
-                for table in (output['TABLE_GROUPS']['members']
-                              [_table['type']]['fields']):
-                    table = output['TABLES']['members'][table['type']]
-                    append_database(dbconfig, table,
-                                    output['TABLES']['members'])
-            else:
+    def loop_tables(_config):
+        def loop_table(_table):
+            if _table['type'] in output['TABLES']['members']:
                 table = output['TABLES']['members'][_table['type']]
-                append_database(dbconfig, table, output['TABLES']['members'])
+                yield table
+            elif _table['type'] in output['TABLE_GROUPS']['members']:
+                tgroup = output['TABLE_GROUPS']['members'][_table['type']]
+                for table in tgroup['fields']:
+                    yield from loop_table(table)
+            else:
+                raise TypeError('unknow table type[{}][{}]'.format(
+                    _table['type'], _table['name']))
+
+        # new table databases config
+        for dbname, dbconfig in _config['DATABASES']['members'].items():
+            for _table in dbconfig['fields']:
+                for table in loop_table(_table):
+                    yield dbname, dbconfig, table, output['TABLES']['members']
+
+    # new table databases config
+    for dbname, dbconfig, table, tmembers in loop_tables(output):
+        append_database(dbconfig, table, output['TABLES']['members'])
 
     return output
 

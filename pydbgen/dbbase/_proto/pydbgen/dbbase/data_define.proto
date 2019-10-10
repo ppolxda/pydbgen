@@ -123,6 +123,11 @@ extend google.protobuf.FieldOptions {
   // relational database
   // define a temp table
   bool is_temp = 900023;
+  // create table and create suffixed table
+  // table format {table_name}_{suffix}
+  // if set suffix_tables = "suffix_A, suffix_B"
+  // script will create tables [{table_name}, {table_name}_suffix_A, {table_name}_suffix_B]
+  string suffix_tables = 900024;
 
   // sharding_mode config
   EnumShardingMode sharding_mode = 900016;  // Message sharding_mode

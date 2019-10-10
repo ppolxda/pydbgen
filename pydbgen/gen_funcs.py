@@ -529,6 +529,15 @@ def loop_all_tables(_json, p2r=False):
                 for tname in loop_sharding(t_name, opts, p2r=p2r):
                     yield dbname, tname, t_config, opts
 
+                suffixs = opts.get('suffix_tables', '').split(',')
+                if not suffixs:
+                    continue
+
+                for suffix in filter(lambda x: x, suffixs):
+                    _t_name = '_'.join([t_name, suffix])
+                    for tname in loop_sharding(_t_name, opts, p2r=p2r):
+                        yield dbname, tname, t_config, opts
+
 
 def loop_tables(_json, p2r=False):
     for dbname, tname, tconfig, topts in loop_all_tables(_json, p2r):

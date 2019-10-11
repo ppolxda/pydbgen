@@ -13,6 +13,7 @@ import codecs
 import datetime
 import functools
 import pkg_resources
+from collections import OrderedDict
 from mako.template import Template
 
 SHAIDING_RANGE_ID = {'SM_RANGE_ID'}
@@ -54,6 +55,27 @@ def is_shaiding(mode):
     if isinstance(mode, dict):
         mode = mode.get('sharding_mode', 'SM_DISABLE')
     return mode in SHAIDING_RANGE
+
+
+def get_type_default(_type):
+    if _type == 'string':
+        return "''"
+    elif _type == 'bytes':
+        return "''"
+    elif _type == 'int32' or _type == 'int64':
+        return 0
+    elif _type == 'float' or _type == 'double':
+        return 0.0
+    elif _type == 'datetime':
+        return "'1900-01-01 00:00:00'"
+    elif _type == 'date':
+        return "'1900-01-01'"
+    elif _type in ['json', 'jsonb']:
+        return "'{}'"
+    # elif _type in ['oneof', 'message']:
+    #     raise TypeError('get_type_default type unknow')
+    else:
+        raise TypeError('get_type_default type unknow')
 
 
 class Field(object):
@@ -590,6 +612,8 @@ def generate_file(template_name, **kwargs):
     kwargs['is_partition'] = is_partition
     kwargs['is_range'] = is_range
     kwargs['is_shaiding'] = is_shaiding
+    kwargs['OrderedDict'] = OrderedDict
+    kwargs['get_type_default'] = get_type_default
 
     kwargs['loop_sharding'] = loop_sharding
     kwargs['loop_sharding_range'] = loop_sharding_range

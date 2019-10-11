@@ -326,6 +326,14 @@
         "description": "is_temp options"
     },
 
+    "suffix_tables options": {
+        "prefix": "suffix_tables",
+        "body": [
+            "(suffix_tables) = true"
+        ],
+        "description": "suffix_tables options"
+    },
+
     "sharding_mode  options": {
         "prefix": "sharding_mode",
         "body": [

@@ -587,14 +587,14 @@ def loop_tablespaces(_json):
         yield tsname, tsconfig
 
 
-def generate_file(template_name, **kwargs):
+def generate_file(tmpl_path, **kwargs):
     u"""generate_file."""
     # template_loader = template.Loader(options.fs_tmpl)
-    with codecs.open(template_name, 'rb', encoding='utf8') as fs:
+    with codecs.open(tmpl_path, 'rb', encoding='utf8') as fs:
         tmpl = fs.read()
 
     kwargs['codecs'] = codecs
-    kwargs['tmplpath'] = template_name[:template_name.rfind('/', 1)]
+    kwargs['tmplpath'] = tmpl_path[:tmpl_path.rfind('/', 1)]
     kwargs['class_name'] = snake_to_camel
     kwargs['func_name'] = camel_to_snake
     kwargs['camel_to_snake'] = camel_to_snake

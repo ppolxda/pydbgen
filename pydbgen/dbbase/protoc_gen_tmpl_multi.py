@@ -32,11 +32,11 @@ class Cmdoptions(object):
         TMPLPATH_DEFINE = '{tmpl}'
         TMPLPATH = self.get_tmpl_path()
 
-        args = self.parse_args()
+        self.cmds = self.parse_args()
         self.tmplpath = TMPLPATH
-        self.config = self.get_config_path(args)
-        self.encoding = args.encoding
-        self.step_files = args.step_files.split(',')
+        self.config = self.get_config_path(self.cmds)
+        self.encoding = self.cmds.encoding
+        self.step_files = self.cmds.step_files.split(',')
 
         if not self.config:
             raise TypeError('--config not set')
@@ -99,7 +99,8 @@ class ProtoPlugins(object):
     def __init__(self):
         self.opts = Cmdoptions()
 
-    def init_table_json(self, _json_table):
+    @staticmethod
+    def init_table_json(_json_table):
         assert isinstance(_json_table, dict)
 
         ENUMS = _json_table.get('ENUMS', {}).get('members', {})
@@ -133,6 +134,13 @@ class ProtoPlugins(object):
 
         else:
             raise TypeError('fixcode invaild[{}]'.format(fixcode))
+
+    @classmethod
+    def generate_code_by_json(cls, json_data, tmpl_path, fixcode):
+        _json_data = cls.init_table_json(json_data.copy())
+        content = gfuncs.generate_file(tmpl_path, **json_data)
+        content = cls.auto_fmt(content, fixcode)
+        return content
 
     def generate_code(self, request, response):
         # filepath0 = request.file_to_generate[0]

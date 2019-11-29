@@ -57,6 +57,8 @@ setup(
             "protoc-gen-pydbpgsql=pydbgen.dbbase.protoc_gen_pgsql:main",
             "protoc-gen-pydbmongo=pydbgen.dbbase.protoc_gen_mongodb:main",
             "protoc-gen-pydbtmpl=pydbgen.dbbase.protoc_gen_tmpl_multi:main",
+            "protoc-gen-pypbjson=pydbgen.pbclass.protoc_gen_json:main",
+            "protoc-gen-pypbclass=pydbgen.pbclass.protoc_gen_tmpl_multi:main",
         ]
     },
     # scripts=bin_list_build(),

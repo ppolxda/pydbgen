@@ -34,7 +34,7 @@ from pkg_resources import load_entry_point
 
 datas = findall('pydbgen/dbbase/_proto')
 datas += findall('pydbgen/dbbase/_templates')
-# datas += findall('pydbgen/msgclass/_templates')
+datas += findall('pydbgen/pbclass/_templates')
 datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(

@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-@create: 2017-11-17 14:58:29.
-
-@author: ppolxda
-
-@desc:
-"""
-from __future__ import absolute_import, division, print_function, unicode_literals  # noqa
 import os
 import sys
 import six
@@ -594,6 +586,7 @@ def main():
         DATA = sys.stdin.read()
     else:
         DATA = sys.stdin.buffer.read()
+
     # open('test.dat', 'wb').write(DATA)
     # DATA = open('test.dat', 'rb').read()
 

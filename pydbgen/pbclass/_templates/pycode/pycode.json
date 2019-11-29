@@ -1,0 +1,14 @@
+[
+    {
+        "tmpl": "{tmpl}/pycode/init_json.json.mako",
+        "mode": "single",
+        "output": "{filename}.json",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/pycode/class_tmpl_py.mako",
+        "mode": "single",
+        "output": "{filename}_class.py",
+        "fixcode": "aoutpep8"
+    }
+]

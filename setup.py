@@ -39,7 +39,7 @@ datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(
     name="pydbgen",
-    version="0.0.2",
+    version="0.0.3",
     install_requires=[
         'mako',
         'autopep8',

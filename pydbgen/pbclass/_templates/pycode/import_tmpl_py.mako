@@ -1,0 +1,1 @@
+${ '\n'.join(['from {pkg}.{file}_pb2 import {name} as {name}_pb  # noqa'.format(pkg=package, file=filename[filename.rfind('/') + 1 if filename.rfind('/') > 0 else 0:filename.rfind('.')], name=nested['name'])  for nested in nesteds.values()]) }

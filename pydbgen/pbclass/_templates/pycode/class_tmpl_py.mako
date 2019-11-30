@@ -3,12 +3,63 @@ import re
 import six
 import json
 import decimal
+import datetime
 from google.protobuf.message import Message
 from google.protobuf.pyext._message import RepeatedCompositeContainer
 ${ remove_blank_line(generate_file(tmplpath + "/import_tmpl_py.mako", nesteds=nesteds,filename=filename,package=package,json_data=json_data,loop_nesteds=loop_nesteds)) }
 
 class FeildInVaild(Exception):
     pass
+
+
+def string2date(val, is_date=True):
+    try:
+        _date = datetime.datetime.strptime(val, '%Y-%m-%d')
+        if is_date:
+            return _date.date()
+        else:
+            return _date
+    except ValueError:
+        pass
+    try:
+        _date = datetime.datetime.strptime(val, '%Y/%m/%d')
+        if is_date:
+            return _date.date()
+        else:
+            return _date
+    except ValueError:
+        pass
+    _date = datetime.datetime.strptime(val, '%Y%m%d')
+    if is_date:
+        return _date.date()
+    else:
+        return _date
+
+
+def string2datetime(val):
+    try:
+        return datetime.datetime.strptime(val, '%Y-%m-%d %H:%M:%S')
+    except ValueError:
+        pass
+    try:
+        return datetime.datetime.strptime(val, '%Y-%m-%dT%H:%M:%S')
+    except ValueError:
+        pass
+    try:
+        return datetime.datetime.strptime(val, '%Y/%m/%d %H:%M:%S')
+    except ValueError:
+        pass
+    try:
+        return datetime.datetime.strptime(val, '%Y/%m/%dT%H:%M:%S')
+    except ValueError:
+        pass
+    try:
+        return datetime.datetime.strptime(val, '%Y%m%d%H%M%S')
+    except ValueError:
+        pass
+
+    return string2date(val, False)
+
 
 
 class FeildOption(object):
@@ -57,6 +108,12 @@ class FeildOption(object):
         elif _type == 'string':
             return ''
 
+        elif _type == 'date':
+            return datetime.date(1900, 1, 1)
+
+        elif _type == 'datetime':
+            return datetime.datetime(1900, 1, 1)
+
         elif _type == 'bytes':
             return b''
 
@@ -92,6 +149,14 @@ class FeildOption(object):
         elif self.type in ['float', 'double']:
             if not isinstance(val, (float, decimal.Decimal)):
                 raise FeildInVaild('[{}]value invaild, is not float[{}]'.format(self.name, val))  # noqa
+
+        elif self.type == 'date':
+            if not isinstance(val, datetime.date):
+                raise FeildInVaild('[{}]value invaild, is not date[{}]'.format(self.name, val))  # noqa
+
+        elif self.type == 'datetime':
+            if not isinstance(val, datetime.datetime):
+                raise FeildInVaild('[{}]value invaild, is not datetime[{}]'.format(self.name, val))  # noqa
 
         elif self.type == 'string':
             if not isinstance(val, six.string_types):
@@ -149,6 +214,12 @@ class FeildOption(object):
 
         elif self.type == 'string':
             return str(val)
+
+        elif self.type == 'date':
+            return string2date(val)
+
+        elif self.type == 'datetime':
+            return string2datetime(val)
 
         elif self.type == 'bytes':
             if isinstance(val, six.string_types):
@@ -290,6 +361,9 @@ class ProtoClass(object):
 ${ generate_file(tmplpath + "/enum_tmpl_py.mako", **enum) }
 % endfor
 % for root, nested in loop_nesteds(json_data):
+% if nested['name'] in ['date', 'datetime']:
+    <% continue %>
+% endif
 <% nested['roots'] = list(filter(lambda x: x, root[len('.root'):].split('.')))   %>
 <% nested['parentclass'] = root[len('.root'):].replace('.', '_') %>
 <% nested['package'] = json_data['package'] %>

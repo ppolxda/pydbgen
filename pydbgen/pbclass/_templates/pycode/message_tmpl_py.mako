@@ -8,10 +8,18 @@
         return cpath
 
     def get_fclass(val, package):
-        if val['type'] == 'message':
-            return ", fclass=" + fmt_class(val['options']['type_name'], package)
+        _type = fmt_class(val['options']['type_name'], package)
+        if val['type'].lower() == 'message' and _type not in ['date', 'datetime']:
+            return ", fclass=" + _type
         else:
             return ''
+
+    def get_type(val, package):
+        _type = fmt_class(val['options']['type_name'], package)
+        if val['type'].lower() == 'message' and _type in ['date', 'datetime']:
+            return _type
+        else:
+            return val['type'].lower()
 %>
 
 class ${cur_class_name}(ProtoClass):  # noqa
@@ -30,13 +38,13 @@ class ${cur_class_name}(ProtoClass):  # noqa
 
     fields = {
         % for val in fields.values():
-        '${val['name']}': FeildOption('${val['type'].lower()}', '${val['name'].lower()}', '${val['comment'].lower()}', ${val['options']['label'] == 'repeated'}${get_fclass(val, package)}),  # noqa
+        '${val['name']}': FeildOption('${get_type(val, package)}', '${val['name'].lower()}', '${val['comment'].lower()}', ${val['options']['label'] == 'repeated'}${get_fclass(val, package)}),  # noqa
         % endfor
     }
 
     def __init__(self, **kwargs):
         % for val in fields.values():
-            % if val['type'].lower() == 'message' and val['options']['label'] != 'repeated':
+            % if val['type'].lower() == 'message' and val['options']['label'] != 'repeated' and get_type(val, package) not in ['date', 'datetime']:
         self.${val['name'].lower()} = self.new_${val['name'].lower()}(self._value_kwargs('${val['name'].lower()}', kwargs))  # noqa
             % else:
         self.${val['name'].lower()} = self._value_kwargs('${val['name'].lower()}', kwargs)  # noqa
@@ -47,7 +55,7 @@ class ${cur_class_name}(ProtoClass):  # noqa
         % endif
 
         % for val in fields.values():
-            % if val['type'].lower() != 'message':
+            % if val['type'].lower() != 'message' or get_type(val, package) in ['date', 'datetime']:
                 <% continue %>
             % endif
 

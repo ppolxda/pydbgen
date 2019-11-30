@@ -328,6 +328,8 @@ class ProtoClass(object):
 
                 field = getattr(obj, key)
                 self.__list_set(val, opt, field)
+            elif opt.type in ['date', 'datetime']:
+                setattr(obj, key, str(val))
             elif opt.type == 'message':
                 obj_data = getattr(self, key)
                 obj_pb = getattr(obj, key)
@@ -361,9 +363,6 @@ class ProtoClass(object):
 ${ generate_file(tmplpath + "/enum_tmpl_py.mako", **enum) }
 % endfor
 % for root, nested in loop_nesteds(json_data):
-% if nested['name'] in ['date', 'datetime']:
-    <% continue %>
-% endif
 <% nested['roots'] = list(filter(lambda x: x, root[len('.root'):].split('.')))   %>
 <% nested['parentclass'] = root[len('.root'):].replace('.', '_') %>
 <% nested['package'] = json_data['package'] %>

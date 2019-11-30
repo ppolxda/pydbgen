@@ -7,41 +7,26 @@ import argparse
 import itertools
 from collections import OrderedDict
 from google.protobuf.compiler import plugin_pb2 as plugin
+from google.protobuf.descriptor_pb2 import FieldOptions
 from google.protobuf.descriptor_pb2 import DescriptorProto
 from google.protobuf.descriptor_pb2 import EnumDescriptorProto
 from google.protobuf.descriptor import FieldDescriptor
-# from google.protobuf.descriptor_pb2 import ServiceDescriptorProto
-# from google.protobuf.descriptor_pb2 import SourceCodeInfo
-# from google.protobuf import descriptor as _descriptor
-# from pypplugins import data_define_pb2
+from pydbgen.pbclass import data_define_pb2
 
 
-# EnumDefineType = data_define_pb2.EnumDefineType
+MY_OPTIONS = [
+    getattr(data_define_pb2, key)
+    for key in FieldOptions._extensions_by_name.keys()
+    if hasattr(data_define_pb2, key)
+]
 
-
-# MY_MESSAGE_OPTIONS = [
-#     data_define_pb2.deftype,
-# ]
-
-
-# MY_OPTIONS = [
-#     data_define_pb2.maxlen,
-#     data_define_pb2.minlen,
-#     data_define_pb2.maxval,
-#     data_define_pb2.minval,
-#     data_define_pb2.declen,
-#     data_define_pb2.decpoint,
-#     data_define_pb2.key,
-#     data_define_pb2.inc,
-#     data_define_pb2.update,
-#     data_define_pb2.defval,
-# ]
 
 LABEL_CHANGE = {
     FieldDescriptor.LABEL_OPTIONAL: 'optional',
     FieldDescriptor.LABEL_REQUIRED: 'required',
     FieldDescriptor.LABEL_REPEATED: 'repeated',
 }
+
 
 TYPE_CHANGE = {
     FieldDescriptor.TYPE_DOUBLE: 'double',
@@ -63,6 +48,7 @@ TYPE_CHANGE = {
     FieldDescriptor.TYPE_SINT32: 'sint32',
     FieldDescriptor.TYPE_SINT64: 'sint64'
 }
+
 
 TYPE_DEFVAL = {
     FieldDescriptor.TYPE_DOUBLE: 0.0,
@@ -152,7 +138,9 @@ def default_json(name, typename, comment='', fields={},
     ])
 
 
-def field_json(name, value, type, defval, comment, options={}):
+def field_json(name, value, type, defval,
+               comment, options={}, soptions={}):
+    options.update(soptions)
     return OrderedDict([
         ("name", name),
         ("value", value),
@@ -215,6 +203,14 @@ def message2json(items, locations, path=tuple()):
                         ('extendee', v.extendee),
                         ('default_value', v.default_value),
                         ('json_name', v.json_name),
+                    ]),
+                    soptions=OrderedDict([
+                        (
+                            val.name,
+                            v.options.Extensions[val]
+                        )
+                        for val in MY_OPTIONS
+                        if v.options.HasExtension(val)
                     ]))
                 ) for i, v in enumerate(item.field)
             ]),

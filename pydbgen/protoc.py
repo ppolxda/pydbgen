@@ -8,7 +8,11 @@ def main():
     grpc_tools_include = '-I{}'.format(grpc_tools)
     pydbgen = pkg_resources.resource_filename('pydbgen.dbbase', '_proto')
     pydbgen_include = '-I{}'.format(pydbgen)
-    sys.exit(_main(sys.argv + [grpc_tools_include, pydbgen_include]))
+    pypbgen = pkg_resources.resource_filename('pydbgen.pbclass', '_proto')
+    pypbgen_include = '-I{}'.format(pypbgen)
+    sys.exit(_main(sys.argv + [
+        grpc_tools_include, pydbgen_include, pypbgen_include
+    ]))
 
 
 if __name__ == '__main__':

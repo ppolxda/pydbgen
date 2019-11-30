@@ -8,16 +8,20 @@
         return cpath
 
     def get_fclass(val, package):
-        _type = fmt_class(val['options']['type_name'], package)
-        if val['type'].lower() == 'message' and _type not in ['date', 'datetime']:
-            return ", fclass=" + _type
+        if val['type'].lower() == 'message' and not is_datetime(val):
+            return ", fclass=" + fmt_class(val['options']['type_name'], package)
         else:
             return ''
 
+    def is_datetime(val):
+        return val['options'].get('is_date', False) or val['options'].get('is_datetime', False)
+
     def get_type(val, package):
-        _type = fmt_class(val['options']['type_name'], package)
-        if val['type'].lower() == 'message' and _type in ['date', 'datetime']:
-            return _type
+        if val['type'].lower() == 'string' and is_datetime(val):
+            if val['options'].get('is_date', False):
+                return 'date'
+            else:
+                return 'datetime'
         else:
             return val['type'].lower()
 %>

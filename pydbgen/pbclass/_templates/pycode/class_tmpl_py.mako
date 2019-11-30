@@ -261,7 +261,9 @@ class ProtoClass(object):
                 obj_data = getattr(self, key)
                 obj_pb = getattr(obj, key)
                 for key, val in obj_data.fields.items():
-                    setattr(obj_pb, key, getattr(obj_data, key))
+                    result = getattr(obj_data, key)
+                    if result is not None:
+                        setattr(obj_pb, key, result)
             else:
                 setattr(obj, key, val)
         return obj

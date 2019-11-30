@@ -42,6 +42,9 @@ class ${cur_class_name}(ProtoClass):  # noqa
         self.${val['name'].lower()} = self._value_kwargs('${val['name'].lower()}', kwargs)  # noqa
             % endif
         % endfor
+        % if not fields:
+        pass
+        % endif
 
         % for val in fields.values():
             % if val['type'].lower() != 'message':

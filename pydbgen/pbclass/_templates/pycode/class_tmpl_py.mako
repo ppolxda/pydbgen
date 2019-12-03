@@ -359,7 +359,7 @@ class ProtoClass(object):
         elif isinstance(obj, decimal.Decimal):
             return float(obj)
 
-        elif isinstance(obj, FeildOption):
+        elif isinstance(obj, (FeildOption, ProtoClass)):
             return obj.to_dict()
 
         else:

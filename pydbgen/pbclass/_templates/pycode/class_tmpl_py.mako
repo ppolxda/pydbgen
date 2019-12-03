@@ -307,7 +307,7 @@ class ProtoClass(object):
     def to_json(self, filterkeys=None):
         """to json string."""
         return json.dumps(self.to_dict(filterkeys),
-                          default=json_serial)
+                          default=self.json_serial)
 
     def __list_set(self, objs, opt, field):
         assert isinstance(objs, list)
@@ -361,9 +361,6 @@ class ProtoClass(object):
 
         elif isinstance(obj, FeildOption):
             return obj.to_dict()
-
-        elif isinstance(obj, RowProxy):
-            return dict(obj)
 
         else:
             raise TypeError("Type %s not serializable" % type(obj))

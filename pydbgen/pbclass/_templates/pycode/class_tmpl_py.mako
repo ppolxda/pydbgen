@@ -209,14 +209,29 @@ class FeildOption(object):
         elif self.type in ['float', 'double']:
             if isinstance(val, six.string_types):
                 return decimal.Decimal(val)
-            else:
+            elif isinstance(val, float):
                 return decimal.Decimal.from_float(val)
+            elif isinstance(val, decimal.Decimal):
+                return val
+            else:
+                raise FeildInVaild(
+                    '[{}]value invaild, is not string or float[{}]'.format(
+                        self.name, val)
+                )
 
         elif self.type == 'string':
             return str(val)
 
         elif self.type == 'date':
-            return string2date(val)
+            if isinstance(val, six.string_types):
+                return string2datetime(val)
+            elif isinstance(val, datetime.datetime):
+                return val
+            else:
+                raise FeildInVaild(
+                    '[{}]value invaild, is not string or datetime[{}]'.format(
+                        self.name, val)
+                )
 
         elif self.type == 'datetime':
             return string2datetime(val)

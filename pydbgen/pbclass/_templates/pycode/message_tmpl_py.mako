@@ -94,6 +94,8 @@ class ${cur_class_name}(ProtoClass):  # noqa
                 for key in cls.fields
                 if obj.get(key, None)
             }
+        elif isinstance(obj, ProtoClass):
+            obj_dict = obj.to_dict()
         else:
             raise TypeError('from_proto data invaild')
 

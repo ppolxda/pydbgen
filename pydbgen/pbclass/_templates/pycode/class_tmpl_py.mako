@@ -306,7 +306,8 @@ class ProtoClass(object):
 
     def to_json(self, filterkeys=None):
         """to json string."""
-        return json.dumps(self.to_dict(filterkeys))
+        return json.dumps(self.to_dict(filterkeys),
+                          default=json_serial)
 
     def __list_set(self, objs, opt, field):
         assert isinstance(objs, list)
@@ -345,6 +346,27 @@ class ProtoClass(object):
         """SerializeToString."""
         obj = self.to_proto()
         return obj.SerializeToString()
+
+    @staticmethod
+    def json_serial(obj):
+        """JSON serializer for objects not serializable by default json code"""
+        if isinstance(obj, datetime.datetime):
+            return obj.strftime("%Y%m%dT%H%M%S")
+
+        elif isinstance(obj, datetime.date):
+            return obj.strftime("%Y%m%d")
+
+        elif isinstance(obj, decimal.Decimal):
+            return float(obj)
+
+        elif isinstance(obj, FeildOption):
+            return obj.to_dict()
+
+        elif isinstance(obj, RowProxy):
+            return dict(obj)
+
+        else:
+            raise TypeError("Type %s not serializable" % type(obj))
 
     ## @classmethod
     ## def from_buffer(cls, buf):

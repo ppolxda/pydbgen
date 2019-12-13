@@ -57,7 +57,10 @@ def string2datetime(val):
         return datetime.datetime.strptime(val, '%Y%m%d%H%M%S')
     except ValueError:
         pass
-
+    try:
+        return datetime.datetime.strptime(val, '%Y%m%dT%H%M%S')
+    except ValueError:
+        pass
     return string2date(val, False)
 
 
@@ -187,10 +190,8 @@ class FeildOption(object):
         """conv_value."""
         if self.repeated and not step_repeated:
             if val is None:
-                val = []
-            elif isinstance(val, (list, RepeatedCompositeContainer)):
-                pass
-            else:
+                return []
+            elif not isinstance(val, (list, RepeatedCompositeContainer)):
                 raise FeildInVaild(
                     '[{}]value invaild, is not list[{}]'.format(
                         self.name, val)
@@ -224,6 +225,17 @@ class FeildOption(object):
 
         elif self.type == 'date':
             if isinstance(val, six.string_types):
+                return string2date(val)
+            elif isinstance(val, datetime.date):
+                return val
+            else:
+                raise FeildInVaild(
+                    '[{}]value invaild, is not string or date[{}]'.format(
+                        self.name, val)
+                )
+
+        elif self.type == 'datetime':
+            if isinstance(val, six.string_types):
                 return string2datetime(val)
             elif isinstance(val, datetime.datetime):
                 return val
@@ -233,14 +245,16 @@ class FeildOption(object):
                         self.name, val)
                 )
 
-        elif self.type == 'datetime':
-            return string2datetime(val)
-
         elif self.type == 'bytes':
             if isinstance(val, six.string_types):
-                raise str(six.b(val))
+                raise six.b(val)
+            elif isinstance(val, six.binary_type):
+                raise val
             else:
-                return str(val)
+                raise FeildInVaild(
+                    '[{}]value invaild, is not bytes[{}]'.format(
+                        self.name, val)
+                )
 
         elif self.type == 'boolean':
             return bool(val)
@@ -248,10 +262,15 @@ class FeildOption(object):
         elif self.type == 'message':
             if isinstance(val, dict):
                 return self.fclass.from_dict(val)
+            elif isinstance(val, Message):
+                return self.fclass(val)
             elif isinstance(val, self.fclass):
-                return self.fclass.from_dict(val)
+                return val
             else:
-                return self.fclass.from_dict(val)
+                raise FeildInVaild(
+                    '[{}]value invaild, is not bytes[{}]'.format(
+                        self.name, val)
+                )
 
         elif self.type == 'enum':
             if not isinstance(val, int):
@@ -291,15 +310,22 @@ class ProtoClass(object):
 
     def _value_kwargs(self, key, kwargs):
         """_value_kwargs."""
-        if not isinstance(kwargs, dict):
-            raise FeildInVaild('kwargs invaild')
-
-        if key not in self.fields:
+        field = self.fields.get(key, None)
+        if not field:
             raise FeildInVaild(
                 'key not in fileds invaild {}'.format(key)
             )
 
-        return self.fields[key].conv_value(kwargs.get(key, None))  # noqa
+        if isinstance(kwargs, dict):
+            val = kwargs.get(key, None)
+        elif isinstance(kwargs, (ProtoClass, Message)):
+            val = getattr(kwargs, key, None)
+        elif kwargs is None:
+            return field.get_default()
+        else:
+            raise FeildInVaild('kwargs invaild')
+
+        return field.conv_value(val)
 
     def check_object(self, obj):
         """check_object."""

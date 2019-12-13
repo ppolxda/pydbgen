@@ -46,12 +46,12 @@ class ${cur_class_name}(ProtoClass):  # noqa
         % endfor
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, obj=None):
         % for val in fields.values():
             % if val['type'].lower() == 'message' and val['options']['label'] != 'repeated' and get_type(val, package) not in ['date', 'datetime']:
-        self.${val['name'].lower()} = self.new_${val['name'].lower()}(self._value_kwargs('${val['name'].lower()}', kwargs))  # noqa
+        self.${val['name'].lower()} = self.new_${val['name'].lower()}(self._value_kwargs('${val['name'].lower()}', obj))  # noqa
             % else:
-        self.${val['name'].lower()} = self._value_kwargs('${val['name'].lower()}', kwargs)  # noqa
+        self.${val['name'].lower()} = self._value_kwargs('${val['name'].lower()}', obj)  # noqa
             % endif
         % endfor
         % if not fields:
@@ -79,27 +79,9 @@ class ${cur_class_name}(ProtoClass):  # noqa
     @classmethod
     def from_dict(cls, obj):
         """ParseFromString."""
-        # if not isinstance(obj, dict):
-        #     raise TypeError('from_proto data invaild')
-
-        if isinstance(obj, Message):
-            obj_dict = {
-                key: getattr(obj, key, None)
-                for key in cls.fields
-                if getattr(obj, key, None)
-            }
-        elif isinstance(obj, dict):
-            obj_dict = {
-                key: obj.get(key, None)
-                for key in cls.fields
-                if obj.get(key, None)
-            }
-        elif isinstance(obj, ProtoClass):
-            obj_dict = obj.to_dict()
-        else:
+        if not isinstance(obj, (Message, dict, ProtoClass)):
             raise TypeError('from_proto data invaild')
-
-        return ${cur_class_name}(**obj_dict)
+        return ${cur_class_name}(obj)
 
     @classmethod
     def from_buffer(cls, buf):
@@ -107,9 +89,4 @@ class ${cur_class_name}(ProtoClass):  # noqa
         assert isinstance(buf, six.binary_type)
         obj = cls.protopb()
         obj.ParseFromString(buf)
-        obj_dict = {
-            key: getattr(obj, key, None)
-            for key in cls.fields
-            if getattr(obj, key, None)
-        }
-        return ${cur_class_name}(**obj_dict)  # noqa
+        return ${cur_class_name}(obj)  # noqa

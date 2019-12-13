@@ -8,6 +8,16 @@ from google.protobuf.message import Message
 from google.protobuf.pyext._message import RepeatedCompositeContainer
 ${ remove_blank_line(generate_file(tmplpath + "/import_tmpl_py.mako", nesteds=nesteds,filename=filename,package=package,json_data=json_data,loop_nesteds=loop_nesteds)) }
 
+
+INT_TYPES = [
+    'uint32', 'int32', 'uint64', 'int64', 'sint32',
+    'sint64', 'fixed32', 'fixed64', 'sfixed32',
+    'sfixed64'
+]
+BOOL_TYPES = ['boolean', 'bool']
+FLOAT_TYPES = ['float', 'double']
+
+
 class FeildInVaild(Exception):
     pass
 
@@ -100,12 +110,10 @@ class FeildOption(object):
         if repeated:
             return []
 
-        elif _type in ['uint32', 'int32', 'uint64', 'int64', 'sint32',
-                       'sint64', 'fixed32', 'fixed64', 'sfixed32',
-                       'sfixed64']:
+        elif _type in INT_TYPES:
             return 0
 
-        elif _type in ['float', 'double']:
+        elif _type in FLOAT_TYPES:
             return 0.0
 
         elif _type == 'string':
@@ -120,7 +128,7 @@ class FeildOption(object):
         elif _type == 'bytes':
             return b''
 
-        elif _type == 'boolean':
+        elif _type in BOOL_TYPES:
             return False
 
         elif _type == 'message':
@@ -143,13 +151,11 @@ class FeildOption(object):
             for i in val:
                 self.check_value(i, True)
 
-        elif self.type in ['uint32', 'int32', 'uint64', 'int64', 'sint32',
-                           'sint64', 'fixed32', 'fixed64', 'sfixed32',
-                           'sfixed64']:
+        elif self.type in INT_TYPES:
             if not isinstance(val, six.integer_types):
                 raise FeildInVaild('[{}]value invaild, is not int[{}]'.format(self.name, val))  # noqa
 
-        elif self.type in ['float', 'double']:
+        elif self.type in FLOAT_TYPES:
             if not isinstance(val, (float, decimal.Decimal)):
                 raise FeildInVaild('[{}]value invaild, is not float[{}]'.format(self.name, val))  # noqa
 
@@ -169,7 +175,7 @@ class FeildOption(object):
             if not isinstance(val, six.binary_type):
                 raise FeildInVaild('[{}]value invaild, is not bytes[{}]'.format(self.name, val))  # noqa
 
-        elif self.type == 'boolean':
+        elif self.type in BOOL_TYPES:
             if not isinstance(val, bool):
                 raise FeildInVaild('[{}]value invaild, is not bool[{}]'.format(self.name, val))  # noqa
 
@@ -202,12 +208,10 @@ class FeildOption(object):
         elif val is None:
             return self.get_default()
 
-        elif self.type in ['uint32', 'int32', 'uint64', 'int64', 'sint32',
-                           'sint64', 'fixed32', 'fixed64', 'sfixed32',
-                           'sfixed64']:
+        elif self.type in INT_TYPES:
             return int(val)
 
-        elif self.type in ['float', 'double']:
+        elif self.type in FLOAT_TYPES:
             if isinstance(val, six.string_types):
                 return decimal.Decimal(val)
             elif isinstance(val, float):
@@ -256,7 +260,7 @@ class FeildOption(object):
                         self.name, val)
                 )
 
-        elif self.type == 'boolean':
+        elif self.type in BOOL_TYPES:
             return bool(val)
 
         elif self.type == 'message':

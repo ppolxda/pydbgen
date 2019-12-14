@@ -16,6 +16,7 @@ INT_TYPES = [
 ]
 BOOL_TYPES = ['boolean', 'bool']
 FLOAT_TYPES = ['float', 'double']
+DATETIME_TYPES = ['date', 'datetime']
 
 
 class FeildInVaild(Exception):
@@ -354,15 +355,7 @@ class ProtoClass(object):
         return json.dumps(self.to_dict(filterkeys),
                           default=self.json_serial)
 
-    def __list_set(self, objs, opt, field):
-        assert isinstance(objs, list)
-        assert isinstance(opt, FeildOption)
-        field.extend([obj.to_proto() if isinstance(
-            obj, ProtoClass) else obj for obj in objs])
-
-    def to_proto(self):
-        """to proto object."""
-        obj = self.protopb()
+    def clone_to(self, obj):
         for key, opt in self.fields.items():
             val = getattr(self, key.lower(), None)
             if not val:
@@ -373,18 +366,26 @@ class ProtoClass(object):
                     raise TypeError('{} invaild, is not list'.format(key))
 
                 field = getattr(obj, key)
-                self.__list_set(val, opt, field)
-            elif opt.type in ['date', 'datetime']:
+                field.extend([
+                    obj.to_proto()
+                    if isinstance(obj, ProtoClass)
+                    else obj for obj in val
+                ])
+
+            elif opt.type in DATETIME_TYPES:
                 setattr(obj, key, str(val))
+
             elif opt.type == 'message':
                 obj_data = getattr(self, key)
                 obj_pb = getattr(obj, key)
-                for key, val in obj_data.fields.items():
-                    result = getattr(obj_data, key)
-                    if result is not None:
-                        setattr(obj_pb, key, result)
+                obj_data.clone_to(obj_pb)
             else:
                 setattr(obj, key, val)
+
+    def to_proto(self):
+        """to proto object."""
+        obj = self.protopb()
+        self.clone_to(obj)
         return obj
 
     def to_buffer(self):

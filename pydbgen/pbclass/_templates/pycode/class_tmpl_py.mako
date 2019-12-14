@@ -115,7 +115,7 @@ class FeildOption(object):
             return 0
 
         elif _type in FLOAT_TYPES:
-            return 0.0
+            return decimal.Decimal('0.0')
 
         elif _type == 'string':
             return ''

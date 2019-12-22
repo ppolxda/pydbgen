@@ -1,0 +1,7 @@
+syntax = "proto3";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  bool is_date = 50007;
+  bool is_datetime = 50008;
+}

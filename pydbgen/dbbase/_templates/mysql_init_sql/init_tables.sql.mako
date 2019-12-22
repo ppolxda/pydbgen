@@ -21,13 +21,13 @@
 </%def>
 <%def name="default_fmt(field)" filter="trim">
     % if field['db_options']['defval']:
-    DEFAULT '${ field['db_options']['defval']}'
+    DEFAULT ${ field['db_options']['defval']}
     % endif
 </%def>
 <%def name="line_fmt(ilist, iname, has_pkey)" filter="trim">
     ${',' if ilist[-1] != iname else ',' if has_pkey else ''}
 </%def>
-% if gen_config.get('is_temp', False):
+% if cargs.get('is_temp', False):
     <%
         TEMP_KEY = 'TEMPORARY '
         loop_func = loop_temp_tables
@@ -52,9 +52,9 @@ CREATE ${TEMP_KEY}TABLE `${tname}` (
 % else:
 -- DROP TABLE IF EXISTS `${dbname}`.`${tname}`;
 CREATE ${TEMP_KEY}TABLE `${dbname}`.`${tname}` (
-% endif
 `createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+% endif
 % for field in tconfig['fields']:
     % if field['type'] == 'string':
 `${field['name']}`  varchar(${field['db_options']['maxlen']}) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}

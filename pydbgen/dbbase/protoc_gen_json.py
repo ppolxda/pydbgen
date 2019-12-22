@@ -1,13 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-@create: 2017-11-17 14:58:29.
-
-@author: ppolxda
-
-@desc:
-"""
-from __future__ import absolute_import, division, print_function, unicode_literals  # noqa
 import os
 import sys
 import six
@@ -33,6 +25,7 @@ EnumDefineType = data_define_pb2.EnumDefineType
 EnumIsEnable = data_define_pb2.EnumIsEnable
 EnumBulkOrdered = data_define_pb2.EnumBulkOrdered
 EnumIndexType = data_define_pb2.EnumIndexType
+EnumForeignAction = data_define_pb2.EnumForeignAction
 
 
 # def conv_enums(key, val):
@@ -73,6 +66,8 @@ MY_MESSAGE_OPTIONS = [
 MY_MESSAGE_OPTIONS_NAME = {
     'msg_type': EnumDefineType,
     'index_type': EnumIndexType,
+    'foreign_update': EnumForeignAction,
+    'foreign_delete': EnumForeignAction,
     'sharding_mode': EnumShardingMode,
     'bulk_ordered': EnumBulkOrdered,
 }
@@ -254,8 +249,25 @@ def traverse(proto_file):
                                             EnumIndexType.Name(index_type)
                                         ))
 
-                    yield (nested_item,
-                           nested_package, path + local_path + message_path)
+                    yield (
+                        nested_item, nested_package,
+                        path + local_path + message_path
+                    )
+
+                    if index_type == data_define_pb2.FOREIGN_KEY:
+                        f_package = '%s.%s' % (
+                            nested_package, nested_item.name
+                        )
+
+                        for index3, fitem in enumerate(
+                                nested_item.nested_type):
+                            f_path = (EnumPathIndex.NESTED, index3)
+
+                            yield (
+                                fitem, f_package,
+                                path + local_path + message_path + f_path
+                            )
+                            break
 
                 # for index2, enum in enumerate(item.enum_type):
                 #     message_path = (EnumPathIndex.ENUM, index2)
@@ -292,7 +304,7 @@ def strip(val):
 
 
 def create_dict_path(output_dict, path, **kwargs):
-    u"""create_dict_path.
+    """create_dict_path.
 
     :param output: dict
     :param path: string   a.b.c
@@ -368,8 +380,10 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                 msg_type = item.options.Extensions[data_define_pb2.msg_type]
                 msg_type = EnumDefineType.Name(msg_type)
                 if msg_type == 'TABLE':
-                    is_in_set(table_name_list, item.name,
-                              'table name duplicate[{}]')
+                    is_in_set(
+                        table_name_list, item.name,
+                        'table name duplicate[{}]'
+                    )
 
             output_one = create_dict_path(
                 output, package_full, type='package')
@@ -481,7 +495,7 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                 for key in SORT_KEYS if key in dbconfig
             ])
 
-    def append_database(db, table):
+    def append_database(db, table, tables):
         # table['db_key'] = get_db_key(db, table)
         # table['table_key'] = get_table_key(db, table)
         table['database'].append(db['name'])
@@ -500,20 +514,56 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                         table['name'], index['name'], diff)
                 )
 
-    # new table databases config
-    for dbname, dbconfig in output['DATABASES']['members'].items():
-        for _table in dbconfig['fields']:
-            if _table['type'] in output['TABLE_GROUPS']['members']:
-                for table in (output['TABLE_GROUPS']['members']
-                              [_table['type']]['fields']):
-                    table = output['TABLES']['members'][table['type']]
-                    append_database(dbconfig, table)
-            else:
-                table = output['TABLES']['members'][_table['type']]
-                append_database(dbconfig, table)
+            if index['db_options'].get('index_type', None) == 'FOREIGN_KEY':
+                if len(index['members']) != 1:
+                    raise TypeError(
+                        'foreign key references table invaild'
+                        '[table {}][index {}]'.format(
+                            table['name'], index['name'])
+                    )
 
-    for table in output['TABLES']['members']:
-        pass
+                for tname, topt in index['members'].items():
+                    if tname not in tables:
+                        raise TypeError(
+                            'foreign key references table invaild'
+                            '[table {}][index {}][name {}]'.format(
+                                table['name'], index['name'], tname)
+                        )
+
+                    ropt = tables[tname]
+                    index_fields = {i['name'] for i in topt['fields']}
+                    rtable_fields = {i['name'] for i in ropt['fields']}
+                    diff = index_fields - rtable_fields
+                    if diff:
+                        raise TypeError(
+                            'foreign field invaild'
+                            '[table {}][index {}][keys {}]'.format(
+                                table['name'], index['name'], diff)
+                        )
+
+    def loop_tables(_config):
+        def loop_table(_table):
+            if _table['type'] in output['TABLES']['members']:
+                table = output['TABLES']['members'][_table['type']]
+                yield table
+            elif _table['type'] in output['TABLE_GROUPS']['members']:
+                tgroup = output['TABLE_GROUPS']['members'][_table['type']]
+                for table in tgroup['fields']:
+                    yield from loop_table(table)
+            else:
+                raise TypeError('unknow table type[{}][{}]'.format(
+                    _table['type'], _table['name']))
+
+        # new table databases config
+        for dbname, dbconfig in _config['DATABASES']['members'].items():
+            for _table in dbconfig['fields']:
+                for table in loop_table(_table):
+                    yield dbname, dbconfig, table, output['TABLES']['members']
+
+    # new table databases config
+    for dbname, dbconfig, table, tmembers in loop_tables(output):
+        append_database(dbconfig, table, output['TABLES']['members'])
+
     return output
 
 
@@ -536,6 +586,7 @@ def main():
         DATA = sys.stdin.read()
     else:
         DATA = sys.stdin.buffer.read()
+
     # open('test.dat', 'wb').write(DATA)
     # DATA = open('test.dat', 'rb').read()
 

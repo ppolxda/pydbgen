@@ -23,7 +23,7 @@
 </%def>
 <%def name="default_fmt(field)" filter="trim">
     % if field['db_options']['defval']:
-    DEFAULT '${ field['db_options']['defval']}'
+    DEFAULT ${ field['db_options']['defval']}
     % endif
 </%def>
 <%def name="array_fmt(field)" filter="trim">
@@ -34,7 +34,8 @@
 <%def name="line_fmt(ilist, iname, has_pkey)" filter="trim">
     ${',' if ilist[-1] != iname else ',' if has_pkey else ''}
 </%def>
-% if gen_config.get('is_temp', False):
+<% is_temp = cargs.get('is_temp', False) %>
+% if is_temp:
     <%
         TEMP_KEY = 'TEMP '
         loop_func = loop_temp_tables
@@ -53,15 +54,15 @@
 -- ----------------------------
 -- -- Table for ${dbname} ${tname} ${dict(topts)}
 -- ----------------------------
-% if TEMP_KEY:
+% if is_temp:
 DROP TABLE IF EXISTS ${tname};
 CREATE ${TEMP_KEY}TABLE ${tname} (
 % else:
 -- DROP TABLE IF EXISTS ${dbname}.${tname};
-CREATE ${TEMP_KEY}TABLE ${dbname}.${tname} (
-% endif
+CREATE TABLE ${dbname}.${tname} (
 createtime timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updatetime timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+% endif
 % for field in tconfig['fields']:
     % if field['type'] == 'string':
 ${field['name']} varchar(${field['db_options']['maxlen']})${array_fmt(field)} NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
@@ -95,7 +96,7 @@ TABLESPACE "${topts['space']}"
 ;
 
 % if is_partitions:
-    % for pname, start, end in loop_sharding_range2(tname, topts, p2r=True):
+    % for pname, start, end in loop_sharding_range(tname, topts, p2r=True):
 CREATE TABLE ${dbname}.${pname} PARTITION OF ${dbname}.${tname}
 FOR VALUES FROM ('${start}') TO ('${end}');
     % endfor

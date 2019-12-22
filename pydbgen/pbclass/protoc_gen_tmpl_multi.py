@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, division, print_function, unicode_literals  # noqa
 import os
 import re
 import six
@@ -11,7 +12,7 @@ import autopep8
 import pkg_resources
 from six.moves import reduce
 from google.protobuf.compiler import plugin_pb2 as plugin
-from pydbgen.dbbase.protoc_gen_json import generate_json
+from pydbgen.pbclass.protoc_gen_json import generate_json
 from pydbgen import gen_funcs as gfuncs
 
 
@@ -56,11 +57,11 @@ class Cmdoptions(object):
             return DB_TMLP
 
         return pkg_resources.resource_filename(
-            'pydbgen.dbbase', os.path.join('', '_templates'))
+            'pydbgen.pbclass', os.path.join('', '_templates'))
 
     @property
     def package_path(self):
-        return 'pydbgen.dbbase.protoc_gen_tmpl_multi'
+        return 'pydbgen.pbclass.protoc_gen_tmpl_multi'
 
     @property
     def default_config_path(self):
@@ -85,22 +86,26 @@ class Cmdoptions(object):
         return parser.parse_args()
 
 
+def loop_enums(_data, _trees='.root'):
+    for obj in _data['enums'].values():
+        yield _trees, obj
+
+    for obj in _data['nesteds'].values():
+        _sub_trees = '.'.join([_trees, obj['name']])
+        yield from loop_enums(obj, _sub_trees)
+
+
+def loop_nesteds(_data, _trees='.root'):
+    for obj in _data['nesteds'].values():
+        _sub_trees = '.'.join([_trees, obj['name']])
+        yield from loop_nesteds(obj, _sub_trees)
+        yield _trees, obj
+
+
 class ProtoPlugins(object):
 
     def __init__(self):
         self.opts = Cmdoptions()
-
-    @staticmethod
-    def init_table_json(_json_table):
-        assert isinstance(_json_table, dict)
-
-        ENUMS = _json_table.get('ENUMS', {}).get('members', {})
-        for tables in ENUMS.values():
-            tables['fieldsval'] = {}
-            for field in tables['fields']:
-                tables['fieldsval'][field['name']] = field
-
-        return _json_table
 
     @classmethod
     def auto_fmt(cls, context, fixcode):
@@ -128,7 +133,6 @@ class ProtoPlugins(object):
 
     @classmethod
     def generate_code_by_json(cls, json_data, tmpl_path, fixcode):
-        _json_data = cls.init_table_json(json_data.copy())
         content = gfuncs.generate_file(tmpl_path, **json_data)
         content = cls.auto_fmt(content, fixcode)
         return content
@@ -137,37 +141,40 @@ class ProtoPlugins(object):
         # filepath0 = request.file_to_generate[0]
         # filename = filepath0[:filepath0.rfind('.')]
         opts = self.opts
-        json_data = generate_json(request, opts.step_files)
-        _json_data = self.init_table_json(json_data)
 
-        for config in opts.json_conf:
-            tmpl = config['tmpl']
-            json_data = copy.deepcopy(_json_data)
-            json_data['cargs'] = config.get('args', {})
-            if not isinstance(config, dict):
-                raise TypeError('config invaild')
+        for _, _json_data in generate_json(request, opts.step_files):
 
-            disable = config.get('disable', False)
-            if disable:
-                continue
+            for config in opts.json_conf:
+                tmpl = config['tmpl']
+                json_data = copy.deepcopy(_json_data)
+                json_data['loop_enums'] = loop_enums
+                json_data['loop_nesteds'] = loop_nesteds
+                json_data['json_data'] = copy.deepcopy(_json_data)
+                json_data['cargs'] = config.get('args', {})
+                if not isinstance(config, dict):
+                    raise TypeError('config invaild')
 
-            mode = config.get('mode', 'single')
-            mode_match = re.match(
-                r'^(tables|enums|table_groups|databases|classs)_multi$', mode
-            )
-            if mode_match:
-                _obj = mode_match.group(1)
+                disable = config.get('disable', False)
+                if disable:
+                    continue
 
-                self.generate_code_multi(
-                    request, response, tmpl,
-                    config, json_data, _obj
+                mode = config.get('mode', 'single')
+                mode_match = re.match(
+                    r'^(tables|enums|table_groups|databases|classs)_multi$', mode  # noqa
                 )
-            elif mode == 'single':
-                self.generate_code_signal(
-                    request, response, tmpl, config, json_data
-                )
-            else:
-                raise TypeError('config mode invaild')
+                if mode_match:
+                    _obj = mode_match.group(1)
+
+                    self.generate_code_multi(
+                        request, response, tmpl,
+                        config, json_data, _obj
+                    )
+                elif mode == 'single':
+                    self.generate_code_signal(
+                        request, response, tmpl, config, json_data
+                    )
+                else:
+                    raise TypeError('config mode invaild')
 
     def generate_code_signal(self, request, response,
                              tmpl, config, json_data):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-u"""
+"""
 @create: InsertDatetimeString(Ctrl+Shift+I).
 
 @author: name
@@ -13,6 +13,7 @@ import codecs
 import datetime
 import functools
 import pkg_resources
+from collections import OrderedDict
 from mako.template import Template
 
 SHAIDING_RANGE_ID = {'SM_RANGE_ID'}
@@ -54,6 +55,27 @@ def is_shaiding(mode):
     if isinstance(mode, dict):
         mode = mode.get('sharding_mode', 'SM_DISABLE')
     return mode in SHAIDING_RANGE
+
+
+def get_type_default(_type):
+    if _type == 'string':
+        return "''"
+    elif _type == 'bytes':
+        return "''"
+    elif _type == 'int32' or _type == 'int64':
+        return 0
+    elif _type == 'float' or _type == 'double':
+        return 0.0
+    elif _type == 'datetime':
+        return "'1900-01-01 00:00:00'"
+    elif _type == 'date':
+        return "'1900-01-01'"
+    elif _type in ['json', 'jsonb']:
+        return "'{}'"
+    # elif _type in ['oneof', 'message']:
+    #     raise TypeError('get_type_default type unknow')
+    else:
+        raise TypeError('get_type_default type unknow')
 
 
 class Field(object):
@@ -134,17 +156,62 @@ def list_fmt_string(_list, fmt, keys):
     return map(lambda x: fmt.format(**x), list_fmt(_list, keys))
 
 
+def ltrim(text):
+    if isinstance(text, six.string_types):
+        index = '\n'
+    elif isinstance(text, six.binary_type):
+        index = b'\n'
+    else:
+        raise TypeError('trim text invaild ')
+
+    text = text.split(index)
+    text = [i.lstrip() for i in text]
+    return index.join(text)
+
+
+def rtrim(text):
+    if isinstance(text, six.string_types):
+        index = '\n'
+    elif isinstance(text, six.binary_type):
+        index = b'\n'
+    else:
+        raise TypeError('trim text invaild ')
+
+    text = text.split(index)
+    text = [i.rstrip() for i in text]
+    return index.join(text)
+
+
+def trim(text):
+    if isinstance(text, six.string_types):
+        index = '\n'
+    elif isinstance(text, six.binary_type):
+        index = b'\n'
+    else:
+        raise TypeError('trim text invaild ')
+
+    text = text.split(index)
+    text = [i.strip() for i in text]
+    return index.join(text)
+
+
 def remove_blank_line(text):
     if isinstance(text, six.string_types):
-        text = text.split('\n')
-        text = [i.strip() for i in text if i.strip() and i[0] != '\r']
-        return '\n'.join(text)
+        index = '\n\n'
+        rindex = '\n\n\n'
+        fix = '\r'
     elif isinstance(text, six.binary_type):
-        text = text.split(b'\n')
-        text = [i.strip() for i in text if i.strip() and i[0] != b'\r']
-        return b'\n'.join(text)
+        index = b'\n\n'
+        rindex = b'\n\n\n'
+        fix = '\r'
     else:
         raise TypeError('remove_blank_line text invaild ')
+
+    text = text.replace(fix, '')
+
+    while rindex in text:
+        text = text.replace(rindex, index)
+    return text
 
 
 def padding_switch_split(text, count=3, split=','):
@@ -185,7 +252,7 @@ def snake_to_camel(word):
 
 
 def string2date(val, to_date=True):
-    u"""string2date."""
+    """string2date."""
     try:
         if to_date:
             return datetime.datetime.strptime(val, '%Y-%m-%d').date()
@@ -210,7 +277,7 @@ def string2date(val, to_date=True):
 
 
 def string2datetime(val):
-    u"""string2datetime."""
+    """string2datetime."""
     try:
         return datetime.datetime.strptime(val, '%Y-%m-%d %H:%M:%S')
     except ValueError:
@@ -275,15 +342,14 @@ def datetime2date_string(_datetime):
     return _datetime.strftime('%Y%m%d')
 
 
-def loop_datetime(_start, _end, days=0, months=0, years=0):
+def loop_datetime(_start, _end, days=0, months=0, years=0, quarters=0):
     assert isinstance(_start, datetime.datetime), '_start invaild [type {}][{}][{}]'.format(type(_start), _start, (_start, _end, days, months, years))  # noqa
     assert isinstance(_end, datetime.datetime), '_end invaild [type {}][{}][{}]'.format(type(_end), _end, (_start, _end, days, months, years))  # noqa
     assert isinstance(days, six.integer_types)
     assert isinstance(months, six.integer_types)
     assert isinstance(years, six.integer_types)
-    assert (days <= 0 and months > 0 and years <= 0) or \
-        (days > 0 and months <= 0 and years <= 0) or \
-        (days <= 0 and months <= 0 and years > 0)
+    assert isinstance(quarters, six.integer_types)
+    assert not (days <= 0 and months <= 0 and years <= 0 and quarters <= 0)
 
     if years > 0:
         _end = string2datetime(datetime2year_string(_end) + '0101')
@@ -310,12 +376,39 @@ def loop_datetime(_start, _end, days=0, months=0, years=0):
             yield _start
             _start += datetime.timedelta(days)
 
+    elif quarters > 0:
+        months = 1
+        s_year = _start.year
+        s_quarter = (_start.month - 1) // 3 + 1
+        s_month = (s_quarter - 1) * 3 + 1
+        e_year = _end.year
+        e_quarter = (_end.month - 1) // 3 + 1
+        e_month = (e_quarter - 1) * 3 + 1
+        c_rq = None
+
+        _start = string2datetime(
+            ''.join([str(s_year), '{:02d}'.format(s_month),  '01']))
+        _end = string2datetime(
+            ''.join([str(e_year), '{:02d}'.format(e_month),  '01']))
+
+        while _start < _end:
+            _qr = datetime2quarter_string(_start)
+            if c_rq is None or c_rq != _qr:
+                c_rq = _qr
+                yield _start
+
+            div, mod = divmod(_start.month + months - 1, 12)
+            _start = _start.replace(
+                year=_start.year + div,
+                month=mod + 1
+            )
+
     else:
         raise TypeError('loop_datetime days=0, months=0 invaild')
 
 
-def loop_datetime_range(_start, _end, days=0, months=0, years=0):
-    for i in loop_datetime(_start, _end, days, months, years):
+def loop_datetime_range(_start, _end, days=0, months=0, years=0, quarters=0):
+    for i in loop_datetime(_start, _end, days, months, years, quarters):
         if years > 0:
             _end = i.replace(year=i.year + 1)
             yield i, _end
@@ -328,13 +421,21 @@ def loop_datetime_range(_start, _end, days=0, months=0, years=0):
         elif days > 0:
             _end = i + datetime.timedelta(days=days)
             yield i, _end
+
+        elif quarters > 0:
+            months = 3
+            div, mod = divmod(i.month + months - 1, 12)
+            _end = i.replace(year=i.year + div, month=mod + 1)
+            yield i, _end
+
         else:
             raise TypeError('loop_datetime days=0, months=0 invaild')
 
 
-def loop_datetime_range2(_start, _end, days=0, months=0, years=0):
-    for i, _end in loop_datetime_range(_start, _end, days, months, years):
-        yield i, _end - datetime.timedelta(seconds=1)
+def loop_datetime_range2(_start, _end, days=0, months=0, years=0, quarters=0):
+    for i, _end in loop_datetime_range(_start, _end, days,
+                                       months, years, quarters):
+        yield i, _end - datetime.timedelta(milliseconds=1)
 
 
 def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
@@ -360,14 +461,9 @@ def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
             yield ('_'.join([name, datetime2year_string(start_date)]),
                    start_date, end_date)
     elif sharding_mode == 'SM_RANGE_QUARTER':
-        qr = None
         for start_date, end_date in loop_datetime_range(
-                sharding_date_begin, sharding_date_end, months=1):
+                sharding_date_begin, sharding_date_end, quarters=1):
             _qr = datetime2quarter_string(start_date)
-            if qr == _qr:
-                continue
-
-            qr = _qr
             yield ('_'.join([name, _qr]), start_date, end_date)
 
     elif sharding_mode == 'SM_RANGE_MONTH':
@@ -382,18 +478,19 @@ def loop_sharding_range(name, _dbconfig, mode=None, p2r=False):
             yield ('_'.join([name, datetime2date_string(start_date)]),
                    start_date, end_date)
 
-    # elif sharding_mode == 'SM_ENABLE':
-    #     yield name
+    elif sharding_mode == 'SM_RANGE':
+        yield name, sharding_date_begin, sharding_date_end
+
     else:
         yield name, None, None
 
 
 def loop_sharding_range2(name, _dbconfig, mode=None, p2r=False):
     for name, start, end in loop_sharding_range(name, _dbconfig, mode, p2r):
-        if isinstance(start, datetime.datetime):
-            start -= datetime.timedelta(seconds=1)
+        # if isinstance(start, datetime.datetime):
+        #     start -= datetime.timedelta(milliseconds=1)
         if isinstance(end, datetime.datetime):
-            end -= datetime.timedelta(seconds=1)
+            end -= datetime.timedelta(milliseconds=1)
         yield name, start, end
 
 
@@ -406,50 +503,62 @@ def loop_datbases(_json):
     for _, o_config in _json['OUTPUTS']['members'].items():
         for db_config in o_config['fields']:
             db_name = db_config['name']
+            db_type = db_config['type']
 
-            _db_config = _json['DATABASES']['members'].get(db_name, None)
+            _db_config = _json['DATABASES']['members'].get(db_type, None)
             if _db_config is None:
                 raise TypeError('DATABASES members not has {}'.format(db_name))
 
-            for dbname in loop_sharding(db_name, db_config['db_options']):
-                yield dbname, _db_config, db_config['db_options']
+            db_opts = db_config['db_options'].copy()
+            sharding_mode = db_opts.get('sharding_mode', 'SM_DISABLE')
+            for dbname, start, end in loop_sharding_range(
+                    db_name, db_config['db_options']):
+                if sharding_mode == 'SM_RANGE_ID':
+                    db_opts['sharding_max'] = start
+                    db_opts['sharding_min'] = end
+                else:
+                    db_opts['sharding_date_begin'] = str(start)
+                    db_opts['sharding_date_end'] = str(end)
+
+                yield dbname, _db_config, db_opts
 
 
 def loop_all_tables(_json, p2r=False):
+    def loop_table(_table):
+        # assert o_name == db_config['name']
+        t_name = _table['name']
+        t_type = _table['type']
+
+        if t_type in _json['TABLES']['members']:
+            table = _json['TABLES']['members'][t_type]
+            yield t_name, table, _table
+        elif t_type in _json['TABLE_GROUPS']['members']:
+            tgroup = _json['TABLE_GROUPS']['members'][t_type]
+            for table in tgroup['fields']:
+                yield from loop_table(table)
+        else:
+            raise TypeError(
+                '[{}]TABLES or TABLE_GROUPS '
+                'members not has {}'.format(t_name, t_type)
+            )
+
     for dbname, db_config, db_opts in loop_datbases(_json):
-
-        for t_config in db_config['fields']:
-            # assert o_name == db_config['name']
-            t_name = t_config['name']
-
-            if t_name in _json['TABLE_GROUPS']['members']:
-                tg_config = _json['TABLE_GROUPS']['members'][t_name]
-
-                for tt in tg_config['fields']:  # noqa
-                    _t_config = _json['TABLES']['members'].get(tt['name'], None)  # noqa
-                    if _t_config is None:
-                        raise TypeError(
-                            'TABLES members not has {}'.format(t_name))
-
-                    opts = db_opts.copy()
-                    opts.update(tt['db_options'])
-
-                    for tname in loop_sharding(
-                            _t_config['name'], opts, p2r=p2r):
-                        yield dbname, tname, _t_config, opts
-
-            elif t_name in _json['TABLES']['members']:
-                _t_config = _json['TABLES']['members'][t_name]
-
+        for _t_config in db_config['fields']:
+            for t_name, t_config, t_opts in loop_table(_t_config):
                 opts = db_opts.copy()
-                opts.update(t_config['db_options'])
+                opts.update(t_opts['db_options'])
 
-                for tname in loop_sharding(_t_config['name'], opts, p2r=p2r):
-                    yield dbname, tname, _t_config, opts
+                for tname in loop_sharding(t_name, opts, p2r=p2r):
+                    yield dbname, tname, t_config, opts
 
-            else:
-                raise TypeError(
-                    'TABLES or TABLE_GROUPS members not has {}'.format(t_name))
+                suffixs = opts.get('suffix_tables', '').split(',')
+                if not suffixs:
+                    continue
+
+                for suffix in filter(lambda x: x, suffixs):
+                    _t_name = '_'.join([t_name, suffix])
+                    for tname in loop_sharding(_t_name, opts, p2r=p2r):
+                        yield dbname, tname, t_config, opts
 
 
 def loop_tables(_json, p2r=False):
@@ -478,14 +587,14 @@ def loop_tablespaces(_json):
         yield tsname, tsconfig
 
 
-def generate_file(template_name, **kwargs):
-    u"""generate_file."""
+def generate_file(tmpl_path, **kwargs):
+    """generate_file."""
     # template_loader = template.Loader(options.fs_tmpl)
-    with codecs.open(template_name, 'rb', encoding='utf8') as fs:
+    with codecs.open(tmpl_path, 'rb', encoding='utf8') as fs:
         tmpl = fs.read()
 
     kwargs['codecs'] = codecs
-    kwargs['tmplpath'] = template_name[:template_name.rfind('/', 1)]
+    kwargs['tmplpath'] = tmpl_path[:tmpl_path.rfind('/', 1)]
     kwargs['class_name'] = snake_to_camel
     kwargs['func_name'] = camel_to_snake
     kwargs['camel_to_snake'] = camel_to_snake
@@ -498,10 +607,13 @@ def generate_file(template_name, **kwargs):
     kwargs['string2date'] = string2date
     kwargs['timedelta'] = datetime.timedelta
     kwargs['json_dumps'] = json.dumps
+    kwargs['now'] = datetime.datetime.now
 
     kwargs['is_partition'] = is_partition
     kwargs['is_range'] = is_range
     kwargs['is_shaiding'] = is_shaiding
+    kwargs['OrderedDict'] = OrderedDict
+    kwargs['get_type_default'] = get_type_default
 
     kwargs['loop_sharding'] = loop_sharding
     kwargs['loop_sharding_range'] = loop_sharding_range

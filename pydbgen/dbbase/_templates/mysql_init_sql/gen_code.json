@@ -3,21 +3,21 @@
         "tmpl": "{tmpl}/mysql_init_sql/init_database.sql.mako",
         "mode": "single",
         "output": "mysql_{filename}_database.sql",
-        "fixcode": "fix_blankline",
+        "fixcode": ["trim", "blankline"],
         "disable": false
     },
     {
         "tmpl": "{tmpl}/mysql_init_sql/init_tables.sql.mako",
         "mode": "single",
         "output": "mysql_{filename}_tables.sql",
-        "fixcode": "fix_blankline",
+        "fixcode": ["trim", "blankline"],
         "disable": false
     },
     {
         "tmpl": "{tmpl}/mysql_init_sql/init_tables.sql.mako",
         "mode": "single",
-        "output": "mysql_{filename}_temp_tables.sql",
-        "fixcode": "fix_blankline",
+        "output": "mysql_{filename}_tables_temp.sql",
+        "fixcode": ["trim", "blankline"],
         "disable": false,
         "args": {
             "is_temp": true
@@ -27,7 +27,7 @@
         "tmpl": "{tmpl}/mysql_init_sql/init_indexs.sql.mako",
         "mode": "single",
         "output": "mysql_{filename}_index.sql",
-        "fixcode": "fix_blankline",
+        "fixcode": ["trim", "blankline"],
         "disable": false
     },
     {

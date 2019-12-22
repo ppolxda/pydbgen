@@ -2,65 +2,78 @@ syntax = "proto3";
 
 import "pydbgen/dbbase/data_define.proto";
 
-
-
 // user_info define
 message user_info {
-    option (msg_type) = TABLE;
+  option (msg_type) = TABLE;
 
-    int32 userId = 1 [(key)=true, (inc)=true];
-    string loginCode = 2 [(maxlen)=32];
-    string userName = 4 [(maxlen)=16];
-    string nikeName = 5 [(maxlen)=16];
-    string phone = 6 [(maxlen)=16];
-    string email = 7 [(maxlen)=32];
-    jsonb others = 15 [(maxlen)=256, (defval)="{}"];
+  int32 userId = 1 [(key) = true, (inc) = true];
+  string loginCode = 2 [(maxlen) = 32];
+  string userName = 4 [(maxlen) = 16];
+  string nikeName = 5 [(maxlen) = 16];
+  string phone = 6 [(maxlen) = 16];
+  string email = 7 [(maxlen) = 32];
+  jsonb others = 15 [(maxlen) = 256, (defval) = "{}"];
 
-    message t_sharding_key {
-        option (msg_type) = INDEX;
-        option (index_type) = SHARDING_KEY;
-        option (is_unique) = true;
+  message t_sharding_key {
+    option (msg_type) = INDEX;
+    option (index_type) = SHARDING_KEY;
+    option (is_unique) = true;
 
-        int32 userId = 1[(sort)=HASHED];
-    }
+    int32 userId = 1 [(sort) = HASHED];
+  }
 
-    message logincode_unique {
-        option (msg_type) = INDEX;
-        option (index_type) = UNIQUE_KEY;
-        string loginCode = 1;
-    }
+  message logincode_unique {
+    option (msg_type) = INDEX;
+    option (index_type) = UNIQUE_KEY;
+    string loginCode = 1;
+  }
 
-    message phone_index {
-        option (msg_type) = INDEX;
-        option (index_type) = INDEX_KEY;
-        string phone = 1;
-    }
+  message phone_index {
+    option (msg_type) = INDEX;
+    option (index_type) = INDEX_KEY;
+    string phone = 1;
+  }
 }
-
-
 
 // user_info define
 message order {
-    option (msg_type) = TABLE;
+  option (msg_type) = TABLE;
 
-    int32 oderId = 1 [(key)=true, (inc)=true];
-    datetime orderTime = 2;
-    int32 userId = 3;
-    string symbol = 4[(maxlen)=16];
-    float qty = 5[(declen)=32, (decpoint)=8];
+  int32 oderId = 1 [(key) = true, (inc) = true];
+  datetime orderTime = 2;
+  int32 userId = 3;
+  string symbol = 4 [(maxlen) = 16];
+  float qty = 5 [(declen) = 32, (decpoint) = 8];
 
+  message t_sharding_key {
+    option (msg_type) = INDEX;
+    option (index_type) = SHARDING_KEY;
+    option (is_unique) = true;
 
-    message t_sharding_key {
-        option (msg_type) = INDEX;
-        option (index_type) = SHARDING_KEY;
-        option (is_unique) = true;
+    int32 oderId = 1 [(sort) = DESC];
+  }
 
-        int32 oderId = 1[(sort)=DESC];
+  message userid_foreign {
+    option (msg_type) = INDEX;
+    option (index_type) = FOREIGN_KEY;
+    option (foreign_delete) = FA_RESTRICT;
+    option (foreign_update) = FA_CASCADE;
+
+    int32 userId = 1;
+
+    // REFERENCES TABLE NAME
+    // Can not assign database name
+    message user_info {
+      option (msg_type) = INDEX;
+      option (index_type) = FOREIGN_KEY;
+
+      int32 userId = 1;
     }
+  }
 
-    message order_sharding {
-        option (msg_type) = INDEX;
-        option (index_type) = INDEX_KEY;
-        string userId = 1[(sort)=DESC];
-    }
+  message order_sharding {
+    option (msg_type) = INDEX;
+    option (index_type) = INDEX_KEY;
+    string userId = 1 [(sort) = DESC];
+  }
 }

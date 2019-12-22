@@ -2,10 +2,8 @@
 -- ----------------------------
 -- -- Table for users user_info {'sharding_date_begin': 'None', 'sharding_date_end': 'None', 'space': 'user_spaces'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `users`.`user_info`;
-CREATE TABLE `users`.`user_info` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `user_info`;
+CREATE TEMPORARY TABLE `user_info` (
 `userId`  int(11) NOT NULL AUTO_INCREMENT ,
 `loginCode`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 `userName`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
@@ -21,10 +19,8 @@ DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 -- ----------------------------
 -- -- Table for trade_2019Q1 user_info {'sharding_mode': 'SM_ENABLE', 'sharding_date_begin': '2019-01-01 00:00:00', 'sharding_date_end': '2019-04-01 00:00:00', 'sharding_key': 'userId'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q1`.`user_info`;
-CREATE TABLE `trade_2019Q1`.`user_info` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `user_info`;
+CREATE TEMPORARY TABLE `user_info` (
 `userId`  int(11) NOT NULL AUTO_INCREMENT ,
 `loginCode`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 `userName`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
@@ -40,10 +36,8 @@ DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 -- ----------------------------
 -- -- Table for trade_2019Q1 order {'sharding_mode': 'SM_PARTITION_DAY', 'sharding_date_begin': '2019-01-01 00:00:00', 'sharding_date_end': '2019-04-01 00:00:00', 'sharding_key': 'orderTime'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q1`.`order`;
-CREATE TABLE `trade_2019Q1`.`order` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `order`;
+CREATE TEMPORARY TABLE `order` (
 `oderId`  int(11) NOT NULL AUTO_INCREMENT ,
 `orderTime` datetime NOT NULL ,
 `userId`  int(11) NOT NULL  ,
@@ -149,10 +143,8 @@ PARTITION future VALUES LESS THAN MAXVALUE
 -- ----------------------------
 -- -- Table for trade_2019Q2 user_info {'sharding_mode': 'SM_ENABLE', 'sharding_date_begin': '2019-04-01 00:00:00', 'sharding_date_end': '2019-07-01 00:00:00', 'sharding_key': 'userId'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q2`.`user_info`;
-CREATE TABLE `trade_2019Q2`.`user_info` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `user_info`;
+CREATE TEMPORARY TABLE `user_info` (
 `userId`  int(11) NOT NULL AUTO_INCREMENT ,
 `loginCode`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 `userName`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
@@ -168,10 +160,8 @@ DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 -- ----------------------------
 -- -- Table for trade_2019Q2 order {'sharding_mode': 'SM_PARTITION_DAY', 'sharding_date_begin': '2019-04-01 00:00:00', 'sharding_date_end': '2019-07-01 00:00:00', 'sharding_key': 'orderTime'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q2`.`order`;
-CREATE TABLE `trade_2019Q2`.`order` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `order`;
+CREATE TEMPORARY TABLE `order` (
 `oderId`  int(11) NOT NULL AUTO_INCREMENT ,
 `orderTime` datetime NOT NULL ,
 `userId`  int(11) NOT NULL  ,
@@ -278,10 +268,8 @@ PARTITION future VALUES LESS THAN MAXVALUE
 -- ----------------------------
 -- -- Table for trade_2019Q3 user_info {'sharding_mode': 'SM_ENABLE', 'sharding_date_begin': '2019-07-01 00:00:00', 'sharding_date_end': '2019-10-01 00:00:00', 'sharding_key': 'userId'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q3`.`user_info`;
-CREATE TABLE `trade_2019Q3`.`user_info` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `user_info`;
+CREATE TEMPORARY TABLE `user_info` (
 `userId`  int(11) NOT NULL AUTO_INCREMENT ,
 `loginCode`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 `userName`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
@@ -297,10 +285,8 @@ DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 -- ----------------------------
 -- -- Table for trade_2019Q3 order {'sharding_mode': 'SM_PARTITION_DAY', 'sharding_date_begin': '2019-07-01 00:00:00', 'sharding_date_end': '2019-10-01 00:00:00', 'sharding_key': 'orderTime'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q3`.`order`;
-CREATE TABLE `trade_2019Q3`.`order` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `order`;
+CREATE TEMPORARY TABLE `order` (
 `oderId`  int(11) NOT NULL AUTO_INCREMENT ,
 `orderTime` datetime NOT NULL ,
 `userId`  int(11) NOT NULL  ,
@@ -408,10 +394,8 @@ PARTITION future VALUES LESS THAN MAXVALUE
 -- ----------------------------
 -- -- Table for trade_2019Q4 user_info {'sharding_mode': 'SM_ENABLE', 'sharding_date_begin': '2019-10-01 00:00:00', 'sharding_date_end': '2020-01-01 00:00:00', 'sharding_key': 'userId'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q4`.`user_info`;
-CREATE TABLE `trade_2019Q4`.`user_info` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `user_info`;
+CREATE TEMPORARY TABLE `user_info` (
 `userId`  int(11) NOT NULL AUTO_INCREMENT ,
 `loginCode`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 `userName`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
@@ -427,10 +411,8 @@ DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 -- ----------------------------
 -- -- Table for trade_2019Q4 order {'sharding_mode': 'SM_PARTITION_DAY', 'sharding_date_begin': '2019-10-01 00:00:00', 'sharding_date_end': '2020-01-01 00:00:00', 'sharding_key': 'orderTime'}
 -- ----------------------------
--- DROP TABLE IF EXISTS `trade_2019Q4`.`order`;
-CREATE TABLE `trade_2019Q4`.`order` (
-`createtime`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`updatetime`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+DROP TABLE IF EXISTS `order`;
+CREATE TEMPORARY TABLE `order` (
 `oderId`  int(11) NOT NULL AUTO_INCREMENT ,
 `orderTime` datetime NOT NULL ,
 `userId`  int(11) NOT NULL  ,

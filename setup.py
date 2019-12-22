@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-u"""
+"""
 @create: 2017-03-09 15:15:05.
 
 @author:
@@ -34,12 +34,13 @@ from pkg_resources import load_entry_point
 
 datas = findall('pydbgen/dbbase/_proto')
 datas += findall('pydbgen/dbbase/_templates')
-# datas += findall('pydbgen/msgclass/_templates')
+datas += findall('pydbgen/pbclass/_proto')
+datas += findall('pydbgen/pbclass/_templates')
 datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(
     name="pydbgen",
-    version="0.0.2",
+    version="0.0.5",
     install_requires=[
         'mako',
         'autopep8',
@@ -57,6 +58,8 @@ setup(
             "protoc-gen-pydbpgsql=pydbgen.dbbase.protoc_gen_pgsql:main",
             "protoc-gen-pydbmongo=pydbgen.dbbase.protoc_gen_mongodb:main",
             "protoc-gen-pydbtmpl=pydbgen.dbbase.protoc_gen_tmpl_multi:main",
+            "protoc-gen-pypbjson=pydbgen.pbclass.protoc_gen_json:main",
+            "protoc-gen-pypbclass=pydbgen.pbclass.protoc_gen_tmpl_multi:main",
         ]
     },
     # scripts=bin_list_build(),

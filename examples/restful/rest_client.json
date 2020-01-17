@@ -1,0 +1,523 @@
+{
+    "type": "root",
+    "name": "root",
+    "package": "",
+    "filename": "examples/rest_client.proto",
+    "comment": "root",
+    "enums": {
+        "EnumSexType": {
+            "type": "enum",
+            "name": "EnumSexType",
+            "comment": "",
+            "fields": {
+                "NONE": {
+                    "name": "NONE",
+                    "value": 0,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {}
+                },
+                "MALE": {
+                    "name": "MALE",
+                    "value": 1,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {}
+                },
+                "FEMALE": {
+                    "name": "FEMALE",
+                    "value": 2,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {}
+                }
+            },
+            "options": {},
+            "enums": {},
+            "nesteds": {}
+        }
+    },
+    "nesteds": {
+        "Error": {
+            "type": "message",
+            "name": "Error",
+            "comment": "",
+            "fields": {
+                "error": {
+                    "name": "error",
+                    "value": 1,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "error"
+                    }
+                },
+                "error_text": {
+                    "name": "error_text",
+                    "value": 2,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "errorText"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "NullReq": {
+            "type": "message",
+            "name": "NullReq",
+            "comment": "",
+            "fields": {},
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "Query": {
+            "type": "message",
+            "name": "Query",
+            "comment": "",
+            "fields": {
+                "where": {
+                    "name": "where",
+                    "value": 1,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "where"
+                    }
+                },
+                "sort": {
+                    "name": "sort",
+                    "value": 2,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "sort"
+                    }
+                },
+                "csv": {
+                    "name": "csv",
+                    "value": 3,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "csv"
+                    }
+                },
+                "show": {
+                    "name": "show",
+                    "value": 4,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "show"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "CreateUserReq": {
+            "type": "message",
+            "name": "CreateUserReq",
+            "comment": "",
+            "fields": {
+                "username": {
+                    "name": "username",
+                    "value": 1,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "username"
+                    }
+                },
+                "age": {
+                    "name": "age",
+                    "value": 2,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "age"
+                    }
+                },
+                "sex": {
+                    "name": "sex",
+                    "value": 3,
+                    "type": "enum",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".EnumSexType",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "sex"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "CreateUserRsp": {
+            "type": "message",
+            "name": "CreateUserRsp",
+            "comment": "",
+            "fields": {
+                "error": {
+                    "name": "error",
+                    "value": 1,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".Error",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "error"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "CreateUserQuery": {
+            "type": "message",
+            "name": "CreateUserQuery",
+            "comment": "",
+            "fields": {
+                "is_debug": {
+                    "name": "is_debug",
+                    "value": 1,
+                    "type": "bool",
+                    "defval": false,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "isDebug"
+                    }
+                },
+                "rnd": {
+                    "name": "rnd",
+                    "value": 2,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "rnd"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "CreateUserHttp": {
+            "type": "message",
+            "name": "CreateUserHttp",
+            "comment": "",
+            "fields": {
+                "req": {
+                    "name": "req",
+                    "value": 1,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".CreateUserReq",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "req"
+                    }
+                },
+                "rsp": {
+                    "name": "rsp",
+                    "value": 2,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".CreateUserRsp",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "rsp"
+                    }
+                },
+                "query": {
+                    "name": "query",
+                    "value": 3,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".CreateUserQuery",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "query"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "Users": {
+            "type": "message",
+            "name": "Users",
+            "comment": "",
+            "fields": {
+                "userid": {
+                    "name": "userid",
+                    "value": 1,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "userid",
+                        "minval": 1.0
+                    }
+                },
+                "username": {
+                    "name": "username",
+                    "value": 2,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "username",
+                        "maxlen": 50,
+                        "minlen": 1
+                    }
+                },
+                "age": {
+                    "name": "age",
+                    "value": 3,
+                    "type": "int32",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "age"
+                    }
+                },
+                "sex": {
+                    "name": "sex",
+                    "value": 4,
+                    "type": "enum",
+                    "defval": 0,
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".EnumSexType",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "sex"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "GetUsersRsp": {
+            "type": "message",
+            "name": "GetUsersRsp",
+            "comment": "",
+            "fields": {
+                "error": {
+                    "name": "error",
+                    "value": 1,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".Error",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "error"
+                    }
+                },
+                "datas": {
+                    "name": "datas",
+                    "value": 2,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "repeated",
+                        "type_name": ".Users",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "datas"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "GetUserHttp": {
+            "type": "message",
+            "name": "GetUserHttp",
+            "comment": "",
+            "fields": {
+                "req": {
+                    "name": "req",
+                    "value": 1,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".NullReq",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "req"
+                    }
+                },
+                "rsp": {
+                    "name": "rsp",
+                    "value": 2,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".GetUsersRsp",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "rsp"
+                    }
+                },
+                "query": {
+                    "name": "query",
+                    "value": 3,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".Query",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "query"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        }
+    }
+}

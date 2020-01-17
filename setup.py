@@ -36,6 +36,8 @@ datas = findall('pydbgen/dbbase/_proto')
 datas += findall('pydbgen/dbbase/_templates')
 datas += findall('pydbgen/pbclass/_proto')
 datas += findall('pydbgen/pbclass/_templates')
+datas += findall('pydbgen/restful/_proto')
+datas += findall('pydbgen/restful/_templates')
 datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(

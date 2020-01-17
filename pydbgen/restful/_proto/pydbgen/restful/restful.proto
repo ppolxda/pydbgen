@@ -1,0 +1,60 @@
+syntax = "proto3";
+import "google/protobuf/descriptor.proto";
+
+message datetime {}
+
+message date {}
+
+enum EnumMessageType {
+  MDATA = 0;
+  MAPI = 1;
+  MREQ = 2;
+  MRSP = 3;
+  MQUERY = 4;
+}
+
+enum EnumMethods {
+  MGET = 0;
+  MPOST = 1;
+  MPUT = 2;
+  MDELETE = 3;
+  MPATCH = 4;
+  MOPTIONS = 5;
+  MHEAD = 6;
+  MCONNECT = 7;
+  MTRACE = 8;
+}
+
+enum EnumBodyType {
+  BURLENCODE = 0;
+  BJSON = 1;
+  BXML = 2;
+  BYAML = 3;
+}
+
+extend google.protobuf.MessageOptions {
+  string ruri = 1700000;
+  string rpath = 1700001;
+  EnumMethods rmethod = 1700002;
+  EnumBodyType rbody = 1700003;
+  EnumMessageType rmsg = 1700004;
+}
+
+extend google.protobuf.FieldOptions {
+  //  ----------------------------------------------
+  //              field options of table
+  //  ----------------------------------------------
+  int32 maxlen = 90001; // string|byte max length
+  int32 minlen = 90002; // string|byte min length
+
+  float maxval = 90003; // int|float max value
+  float minval = 90004; // int|float min value
+
+  int32 declen = 90005;   // decimal length
+  int32 decpoint = 90006; // decimal point length
+
+  bool key = 90007;    // PRIMARY
+  bool inc = 90008;    // AUTO_INCREMENT
+  bool update = 90009; // is allow update
+  string defval = 900010;
+}

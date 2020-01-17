@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+import "pydbgen/restful/restful.proto";
+
+//  ----------------------------------------------
+//              Common Define
+//  ----------------------------------------------
+
+message Error {
+  int32 error = 1;
+  string error_text = 2;
+}
+
+message NullReq { option (rmsg) = MREQ; }
+message NullRsp {
+  option (rmsg) = MRSP;
+
+  Error error = 1;
+}
+
+message Query {
+  option (rmsg) = MREQ;
+
+  string where = 1;
+  string sort = 2;
+  string csv = 3;
+  string show = 4;
+}
+
+enum EnumSexType {
+  NONE = 0;
+  MALE = 1;
+  FEMALE = 2;
+}
+
+//  ----------------------------------------------
+//              create user
+//  ----------------------------------------------
+
+message CreateUserReq {
+  option (rmsg) = MREQ;
+
+  string username = 1;
+  int32 age = 2;
+  EnumSexType sex = 3;
+}
+
+message CreateUserQuery {
+  option (rmsg) = MQUERY;
+
+  bool is_debug = 1;
+  int32 rnd = 2;
+}
+
+message CreateUserHttp {
+  option (rmsg) = MAPI;
+  option (ruri) = "/user/create";
+  option (rpath) = "/oauth/user/create_user";
+  option (rmethod) = MPOST;
+  option (rbody) = BJSON;
+
+  CreateUserReq req = 1;
+  NullRsp rsp = 2;
+  CreateUserQuery query = 3;
+}
+
+//  ----------------------------------------------
+//              query user
+//  ----------------------------------------------
+
+message Users {
+  option (rmsg) = MRSP;
+
+  int32 userid = 1 [ (minval) = 1 ];
+  string username = 2 [ (maxlen) = 50, (minlen) = 1 ];
+  int32 age = 3;
+  EnumSexType sex = 4;
+}
+
+message GetUsersRsp {
+  option (rmsg) = MRSP;
+
+  Error error = 1;
+  repeated Users datas = 2;
+}
+
+message GetUserHttp {
+  option (rmsg) = MAPI;
+  option (ruri) = "/user/users";
+  option (rpath) = "/oauth/user/get_users";
+  option (rmethod) = MGET;
+  option (rbody) = BJSON;
+
+  NullReq req = 1;
+  GetUsersRsp rsp = 2;
+  Query query = 3;
+}

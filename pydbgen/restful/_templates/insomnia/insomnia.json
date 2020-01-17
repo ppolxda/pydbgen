@@ -1,0 +1,8 @@
+[
+    {
+        "tmpl": "{tmpl}/insomnia/init_json.json.mako",
+        "mode": "single",
+        "output": "restful/{filename}.json",
+        "disable": false
+    }
+]

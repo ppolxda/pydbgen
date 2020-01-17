@@ -10,6 +10,8 @@ def main():
     pydbgen_include = '-I{}'.format(pydbgen)
     pypbgen = pkg_resources.resource_filename('pydbgen.pbclass', '_proto')
     pypbgen_include = '-I{}'.format(pypbgen)
+    pypbgen = pkg_resources.resource_filename('pydbgen.restful', '_proto')
+    pypbgen_include = '-I{}'.format(pypbgen)
     sys.exit(_main(sys.argv + [
         grpc_tools_include, pydbgen_include, pypbgen_include
     ]))

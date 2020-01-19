@@ -4,5 +4,17 @@
         "mode": "single",
         "output": "restful/{filename}.json",
         "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/insomnia/insomnia.json.mako",
+        "mode": "single",
+        "output": "restful/insomnia_{filename}.json",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/insomnia/insomnia_t.json.mako",
+        "mode": "single",
+        "output": "restful/insomnia_t_{filename}.json",
+        "disable": false
     }
 ]

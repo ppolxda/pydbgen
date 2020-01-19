@@ -4,6 +4,13 @@
     "package": "",
     "filename": "examples/rest_client.proto",
     "comment": "root",
+    "rest_options": {
+        "workspace_name": "test_workspace",
+        "project_name": "test_ptoject",
+        "domain_key": "test_domain",
+        "domain": "http://localhost:50000",
+        "env_name": "test_env"
+    },
     "enums": {
         "EnumSexType": {
             "type": "enum",
@@ -41,6 +48,73 @@
         }
     },
     "nesteds": {
+        "NullReq": {
+            "type": "message",
+            "name": "NullReq",
+            "comment": "",
+            "fields": {},
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "NullRsp": {
+            "type": "message",
+            "name": "NullRsp",
+            "comment": "",
+            "fields": {
+                "error": {
+                    "name": "error",
+                    "value": 1,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".Error",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "error"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "NullQuery": {
+            "type": "message",
+            "name": "NullQuery",
+            "comment": "",
+            "fields": {},
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "NullHeader": {
+            "type": "message",
+            "name": "NullHeader",
+            "comment": "",
+            "fields": {},
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
         "Error": {
             "type": "message",
             "name": "Error",
@@ -83,22 +157,9 @@
             "enums": {},
             "nesteds": {}
         },
-        "NullReq": {
+        "DefaultQuery": {
             "type": "message",
-            "name": "NullReq",
-            "comment": "",
-            "fields": {},
-            "options": {
-                "message_set_wire_format": false,
-                "no_standard_descriptor_accessor": false,
-                "deprecated": false
-            },
-            "enums": {},
-            "nesteds": {}
-        },
-        "Query": {
-            "type": "message",
-            "name": "Query",
+            "name": "DefaultQuery",
             "comment": "",
             "fields": {
                 "where": {
@@ -112,7 +173,9 @@
                         "type_name": "",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "where"
+                        "json_name": "where",
+                        "maxlen": 1024,
+                        "minlen": 0
                     }
                 },
                 "sort": {
@@ -126,7 +189,9 @@
                         "type_name": "",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "sort"
+                        "json_name": "sort",
+                        "maxlen": 1024,
+                        "minlen": 0
                     }
                 },
                 "csv": {
@@ -140,7 +205,9 @@
                         "type_name": "",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "csv"
+                        "json_name": "csv",
+                        "maxlen": 1024,
+                        "minlen": 0
                     }
                 },
                 "show": {
@@ -154,7 +221,85 @@
                         "type_name": "",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "show"
+                        "json_name": "show",
+                        "maxlen": 1024,
+                        "minlen": 0
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "DefaultHeader": {
+            "type": "message",
+            "name": "DefaultHeader",
+            "comment": "",
+            "fields": {
+                "token": {
+                    "name": "token",
+                    "value": 1,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "token"
+                    }
+                }
+            },
+            "options": {
+                "message_set_wire_format": false,
+                "no_standard_descriptor_accessor": false,
+                "deprecated": false
+            },
+            "enums": {},
+            "nesteds": {}
+        },
+        "Contact": {
+            "type": "message",
+            "name": "Contact",
+            "comment": "",
+            "fields": {
+                "phone": {
+                    "name": "phone",
+                    "value": 1,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "phone",
+                        "maxlen": 50,
+                        "minlen": 1,
+                        "regex": "^+([0-9]{1,}) ([0-9]{6,})$"
+                    }
+                },
+                "email": {
+                    "name": "email",
+                    "value": 2,
+                    "type": "string",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": "",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "email",
+                        "maxval": 200.0,
+                        "minval": 1.0,
+                        "regex": "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
                     }
                 }
             },
@@ -182,7 +327,9 @@
                         "type_name": "",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "username"
+                        "json_name": "username",
+                        "maxlen": 50,
+                        "minlen": 1
                     }
                 },
                 "age": {
@@ -196,7 +343,9 @@
                         "type_name": "",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "age"
+                        "json_name": "age",
+                        "maxval": 200.0,
+                        "minval": 1.0
                     }
                 },
                 "sex": {
@@ -212,33 +361,33 @@
                         "default_value": "",
                         "json_name": "sex"
                     }
-                }
-            },
-            "options": {
-                "message_set_wire_format": false,
-                "no_standard_descriptor_accessor": false,
-                "deprecated": false
-            },
-            "enums": {},
-            "nesteds": {}
-        },
-        "CreateUserRsp": {
-            "type": "message",
-            "name": "CreateUserRsp",
-            "comment": "",
-            "fields": {
-                "error": {
-                    "name": "error",
-                    "value": 1,
+                },
+                "contact": {
+                    "name": "contact",
+                    "value": 4,
                     "type": "message",
                     "defval": "",
                     "comment": "",
                     "options": {
                         "label": "optional",
-                        "type_name": ".Error",
+                        "type_name": ".Contact",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "error"
+                        "json_name": "contact"
+                    }
+                },
+                "card": {
+                    "name": "card",
+                    "value": 5,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".CreateUserReq.IdCard",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "card"
                     }
                 }
             },
@@ -248,7 +397,54 @@
                 "deprecated": false
             },
             "enums": {},
-            "nesteds": {}
+            "nesteds": {
+                "IdCard": {
+                    "type": "message",
+                    "name": "IdCard",
+                    "comment": "",
+                    "fields": {
+                        "cardno": {
+                            "name": "cardno",
+                            "value": 1,
+                            "type": "string",
+                            "defval": "",
+                            "comment": "",
+                            "options": {
+                                "label": "optional",
+                                "type_name": "",
+                                "extendee": "",
+                                "default_value": "",
+                                "json_name": "cardno",
+                                "maxlen": 50,
+                                "minlen": 1
+                            }
+                        },
+                        "cardtype": {
+                            "name": "cardtype",
+                            "value": 2,
+                            "type": "string",
+                            "defval": "",
+                            "comment": "",
+                            "options": {
+                                "label": "optional",
+                                "type_name": "",
+                                "extendee": "",
+                                "default_value": "",
+                                "json_name": "cardtype",
+                                "maxlen": 50,
+                                "minlen": 1
+                            }
+                        }
+                    },
+                    "options": {
+                        "message_set_wire_format": false,
+                        "no_standard_descriptor_accessor": false,
+                        "deprecated": false
+                    },
+                    "enums": {},
+                    "nesteds": {}
+                }
+            }
         },
         "CreateUserQuery": {
             "type": "message",
@@ -297,8 +493,8 @@
             "name": "CreateUserHttp",
             "comment": "",
             "fields": {
-                "req": {
-                    "name": "req",
+                "req_body": {
+                    "name": "req_body",
                     "value": 1,
                     "type": "message",
                     "defval": "",
@@ -308,25 +504,25 @@
                         "type_name": ".CreateUserReq",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "req"
+                        "json_name": "reqBody"
                     }
                 },
-                "rsp": {
-                    "name": "rsp",
+                "rsp_body": {
+                    "name": "rsp_body",
                     "value": 2,
                     "type": "message",
                     "defval": "",
                     "comment": "",
                     "options": {
                         "label": "optional",
-                        "type_name": ".CreateUserRsp",
+                        "type_name": ".NullRsp",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "rsp"
+                        "json_name": "rspBody"
                     }
                 },
-                "query": {
-                    "name": "query",
+                "querys": {
+                    "name": "querys",
                     "value": 3,
                     "type": "message",
                     "defval": "",
@@ -336,14 +532,33 @@
                         "type_name": ".CreateUserQuery",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "query"
+                        "json_name": "querys"
+                    }
+                },
+                "headers": {
+                    "name": "headers",
+                    "value": 4,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".DefaultHeader",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "headers"
                     }
                 }
             },
             "options": {
                 "message_set_wire_format": false,
                 "no_standard_descriptor_accessor": false,
-                "deprecated": false
+                "deprecated": false,
+                "ruri": "/user/create",
+                "rpath": "/oauth/user/create_user",
+                "rmethod": "MPOST",
+                "rbody": "BJSON",
+                "rmsg": "MAPI"
             },
             "enums": {},
             "nesteds": {}
@@ -468,8 +683,8 @@
             "name": "GetUserHttp",
             "comment": "",
             "fields": {
-                "req": {
-                    "name": "req",
+                "req_body": {
+                    "name": "req_body",
                     "value": 1,
                     "type": "message",
                     "defval": "",
@@ -479,11 +694,11 @@
                         "type_name": ".NullReq",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "req"
+                        "json_name": "reqBody"
                     }
                 },
-                "rsp": {
-                    "name": "rsp",
+                "rsp_body": {
+                    "name": "rsp_body",
                     "value": 2,
                     "type": "message",
                     "defval": "",
@@ -493,28 +708,47 @@
                         "type_name": ".GetUsersRsp",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "rsp"
+                        "json_name": "rspBody"
                     }
                 },
-                "query": {
-                    "name": "query",
+                "querys": {
+                    "name": "querys",
                     "value": 3,
                     "type": "message",
                     "defval": "",
                     "comment": "",
                     "options": {
                         "label": "optional",
-                        "type_name": ".Query",
+                        "type_name": ".DefaultQuery",
                         "extendee": "",
                         "default_value": "",
-                        "json_name": "query"
+                        "json_name": "querys"
+                    }
+                },
+                "headers": {
+                    "name": "headers",
+                    "value": 4,
+                    "type": "message",
+                    "defval": "",
+                    "comment": "",
+                    "options": {
+                        "label": "optional",
+                        "type_name": ".NullHeader",
+                        "extendee": "",
+                        "default_value": "",
+                        "json_name": "headers"
                     }
                 }
             },
             "options": {
                 "message_set_wire_format": false,
                 "no_standard_descriptor_accessor": false,
-                "deprecated": false
+                "deprecated": false,
+                "ruri": "/user/users",
+                "rpath": "/oauth/user/get_users",
+                "rmethod": "MGET",
+                "rbody": "BJSON",
+                "rmsg": "MAPI"
             },
             "enums": {},
             "nesteds": {}

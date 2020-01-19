@@ -44,6 +44,7 @@ setup(
     name="pydbgen",
     version="0.0.5",
     install_requires=[
+        'six',
         'mako',
         'autopep8',
         'grpcio-tools',

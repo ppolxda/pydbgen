@@ -2,30 +2,38 @@ syntax = "proto3";
 
 import "pydbgen/restful/restful.proto";
 
+option (workspace_name) = "test_workspace";
+option (project_name) = "test_ptoject";
+option (env_name) = "test_env";
+option (domain_key) = "test_domain";
+option (domain) = "http://localhost:50000";
+
 //  ----------------------------------------------
 //              Common Define
 //  ----------------------------------------------
+
+message NullReq {}
+message NullRsp { Error error = 1; }
+message NullQuery {}
+message NullHeader {}
 
 message Error {
   int32 error = 1;
   string error_text = 2;
 }
 
-message NullReq { option (rmsg) = MREQ; }
-message NullRsp {
-  option (rmsg) = MRSP;
-
-  Error error = 1;
+message DefaultQuery {
+  string where = 1 [ (maxlen) = 1024, (minlen) = 0 ];
+  string sort = 2 [ (maxlen) = 1024, (minlen) = 0 ];
+  string csv = 3 [ (maxlen) = 1024, (minlen) = 0 ];
+  string show = 4 [ (maxlen) = 1024, (minlen) = 0 ];
 }
 
-message Query {
-  option (rmsg) = MREQ;
+message DefaultHeader { string token = 1; }
 
-  string where = 1;
-  string sort = 2;
-  string csv = 3;
-  string show = 4;
-}
+//  ----------------------------------------------
+//              create user
+//  ----------------------------------------------
 
 enum EnumSexType {
   NONE = 0;
@@ -33,21 +41,31 @@ enum EnumSexType {
   FEMALE = 2;
 }
 
-//  ----------------------------------------------
-//              create user
-//  ----------------------------------------------
+message Contact {
+  string phone = 1
+      [ (maxlen) = 50, (minlen) = 1, (regex) = "^+([0-9]{1,}) ([0-9]{6,})$" ];
+  string email = 2 [
+    (maxval) = 200,
+    (minval) = 1,
+    (regex) = "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
+  ];
+}
 
 message CreateUserReq {
-  option (rmsg) = MREQ;
 
-  string username = 1;
-  int32 age = 2;
+  message IdCard {
+    string cardno = 1 [ (maxlen) = 50, (minlen) = 1 ];
+    string cardtype = 2 [ (maxlen) = 50, (minlen) = 1 ];
+  }
+
+  string username = 1 [ (maxlen) = 50, (minlen) = 1 ];
+  int32 age = 2 [ (maxval) = 200, (minval) = 1 ];
   EnumSexType sex = 3;
+  Contact contact = 4;
+  IdCard card = 5;
 }
 
 message CreateUserQuery {
-  option (rmsg) = MQUERY;
-
   bool is_debug = 1;
   int32 rnd = 2;
 }
@@ -59,9 +77,10 @@ message CreateUserHttp {
   option (rmethod) = MPOST;
   option (rbody) = BJSON;
 
-  CreateUserReq req = 1;
-  NullRsp rsp = 2;
-  CreateUserQuery query = 3;
+  CreateUserReq req_body = 1;
+  NullRsp rsp_body = 2;
+  CreateUserQuery querys = 3;
+  DefaultHeader headers = 4;
 }
 
 //  ----------------------------------------------
@@ -69,8 +88,6 @@ message CreateUserHttp {
 //  ----------------------------------------------
 
 message Users {
-  option (rmsg) = MRSP;
-
   int32 userid = 1 [ (minval) = 1 ];
   string username = 2 [ (maxlen) = 50, (minlen) = 1 ];
   int32 age = 3;
@@ -78,8 +95,6 @@ message Users {
 }
 
 message GetUsersRsp {
-  option (rmsg) = MRSP;
-
   Error error = 1;
   repeated Users datas = 2;
 }
@@ -91,7 +106,8 @@ message GetUserHttp {
   option (rmethod) = MGET;
   option (rbody) = BJSON;
 
-  NullReq req = 1;
-  GetUsersRsp rsp = 2;
-  Query query = 3;
+  NullReq req_body = 1;
+  GetUsersRsp rsp_body = 2;
+  DefaultQuery querys = 3;
+  NullHeader headers = 4;
 }

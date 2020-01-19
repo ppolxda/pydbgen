@@ -7,11 +7,18 @@ import argparse
 import itertools
 from collections import OrderedDict
 from google.protobuf.compiler import plugin_pb2 as plugin
+from google.protobuf.descriptor_pb2 import FileOptions
 from google.protobuf.descriptor_pb2 import FieldOptions
+from google.protobuf.descriptor_pb2 import MessageOptions
 from google.protobuf.descriptor_pb2 import DescriptorProto
 from google.protobuf.descriptor_pb2 import EnumDescriptorProto
 from google.protobuf.descriptor import FieldDescriptor
 from pydbgen.restful import restful_pb2
+
+
+EnumMethods = restful_pb2.EnumMethods
+EnumBodyType = restful_pb2.EnumBodyType
+EnumMessageType = restful_pb2.EnumMessageType
 
 
 MY_OPTIONS = [
@@ -19,6 +26,27 @@ MY_OPTIONS = [
     for key in FieldOptions._extensions_by_name.keys()
     if hasattr(restful_pb2, key)
 ]
+
+
+MY_MOPTIONS = [
+    getattr(restful_pb2, key)
+    for key in MessageOptions._extensions_by_name.keys()
+    if hasattr(restful_pb2, key)
+]
+
+
+MY_FOPTIONS = [
+    getattr(restful_pb2, key)
+    for key in FileOptions._extensions_by_name.keys()
+    if hasattr(restful_pb2, key)
+]
+
+
+MY_MOPTIONS_NAME = {
+    'rmethod': EnumMethods,
+    'rbody': EnumBodyType,
+    'rmsg': EnumMessageType,
+}
 
 
 LABEL_CHANGE = {
@@ -82,6 +110,12 @@ class EnumPathIndex(object):
     SERVICE = 6
 
 
+def mopts_name(key, val):
+    if key not in MY_MOPTIONS_NAME:
+        return val
+    return MY_MOPTIONS_NAME[key].Name(val)
+
+
 class Cmdoptions(object):
 
     def __init__(self):
@@ -123,10 +157,14 @@ def _locations(locations, pathtype, i, last_path=tuple()):
 
 
 def default_json(name, typename, comment='', fields={},
-                 options={}, nesteds={}, enums={}):
+                 options={}, nesteds={}, enums={}, moptions={}):
     assert isinstance(fields, dict)
     assert isinstance(options, dict)
     assert isinstance(nesteds, dict)
+    assert isinstance(moptions, dict)
+    if moptions:
+        options.update(moptions)
+
     return OrderedDict([
         ("type", typename),
         ("name", name),
@@ -140,7 +178,9 @@ def default_json(name, typename, comment='', fields={},
 
 def field_json(name, value, type, defval,
                comment, options={}, soptions={}):
-    options.update(soptions)
+    if soptions:
+        options.update(soptions)
+
     return OrderedDict([
         ("name", name),
         ("value", value),
@@ -215,11 +255,21 @@ def message2json(items, locations, path=tuple()):
                 ) for i, v in enumerate(item.field)
             ]),
             options=OrderedDict([
-                        ('message_set_wire_format', item.options.message_set_wire_format),  # noqa
-                        ('no_standard_descriptor_accessor', item.options.no_standard_descriptor_accessor),  # noqa
-                        ('deprecated', item.options.deprecated),  # noqa
-                    ])
-            )
+                ('message_set_wire_format', item.options.message_set_wire_format),  # noqa
+                ('no_standard_descriptor_accessor', item.options.no_standard_descriptor_accessor),  # noqa
+                ('deprecated', item.options.deprecated),  # noqa
+            ]),
+            moptions=OrderedDict([
+                (
+                    val.name,
+                    mopts_name(
+                        val.name, item.options.Extensions[val]
+                    )
+                )
+                for val in MY_MOPTIONS
+                if item.options.HasExtension(val)
+            ])
+        )
 
     return result
 
@@ -233,6 +283,7 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
             ("package", "root"),
             ("filename", filename),
             ("comment", "root"),
+            ("rest_options", {}),
             ("enums", {}),
             ("nesteds", {}),
         ])
@@ -250,6 +301,16 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
 
             output['filename'] = proto_file.name
             output['package'] = proto_file.package
+            output['rest_options'] = OrderedDict([
+                (
+                    val.name,
+                    mopts_name(
+                        val.name, proto_file.options.Extensions[val]
+                    )
+                )
+                for val in MY_FOPTIONS
+                if proto_file.options.HasExtension(val)
+            ])
 
             locations = proto_file.source_code_info.location
             locations = {

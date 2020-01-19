@@ -11,6 +11,7 @@ enum EnumMessageType {
   MREQ = 2;
   MRSP = 3;
   MQUERY = 4;
+  MHEADERS = 5;
 }
 
 enum EnumMethods {
@@ -32,6 +33,14 @@ enum EnumBodyType {
   BYAML = 3;
 }
 
+extend google.protobuf.FileOptions {
+  string workspace_name = 1800000;
+  string project_name = 1800001;
+  string domain_key = 1800002;
+  string domain = 1800003;
+  string env_name = 1800004;
+}
+
 extend google.protobuf.MessageOptions {
   string ruri = 1700000;
   string rpath = 1700001;
@@ -46,12 +55,14 @@ extend google.protobuf.FieldOptions {
   //  ----------------------------------------------
   int32 maxlen = 90001; // string|byte max length
   int32 minlen = 90002; // string|byte min length
+  string regex = 90011; // string|regex
 
   float maxval = 90003; // int|float max value
   float minval = 90004; // int|float min value
 
   int32 declen = 90005;   // decimal length
   int32 decpoint = 90006; // decimal point length
+  bool optional = 90012; // field optional 
 
   bool key = 90007;    // PRIMARY
   bool inc = 90008;    // AUTO_INCREMENT

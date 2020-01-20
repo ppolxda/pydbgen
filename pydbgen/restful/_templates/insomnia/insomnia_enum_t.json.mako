@@ -1,9 +1,9 @@
 <%
-    def datamap(datas):
+    def enummap(datas):
         return {
             '.'.join([key, val['name']]): val
-            for key, val in loop_nesteds(datas, '')
+            for key, val in loop_enums(datas, '')
         }
 %>
-<% DATA_MAP = datamap(json_data) %>
+<% DATA_MAP = enummap(json_data) %>
 ${ json_dumps(DATA_MAP, indent=4) }

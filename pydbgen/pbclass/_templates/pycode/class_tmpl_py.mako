@@ -318,7 +318,7 @@ class ProtoClass(object):
         field = self.fields.get(key, None)
         if not field:
             raise FeildInVaild(
-                'key not in fileds invaild {}'.format(key)
+                'key not in fields invaild {}'.format(key)
             )
 
         if isinstance(kwargs, dict):

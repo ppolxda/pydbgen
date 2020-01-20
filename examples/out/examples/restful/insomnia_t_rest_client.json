@@ -1,6 +1,5 @@
 
 
-
 {
     ".NullReq": {
         "type": "message",
@@ -289,17 +288,15 @@
             "cardtype": {
                 "name": "cardtype",
                 "value": 2,
-                "type": "string",
-                "defval": "",
+                "type": "enum",
+                "defval": 0,
                 "comment": "",
                 "options": {
                     "label": "optional",
-                    "type_name": "",
+                    "type_name": ".CreateUserReq.IdCard.EnumCardType",
                     "extendee": "",
                     "default_value": "",
-                    "json_name": "cardtype",
-                    "maxlen": 50,
-                    "minlen": 1
+                    "json_name": "cardtype"
                 }
             }
         },
@@ -308,7 +305,26 @@
             "no_standard_descriptor_accessor": false,
             "deprecated": false
         },
-        "enums": {},
+        "enums": {
+            "EnumCardType": {
+                "type": "enum",
+                "name": "EnumCardType",
+                "comment": "",
+                "fields": {
+                    "IDCard": {
+                        "name": "IDCard",
+                        "value": 0,
+                        "type": "int32",
+                        "defval": 0,
+                        "comment": "",
+                        "options": {}
+                    }
+                },
+                "options": {},
+                "enums": {},
+                "nesteds": {}
+            }
+        },
         "nesteds": {}
     },
     ".CreateUserReq": {
@@ -389,6 +405,20 @@
                     "default_value": "",
                     "json_name": "card"
                 }
+            },
+            "birthday": {
+                "name": "birthday",
+                "value": 6,
+                "type": "message",
+                "defval": "",
+                "comment": "",
+                "options": {
+                    "label": "optional",
+                    "type_name": ".date",
+                    "extendee": "",
+                    "default_value": "",
+                    "json_name": "birthday"
+                }
             }
         },
         "options": {
@@ -422,17 +452,15 @@
                     "cardtype": {
                         "name": "cardtype",
                         "value": 2,
-                        "type": "string",
-                        "defval": "",
+                        "type": "enum",
+                        "defval": 0,
                         "comment": "",
                         "options": {
                             "label": "optional",
-                            "type_name": "",
+                            "type_name": ".CreateUserReq.IdCard.EnumCardType",
                             "extendee": "",
                             "default_value": "",
-                            "json_name": "cardtype",
-                            "maxlen": 50,
-                            "minlen": 1
+                            "json_name": "cardtype"
                         }
                     }
                 },
@@ -441,7 +469,26 @@
                     "no_standard_descriptor_accessor": false,
                     "deprecated": false
                 },
-                "enums": {},
+                "enums": {
+                    "EnumCardType": {
+                        "type": "enum",
+                        "name": "EnumCardType",
+                        "comment": "",
+                        "fields": {
+                            "IDCard": {
+                                "name": "IDCard",
+                                "value": 0,
+                                "type": "int32",
+                                "defval": 0,
+                                "comment": "",
+                                "options": {}
+                            }
+                        },
+                        "options": {},
+                        "enums": {},
+                        "nesteds": {}
+                    }
+                },
                 "nesteds": {}
             }
         }
@@ -570,7 +617,7 @@
         "fields": {
             "userid": {
                 "name": "userid",
-                "value": 1,
+                "value": 100,
                 "type": "int32",
                 "defval": 0,
                 "comment": "",
@@ -583,9 +630,24 @@
                     "minval": 1.0
                 }
             },
+            "create_time": {
+                "name": "create_time",
+                "value": 101,
+                "type": "message",
+                "defval": "",
+                "comment": "",
+                "options": {
+                    "label": "optional",
+                    "type_name": ".datetime",
+                    "extendee": "",
+                    "default_value": "",
+                    "json_name": "createTime",
+                    "minval": 1.0
+                }
+            },
             "username": {
                 "name": "username",
-                "value": 2,
+                "value": 1,
                 "type": "string",
                 "defval": "",
                 "comment": "",
@@ -601,7 +663,7 @@
             },
             "age": {
                 "name": "age",
-                "value": 3,
+                "value": 2,
                 "type": "int32",
                 "defval": 0,
                 "comment": "",
@@ -610,12 +672,14 @@
                     "type_name": "",
                     "extendee": "",
                     "default_value": "",
-                    "json_name": "age"
+                    "json_name": "age",
+                    "maxval": 200.0,
+                    "minval": 1.0
                 }
             },
             "sex": {
                 "name": "sex",
-                "value": 4,
+                "value": 3,
                 "type": "enum",
                 "defval": 0,
                 "comment": "",
@@ -625,6 +689,48 @@
                     "extendee": "",
                     "default_value": "",
                     "json_name": "sex"
+                }
+            },
+            "contact": {
+                "name": "contact",
+                "value": 4,
+                "type": "message",
+                "defval": "",
+                "comment": "",
+                "options": {
+                    "label": "optional",
+                    "type_name": ".Contact",
+                    "extendee": "",
+                    "default_value": "",
+                    "json_name": "contact"
+                }
+            },
+            "card": {
+                "name": "card",
+                "value": 5,
+                "type": "message",
+                "defval": "",
+                "comment": "",
+                "options": {
+                    "label": "optional",
+                    "type_name": ".CreateUserReq.IdCard",
+                    "extendee": "",
+                    "default_value": "",
+                    "json_name": "card"
+                }
+            },
+            "birthday": {
+                "name": "birthday",
+                "value": 6,
+                "type": "message",
+                "defval": "",
+                "comment": "",
+                "options": {
+                    "label": "optional",
+                    "type_name": ".date",
+                    "extendee": "",
+                    "default_value": "",
+                    "json_name": "birthday"
                 }
             }
         },

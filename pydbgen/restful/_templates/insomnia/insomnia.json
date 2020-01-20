@@ -16,5 +16,11 @@
         "mode": "single",
         "output": "restful/insomnia_t_{filename}.json",
         "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/insomnia/insomnia_enum_t.json.mako",
+        "mode": "single",
+        "output": "restful/insomnia_enum_t_{filename}.json",
+        "disable": false
     }
 ]

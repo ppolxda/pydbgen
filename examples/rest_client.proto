@@ -54,8 +54,9 @@ message Contact {
 message CreateUserReq {
 
   message IdCard {
+    enum EnumCardType { IDCard = 0; }
     string cardno = 1 [ (maxlen) = 50, (minlen) = 1 ];
-    string cardtype = 2 [ (maxlen) = 50, (minlen) = 1 ];
+    EnumCardType cardtype = 2;
   }
 
   string username = 1 [ (maxlen) = 50, (minlen) = 1 ];
@@ -63,6 +64,7 @@ message CreateUserReq {
   EnumSexType sex = 3;
   Contact contact = 4;
   IdCard card = 5;
+  date birthday = 6;
 }
 
 message CreateUserQuery {
@@ -88,10 +90,14 @@ message CreateUserHttp {
 //  ----------------------------------------------
 
 message Users {
-  int32 userid = 1 [ (minval) = 1 ];
-  string username = 2 [ (maxlen) = 50, (minlen) = 1 ];
-  int32 age = 3;
-  EnumSexType sex = 4;
+  int32 userid = 100 [ (minval) = 1 ];
+  datetime create_time = 101 [ (minval) = 1 ];
+  string username = 1 [ (maxlen) = 50, (minlen) = 1 ];
+  int32 age = 2 [ (maxval) = 200, (minval) = 1 ];
+  EnumSexType sex = 3;
+  Contact contact = 4;
+  CreateUserReq.IdCard card = 5;
+  date birthday = 6;
 }
 
 message GetUsersRsp {

@@ -6,7 +6,7 @@
  pip3 install git+https://github.com/ppolxda/pydbgen
 ```
 
-## gen proto
+## gen Database proto
 
 ### gen json
 
@@ -159,5 +159,137 @@ message output {
     users users = 1;
     trade trade = 2[(sharding_mode)=SM_RANGE_QUARTER, (sharding_date_begin)='20190101', (sharding_date_end)='20200101'];
     trade_temp trade_temp = 3;
+}
+```
+
+## gen Restful proto
+
+### gen Insomnia Config
+
+```bash
+pydbgen -I./ --rfcjson_out=./examples/out ./examples/rest_client.proto
+```
+
+### gen TypeScript Code
+
+```bash
+pydbgen -I./ --rfcts_out=./examples/out ./examples/rest_client.proto
+```
+
+### Restful Api define
+
+```protobuf
+syntax = "proto3";
+
+import "pydbgen/restful/restful.proto";
+
+option (workspace_name) = "test_workspace";
+option (project_name) = "test_ptoject";
+option (env_name) = "test_env";
+option (domain_key) = "test_domain";
+option (domain) = "http://localhost:50000";
+
+//  ----------------------------------------------
+//              Common Define
+//  ----------------------------------------------
+
+message NullReq {}
+message NullRsp { Error error = 1; }
+message NullQuery {}
+message NullHeader {}
+
+message Error {
+  int32 error = 1;
+  string error_text = 2;
+}
+
+message DefaultQuery {
+  string where = 1 [ (maxlen) = 1024, (minlen) = 0 ];
+  string sort = 2 [ (maxlen) = 1024, (minlen) = 0 ];
+  string csv = 3 [ (maxlen) = 1024, (minlen) = 0 ];
+  string show = 4 [ (maxlen) = 1024, (minlen) = 0 ];
+}
+
+message DefaultHeader { string token = 1; }
+
+//  ----------------------------------------------
+//              create user
+//  ----------------------------------------------
+
+enum EnumSexType {
+  NONE = 0;
+  MALE = 1;
+  FEMALE = 2;
+}
+
+message Contact {
+  string phone = 1
+      [ (maxlen) = 50, (minlen) = 1, (regex) = "^+([0-9]{1,}) ([0-9]{6,})$" ];
+  string email = 2 [
+    (maxval) = 200,
+    (minval) = 1,
+    (regex) = "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
+  ];
+}
+
+message CreateUserReq {
+
+  message IdCard {
+    string cardno = 1 [ (maxlen) = 50, (minlen) = 1 ];
+    string cardtype = 2 [ (maxlen) = 50, (minlen) = 1 ];
+  }
+
+  string username = 1 [ (maxlen) = 50, (minlen) = 1 ];
+  int32 age = 2 [ (maxval) = 200, (minval) = 1 ];
+  EnumSexType sex = 3;
+  Contact contact = 4;
+  IdCard card = 5;
+}
+
+message CreateUserQuery {
+  bool is_debug = 1;
+  int32 rnd = 2;
+}
+
+message CreateUserHttp {
+  option (rmsg) = MAPI;
+  option (ruri) = "/user/create";
+  option (rpath) = "/oauth/user/create_user";
+  option (rmethod) = MPOST;
+  option (rbody) = BJSON;
+
+  CreateUserReq req_body = 1;
+  NullRsp rsp_body = 2;
+  CreateUserQuery querys = 3;
+  DefaultHeader headers = 4;
+}
+
+//  ----------------------------------------------
+//              query user
+//  ----------------------------------------------
+
+message Users {
+  int32 userid = 1 [ (minval) = 1 ];
+  string username = 2 [ (maxlen) = 50, (minlen) = 1 ];
+  int32 age = 3;
+  EnumSexType sex = 4;
+}
+
+message GetUsersRsp {
+  Error error = 1;
+  repeated Users datas = 2;
+}
+
+message GetUserHttp {
+  option (rmsg) = MAPI;
+  option (ruri) = "/user/users";
+  option (rpath) = "/oauth/user/get_users";
+  option (rmethod) = MGET;
+  option (rbody) = BJSON;
+
+  NullReq req_body = 1;
+  GetUsersRsp rsp_body = 2;
+  DefaultQuery querys = 3;
+  NullHeader headers = 4;
 }
 ```

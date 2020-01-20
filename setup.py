@@ -63,6 +63,9 @@ setup(
             "protoc-gen-pydbtmpl=pydbgen.dbbase.protoc_gen_tmpl_multi:main",
             "protoc-gen-pypbjson=pydbgen.pbclass.protoc_gen_json:main",
             "protoc-gen-pypbclass=pydbgen.pbclass.protoc_gen_tmpl_multi:main",
+            "protoc-gen-rfjson=pydbgen.restful.protoc_gen_json:main",
+            "protoc-gen-rfcjson=pydbgen.restful.protoc_gen_tmpl_multi:main",
+            "protoc-gen-rfcts=pydbgen.restful.protoc_gen_typescript:main",
         ]
     },
     # scripts=bin_list_build(),

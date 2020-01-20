@@ -24,9 +24,19 @@
         m = md5(data)
         return m.hexdigest()
 
+    def conv_datetime(data):
+        if data['type'] == 'message' and data['options']['type_name'] == '.date':
+            data['type'] = 'date'
+
+        if data['type'] == 'message' and data['options']['type_name'] == '.datetime':
+            data['type'] = 'datetime'
+
     def get_default(DATA_MAP, data, ignore_list=False):
+        # TAB - date datetime is special type
+        conv_datetime(data)
         _type = data['type']
         repeated = data['options']['label'] == 'repeated'
+
         if not ignore_list and repeated:
             return [
                 get_default(DATA_MAP, data, True)
@@ -164,7 +174,7 @@
 
         return field
 
-    def fmt_req_api(DATA_MAP, parentid, _id, _path, domain_key, data, mdgenerate):
+    def fmt_req_api(ENUM_MAP, DATA_MAP, parentid, _id, _path, domain_key, data, mdgenerate):
         headers = get_field(DATA_MAP, data, 'headers')
         querys = get_field(DATA_MAP, data, 'querys')
         req_body = get_field(DATA_MAP, data, 'req_body')
@@ -183,6 +193,8 @@
                 req_body=req_body,
                 rsp_body=rsp_body,
                 DATA_MAP=DATA_MAP,
+                ENUM_MAP=ENUM_MAP,
+                get_default=get_default,
                 get_default_field=get_default_field,
             ),
             "method": data['options']['rmethod'][1:],
@@ -226,7 +238,7 @@
 
     PATH_TREE = {}
 
-    def fmt_api(DATA_MAP, projectid, domain_key, data, mdgenerate):
+    def fmt_api(ENUM_MAP, DATA_MAP, projectid, domain_key, data, mdgenerate):
         data['options']['rpath'] = data['options']['rpath'].strip()
         data['options']['rpath'] = data['options']['rpath'].replace('\\', '/')
         if data['options']['rpath'][0] != '/':
@@ -256,7 +268,7 @@
             else:
                 _id = "req_" + xmd5(_cpath)
                 PATH_TREE[_cpath] = _id
-                yield fmt_req_api(DATA_MAP, parentid, _id, _cpath, domain_key, data, mdgenerate)
+                yield fmt_req_api(ENUM_MAP, DATA_MAP, parentid, _id, _cpath, domain_key, data, mdgenerate)
 %>
 <%
     def datamap(datas):
@@ -265,20 +277,27 @@
             for key, val in loop_nesteds(datas, '')
         }
 
+    def enummap(datas):
+        return {
+            '.'.join([key, val['name']]): val
+            for key, val in loop_enums(datas, '')
+        }
+
     def loop_http_api(datas):
         for key, val in loop_nesteds(datas, ''):
             if val['options'].get('rmsg', 'MDATA') == 'MAPI':
                 yield (key, val)
 
-    def fmt_http_api(DATA_MAP, projectid, domain_key, datas, mdgenerate):
+    def fmt_http_api(ENUM_MAP, DATA_MAP, projectid, domain_key, datas, mdgenerate):
         alist = []
         for key, val in loop_http_api(json_data):
-            for _val in fmt_api(DATA_MAP, projectid, domain_key, val, mdgenerate):
+            for _val in fmt_api(ENUM_MAP, DATA_MAP, projectid, domain_key, val, mdgenerate):
                 alist.append(json.dumps(_val, indent=4))
         return ',\n'.join(alist)
 %>
 <%
     DATA_MAP = datamap(json_data)
+    ENUM_MAP = enummap(json_data)
     WORKSPACE = rest_options.get('workspace_name', None)
     PROJECT = rest_options.get('project_name', None)
     ENVNAME = rest_options.get('env_name', None)
@@ -346,6 +365,6 @@
 			"isPrivate": false,
 			"_type": "environment"
 		},
-${ fmt_http_api(DATA_MAP, PROJECTID, DOMAIN_KEY, json_data, mdgenerate) }
+${ fmt_http_api(ENUM_MAP, DATA_MAP, PROJECTID, DOMAIN_KEY, json_data, mdgenerate) }
     ]
 }

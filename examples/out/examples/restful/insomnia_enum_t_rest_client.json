@@ -4,14 +4,14 @@
     ".EnumSexType": {
         "type": "enum",
         "name": "EnumSexType",
-        "comment": "",
+        "comment": "EnumSexType",
         "fields": {
             "NONE": {
                 "name": "NONE",
                 "value": 0,
                 "type": "int32",
                 "defval": 0,
-                "comment": "",
+                "comment": "unknow",
                 "options": {}
             },
             "MALE": {
@@ -19,7 +19,7 @@
                 "value": 1,
                 "type": "int32",
                 "defval": 0,
-                "comment": "",
+                "comment": "male",
                 "options": {}
             },
             "FEMALE": {
@@ -27,7 +27,7 @@
                 "value": 2,
                 "type": "int32",
                 "defval": 0,
-                "comment": "",
+                "comment": "female",
                 "options": {}
             }
         },

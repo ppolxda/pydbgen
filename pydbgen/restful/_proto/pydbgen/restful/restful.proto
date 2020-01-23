@@ -39,6 +39,7 @@ extend google.protobuf.FileOptions {
   string domain_key = 1800002;
   string domain = 1800003;
   string env_name = 1800004;
+  string api_name = 1800005;
 }
 
 extend google.protobuf.MessageOptions {
@@ -62,7 +63,7 @@ extend google.protobuf.FieldOptions {
 
   int32 declen = 90005;   // decimal length
   int32 decpoint = 90006; // decimal point length
-  bool optional = 90012; // field optional 
+  bool optional = 90012;  // field optional
 
   bool key = 90007;    // PRIMARY
   bool inc = 90008;    // AUTO_INCREMENT

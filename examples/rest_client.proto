@@ -7,26 +7,29 @@ option (project_name) = "test_ptoject";
 option (env_name) = "test_env";
 option (domain_key) = "test_domain";
 option (domain) = "http://localhost:50000";
+option (api_name) = "RestFulApis";
 
 //  ----------------------------------------------
 //              Common Define
 //  ----------------------------------------------
 
 message NullReq {}
-message NullRsp { Error error = 1; }
+message NullRsp { ErrorInfo error = 1; }
 message NullQuery {}
 message NullHeader {}
 
-message Error {
-  int32 error = 1;
-  string error_text = 2;
+// Error Info
+message ErrorInfo {
+  int32 error = 1 [ (minval) = 0 ];       // error code
+  string error_text = 2 [ (minlen) = 1 ]; // error text
 }
 
+// DefaultQuery
 message DefaultQuery {
-  string where = 1 [ (maxlen) = 1024, (minlen) = 0 ];
-  string sort = 2 [ (maxlen) = 1024, (minlen) = 0 ];
-  string csv = 3 [ (maxlen) = 1024, (minlen) = 0 ];
-  string show = 4 [ (maxlen) = 1024, (minlen) = 0 ];
+  string where = 1 [ (maxlen) = 1024, (minlen) = 0 ]; // sql where
+  string sort = 2 [ (maxlen) = 1024, (minlen) = 0 ];  // sql sort
+  string csv = 3 [ (maxlen) = 1024, (minlen) = 0 ];   // csv config
+  string show = 4 [ (maxlen) = 1024, (minlen) = 0 ];  // show config
 }
 
 message DefaultHeader { string token = 1; }
@@ -35,28 +38,33 @@ message DefaultHeader { string token = 1; }
 //              create user
 //  ----------------------------------------------
 
+// EnumSexType
 enum EnumSexType {
-  NONE = 0;
-  MALE = 1;
-  FEMALE = 2;
+  NONE = 0;   // unknow
+  MALE = 1;   // male
+  FEMALE = 2; // female
 }
 
 message Contact {
-  string phone = 1
-      [ (maxlen) = 50, (minlen) = 1, (regex) = "^+([0-9]{1,}) ([0-9]{6,})$" ];
+  string phone = 1 [
+    (maxlen) = 50,
+    (minlen) = 1,
+    (regex) = "^\\+([0-9]{1,}) ([0-9]{6,})$"
+  ]; // phone
   string email = 2 [
-    (maxval) = 200,
-    (minval) = 1,
+    (maxlen) = 200,
+    (minlen) = 1,
     (regex) = "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
-  ];
+  ]; // email
 }
 
 message CreateUserReq {
 
+  // user IdCard
   message IdCard {
     enum EnumCardType { IDCard = 0; }
-    string cardno = 1 [ (maxlen) = 50, (minlen) = 1 ];
-    EnumCardType cardtype = 2;
+    string cardno = 1 [ (maxlen) = 50, (minlen) = 1 ]; // cardno
+    EnumCardType cardtype = 2;                         // cardtype
   }
 
   string username = 1 [ (maxlen) = 50, (minlen) = 1 ];
@@ -101,7 +109,7 @@ message Users {
 }
 
 message GetUsersRsp {
-  Error error = 1;
+  ErrorInfo error = 1;
   repeated Users datas = 2;
 }
 

@@ -62,12 +62,13 @@
         ])
 
         field_name = '.'.join([prefix, data['name']]) if prefix else data['name']
+        default_val = get_default_field2(data)
 
         yield ('| ' + ' | '.join([
             field_name,
             table_type(data),
             str(data['options'].get('optional', False)),
-            get_default_field2(data),
+            default_val,
             data['comment'] if data['comment'] else '--',
             opts if opts else '--',
         ]) + ' |')

@@ -27,7 +27,7 @@
                 "comment": "",
                 "options": {
                     "label": "optional",
-                    "type_name": ".Error",
+                    "type_name": ".ErrorInfo",
                     "extendee": "",
                     "default_value": "",
                     "json_name": "error"
@@ -68,23 +68,24 @@
         "enums": {},
         "nesteds": {}
     },
-    ".Error": {
+    ".ErrorInfo": {
         "type": "message",
-        "name": "Error",
-        "comment": "",
+        "name": "ErrorInfo",
+        "comment": "Error Info",
         "fields": {
             "error": {
                 "name": "error",
                 "value": 1,
                 "type": "int32",
                 "defval": 0,
-                "comment": "",
+                "comment": "error code",
                 "options": {
                     "label": "optional",
                     "type_name": "",
                     "extendee": "",
                     "default_value": "",
-                    "json_name": "error"
+                    "json_name": "error",
+                    "minval": 0.0
                 }
             },
             "error_text": {
@@ -92,13 +93,14 @@
                 "value": 2,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "error text",
                 "options": {
                     "label": "optional",
                     "type_name": "",
                     "extendee": "",
                     "default_value": "",
-                    "json_name": "errorText"
+                    "json_name": "errorText",
+                    "minlen": 1
                 }
             }
         },
@@ -113,14 +115,14 @@
     ".DefaultQuery": {
         "type": "message",
         "name": "DefaultQuery",
-        "comment": "",
+        "comment": "DefaultQuery",
         "fields": {
             "where": {
                 "name": "where",
                 "value": 1,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "sql where",
                 "options": {
                     "label": "optional",
                     "type_name": "",
@@ -136,7 +138,7 @@
                 "value": 2,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "sql sort",
                 "options": {
                     "label": "optional",
                     "type_name": "",
@@ -152,7 +154,7 @@
                 "value": 3,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "csv config",
                 "options": {
                     "label": "optional",
                     "type_name": "",
@@ -168,7 +170,7 @@
                 "value": 4,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "show config",
                 "options": {
                     "label": "optional",
                     "type_name": "",
@@ -226,7 +228,7 @@
                 "value": 1,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "phone",
                 "options": {
                     "label": "optional",
                     "type_name": "",
@@ -235,7 +237,7 @@
                     "json_name": "phone",
                     "maxlen": 50,
                     "minlen": 1,
-                    "regex": "^+([0-9]{1,}) ([0-9]{6,})$"
+                    "regex": "^\\+([0-9]{1,}) ([0-9]{6,})$"
                 }
             },
             "email": {
@@ -243,15 +245,15 @@
                 "value": 2,
                 "type": "string",
                 "defval": "",
-                "comment": "",
+                "comment": "email",
                 "options": {
                     "label": "optional",
                     "type_name": "",
                     "extendee": "",
                     "default_value": "",
                     "json_name": "email",
-                    "maxval": 200.0,
-                    "minval": 1.0,
+                    "maxlen": 200,
+                    "minlen": 1,
                     "regex": "^((?!\\.)[\\w\\-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
                 }
             }
@@ -755,7 +757,7 @@
                 "comment": "",
                 "options": {
                     "label": "optional",
-                    "type_name": ".Error",
+                    "type_name": ".ErrorInfo",
                     "extendee": "",
                     "default_value": "",
                     "json_name": "error"

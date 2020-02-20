@@ -1,5 +1,5 @@
 
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import moment from "moment";
 
 export function _(val: string): string {
@@ -885,13 +885,19 @@ export abstract class RestFulApis {
     
     
 
-  public CreateUserHttp(datas: CreateUserReq,querys: CreateUserQuery,headers: DefaultHeader): Promise<NullRsp> {
+  public CreateUserHttp(datas: CreateUserReq,querys: CreateUserQuery,headers: DefaultHeader,config?: AxiosRequestConfig): Promise<NullRsp> {
+    if (!config) {
+      config = {};
+    }
+    config["data"] = { ...config["data"], ...datas.toJson() };
+    config["params"] = { ...config["params"], ...querys.toJson() };
+    config["headers"] = { ...config["headers"], ...headers.toJson() };
+
     return axios
-      .post<NullRsp>(`${this.nginx_uri}/user/create`, {
-        data: datas.toJson(),
-        params: querys.toJson(),
-        headers: headers.toJson()
-      })
+      .post<NullRsp>(
+          `${this.nginx_uri}/user/create`,
+          config
+      )
       .then(rsp => {
         this.CheckError(rsp);
         return rsp.data;
@@ -907,12 +913,18 @@ export abstract class RestFulApis {
     
     
 
-  public GetUserHttp(querys: DefaultQuery,headers: NullHeader): Promise<GetUsersRsp> {
+  public GetUserHttp(querys: DefaultQuery,headers: NullHeader,config?: AxiosRequestConfig): Promise<GetUsersRsp> {
+    if (!config) {
+      config = {};
+    }
+    config["params"] = { ...config["params"], ...querys.toJson() };
+    config["headers"] = { ...config["headers"], ...headers.toJson() };
+
     return axios
-      .get<GetUsersRsp>(`${this.nginx_uri}/user/users`, {
-        params: querys.toJson(),
-        headers: headers.toJson()
-      })
+      .get<GetUsersRsp>(
+          `${this.nginx_uri}/user/users`,
+          config
+      )
       .then(rsp => {
         this.CheckError(rsp);
         return rsp.data;
@@ -921,3 +933,7 @@ export abstract class RestFulApis {
 
 
 }
+
+declare const apis: RestFulApis;
+
+export default apis;

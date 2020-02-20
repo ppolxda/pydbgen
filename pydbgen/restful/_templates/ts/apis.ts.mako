@@ -210,7 +210,7 @@
         return method[1:].lower()
 
 %>
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import moment from "moment";
 
 export function _(val: string): string {
@@ -652,13 +652,29 @@ export abstract class ${typename2class(API_NAME)} {
         if header_field['fields']:
             parames.append('headers: {}'.format(header_name))
             parames_pp.append('headers: headers.toJson()')
+
+        parames.append('config?: AxiosRequestConfig')
     %>
 
   public ${typename2class(table['name'])}(${','.join(parames)}): Promise<${rsp_body_name}> {
+    if (!config) {
+      config = {};
+    }
+    % if req_body_field['fields']:
+    config["data"] = { ...config["data"], ...datas.toJson() };
+    % endif
+    % if query_field['fields']:
+    config["params"] = { ...config["params"], ...querys.toJson() };
+    % endif
+    % if query_field['fields']:
+    config["headers"] = { ...config["headers"], ...headers.toJson() };
+    % endif
+
     return axios
-      .${get_method(table['options']['rmethod'])}<${rsp_body_name}>(`${'${this.nginx_uri}'}${table['options']['ruri']}`, {
-        ${',\n        '.join(parames_pp)}
-      })
+      .${get_method(table['options']['rmethod'])}<${rsp_body_name}>(
+          `${'${this.nginx_uri}'}${table['options']['ruri']}`,
+          config
+      )
       .then(rsp => {
         this.CheckError(rsp);
         return rsp.data;
@@ -668,3 +684,7 @@ export abstract class ${typename2class(API_NAME)} {
 % endfor
 
 }
+
+declare const apis: RestFulApis;
+
+export default apis;

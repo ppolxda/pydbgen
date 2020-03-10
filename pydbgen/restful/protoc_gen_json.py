@@ -311,6 +311,11 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                 for val in MY_FOPTIONS
                 if proto_file.options.HasExtension(val)
             ])
+            output['rest_options']['java_package'] = proto_file.options.java_package
+            output['rest_options']['java_outer_classname'] = proto_file.options.java_outer_classname
+            output['rest_options']['java_multiple_files'] = proto_file.options.java_multiple_files
+            output['rest_options']['java_generate_equals_and_hash'] = proto_file.options.java_generate_equals_and_hash
+            output['rest_options']['java_string_check_utf8'] = proto_file.options.java_string_check_utf8
 
             locations = proto_file.source_code_info.location
             locations = {

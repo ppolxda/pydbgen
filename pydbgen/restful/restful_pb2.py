@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\rrestful.proto\x1a google/protobuf/descriptor.proto\"\n\n\x08\x64\x61tetime\"\x06\n\x04\x64\x61te*T\n\x0f\x45numMessageType\x12\t\n\x05MDATA\x10\x00\x12\x08\n\x04MAPI\x10\x01\x12\x08\n\x04MREQ\x10\x02\x12\x08\n\x04MRSP\x10\x03\x12\n\n\x06MQUERY\x10\x04\x12\x0c\n\x08MHEADERS\x10\x05*x\n\x0b\x45numMethods\x12\x08\n\x04MGET\x10\x00\x12\t\n\x05MPOST\x10\x01\x12\x08\n\x04MPUT\x10\x02\x12\x0b\n\x07MDELETE\x10\x03\x12\n\n\x06MPATCH\x10\x04\x12\x0c\n\x08MOPTIONS\x10\x05\x12\t\n\x05MHEAD\x10\x06\x12\x0c\n\x08MCONNECT\x10\x07\x12\n\n\x06MTRACE\x10\x08*>\n\x0c\x45numBodyType\x12\x0e\n\nBURLENCODE\x10\x00\x12\t\n\x05\x42JSON\x10\x01\x12\x08\n\x04\x42XML\x10\x02\x12\t\n\x05\x42YAML\x10\x03:6\n\x0eworkspace_name\x12\x1c.google.protobuf.FileOptions\x18\xc0\xeem \x01(\t:4\n\x0cproject_name\x12\x1c.google.protobuf.FileOptions\x18\xc1\xeem \x01(\t:2\n\ndomain_key\x12\x1c.google.protobuf.FileOptions\x18\xc2\xeem \x01(\t:.\n\x06\x64omain\x12\x1c.google.protobuf.FileOptions\x18\xc3\xeem \x01(\t:0\n\x08\x65nv_name\x12\x1c.google.protobuf.FileOptions\x18\xc4\xeem \x01(\t:0\n\x08\x61pi_name\x12\x1c.google.protobuf.FileOptions\x18\xc5\xeem \x01(\t:/\n\x04ruri\x12\x1f.google.protobuf.MessageOptions\x18\xa0\xe1g \x01(\t:0\n\x05rpath\x12\x1f.google.protobuf.MessageOptions\x18\xa1\xe1g \x01(\t:@\n\x07rmethod\x12\x1f.google.protobuf.MessageOptions\x18\xa2\xe1g \x01(\x0e\x32\x0c.EnumMethods:?\n\x05rbody\x12\x1f.google.protobuf.MessageOptions\x18\xa3\xe1g \x01(\x0e\x32\r.EnumBodyType:A\n\x04rmsg\x12\x1f.google.protobuf.MessageOptions\x18\xa4\xe1g \x01(\x0e\x32\x10.EnumMessageType:/\n\x06maxlen\x12\x1d.google.protobuf.FieldOptions\x18\x91\xbf\x05 \x01(\x05:/\n\x06minlen\x12\x1d.google.protobuf.FieldOptions\x18\x92\xbf\x05 \x01(\x05:.\n\x05regex\x12\x1d.google.protobuf.FieldOptions\x18\x9b\xbf\x05 \x01(\t:/\n\x06maxval\x12\x1d.google.protobuf.FieldOptions\x18\x93\xbf\x05 \x01(\x02:/\n\x06minval\x12\x1d.google.protobuf.FieldOptions\x18\x94\xbf\x05 \x01(\x02:/\n\x06\x64\x65\x63len\x12\x1d.google.protobuf.FieldOptions\x18\x95\xbf\x05 \x01(\x05:1\n\x08\x64\x65\x63point\x12\x1d.google.protobuf.FieldOptions\x18\x96\xbf\x05 \x01(\x05:1\n\x08optional\x12\x1d.google.protobuf.FieldOptions\x18\x9c\xbf\x05 \x01(\x08:,\n\x03key\x12\x1d.google.protobuf.FieldOptions\x18\x97\xbf\x05 \x01(\x08:,\n\x03inc\x12\x1d.google.protobuf.FieldOptions\x18\x98\xbf\x05 \x01(\x08:/\n\x06update\x12\x1d.google.protobuf.FieldOptions\x18\x99\xbf\x05 \x01(\x08:/\n\x06\x64\x65\x66val\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xf7\x36 \x01(\tb\x06proto3'
+  serialized_pb=b'\n\rrestful.proto\x1a google/protobuf/descriptor.proto\"\n\n\x08\x64\x61tetime\"\x06\n\x04\x64\x61te*T\n\x0f\x45numMessageType\x12\t\n\x05MDATA\x10\x00\x12\x08\n\x04MAPI\x10\x01\x12\x08\n\x04MREQ\x10\x02\x12\x08\n\x04MRSP\x10\x03\x12\n\n\x06MQUERY\x10\x04\x12\x0c\n\x08MHEADERS\x10\x05*x\n\x0b\x45numMethods\x12\x08\n\x04MGET\x10\x00\x12\t\n\x05MPOST\x10\x01\x12\x08\n\x04MPUT\x10\x02\x12\x0b\n\x07MDELETE\x10\x03\x12\n\n\x06MPATCH\x10\x04\x12\x0c\n\x08MOPTIONS\x10\x05\x12\t\n\x05MHEAD\x10\x06\x12\x0c\n\x08MCONNECT\x10\x07\x12\n\n\x06MTRACE\x10\x08*>\n\x0c\x45numBodyType\x12\x0e\n\nBURLENCODE\x10\x00\x12\t\n\x05\x42JSON\x10\x01\x12\x08\n\x04\x42XML\x10\x02\x12\t\n\x05\x42YAML\x10\x03:6\n\x0eworkspace_name\x12\x1c.google.protobuf.FileOptions\x18\xc0\xeem \x01(\t:4\n\x0cproject_name\x12\x1c.google.protobuf.FileOptions\x18\xc1\xeem \x01(\t:2\n\ndomain_key\x12\x1c.google.protobuf.FileOptions\x18\xc2\xeem \x01(\t:.\n\x06\x64omain\x12\x1c.google.protobuf.FileOptions\x18\xc3\xeem \x01(\t:0\n\x08\x65nv_name\x12\x1c.google.protobuf.FileOptions\x18\xc4\xeem \x01(\t:0\n\x08\x61pi_name\x12\x1c.google.protobuf.FileOptions\x18\xc5\xeem \x01(\t:8\n\x10java_package_dto\x12\x1c.google.protobuf.FileOptions\x18\xc6\xeem \x01(\t::\n\x12java_package_enums\x12\x1c.google.protobuf.FileOptions\x18\xc7\xeem \x01(\t:;\n\x13java_package_mapper\x12\x1c.google.protobuf.FileOptions\x18\xc8\xeem \x01(\t:/\n\x04ruri\x12\x1f.google.protobuf.MessageOptions\x18\xa0\xe1g \x01(\t:0\n\x05rpath\x12\x1f.google.protobuf.MessageOptions\x18\xa1\xe1g \x01(\t:@\n\x07rmethod\x12\x1f.google.protobuf.MessageOptions\x18\xa2\xe1g \x01(\x0e\x32\x0c.EnumMethods:?\n\x05rbody\x12\x1f.google.protobuf.MessageOptions\x18\xa3\xe1g \x01(\x0e\x32\r.EnumBodyType:A\n\x04rmsg\x12\x1f.google.protobuf.MessageOptions\x18\xa4\xe1g \x01(\x0e\x32\x10.EnumMessageType:/\n\x06maxlen\x12\x1d.google.protobuf.FieldOptions\x18\x91\xbf\x05 \x01(\x05:/\n\x06minlen\x12\x1d.google.protobuf.FieldOptions\x18\x92\xbf\x05 \x01(\x05:.\n\x05regex\x12\x1d.google.protobuf.FieldOptions\x18\x9b\xbf\x05 \x01(\t:/\n\x06maxval\x12\x1d.google.protobuf.FieldOptions\x18\x93\xbf\x05 \x01(\x02:/\n\x06minval\x12\x1d.google.protobuf.FieldOptions\x18\x94\xbf\x05 \x01(\x02:/\n\x06\x64\x65\x63len\x12\x1d.google.protobuf.FieldOptions\x18\x95\xbf\x05 \x01(\x05:1\n\x08\x64\x65\x63point\x12\x1d.google.protobuf.FieldOptions\x18\x96\xbf\x05 \x01(\x05:1\n\x08optional\x12\x1d.google.protobuf.FieldOptions\x18\x9c\xbf\x05 \x01(\x08:,\n\x03key\x12\x1d.google.protobuf.FieldOptions\x18\x97\xbf\x05 \x01(\x08:,\n\x03inc\x12\x1d.google.protobuf.FieldOptions\x18\x98\xbf\x05 \x01(\x08:/\n\x06update\x12\x1d.google.protobuf.FieldOptions\x18\x99\xbf\x05 \x01(\x08:/\n\x06\x64\x65\x66val\x12\x1d.google.protobuf.FieldOptions\x18\xaa\xf7\x36 \x01(\tb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
@@ -213,9 +213,33 @@ api_name = _descriptor.FieldDescriptor(
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   serialized_options=None, file=DESCRIPTOR)
+JAVA_PACKAGE_DTO_FIELD_NUMBER = 1800006
+java_package_dto = _descriptor.FieldDescriptor(
+  name='java_package_dto', full_name='java_package_dto', index=6,
+  number=1800006, type=9, cpp_type=9, label=1,
+  has_default_value=False, default_value=b"".decode('utf-8'),
+  message_type=None, enum_type=None, containing_type=None,
+  is_extension=True, extension_scope=None,
+  serialized_options=None, file=DESCRIPTOR)
+JAVA_PACKAGE_ENUMS_FIELD_NUMBER = 1800007
+java_package_enums = _descriptor.FieldDescriptor(
+  name='java_package_enums', full_name='java_package_enums', index=7,
+  number=1800007, type=9, cpp_type=9, label=1,
+  has_default_value=False, default_value=b"".decode('utf-8'),
+  message_type=None, enum_type=None, containing_type=None,
+  is_extension=True, extension_scope=None,
+  serialized_options=None, file=DESCRIPTOR)
+JAVA_PACKAGE_MAPPER_FIELD_NUMBER = 1800008
+java_package_mapper = _descriptor.FieldDescriptor(
+  name='java_package_mapper', full_name='java_package_mapper', index=8,
+  number=1800008, type=9, cpp_type=9, label=1,
+  has_default_value=False, default_value=b"".decode('utf-8'),
+  message_type=None, enum_type=None, containing_type=None,
+  is_extension=True, extension_scope=None,
+  serialized_options=None, file=DESCRIPTOR)
 RURI_FIELD_NUMBER = 1700000
 ruri = _descriptor.FieldDescriptor(
-  name='ruri', full_name='ruri', index=6,
+  name='ruri', full_name='ruri', index=9,
   number=1700000, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=b"".decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -223,7 +247,7 @@ ruri = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 RPATH_FIELD_NUMBER = 1700001
 rpath = _descriptor.FieldDescriptor(
-  name='rpath', full_name='rpath', index=7,
+  name='rpath', full_name='rpath', index=10,
   number=1700001, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=b"".decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -231,7 +255,7 @@ rpath = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 RMETHOD_FIELD_NUMBER = 1700002
 rmethod = _descriptor.FieldDescriptor(
-  name='rmethod', full_name='rmethod', index=8,
+  name='rmethod', full_name='rmethod', index=11,
   number=1700002, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -239,7 +263,7 @@ rmethod = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 RBODY_FIELD_NUMBER = 1700003
 rbody = _descriptor.FieldDescriptor(
-  name='rbody', full_name='rbody', index=9,
+  name='rbody', full_name='rbody', index=12,
   number=1700003, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -247,7 +271,7 @@ rbody = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 RMSG_FIELD_NUMBER = 1700004
 rmsg = _descriptor.FieldDescriptor(
-  name='rmsg', full_name='rmsg', index=10,
+  name='rmsg', full_name='rmsg', index=13,
   number=1700004, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -255,7 +279,7 @@ rmsg = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MAXLEN_FIELD_NUMBER = 90001
 maxlen = _descriptor.FieldDescriptor(
-  name='maxlen', full_name='maxlen', index=11,
+  name='maxlen', full_name='maxlen', index=14,
   number=90001, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -263,7 +287,7 @@ maxlen = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MINLEN_FIELD_NUMBER = 90002
 minlen = _descriptor.FieldDescriptor(
-  name='minlen', full_name='minlen', index=12,
+  name='minlen', full_name='minlen', index=15,
   number=90002, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -271,7 +295,7 @@ minlen = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 REGEX_FIELD_NUMBER = 90011
 regex = _descriptor.FieldDescriptor(
-  name='regex', full_name='regex', index=13,
+  name='regex', full_name='regex', index=16,
   number=90011, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=b"".decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -279,7 +303,7 @@ regex = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MAXVAL_FIELD_NUMBER = 90003
 maxval = _descriptor.FieldDescriptor(
-  name='maxval', full_name='maxval', index=14,
+  name='maxval', full_name='maxval', index=17,
   number=90003, type=2, cpp_type=6, label=1,
   has_default_value=False, default_value=float(0),
   message_type=None, enum_type=None, containing_type=None,
@@ -287,7 +311,7 @@ maxval = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MINVAL_FIELD_NUMBER = 90004
 minval = _descriptor.FieldDescriptor(
-  name='minval', full_name='minval', index=15,
+  name='minval', full_name='minval', index=18,
   number=90004, type=2, cpp_type=6, label=1,
   has_default_value=False, default_value=float(0),
   message_type=None, enum_type=None, containing_type=None,
@@ -295,7 +319,7 @@ minval = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 DECLEN_FIELD_NUMBER = 90005
 declen = _descriptor.FieldDescriptor(
-  name='declen', full_name='declen', index=16,
+  name='declen', full_name='declen', index=19,
   number=90005, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -303,7 +327,7 @@ declen = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 DECPOINT_FIELD_NUMBER = 90006
 decpoint = _descriptor.FieldDescriptor(
-  name='decpoint', full_name='decpoint', index=17,
+  name='decpoint', full_name='decpoint', index=20,
   number=90006, type=5, cpp_type=1, label=1,
   has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
@@ -311,7 +335,7 @@ decpoint = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 OPTIONAL_FIELD_NUMBER = 90012
 optional = _descriptor.FieldDescriptor(
-  name='optional', full_name='optional', index=18,
+  name='optional', full_name='optional', index=21,
   number=90012, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -319,7 +343,7 @@ optional = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 KEY_FIELD_NUMBER = 90007
 key = _descriptor.FieldDescriptor(
-  name='key', full_name='key', index=19,
+  name='key', full_name='key', index=22,
   number=90007, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -327,7 +351,7 @@ key = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 INC_FIELD_NUMBER = 90008
 inc = _descriptor.FieldDescriptor(
-  name='inc', full_name='inc', index=20,
+  name='inc', full_name='inc', index=23,
   number=90008, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -335,7 +359,7 @@ inc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 UPDATE_FIELD_NUMBER = 90009
 update = _descriptor.FieldDescriptor(
-  name='update', full_name='update', index=21,
+  name='update', full_name='update', index=24,
   number=90009, type=8, cpp_type=7, label=1,
   has_default_value=False, default_value=False,
   message_type=None, enum_type=None, containing_type=None,
@@ -343,7 +367,7 @@ update = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 DEFVAL_FIELD_NUMBER = 900010
 defval = _descriptor.FieldDescriptor(
-  name='defval', full_name='defval', index=22,
+  name='defval', full_name='defval', index=25,
   number=900010, type=9, cpp_type=9, label=1,
   has_default_value=False, default_value=b"".decode('utf-8'),
   message_type=None, enum_type=None, containing_type=None,
@@ -409,6 +433,9 @@ DESCRIPTOR.extensions_by_name['domain_key'] = domain_key
 DESCRIPTOR.extensions_by_name['domain'] = domain
 DESCRIPTOR.extensions_by_name['env_name'] = env_name
 DESCRIPTOR.extensions_by_name['api_name'] = api_name
+DESCRIPTOR.extensions_by_name['java_package_dto'] = java_package_dto
+DESCRIPTOR.extensions_by_name['java_package_enums'] = java_package_enums
+DESCRIPTOR.extensions_by_name['java_package_mapper'] = java_package_mapper
 DESCRIPTOR.extensions_by_name['ruri'] = ruri
 DESCRIPTOR.extensions_by_name['rpath'] = rpath
 DESCRIPTOR.extensions_by_name['rmethod'] = rmethod
@@ -448,6 +475,9 @@ google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(domain_key
 google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(domain)
 google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(env_name)
 google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(api_name)
+google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(java_package_dto)
+google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(java_package_enums)
+google_dot_protobuf_dot_descriptor__pb2.FileOptions.RegisterExtension(java_package_mapper)
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(ruri)
 google_dot_protobuf_dot_descriptor__pb2.MessageOptions.RegisterExtension(rpath)
 rmethod.enum_type = _ENUMMETHODS

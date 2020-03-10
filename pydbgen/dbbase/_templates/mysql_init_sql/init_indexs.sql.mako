@@ -24,6 +24,9 @@ ${', '.join(["`{}`".format(val['name']) for val in fields])}
 ${',' if ilist[-1] != iname else ';'}
 </%def>
 % for dbname, tname, tconfig, topts in loop_tables():
+    % if not tconfig['members']:
+        <% continue %>
+    % endif
 -- ----------------------------
 -- -- Table for ${dbname} ${tname} ${dict(topts)}
 -- ----------------------------

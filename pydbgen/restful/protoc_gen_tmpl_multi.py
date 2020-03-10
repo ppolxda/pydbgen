@@ -158,6 +158,15 @@ class ProtoPlugins(object):
                 if disable:
                     continue
 
+                def add_file(fpath, content):
+                    fixcode = config.get('fixcode', None)
+                    fout = response.file.add()
+                    fout.name = fpath
+                    fout.content = gfuncs.generate_file(tmpl, **json_data)
+                    fout.content = self.auto_fmt(fout.content, fixcode)
+
+                json_data['add_file'] = add_file
+
                 mode = config.get('mode', 'single')
                 mode_match = re.match(
                     r'^(tables|enums|table_groups|databases|classs)_multi$', mode  # noqa
@@ -179,13 +188,19 @@ class ProtoPlugins(object):
     def generate_code_signal(self, request, response,
                              tmpl, config, json_data):
         output = config.get('output', 'auto')
+        output_fmt = config.get('output_fmt', 'snake')  # 'camel', 'snake'
         fixcode = config.get('fixcode', None)
         upsert = config.get('upsert', True)
 
         if output == 'auto':
             filepath0 = request.file_to_generate[0]
-            filename1 = filepath0[:filepath0.rfind('.')]
-            fpath = '{}_helper.py'.format(filename1)
+            filename1 = filepath0[: filepath0.rfind('.')]
+            if output_fmt == 'camel':
+                filename = gfuncs.snake_to_camel(filename1)
+            else:
+                filename = gfuncs.camel_to_snake(filename1)
+
+            fpath = '{}_helper.py'.format(filename)
         else:
             filepath0 = request.file_to_generate[0]
             filepath0 = filepath0.replace('\\', '/')
@@ -195,10 +210,14 @@ class ProtoPlugins(object):
                     filepath0.rfind('/') + 1: filepath0.rfind('.')
                 ]
             else:
-                filename = filepath0[:filepath0.rfind('.')]
+                filename = filepath0[: filepath0.rfind('.')]
 
-            fpath = filename1 + \
-                output.format(filename=gfuncs.camel_to_snake(filename))
+            if output_fmt == 'camel':
+                filename = gfuncs.snake_to_camel(filename)
+            else:
+                filename = gfuncs.camel_to_snake(filename)
+
+            fpath = filename1 + output.format(filename=filename)
 
         fpath2 = os.path.abspath(fpath)
         if not upsert and os.path.exists(fpath2):
@@ -213,6 +232,7 @@ class ProtoPlugins(object):
                             tmpl, config, json_data,
                             objects):
         output = config.get('output', 'auto')
+        output_fmt = config.get('output_fmt', 'snake')  # 'camel', 'snake'
         fixcode = config.get('fixcode', None)
         upsert = config.get('upsert', True)
         filepath0 = request.file_to_generate[0]
@@ -242,9 +262,15 @@ class ProtoPlugins(object):
                 raise TypeError('config output error, missing ' + keys)
 
             def gen_file2(_upsert, dbname, table, tconfig):
+                if output_fmt == 'camel':
+                    dbname = gfuncs.snake_to_camel(dbname),
+                    table = gfuncs.snake_to_camel(table)
+                else:
+                    dbname = gfuncs.camel_to_snake(dbname),
+                    table = gfuncs.camel_to_snake(table)
+
                 fpath = filename1 + output.format(
-                    db=gfuncs.camel_to_snake(dbname),
-                    table=gfuncs.camel_to_snake(table)
+                    db=dbname, table=table
                 )
 
                 fpath2 = os.path.abspath(fpath)

@@ -66,6 +66,7 @@ setup(
             "protoc-gen-rfjson=pydbgen.restful.protoc_gen_json:main",
             "protoc-gen-rfcjson=pydbgen.restful.protoc_gen_tmpl_multi:main",
             "protoc-gen-rfcts=pydbgen.restful.protoc_gen_typescript:main",
+            "protoc-gen-rfcjava=pydbgen.restful.protoc_gen_java:main",
         ]
     },
     # scripts=bin_list_build(),

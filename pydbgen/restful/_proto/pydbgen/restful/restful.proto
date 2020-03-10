@@ -40,6 +40,10 @@ extend google.protobuf.FileOptions {
   string domain = 1800003;
   string env_name = 1800004;
   string api_name = 1800005;
+
+  string java_package_dto = 1800006;
+  string java_package_enums = 1800007;
+  string java_package_mapper = 1800008;
 }
 
 extend google.protobuf.MessageOptions {

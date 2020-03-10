@@ -2,6 +2,12 @@ syntax = "proto3";
 
 import "pydbgen/restful/restful.proto";
 
+option java_package = "com.example.tutorial";
+option (java_package_dto) = "com.example.tutorial.dto";
+option (java_package_enums) = "com.example.tutorial.enums";
+option (java_package_mapper) = "com.example.tutorial.mapper";
+// option java_outer_classname = "AddressBookProtos";
+
 option (workspace_name) = "test_workspace";
 option (project_name) = "test_ptoject";
 option (env_name) = "test_env";

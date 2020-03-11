@@ -220,6 +220,13 @@
     def get_method(method):
         return method[1:].lower()
 
+    def get_annotation(field):
+        annos = []
+        if field['options']['label'] == 'required':
+             annos += ['@NotNull', '@Valid']
+
+        return '    '.join(annos)
+
 %>
 package com.example.demo.dto;
 
@@ -237,10 +244,9 @@ import javax.validation.constraints.NotNull;
 
 public class ${typename2class(class_n)} {
 
-    @NotNull
-    @Valid
-    private Where where;
+
     % for key, field in table['fields'].items():
+    ${ get_annotation(field) }
     public ${datatype_change(field)} ${key.lower()};  // ${field['comment']}
     % endfor
 

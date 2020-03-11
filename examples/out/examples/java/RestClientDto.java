@@ -11,9 +11,7 @@ import javax.validation.constraints.NotNull;
 
 public class NullReq {
 
-    @NotNull
-    @Valid
-    private Where where;
+
 
 
 
@@ -36,10 +34,10 @@ public class NullReq {
 
 public class ErrorInfo {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public int error;  // error code
+    
     public String error_text;  // error text
 
 
@@ -63,9 +61,8 @@ public class ErrorInfo {
 
 public class NullRsp {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public ErrorInfo error;  // 
 
 
@@ -89,9 +86,7 @@ public class NullRsp {
 
 public class NullQuery {
 
-    @NotNull
-    @Valid
-    private Where where;
+
 
 
 
@@ -114,9 +109,7 @@ public class NullQuery {
 
 public class NullHeader {
 
-    @NotNull
-    @Valid
-    private Where where;
+
 
 
 
@@ -139,12 +132,14 @@ public class NullHeader {
 
 public class DefaultQuery {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public String where;  // sql where
+    
     public String sort;  // sql sort
+    
     public String csv;  // csv config
+    
     public String show;  // show config
 
 
@@ -168,9 +163,8 @@ public class DefaultQuery {
 
 public class DefaultHeader {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public String token;  // 
 
 
@@ -194,10 +188,10 @@ public class DefaultHeader {
 
 public class Contact {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public String phone;  // phone
+    
     public String email;  // email
 
 
@@ -221,10 +215,10 @@ public class Contact {
 
 public class CreateUserReqIdCard {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public String cardno;  // 
+    
     public CreateUserReqIdCardEnumCardType = CreateUserReqIdCardEnumCardType.IDCARD cardtype;  // 
 
 
@@ -248,14 +242,18 @@ public class CreateUserReqIdCard {
 
 public class CreateUserReq {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public String username;  // 
+    
     public int age;  // 
+    
     public EnumSexType = EnumSexType.NONE sex;  // 
+    
     public Contact contact;  // 
+    
     public CreateUserReqIdCard card;  // 
+    
     public Date birthday;  // 
 
 
@@ -279,10 +277,10 @@ public class CreateUserReq {
 
 public class CreateUserQuery {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public boolean = false is_debug;  // 
+    
     public int rnd;  // 
 
 
@@ -306,16 +304,22 @@ public class CreateUserQuery {
         
 public class Users {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public int userid;  // 
+    
     public Date create_time;  // 
+    
     public String username;  // 
+    
     public int age;  // 
+    
     public EnumSexType = EnumSexType.NONE sex;  // 
+    
     public Contact contact;  // 
+    
     public CreateUserReqIdCard card;  // 
+    
     public Date birthday;  // 
 
 
@@ -339,10 +343,10 @@ public class Users {
 
 public class GetUsersRsp {
 
-    @NotNull
-    @Valid
-    private Where where;
+
+    
     public ErrorInfo error;  // 
+    
     public Users[] datas;  // 
 
 

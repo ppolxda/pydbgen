@@ -1,0 +1,15 @@
+[
+    {
+        "tmpl": "{tmpl}/ts/init_json.json.mako",
+        "mode": "single",
+        "output": "ts/{filename}.json",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/ts/enums.ts.mako",
+        "mode": "single",
+        "output_fmt": "camel",
+        "output": "ts/Enums{filename}.ts",
+        "disable": false
+    }
+]

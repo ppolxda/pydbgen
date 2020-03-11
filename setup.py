@@ -46,6 +46,7 @@ setup(
     install_requires=[
         'six',
         'mako',
+        'pyyaml',
         'autopep8',
         'grpcio-tools',
     ],

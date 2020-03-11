@@ -1,0 +1,22 @@
+[
+    {
+        "tmpl": "{tmpl}/java/init_json.json.mako",
+        "mode": "single",
+        "output": "java/{filename}.json",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/java/enums.java.mako",
+        "mode": "single",
+        "output": "java/{filename}Enums.java",
+        "output_fmt": "camel",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/java/dto.java.mako",
+        "mode": "single",
+        "output": "java/{filename}Dto.java",
+        "output_fmt": "camel",
+        "disable": false
+    }
+]

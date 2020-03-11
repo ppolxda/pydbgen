@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 grpcio-tools = "*"
 mako = "*"
+pyyaml = "*"
+requests = "*"
 
 [dev-packages]
 pylint = "*"

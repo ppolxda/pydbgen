@@ -183,6 +183,7 @@ class Worker(object):
         for config in self.otps.json_conf:
             data = copy.deepcopy(self.data)
             data['src'] = copy.deepcopy(self.data)
+            data['project'] = self.otps.project
             if not isinstance(config, dict):
                 raise TypeError('config invaild')
 

@@ -11,5 +11,12 @@
         "output_fmt": "camel",
         "output": "ts/Enums{filename}.ts",
         "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/ts/apis.ts.mako",
+        "mode": "single",
+        "output_fmt": "camel",
+        "output": "ts/Api{filename}.ts",
+        "disable": false
     }
 ]

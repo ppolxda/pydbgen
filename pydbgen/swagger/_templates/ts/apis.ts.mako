@@ -1,16 +1,237 @@
 <%
+    import copy
     INT_TYPES = [
         'uint32', 'int32', 'uint64', 'int64', 'sint32',
         'sint64', 'fixed32', 'fixed64', 'sfixed32',
-        'sfixed64'
+        'sfixed64', 'integer'
     ]
     BOOL_TYPES = ['boolean', 'bool']
-    FLOAT_TYPES = ['float', 'double']
-    DATETIME_TYPES = ['date', 'datetime']
+    FLOAT_TYPES = ['float', 'double', 'number']
+    DATETIME_TYPES = ['date', 'datetime', 'Timestamp']
     NUMBER_TYPES = INT_TYPES + FLOAT_TYPES
-    API_NAME = rest_options.get('api_name', None)
-    if not API_NAME:
-        raise TypeError('api_name not set')
+    ## API_NAME = rest_options.get('api_name', None)
+    ## if not API_NAME:
+    ##     raise TypeError('api_name not set')
+
+    def typename2class(name):
+        if not name:
+            raise TypeError('name error')
+
+        if name[0] == '.':
+            name = name[1:]
+
+        return name.replace('.', '')
+
+    def datatype_interface(data, interface=False):
+        if not isinstance(data, dict):
+            raise TypeError('datatype_interface not dict')
+
+        repeated = False
+        _type = data.get('type', 'object')
+        if _type == 'array':
+            ## if 'type' not in data['items']:
+            ##     raise TypeError('array has not items {}'.format(data['items']))
+            repeated = True
+            data = data.get('items', {})
+            if not data:
+                raise TypeError('array items is null')
+
+            _type = data.get('type', 'object')
+
+        if not _type:
+            raise TypeError('module error {}'.format(data))
+
+        if _type == 'string':
+            if repeated:
+                return 'string[]'
+            else:
+                return 'string'
+
+        elif _type in NUMBER_TYPES:
+            if repeated:
+                return 'number[]'
+            else:
+                return 'number'
+
+        ## elif _type in ['json', 'jsonb']:
+        ##     return _type
+
+        elif _type == 'object':
+            cname = data.get('originalRef', '')
+            if not cname:
+                data = data.get('schema', {})
+                cname = data.get('originalRef', 'NullObject')
+
+            if cname in DATETIME_TYPES:
+                if repeated:
+                    return 'moment.Moment[]'
+                else:
+                    return 'moment.Moment'
+
+            if not cname:
+                raise TypeError('class originalRef not found {} {}'.format(cname, data))
+
+            cname_def = src['definitions'].get(cname, {})
+            if not cname_def and cname != 'NullObject':
+                raise TypeError('class not found {} {}'.format(cname, data))
+
+            ## TAG - UNKNUW CLASS
+            subtype = cname_def.get('type', 'object')
+            if subtype == 'object' and 'properties' not in cname_def:
+                if cname == 'NullObject':
+                    if repeated:
+                        return 'NullObject' + '[]'
+                    else:
+                        return 'NullObject'
+                else:
+                    if repeated:
+                        return 'any' + '[]'
+                    else:
+                        return 'any'
+            else:
+                cname = cname.replace('«', '').replace('»', '')
+                if interface:
+                    if repeated:
+                        return 'I' + typename2class(cname) + '[]'
+                    else:
+                        return 'I' + typename2class(cname)
+                else:
+                    if repeated:
+                        return typename2class(cname) + '[]'
+                    else:
+                        return typename2class(cname)
+
+        elif _type == 'enum':
+            if 'ename' not in data or not data['ename']:
+                raise TypeError('ename not found {}'.format(data))
+
+            if repeated:
+                return typename2class(data['ename']) + '[]'
+            else:
+                return typename2class(data['ename'])
+
+        elif _type in BOOL_TYPES:
+            if repeated:
+                return 'boolean[]'
+            else:
+                return 'boolean'
+
+        else:
+            raise Exception('unknow datatype [{}]'.format(_type))
+
+    def pattern_opt(xformat, pattern, data):
+        if not xformat and not pattern:
+            return 'null'
+        if pattern:
+            return "/" + pattern + "/"
+        elif xformat in INT_TYPES:
+            return 'null'
+        elif xformat in FLOAT_TYPES:
+            return 'null'
+        elif xformat in ['date', 'date-time']:
+            return "/" + '^((?:(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}(?:\.\d+)?))(Z|[\+-]\d{2}:\d{2})?)$' + "/"
+        elif xformat == 'password':
+            return "/" + '^[0-9]{4}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$' + "/"
+        elif xformat == 'byte':
+            return "/" + '(?:^(?:[A-Za-z0-9+\/]{4}\n?)*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)$)' + "/"
+        elif xformat == 'binary':
+            return
+        elif xformat == 'email':
+            return "/" + '^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$' + "/"
+        elif xformat == 'uuid':
+            return "/" + '[0-9a-f]{32}|[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' + "/"
+        elif xformat == 'uri':
+            return "/" + '(?:http|https):\/\/((?:[\w-]+)(?:\.[\w-]+)+)(?:[\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?' + "/"
+        elif xformat == 'hostname':
+            return "/" + '^([a-zA-Z0-9](?:(?:[a-zA-Z0-9-]|(?<!-).(?![-.]))[a-zA-Z0-9]+)?)$' + "/"
+        elif xformat == 'ipv4':
+            return "/" + '(\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)' + "/"
+        elif xformat == 'ipv6':
+            return "/" + '\[(?:[a-zA-Z0-9]{0,4}:?){1,8}\]|\[(?:[a-zA-Z0-9]{0,4}:?){1,4}(?:[0-9]{1,3}\.){3}[0-9]{1,3}\]' + "/"
+        else:
+            raise TypeError('pattern_opt format error %s %s %s' % (
+                xformat, pattern, data
+            ))
+
+    def datatype(data):
+        if not isinstance(data, dict):
+            raise TypeError('datatype_interface not dict')
+
+        repeated = False
+        val = data.get('type', 'object')
+        if val == 'array':
+            ## if 'type' not in data['items']:
+            ##     raise TypeError('array has not items {}'.format(data['items']))
+            repeated = True
+            data = data.get('items', {})
+            if not data:
+                raise TypeError('array items is null')
+
+            val = data.get('type', 'object')
+
+
+        if val == 'string':
+            return 'string'
+
+        elif val in DATETIME_TYPES:
+            return 'datetime'
+
+        elif val in NUMBER_TYPES:
+            return 'number'
+
+        ## elif val in ['json', 'jsonb']:
+        ##     return val
+
+        elif val == 'object':
+            cname = data.get('originalRef', '')
+
+            if cname in DATETIME_TYPES:
+                if repeated:
+                    return 'moment.Moment[]'
+                else:
+                    return 'moment.Moment'
+
+            return 'message'
+
+        elif val == 'enum':
+            return 'enum'
+
+        elif val in BOOL_TYPES:
+            return 'boolean'
+
+        else:
+            raise Exception('unknow datatype [{}]'.format(val))
+
+    def loop_opts(requireds, fields):
+        for key, data in fields.items():
+            if not isinstance(data, dict):
+                raise TypeError('datatype_interface not dict')
+
+            repeated = False
+            _type = data.get('type', 'object')
+            if _type == 'array':
+                ## if 'type' not in data['items']:
+                ##     raise TypeError('array has not items {}'.format(data['items']))
+                repeated = True
+                data = data.get('items', {})
+                if not data:
+                    raise TypeError('array items is null')
+
+                _type = data.get('type', 'object')
+
+            opts = ', '.join([
+                "'" + datatype(data) + "'",
+                'true' if repeated else 'false',
+                'true' if key in requireds else 'false',
+                str(data.get('maxLength', 0)) if data.get('maxLength', 0) is not None else 'null',
+                str(data.get('minLength', 0)) if data.get('minLength', 0) is not None else 'null',
+                str(data.get('maximum', 0)) if data.get('maximum', 0) is not None else 'null',
+                str(data.get('minimum', 0)) if data.get('minimum', 0) is not None else 'null',
+                str(pattern_opt(data.get('format', ''), data.get('pattern', ''), data))
+            ])
+            yield (key, opts)
+
+    API_NAME
 %>
 import axios, { AxiosRequestConfig } from "axios";
 import moment from "moment";
@@ -30,6 +251,9 @@ export class FieldError extends Error {
   }
 }
 
+export class NullObject {
+}
+
 const MINDATE = moment("1900-01-01", "YYYY-MM-DD");
 
 
@@ -37,19 +261,19 @@ const MINDATE = moment("1900-01-01", "YYYY-MM-DD");
 //        enum define
 // ----------------------------------------------
 
-% for key, val in ENUM_MAP.items():
+% for ename, field in enum_loop(src):
 
-// ${ val['comment'] }
-export enum ${ typename2class(key) } {
-    % for key, _val in val['fields'].items():
-    ${ key.upper() } = ${ _val['value'] },  // ${_val['comment']}
+${ '// ' + '\n// '.join(map(lambda x: x, field['description'].split('\n')))  }
+export enum ${ snake_to_camel(ename) } {
+    % for key, _val in field['enums'].items():
+    ${ key.upper() } = ${ _val },
     % endfor
 }
 
-// ${ val['comment'] }
-export const ${ typename2class(key) }Translate = {
-    % for key, _val in val['fields'].items():
-    ${_val['value']}: '${_val['comment']}',
+${ '// ' + '\n// '.join(map(lambda x: x, field['description'].split('\n')))  }
+export const ${ snake_to_camel(ename) }Translate = {
+    % for key, _val in field['enums_desc'].items():
+    ${ key.upper() }: '${_val }',
     % endfor
 }
 
@@ -62,6 +286,7 @@ export const ${ typename2class(key) }Translate = {
 class FieldOptions {
   public type: string = "";
   public array: boolean = false;
+  public required: boolean = false;
   public maxlen: number | null = null;
   public minlen: number | null = null;
   public maxval: number | null = null;
@@ -72,6 +297,7 @@ class FieldOptions {
   constructor(
     type: string,
     array: boolean,
+    required: boolean,
     maxlen: number | null = null,
     minlen: number | null = null,
     maxval: number | null = null,
@@ -80,6 +306,7 @@ class FieldOptions {
   ) {
     this.type = type;
     this.array = array;
+    this.required = required;
     this.maxlen = maxlen;
     this.minlen = minlen;
     this.maxval = maxval;
@@ -189,7 +416,13 @@ class FieldOptions {
         return error;
       }
 
-    } else if (this.type == "enum" && !FieldOptions.check_enum(this, val)) {
+    }
+
+    if (!this.required && val == null) {
+        return new FieldError(7, key, _(`${"${key}"} Invaild`));;
+    }
+
+    if (this.type == "enum" && !FieldOptions.check_enum(this, val)) {
       return new FieldError(2, key, _(`${"${key}"} Invaild`));
     } else if (this.type == "string" && !FieldOptions.check_string(this, val)) {
       return new FieldError(3, key, _(`${"${key}"} Invaild`));
@@ -201,7 +434,7 @@ class FieldOptions {
       this.type == "boolean" &&
       !FieldOptions.check_boolean(this, val)
     ) {
-      return new FieldError(5, key, _(`${"${key}"} Invaild`));
+      return new FieldError(6, key, _(`${"${key}"} Invaild`));
     } else if (this.type == "message") {
       let error = val.check();
       if (error) {
@@ -344,30 +577,29 @@ abstract class DataModule {
 //        module define
 // ----------------------------------------------
 
-% for class_n, table in DATA_LIST:
-    % if table['options'].get('rmsg', None) == "MAPI":
-        <% continue %>
-    % endif
-
+% for class_n, table in module_loop(src):
+<% class_n = class_n.replace('«', '').replace('»', '') %>
 export interface I${typename2class(class_n)} {
-    % for key, field in table['fields'].items():
-    ${key.lower()}: ${datatype_interface(field)};  // ${field['comment']}
+    % for key, field in table.get('properties', {}).items():
+    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
+    ${key.lower()}: ${datatype_interface(field)};
     % endfor
 }
 
 export class ${typename2class(class_n)} extends DataModule {
 
-    % for key, field in table['fields'].items():
-    public ${key.lower()}: ${datatype_change(field)};  // ${field['comment']}
+    % for key, field in table.get('properties', {}).items():
+    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
+    public ${key.lower()}: ${datatype_interface(field, true)};
     % endfor
 
     static readonly foptions: FieldOptionType = {
-        % for key, val in loop_opts(table['fields']):
-        ${key.lower()}: new FieldOptions(${ val }),
+        % for key, field in loop_opts(table.get('required', []), table.get('properties', {})):
+        ${key.lower()}: new FieldOptions(${ field }),
         % endfor
     };
     static readonly fkeys: string[] = [
-        ${',\n        '.join(["'{}'".format(field_name.lower()) for field_name, field in table['fields'].items()])}
+        ${',\n        '.join(["'{}'".format(key.lower()) for key, field in table.get('properties', {}).items()])}
     ];
 
     constructor(data?: I${typename2class(class_n)}) {
@@ -376,7 +608,7 @@ export class ${typename2class(class_n)} extends DataModule {
             return;
         }
 
-        % for key, field in table['fields'].items():
+        % for key, field in table.get('properties', {}).items():
         this.${key.lower()} = data.${key.lower()}
         % endfor
     }
@@ -389,33 +621,106 @@ export class ${typename2class(class_n)} extends DataModule {
         return ${typename2class(class_n)}.foptions
     }
 
-    ## public toJson(): FieldData {
-    ##     return {
-    ##     % for key, field in table['fields'].items():
-    ##         % if field['options']['label'] == 'repeated':
-    ##             % if field['type'] == 'message':
-    ##     ${key.lower()}: this.arrayToJson(this.${key.lower()}),
-    ##             % elif field['type'] == 'date':
-    ##     ${key.lower()}: this.arrayToDate(this.${key.lower()}),
-    ##             % elif field['type'] == 'datetime':
-    ##     ${key.lower()}: this.arrayToDatetime(this.${key.lower()}),
-    ##             % else:
-    ##     ${key.lower()}: this.${key.lower()},
-    ##             % endif
-    ##         % else:
-    ##             % if field['type'] == 'message':
-    ##     ${key.lower()}: this.${key.lower()}.toJson(),
-    ##             % elif field['type'] == 'date':
-    ##     ${key.lower()}: this.dateFmt(this.${key.lower()}),
-    ##             % elif field['type'] == 'datetime':
-    ##     ${key.lower()}: this.datetimeFmt(this.${key.lower()}),
-    ##             % else:
-    ##     ${key.lower()}: this.${key.lower()},
-    ##             % endif
-    ##         % endif
-    ##     % endfor
-    ##     };
-    ## }
+    public toJson(): FieldData {
+        return {
+        % for key, field in table.get('properties', {}).items():
+            <% _type = field.get('type', 'object') %>
+            % if field.get('repeated', False):
+                % if _type == 'object':
+                    <% cname = field.get('originalRef', '') %>
+                    % if cname == 'date':
+            ${key.lower()}: this.arrayToDate(this.${key.lower()}),
+                    % elif cname == 'datetime' or cname == 'Timestamp':
+            ${key.lower()}: this.arrayToDatetime(this.${key.lower()}),
+                    % else:
+            ${key.lower()}: this.arrayToJson(this.${key.lower()}),
+                    % endif
+                % else:
+            ${key.lower()}: this.${key.lower()},
+                % endif
+            % else:
+                % if _type == 'object':
+                    <% cname = field.get('originalRef', '') %>
+                    % if cname == 'date':
+            ${key.lower()}: this.dateFmt(this.${key.lower()}),
+                    % elif cname == 'datetime' or cname == 'Timestamp':
+            ${key.lower()}: this.datetimeFmt(this.${key.lower()}),
+                    % else:
+            ${key.lower()}: this.${key.lower()}.toJson(),
+                    % endif
+                % else:
+            ${key.lower()}: this.${key.lower()},
+                % endif
+            % endif
+        % endfor
+        };
+    }
+}
+% endfor
+
+// ----------------------------------------------
+//        query define
+// ----------------------------------------------
+
+% for uri, method, module in paths_loop(src):
+    % if not module['xquery']:
+        <% continue %>
+    % endif
+    <% class_n = module['operationId'] %>
+
+export interface Query${typename2class(class_n)} {
+    % for field in module['xquery']:
+        % if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
+            <% continue %>
+        % endif
+
+    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
+    ${field['name'].lower()}: ${datatype_interface(field)};
+    % endfor
+}
+% endfor
+
+// ----------------------------------------------
+//        header define
+// ----------------------------------------------
+
+% for uri, method, module in paths_loop(src):
+    % if not module['xheader']:
+        <% continue %>
+    % endif
+    <% class_n = module['operationId'] %>
+
+export interface Header${typename2class(class_n)} {
+    % for field in module['xheader']:
+        % if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
+            <% continue %>
+        % endif
+
+    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
+    ${field['name'].lower()}: ${datatype_interface(field)};
+    % endfor
+}
+% endfor
+
+// ----------------------------------------------
+//        xpath define
+// ----------------------------------------------
+
+% for uri, method, module in paths_loop(src):
+    % if not module['xpath']:
+        <% continue %>
+    % endif
+    <% class_n = module['operationId'] %>
+
+export interface Path${typename2class(class_n)} {
+    % for field in module['xpath']:
+        % if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
+            <% continue %>
+        % endif
+
+    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
+    ${field['name'].lower()}: ${datatype_interface(field)};
+    % endfor
 }
 % endfor
 
@@ -424,57 +729,57 @@ export class ${typename2class(class_n)} extends DataModule {
 //        Api define
 // ----------------------------------------------
 
-export abstract class ${typename2class(API_NAME)} {
+export abstract class ${typename2class(project)}Api {
   public nginx_uri: string = "";
   abstract CheckError(rsp: any): void;
 
-% for class_n, table in DATA_LIST:
-    % if table['options'].get('rmsg', None) != "MAPI":
-        <% continue %>
-    % endif
-    <% req_body_name = typename2class(table['fields']['req_body']['options']['type_name']) %>
-    <% rsp_body_name = typename2class(table['fields']['rsp_body']['options']['type_name']) %>
-    <% query_name = typename2class(table['fields']['querys']['options']['type_name']) %>
-    <% header_name = typename2class(table['fields']['headers']['options']['type_name']) %>
-    <% req_body_field = DATA_MAP.get(table['fields']['req_body']['options']['type_name'], None) %>
-    <% query_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
-    <% header_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
+% for uri, method, module in paths_loop(src):
+    <% class_n = module['operationId'] %>
+    <% class_n = class_n.replace('«', '').replace('»', '') %>
+    ## <% req_body_name = typename2class(table['fields']['req_body']['options']['type_name']) %>
+    ## <% rsp_body_name = typename2class(table['fields']['rsp_body']['options']['type_name']) %>
+    ## <% query_name = typename2class(table['fields']['querys']['options']['type_name']) %>
+    ## <% header_name = typename2class(table['fields']['headers']['options']['type_name']) %>
+    ## <% req_body_field = DATA_MAP.get(table['fields']['req_body']['options']['type_name'], None) %>
+    ## <% query_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
+    ## <% header_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
     <%
         parames = []
         parames_pp = []
+        rsp = module['responses'].get('200', {})
 
-        if req_body_field['fields']:
-            parames.append('datas: {}'.format(req_body_name))
+        if module['xpath']:
+            parames.append('body: {}'.format('Path' + class_n))
             parames_pp.append('data: datas.toJson()')
 
-        if query_field['fields']:
-            parames.append('querys: {}'.format(query_name))
+        if module['xquery']:
+            parames.append('querys: {}'.format('Query' + class_n))
             parames_pp.append('params: querys.toJson()')
 
-        if header_field['fields']:
-            parames.append('headers: {}'.format(header_name))
+        if module['xheader']:
+            parames.append('headers: {}'.format('Header' + class_n))
             parames_pp.append('headers: headers.toJson()')
 
         parames.append('config?: AxiosRequestConfig')
     %>
 
-  public ${typename2class(table['name'])}(${','.join(parames)}): Promise<${rsp_body_name}> {
+  public ${typename2class(class_n)}(${', '.join(parames)}): Promise<${datatype_interface(rsp)}> {
     if (!config) {
       config = {};
     }
-    % if req_body_field['fields']:
-    config["data"] = { ...config["data"], ...datas.toJson() };
+    % if module['xpath']:
+    config["data"] = { ...config["data"], ...datas };
     % endif
-    % if query_field['fields']:
-    config["params"] = { ...config["params"], ...querys.toJson() };
+    % if module['xquery']:
+    config["params"] = { ...config["params"], ...querys };
     % endif
-    % if query_field['fields']:
-    config["headers"] = { ...config["headers"], ...headers.toJson() };
+    % if module['xheader']:
+    config["headers"] = { ...config["headers"], ...headers };
     % endif
 
     return axios
-      .${get_method(table['options']['rmethod'])}<${rsp_body_name}>(
-          `${'${this.nginx_uri}'}${table['options']['ruri']}`,
+      .${method}<${datatype_interface(rsp)}>(
+          `${'${this.nginx_uri}'}${uri}`,
           config
       )
       .then(rsp => {
@@ -487,6 +792,6 @@ export abstract class ${typename2class(API_NAME)} {
 
 }
 
-declare const apis: RestFulApis;
+declare const apis: ${typename2class(project)}Api;
 
 export default apis;

@@ -70,6 +70,8 @@ CREATE ${TEMP_KEY}TABLE `${dbname}`.`${tname}` (
 `${field['name']}` date NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] == 'geometry':
 `${field['name']}` geometry NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
+    % elif field['type'] in ['json', 'jsonb']:
+`${field['name']}` json NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] in ['oneof', 'message']:
     % else:
 `${field['name']}` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}

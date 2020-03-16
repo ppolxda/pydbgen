@@ -42,7 +42,7 @@ datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(
     name="pydbgen",
-    version="0.0.5",
+    version="0.0.6",
     install_requires=[
         'six',
         'mako',

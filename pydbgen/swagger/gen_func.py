@@ -8,13 +8,8 @@
 """
 import re
 import six
-import json
 import codecs
 import string
-import datetime
-import functools
-import pkg_resources
-from collections import OrderedDict
 from mako.template import Template
 
 
@@ -133,6 +128,7 @@ def fmt_enum(field):
     ename = enum_desc[0]
     enum_desc = enum_desc[1:]
     field['ename'] = ename
+    field['type'] = 'enum'
 
     field['enums_desc'] = {
         get_keyval(enum_desc[i], 1):
@@ -154,7 +150,11 @@ def enum_loop(src):
             # ename = '_'.join(['Enum', mname, fname])
             if 'enum' in field:
                 if 'description' not in field or not field['description']:
-                    raise TypeError('enum description not found')
+                    raise TypeError(
+                        'enum description not found [{}][{}]'.format(
+                            field, module
+                        )
+                    )
 
                 field = fmt_enum(field)
                 if field['ename'] in outlist:
@@ -171,7 +171,11 @@ def module_loop(src):
         for fname, field in module.get('properties', {}).items():
             if 'enum' in field:
                 if 'description' not in field or not field['description']:
-                    raise TypeError('enum description not found')
+                    raise TypeError(
+                        'enum description not found [{}][{}]'.format(
+                            field, module
+                        )
+                    )
 
                 field = fmt_enum(field)
                 continue
@@ -187,14 +191,13 @@ def module_loop(src):
             _type = module.get('type', 'object')
             if _type == 'array':
                 repeated = True
-            module['repeated'] = True
+            module['repeated'] = repeated
 
         outlist.add(mname)
         yield mname, module
 
 
 def paths_loop(src):
-    outlist = set()
     for uri, pconfig in src.get('paths', {}).items():
         for method, config in pconfig.items():
             header = []

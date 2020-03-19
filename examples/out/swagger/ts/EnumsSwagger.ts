@@ -1,47 +1,39 @@
 
-// EnumDataScope
+// EnumCityLevel
 // * NONE: 无效枚举值
-// * ALL: 全部
-// * SELF_DEPT: 本部门
-// * SELF_AND_CHILDREN: 本部门及以下
-// * SELF_REGION: 本区域
-// * SELF_REGION_AND_CHILDREN: 本区域及以下
-// * SELF_COMPANY: 本公司
-// * SELF_COMPANY_AND_CHILDREN: 本公司及以下
-// * CUSTOM: 自定义
+// * COUNTRY: 国家/地区
+// * PROV: 省/直辖市
+// * CITY: 市
+// * COUNTY: 县/县级市
+// * TOWN: 镇
+// * VILLAGE: 乡/村
 
-export enum EnumDataScope {
+export enum EnumCityLevel {
     NONE = 0,
-    ALL = 1,
-    SELF_DEPT = 2,
-    SELF_AND_CHILDREN = 3,
-    SELF_REGION = 4,
-    SELF_REGION_AND_CHILDREN = 5,
-    SELF_COMPANY = 6,
-    SELF_COMPANY_AND_CHILDREN = 7,
-    CUSTOM = 8,
+    COUNTRY = 1,
+    PROV = 2,
+    CITY = 3,
+    COUNTY = 4,
+    TOWN = 5,
+    VILLAGE = 6,
 }
 
-// EnumDataScope
+// EnumCityLevel
 // * NONE: 无效枚举值
-// * ALL: 全部
-// * SELF_DEPT: 本部门
-// * SELF_AND_CHILDREN: 本部门及以下
-// * SELF_REGION: 本区域
-// * SELF_REGION_AND_CHILDREN: 本区域及以下
-// * SELF_COMPANY: 本公司
-// * SELF_COMPANY_AND_CHILDREN: 本公司及以下
-// * CUSTOM: 自定义
+// * COUNTRY: 国家/地区
+// * PROV: 省/直辖市
+// * CITY: 市
+// * COUNTY: 县/县级市
+// * TOWN: 镇
+// * VILLAGE: 乡/村
 
-export const EnumDataScopeTranslate = {
+export const EnumCityLevelTranslate = {
     NONE: '无效枚举值',
-    ALL: '全部',
-    SELF_DEPT: '本部门',
-    SELF_AND_CHILDREN: '本部门及以下',
-    SELF_REGION: '本区域',
-    SELF_REGION_AND_CHILDREN: '本区域及以下',
-    SELF_COMPANY: '本公司',
-    SELF_COMPANY_AND_CHILDREN: '本公司及以下',
-    CUSTOM: '自定义',
+    COUNTRY: '国家/地区',
+    PROV: '省/直辖市',
+    CITY: '市',
+    COUNTY: '县/县级市',
+    TOWN: '镇',
+    VILLAGE: '乡/村',
 }
 

@@ -32,17 +32,13 @@
 
     "pydbgen import": {
         "prefix": "pydbgen",
-        "body": [
-            "import \"pydbgen/dbbase/data_define.proto\";"
-        ],
+        "body": ["import \"pydbgen/dbbase/data_define.proto\";"],
         "description": "pydbgen import"
     },
 
     "history import": {
         "prefix": "history",
-        "body": [
-            "import \"history/enums.proto\";"
-        ],
+        "body": ["import \"history/enums.proto\";"],
         "description": "history import"
     },
 
@@ -121,16 +117,13 @@
         "description": "database message"
     },
 
-
     // ---------------------------------------
     //       field options
     // ---------------------------------------
 
     "string options": {
         "prefix": "maxlen=0, minlen=0",
-        "body": [
-            "(maxlen) = ${1:0}, (minlen) = ${2:0}"
-        ],
+        "body": ["(maxlen) = ${1:0}, (minlen) = ${2:0}"],
         "description": "string options"
     },
 
@@ -144,17 +137,13 @@
 
     "float options two": {
         "prefix": "declen=36, decpoint=14",
-        "body": [
-            "(declen) = ${1:36}, decpoint = ${2:14}"
-        ],
+        "body": ["(declen) = ${1:36}, decpoint = ${2:14}"],
         "description": "float options"
     },
 
     "int options": {
         "prefix": "maxval=0, minval=0",
-        "body": [
-            "(maxval) = ${1:0}, (minval) = ${2:0}"
-        ],
+        "body": ["(maxval) = ${1:0}, (minval) = ${2:0}"],
         "description": "int options"
     },
 
@@ -180,33 +169,25 @@
 
     "is_unique define": {
         "prefix": "option (is_unique)",
-        "body": [
-            "option (is_unique) = true;"
-        ],
+        "body": ["option (is_unique) = true;"],
         "description": "is_unique define"
     },
 
     "is_sharding_not_unique define": {
         "prefix": "option (is_sharding_not_unique)",
-        "body": [
-            "option (is_sharding_not_unique) = true;"
-        ],
+        "body": ["option (is_sharding_not_unique) = true;"],
         "description": "is_sharding_not_unique define"
     },
 
     "bulk_ordered define": {
         "prefix": "option (bulk_ordered)",
-        "body": [
-            "option (bulk_ordered) = ${1|ORDERED,UNORDERED|};"
-        ],
+        "body": ["option (bulk_ordered) = ${1|ORDERED,UNORDERED|};"],
         "description": "bulk_ordered define"
     },
 
     "location define": {
         "prefix": "option (location)",
-        "body": [
-            "option (location) = ${1};"
-        ],
+        "body": ["option (location) = ${1};"],
         "description": "location define"
     },
 
@@ -232,105 +213,85 @@
 
     "maxlen options": {
         "prefix": "maxlen",
-        "body": [
-            "(maxlen) = ${1:0}"
-        ],
+        "body": ["(maxlen) = ${1:0}"],
         "description": "maxlen options"
     },
 
     "minlen options": {
         "prefix": "minlen",
-        "body": [
-            "(minlen) = ${1:0}"
-        ],
+        "body": ["(minlen) = ${1:0}"],
         "description": "minlen options"
     },
 
     "maxval options": {
         "prefix": "maxval",
-        "body": [
-            "(maxval) = ${1:0}"
-        ],
+        "body": ["(maxval) = ${1:0}"],
         "description": "maxval options"
     },
 
     "minval options": {
         "prefix": "minval",
-        "body": [
-            "(minval) = ${1:0}"
-        ],
+        "body": ["(minval) = ${1:0}"],
         "description": "minval options"
     },
 
     "declen options": {
         "prefix": "declen",
-        "body": [
-            "(declen) = ${1:0}"
-        ],
+        "body": ["(declen) = ${1:0}"],
         "description": "declen options"
     },
 
     "decpoint options": {
         "prefix": "decpoint",
-        "body": [
-            "(decpoint) = ${1:0}"
-        ],
+        "body": ["(decpoint) = ${1:0}"],
         "description": "decpoint options"
     },
 
     "key options": {
         "prefix": "key",
-        "body": [
-            "(key) = true"
-        ],
+        "body": ["(key) = true"],
         "description": "key options"
     },
 
     "inc options": {
         "prefix": "inc",
-        "body": [
-            "(inc) = true"
-        ],
+        "body": ["(inc) = true"],
         "description": "inc options"
     },
 
     "update options": {
         "prefix": "update",
-        "body": [
-            "(update) = true"
-        ],
+        "body": ["(update) = true"],
         "description": "update options"
     },
 
     "defval options": {
         "prefix": "defval",
-        "body": [
-            "(defval) = $1"
-        ],
+        "body": ["(defval) = $1"],
         "description": "defval options"
     },
 
     "sort options": {
         "prefix": "sort",
-        "body": [
-            "(sort) = ${1|ASC,DESC,HASHED|}"
-        ],
+        "body": ["(sort) = ${1|ASC,DESC,HASHED|}"],
         "description": "sort options"
+    },
+
+    "null options": {
+        "prefix": "null",
+        "body": ["(null) = ${1|NOT_NULL,ALLOW_NULL|}"],
+        "description": "null options"
     },
 
     "is_temp options": {
         "prefix": "is_temp",
-        "body": [
-            "(is_temp) = true"
-        ],
+        "body": ["(is_temp) = true"],
         "description": "is_temp options"
     },
 
     "suffix_tables options": {
         "prefix": "suffix_tables",
-        "body": [
-            "(suffix_tables) = true"
-        ],
+        "body": ["(suffix_tables) = true"],
         "description": "suffix_tables options"
     },
 
@@ -344,49 +305,37 @@
 
     "sharding_key  options": {
         "prefix": "sharding_key",
-        "body": [
-            "(sharding_key) = '${1}'"
-        ],
+        "body": ["(sharding_key) = '${1}'"],
         "description": "sharding_mode options"
     },
 
     "sharding_step options": {
         "prefix": "sharding_step",
-        "body": [
-            "(sharding_step) = ${1}"
-        ],
+        "body": ["(sharding_step) = ${1}"],
         "description": "sharding_step options"
     },
 
     "sharding_max options": {
         "prefix": "sharding_max",
-        "body": [
-            "(sharding_max) = ${1}"
-        ],
+        "body": ["(sharding_max) = ${1}"],
         "description": "sharding_max options"
     },
 
     "sharding_min options": {
         "prefix": "sharding_min",
-        "body": [
-            "(sharding_min) = ${1}"
-        ],
+        "body": ["(sharding_min) = ${1}"],
         "description": "sharding_min options"
     },
 
     "sharding_date_begin options": {
         "prefix": "sharding_date_begin",
-        "body": [
-            "(sharding_date_begin) = '${1}'"
-        ],
+        "body": ["(sharding_date_begin) = '${1}'"],
         "description": "sharding_date_begin options"
     },
 
     "sharding_date_end options": {
         "prefix": "sharding_date_end",
-        "body": [
-            "(sharding_date_end) = '${1}'"
-        ],
+        "body": ["(sharding_date_end) = '${1}'"],
         "description": "sharding_date_end options"
     },
 
@@ -396,305 +345,229 @@
 
     "NONE ENUMS": {
         "prefix": "NONE",
-        "body": [
-            "NONE"
-        ],
+        "body": ["NONE"],
         "description": "NONE ENUMS"
     },
 
     "TABLE ENUMS": {
         "prefix": "TABLE",
-        "body": [
-            "TABLE"
-        ],
+        "body": ["TABLE"],
         "description": "TABLE ENUMS"
     },
 
     "TABLE_GROUP ENUMS": {
         "prefix": "TABLE_GROUP",
-        "body": [
-            "TABLE_GROUP"
-        ],
+        "body": ["TABLE_GROUP"],
         "description": "TABLE_GROUP ENUMS"
     },
 
     "DATABASE ENUMS": {
         "prefix": "DATABASE",
-        "body": [
-            "DATABASE"
-        ],
+        "body": ["DATABASE"],
         "description": "DATABASE ENUMS"
     },
 
     "TABLESPACE ENUMS": {
         "prefix": "TABLESPACE",
-        "body": [
-            "TABLESPACE"
-        ],
+        "body": ["TABLESPACE"],
         "description": "TABLESPACE ENUMS"
     },
 
     "CLASS ENUMS": {
         "prefix": "CLASS",
-        "body": [
-            "CLASS"
-        ],
+        "body": ["CLASS"],
         "description": "CLASS ENUMS"
     },
 
     "OUTPUT ENUMS": {
         "prefix": "OUTPUT",
-        "body": [
-            "OUTPUT"
-        ],
+        "body": ["OUTPUT"],
         "description": "OUTPUT ENUMS"
     },
 
     "INDEX ENUMS": {
         "prefix": "INDEX",
-        "body": [
-            "INDEX"
-        ],
+        "body": ["INDEX"],
         "description": "INDEX ENUMS"
     },
 
     "NONE_KEY ENUMS": {
         "prefix": "NONE_KEY",
-        "body": [
-            "NONE_KEY"
-        ],
+        "body": ["NONE_KEY"],
         "description": "NONE_KEY ENUMS"
     },
 
     "INDEX_KEY ENUMS": {
         "prefix": "INDEX_KEY",
-        "body": [
-            "INDEX_KEY"
-        ],
+        "body": ["INDEX_KEY"],
         "description": "INDEX_KEY ENUMS"
     },
 
     "UNIQUE_KEY ENUMS": {
         "prefix": "UNIQUE_KEY",
-        "body": [
-            "UNIQUE_KEY"
-        ],
+        "body": ["UNIQUE_KEY"],
         "description": "UNIQUE_KEY ENUMS"
     },
 
     "FOREIGN_KEY ENUMS": {
         "prefix": "FOREIGN_KEY",
-        "body": [
-            "FOREIGN_KEY"
-        ],
+        "body": ["FOREIGN_KEY"],
         "description": "FOREIGN_KEY ENUMS"
     },
 
     "SHARDING_KEY ENUMS": {
         "prefix": "SHARDING_KEY",
-        "body": [
-            "SHARDING_KEY"
-        ],
+        "body": ["SHARDING_KEY"],
         "description": "SHARDING_KEY ENUMS"
     },
 
     "DISABLE ENUMS": {
         "prefix": "DISABLE",
-        "body": [
-            "DISABLE"
-        ],
+        "body": ["DISABLE"],
         "description": "DISABLE ENUMS"
     },
 
     "ENABLE ENUMS": {
         "prefix": "ENABLE",
-        "body": [
-            "ENABLE"
-        ],
+        "body": ["ENABLE"],
         "description": "ENABLE ENUMS"
     },
 
     "SM_ENABLE ENUMS": {
         "prefix": "SM_ENABLE",
-        "body": [
-            "SM_ENABLE"
-        ],
+        "body": ["SM_ENABLE"],
         "description": "SM_ENABLE ENUMS"
     },
 
     "SM_HASHED ENUMS": {
         "prefix": "SM_HASHED",
-        "body": [
-            "SM_HASHED"
-        ],
+        "body": ["SM_HASHED"],
         "description": "SM_HASHED ENUMS"
     },
 
     "SM_RANGE ENUMS": {
         "prefix": "SM_RANGE",
-        "body": [
-            "SM_RANGE"
-        ],
+        "body": ["SM_RANGE"],
         "description": "SM_RANGE ENUMS"
     },
 
     "SM_RANGE_YEAR ENUMS": {
         "prefix": "SM_RANGE_YEAR",
-        "body": [
-            "SM_RANGE_YEAR"
-        ],
+        "body": ["SM_RANGE_YEAR"],
         "description": "SM_RANGE_YEAR ENUMS"
     },
 
     "SM_RANGE_QUARTER ENUMS": {
         "prefix": "SM_RANGE_QUARTER",
-        "body": [
-            "SM_RANGE_QUARTER"
-        ],
+        "body": ["SM_RANGE_QUARTER"],
         "description": "SM_RANGE_QUARTER ENUMS"
     },
 
     "SM_RANGE_MONTH ENUMS": {
         "prefix": "SM_RANGE_MONTH",
-        "body": [
-            "SM_RANGE_MONTH"
-        ],
+        "body": ["SM_RANGE_MONTH"],
         "description": "SM_RANGE_MONTH ENUMS"
     },
 
     "SM_RANGE_DAY ENUMS": {
         "prefix": "SM_RANGE_DAY",
-        "body": [
-            "SM_RANGE_DAY"
-        ],
+        "body": ["SM_RANGE_DAY"],
         "description": "SM_RANGE_DAY ENUMS"
     },
 
     "SM_RANGE_ID ENUMS": {
         "prefix": "SM_RANGE_ID",
-        "body": [
-            "SM_RANGE_ID"
-        ],
+        "body": ["SM_RANGE_ID"],
         "description": "SM_RANGE_ID ENUMS"
     },
 
     "SM_PARTITION_YEAR ENUMS": {
         "prefix": "SM_PARTITION_YEAR",
-        "body": [
-            "SM_PARTITION_YEAR"
-        ],
+        "body": ["SM_PARTITION_YEAR"],
         "description": "SM_PARTITION_YEAR ENUMS"
     },
 
     "SM_PARTITION_QUARTER ENUMS": {
         "prefix": "SM_PARTITION_QUARTER",
-        "body": [
-            "SM_PARTITION_QUARTER"
-        ],
+        "body": ["SM_PARTITION_QUARTER"],
         "description": "SM_PARTITION_QUARTER ENUMS"
     },
 
     "SM_PARTITION_MONTH ENUMS": {
         "prefix": "SM_PARTITION_MONTH",
-        "body": [
-            "SM_PARTITION_MONTH"
-        ],
+        "body": ["SM_PARTITION_MONTH"],
         "description": "SM_PARTITION_MONTH ENUMS"
     },
 
     "SM_PARTITION_DAY ENUMS": {
         "prefix": "SM_PARTITION_DAY",
-        "body": [
-            "SM_PARTITION_DAY"
-        ],
+        "body": ["SM_PARTITION_DAY"],
         "description": "SM_PARTITION_DAY ENUMS"
     },
 
     "ASC ENUMS": {
         "prefix": "ASC",
-        "body": [
-            "ASC"
-        ],
+        "body": ["ASC"],
         "description": "ASC ENUMS"
     },
 
     "DESC ENUMS": {
         "prefix": "DESC",
-        "body": [
-            "DESC"
-        ],
+        "body": ["DESC"],
         "description": "DESC ENUMS"
     },
 
     "HASHED ENUMS": {
         "prefix": "HASHED",
-        "body": [
-            "HASHED"
-        ],
+        "body": ["HASHED"],
         "description": "HASHED ENUMS"
     },
 
     "ORDERED ENUMS": {
         "prefix": "ORDERED",
-        "body": [
-            "ORDERED"
-        ],
+        "body": ["ORDERED"],
         "description": "ORDERED ENUMS"
     },
 
     "UNORDERED ENUMS": {
         "prefix": "UNORDERED",
-        "body": [
-            "UNORDERED"
-        ],
+        "body": ["UNORDERED"],
         "description": "UNORDERED ENUMS"
     },
 
     "FA_NONE ENUMS": {
         "prefix": "FA_NONE",
-        "body": [
-            "FA_NONE"
-        ],
+        "body": ["FA_NONE"],
         "description": "FA_NONE ENUMS"
     },
 
     "FA_RESTRICT ENUMS": {
         "prefix": "FA_RESTRICT",
-        "body": [
-            "FA_RESTRICT"
-        ],
+        "body": ["FA_RESTRICT"],
         "description": "FA_RESTRICT ENUMS"
     },
 
     "FA_NO_ACTION ENUMS": {
         "prefix": "FA_NO_ACTION",
-        "body": [
-            "FA_NO_ACTION"
-        ],
+        "body": ["FA_NO_ACTION"],
         "description": "FA_NO_ACTION ENUMS"
     },
 
     "FA_CASCADE ENUMS": {
         "prefix": "FA_CASCADE",
-        "body": [
-            "FA_CASCADE"
-        ],
+        "body": ["FA_CASCADE"],
         "description": "FA_CASCADE ENUMS"
     },
 
     "FA_SET_NULL ENUMS": {
         "prefix": "FA_SET_NULL",
-        "body": [
-            "FA_SET_NULL"
-        ],
+        "body": ["FA_SET_NULL"],
         "description": "FA_SET_NULL ENUMS"
     },
 
     "FA_SET_DEFAULT ENUMS": {
         "prefix": "FA_SET_DEFAULT",
-        "body": [
-            "FA_SET_DEFAULT"
-        ],
+        "body": ["FA_SET_DEFAULT"],
         "description": "FA_SET_DEFAULT ENUMS"
     }
 }

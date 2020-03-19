@@ -13,6 +13,8 @@ requests = "*"
 pylint = "*"
 "pep8" = "*"
 "autopep8" = "*"
+bandit = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.7"

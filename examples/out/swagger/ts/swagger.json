@@ -13,8 +13,16 @@
             "description": "App Run"
         },
         {
-            "name": "\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406",
+            "name": "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406",
+            "description": "Warehouseinfo Controller"
+        },
+        {
+            "name": "\u57fa\u7840\u4fe1\u606f\uff1a\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406",
             "description": "Area Controller"
+        },
+        {
+            "name": "\u57fa\u7840\u4fe1\u606f\uff1a\u8d27\u4e3b\u6863\u6848\u7ba1\u7406",
+            "description": "Consignor Controller"
         },
         {
             "name": "\u5de5\u5177\uff1a\u4e03\u725b\u4e91\u5b58\u50a8\u7ba1\u7406",
@@ -190,8 +198,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/AlipayConfig",
-                            "originalRef": "AlipayConfig"
+                            "originalRef": "AlipayConfig",
+                            "$ref": "#/definitions/AlipayConfig"
                         }
                     },
                     "401": {
@@ -233,8 +241,8 @@
                         "description": "alipayConfig",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AlipayConfig",
-                            "originalRef": "AlipayConfig"
+                            "originalRef": "AlipayConfig",
+                            "$ref": "#/definitions/AlipayConfig"
                         }
                     }
                 ],
@@ -289,8 +297,8 @@
                         "description": "trade",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/TradeVo",
-                            "originalRef": "TradeVo"
+                            "originalRef": "TradeVo",
+                            "$ref": "#/definitions/TradeVo"
                         }
                     }
                 ],
@@ -345,8 +353,8 @@
                         "description": "trade",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/TradeVo",
-                            "originalRef": "TradeVo"
+                            "originalRef": "TradeVo",
+                            "$ref": "#/definitions/TradeVo"
                         }
                     }
                 ],
@@ -542,8 +550,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/App",
-                            "originalRef": "App"
+                            "originalRef": "App",
+                            "$ref": "#/definitions/App"
                         }
                     }
                 ],
@@ -596,8 +604,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/App",
-                            "originalRef": "App"
+                            "originalRef": "App",
+                            "$ref": "#/definitions/App"
                         }
                     }
                 ],
@@ -791,7 +799,7 @@
         "/api/area": {
             "get": {
                 "tags": [
-                    "\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
                 ],
                 "summary": "\u67e5\u8be2\u5730\u7406\u4fe1\u606f\u7ba1\u7406",
                 "operationId": "getAreasUsingGET",
@@ -806,6 +814,21 @@
                         "required": true,
                         "type": "string",
                         "default": "Bearer "
+                    },
+                    {
+                        "name": "cityLevel",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "NONE",
+                            "COUNTRY",
+                            "PROV",
+                            "CITY",
+                            "COUNTY",
+                            "TOWN",
+                            "VILLAGE"
+                        ]
                     },
                     {
                         "name": "cname",
@@ -857,7 +880,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "originalRef": "PageDto\u00abAreaDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abAreaDto\u00bb"
                         }
                     },
                     "401": {
@@ -874,7 +898,7 @@
             },
             "post": {
                 "tags": [
-                    "\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u5730\u7406\u4fe1\u606f\u7ba1\u7406",
                 "operationId": "createUsingPOST_1",
@@ -899,8 +923,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Area",
-                            "originalRef": "Area"
+                            "originalRef": "Area",
+                            "$ref": "#/definitions/Area"
                         }
                     }
                 ],
@@ -928,7 +952,7 @@
             },
             "put": {
                 "tags": [
-                    "\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u5730\u7406\u4fe1\u606f\u7ba1\u7406",
                 "operationId": "updateUsingPUT_1",
@@ -953,8 +977,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Area",
-                            "originalRef": "Area"
+                            "originalRef": "Area",
+                            "$ref": "#/definitions/Area"
                         }
                     }
                 ],
@@ -982,7 +1006,7 @@
             },
             "delete": {
                 "tags": [
-                    "\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
                 ],
                 "summary": "\u5220\u9664\u5730\u7406\u4fe1\u606f\u7ba1\u7406",
                 "operationId": "deleteAllUsingDELETE",
@@ -1007,9 +1031,16 @@
                             "type": "array",
                             "items": {
                                 "type": "integer",
-                                "format": "int32"
+                                "format": "int64"
                             }
                         }
+                    },
+                    {
+                        "name": "includeChildren",
+                        "in": "query",
+                        "description": "includeChildren",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -1035,7 +1066,7 @@
         "/api/area/download": {
             "get": {
                 "tags": [
-                    "\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u5730\u7406\u4fe1\u606f\u7ba1\u7406\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e",
                 "operationId": "downloadUsingGET_1",
@@ -1050,6 +1081,21 @@
                         "required": true,
                         "type": "string",
                         "default": "Bearer "
+                    },
+                    {
+                        "name": "cityLevel",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "NONE",
+                            "COUNTRY",
+                            "PROV",
+                            "CITY",
+                            "COUNTY",
+                            "TOWN",
+                            "VILLAGE"
+                        ]
                     },
                     {
                         "name": "cname",
@@ -1168,8 +1214,8 @@
                         "description": "code",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/VerificationCode",
-                            "originalRef": "VerificationCode"
+                            "originalRef": "VerificationCode",
+                            "$ref": "#/definitions/VerificationCode"
                         }
                     }
                 ],
@@ -1343,6 +1389,321 @@
                 "deprecated": false
             }
         },
+        "/api/consignor": {
+            "get": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u8d27\u4e3b\u6863\u6848\u7ba1\u7406"
+                ],
+                "summary": "\u67e5\u8be2\u8d27\u4e3b\u6863\u6848",
+                "operationId": "getConsignorsUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u9875\u7801 (0..N)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "\u6bcf\u9875\u663e\u793a\u7684\u6570\u76ee",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u4ee5\u4e0b\u5217\u683c\u5f0f\u6392\u5e8f\u6807\u51c6\uff1aproperty[,asc | desc]\u3002 \u9ed8\u8ba4\u6392\u5e8f\u987a\u5e8f\u4e3a\u5347\u5e8f\u3002 \u652f\u6301\u591a\u79cd\u6392\u5e8f\u6761\u4ef6\uff1a\u5982\uff1aid,asc",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u8d27\u4e3b\u6863\u6848\u7ba1\u7406"
+                ],
+                "summary": "\u65b0\u589e\u8d27\u4e3b\u6863\u6848",
+                "operationId": "createUsingPOST_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "Consignor",
+                            "$ref": "#/definitions/Consignor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u8d27\u4e3b\u6863\u6848\u7ba1\u7406"
+                ],
+                "summary": "\u4fee\u6539\u8d27\u4e3b\u6863\u6848",
+                "operationId": "updateUsingPUT_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "Consignor",
+                            "$ref": "#/definitions/Consignor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u8d27\u4e3b\u6863\u6848\u7ba1\u7406"
+                ],
+                "summary": "\u5220\u9664\u8d27\u4e3b\u6863\u6848",
+                "operationId": "deleteAllUsingDELETE_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "ids",
+                        "description": "ids",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/consignor/download": {
+            "get": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u8d27\u4e3b\u6863\u6848\u7ba1\u7406"
+                ],
+                "summary": "\u5bfc\u51fa\u6570\u636e",
+                "operationId": "downloadUsingGET_2",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/api/database": {
             "get": {
                 "tags": [
@@ -1496,7 +1857,7 @@
                     "\u6570\u636e\u5e93\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u6570\u636e\u5e93",
-                "operationId": "createUsingPOST_2",
+                "operationId": "createUsingPOST_3",
                 "consumes": [
                     "application/json"
                 ],
@@ -1518,8 +1879,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Database",
-                            "originalRef": "Database"
+                            "originalRef": "Database",
+                            "$ref": "#/definitions/Database"
                         }
                     }
                 ],
@@ -1550,7 +1911,7 @@
                     "\u6570\u636e\u5e93\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u6570\u636e\u5e93",
-                "operationId": "updateUsingPUT_2",
+                "operationId": "updateUsingPUT_3",
                 "consumes": [
                     "application/json"
                 ],
@@ -1572,8 +1933,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Database",
-                            "originalRef": "Database"
+                            "originalRef": "Database",
+                            "$ref": "#/definitions/Database"
                         }
                     }
                 ],
@@ -1656,7 +2017,7 @@
                     "\u6570\u636e\u5e93\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e\u5e93\u6570\u636e",
-                "operationId": "downloadUsingGET_2",
+                "operationId": "downloadUsingGET_3",
                 "produces": [
                     "*/*"
                 ],
@@ -1797,8 +2158,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Database",
-                            "originalRef": "Database"
+                            "originalRef": "Database",
+                            "$ref": "#/definitions/Database"
                         }
                     }
                 ],
@@ -2025,7 +2386,7 @@
                     "\u90e8\u7f72\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u90e8\u7f72",
-                "operationId": "createUsingPOST_3",
+                "operationId": "createUsingPOST_4",
                 "consumes": [
                     "application/json"
                 ],
@@ -2047,8 +2408,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Deploy",
-                            "originalRef": "Deploy"
+                            "originalRef": "Deploy",
+                            "$ref": "#/definitions/Deploy"
                         }
                     }
                 ],
@@ -2079,7 +2440,7 @@
                     "\u90e8\u7f72\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u90e8\u7f72",
-                "operationId": "updateUsingPUT_3",
+                "operationId": "updateUsingPUT_4",
                 "consumes": [
                     "application/json"
                 ],
@@ -2101,8 +2462,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Deploy",
-                            "originalRef": "Deploy"
+                            "originalRef": "Deploy",
+                            "$ref": "#/definitions/Deploy"
                         }
                     }
                 ],
@@ -2186,7 +2547,7 @@
                     "\u90e8\u7f72\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u90e8\u7f72\u6570\u636e",
-                "operationId": "downloadUsingGET_3",
+                "operationId": "downloadUsingGET_4",
                 "produces": [
                     "*/*"
                 ],
@@ -2321,8 +2682,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DeployHistory",
-                            "originalRef": "DeployHistory"
+                            "originalRef": "DeployHistory",
+                            "$ref": "#/definitions/DeployHistory"
                         }
                     }
                 ],
@@ -2377,8 +2738,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Deploy",
-                            "originalRef": "Deploy"
+                            "originalRef": "Deploy",
+                            "$ref": "#/definitions/Deploy"
                         }
                     }
                 ],
@@ -2433,8 +2794,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Deploy",
-                            "originalRef": "Deploy"
+                            "originalRef": "Deploy",
+                            "$ref": "#/definitions/Deploy"
                         }
                     }
                 ],
@@ -2489,8 +2850,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Deploy",
-                            "originalRef": "Deploy"
+                            "originalRef": "Deploy",
+                            "$ref": "#/definitions/Deploy"
                         }
                     }
                 ],
@@ -2776,7 +3137,7 @@
                     "\u90e8\u7f72\u5386\u53f2\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u90e8\u7f72\u5386\u53f2\u6570\u636e",
-                "operationId": "downloadUsingGET_4",
+                "operationId": "downloadUsingGET_5",
                 "produces": [
                     "*/*"
                 ],
@@ -3014,8 +3375,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb",
-                            "originalRef": "PageDto\u00abDeptDto\u00bb"
+                            "originalRef": "PageDto\u00abDeptDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb"
                         }
                     },
                     "401": {
@@ -3035,7 +3396,7 @@
                     "\u7cfb\u7edf\uff1a\u90e8\u95e8\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u90e8\u95e8",
-                "operationId": "createUsingPOST_4",
+                "operationId": "createUsingPOST_5",
                 "consumes": [
                     "application/json"
                 ],
@@ -3057,8 +3418,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Dept",
-                            "originalRef": "Dept"
+                            "originalRef": "Dept",
+                            "$ref": "#/definitions/Dept"
                         }
                     }
                 ],
@@ -3089,7 +3450,7 @@
                     "\u7cfb\u7edf\uff1a\u90e8\u95e8\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u90e8\u95e8",
-                "operationId": "updateUsingPUT_4",
+                "operationId": "updateUsingPUT_5",
                 "consumes": [
                     "application/json"
                 ],
@@ -3111,8 +3472,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Dept",
-                            "originalRef": "Dept"
+                            "originalRef": "Dept",
+                            "$ref": "#/definitions/Dept"
                         }
                     }
                 ],
@@ -3230,8 +3591,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb",
-                            "originalRef": "PageDto\u00abDeptDto\u00bb"
+                            "originalRef": "PageDto\u00abDeptDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb"
                         }
                     },
                     "401": {
@@ -3253,7 +3614,7 @@
                     "\u7cfb\u7edf\uff1a\u90e8\u95e8\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u90e8\u95e8\u6570\u636e",
-                "operationId": "downloadUsingGET_5",
+                "operationId": "downloadUsingGET_6",
                 "produces": [
                     "*/*"
                 ],
@@ -3416,8 +3777,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb",
-                            "originalRef": "PageDto\u00abDeptDto\u00bb"
+                            "originalRef": "PageDto\u00abDeptDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb"
                         }
                     },
                     "401": {
@@ -3510,7 +3871,7 @@
                     "\u7cfb\u7edf\uff1a\u5b57\u5178\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u5b57\u5178",
-                "operationId": "createUsingPOST_5",
+                "operationId": "createUsingPOST_6",
                 "consumes": [
                     "application/json"
                 ],
@@ -3532,8 +3893,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Dict",
-                            "originalRef": "Dict"
+                            "originalRef": "Dict",
+                            "$ref": "#/definitions/Dict"
                         }
                     }
                 ],
@@ -3564,7 +3925,7 @@
                     "\u7cfb\u7edf\uff1a\u5b57\u5178\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u5b57\u5178",
-                "operationId": "updateUsingPUT_5",
+                "operationId": "updateUsingPUT_6",
                 "consumes": [
                     "application/json"
                 ],
@@ -3586,8 +3947,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Dict",
-                            "originalRef": "Dict"
+                            "originalRef": "Dict",
+                            "$ref": "#/definitions/Dict"
                         }
                     }
                 ],
@@ -3711,7 +4072,7 @@
                     "\u7cfb\u7edf\uff1a\u5b57\u5178\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u5b57\u5178\u6570\u636e",
-                "operationId": "downloadUsingGET_6",
+                "operationId": "downloadUsingGET_7",
                 "produces": [
                     "*/*"
                 ],
@@ -3831,7 +4192,7 @@
                     "\u7cfb\u7edf\uff1a\u5b57\u5178\u8be6\u60c5\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u5b57\u5178\u8be6\u60c5",
-                "operationId": "createUsingPOST_6",
+                "operationId": "createUsingPOST_7",
                 "consumes": [
                     "application/json"
                 ],
@@ -3853,8 +4214,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DictDetail",
-                            "originalRef": "DictDetail"
+                            "originalRef": "DictDetail",
+                            "$ref": "#/definitions/DictDetail"
                         }
                     }
                 ],
@@ -3885,7 +4246,7 @@
                     "\u7cfb\u7edf\uff1a\u5b57\u5178\u8be6\u60c5\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u5b57\u5178\u8be6\u60c5",
-                "operationId": "updateUsingPUT_6",
+                "operationId": "updateUsingPUT_7",
                 "consumes": [
                     "application/json"
                 ],
@@ -3907,8 +4268,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DictDetail",
-                            "originalRef": "DictDetail"
+                            "originalRef": "DictDetail",
+                            "$ref": "#/definitions/DictDetail"
                         }
                     }
                 ],
@@ -4128,8 +4489,8 @@
                         "description": "emailVo",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/EmailVo",
-                            "originalRef": "EmailVo"
+                            "originalRef": "EmailVo",
+                            "$ref": "#/definitions/EmailVo"
                         }
                     }
                 ],
@@ -4182,8 +4543,8 @@
                         "description": "emailConfig",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/EmailConfig",
-                            "originalRef": "EmailConfig"
+                            "originalRef": "EmailConfig",
+                            "$ref": "#/definitions/EmailConfig"
                         }
                     }
                 ],
@@ -4238,8 +4599,8 @@
                         "description": "genConfig",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/GenConfig",
-                            "originalRef": "GenConfig"
+                            "originalRef": "GenConfig",
+                            "$ref": "#/definitions/GenConfig"
                         }
                     }
                 ],
@@ -4343,8 +4704,8 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/ColumnInfo",
-                                "originalRef": "ColumnInfo"
+                                "originalRef": "ColumnInfo",
+                                "$ref": "#/definitions/ColumnInfo"
                             }
                         }
                     }
@@ -4871,13 +5232,6 @@
                         "format": "int32"
                     },
                     {
-                        "name": "deptId",
-                        "in": "query",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
                         "name": "enabled",
                         "in": "query",
                         "required": false,
@@ -4921,8 +5275,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/PageDto\u00abJobDto\u00bb",
-                            "originalRef": "PageDto\u00abJobDto\u00bb"
+                            "originalRef": "PageDto\u00abJobDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abJobDto\u00bb"
                         }
                     },
                     "401": {
@@ -4942,7 +5296,7 @@
                     "\u7cfb\u7edf\uff1a\u5c97\u4f4d\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u5c97\u4f4d",
-                "operationId": "createUsingPOST_7",
+                "operationId": "createUsingPOST_8",
                 "consumes": [
                     "application/json"
                 ],
@@ -4964,8 +5318,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Job",
-                            "originalRef": "Job"
+                            "originalRef": "Job",
+                            "$ref": "#/definitions/Job"
                         }
                     }
                 ],
@@ -4973,8 +5327,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/JobDto",
-                            "originalRef": "JobDto"
+                            "originalRef": "JobDto",
+                            "$ref": "#/definitions/JobDto"
                         }
                     },
                     "201": {
@@ -4997,7 +5351,7 @@
                     "\u7cfb\u7edf\uff1a\u5c97\u4f4d\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u5c97\u4f4d",
-                "operationId": "updateUsingPUT_7",
+                "operationId": "updateUsingPUT_8",
                 "consumes": [
                     "application/json"
                 ],
@@ -5019,8 +5373,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Job",
-                            "originalRef": "Job"
+                            "originalRef": "Job",
+                            "$ref": "#/definitions/Job"
                         }
                     }
                 ],
@@ -5104,7 +5458,7 @@
                     "\u7cfb\u7edf\uff1a\u5c97\u4f4d\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u5c97\u4f4d\u6570\u636e",
-                "operationId": "downloadUsingGET_7",
+                "operationId": "downloadUsingGET_8",
                 "produces": [
                     "*/*"
                 ],
@@ -5186,13 +5540,6 @@
                         "required": false,
                         "type": "integer",
                         "format": "int32"
-                    },
-                    {
-                        "name": "deptId",
-                        "in": "query",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int64"
                     },
                     {
                         "name": "enabled",
@@ -5377,7 +5724,7 @@
                     "\u7cfb\u7edf:\u5b9a\u65f6\u4efb\u52a1\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u5b9a\u65f6\u4efb\u52a1",
-                "operationId": "createUsingPOST_10",
+                "operationId": "createUsingPOST_11",
                 "consumes": [
                     "application/json"
                 ],
@@ -5399,8 +5746,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/QuartzJob",
-                            "originalRef": "QuartzJob"
+                            "originalRef": "QuartzJob",
+                            "$ref": "#/definitions/QuartzJob"
                         }
                     }
                 ],
@@ -5431,7 +5778,7 @@
                     "\u7cfb\u7edf:\u5b9a\u65f6\u4efb\u52a1\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u5b9a\u65f6\u4efb\u52a1",
-                "operationId": "updateUsingPUT_10",
+                "operationId": "updateUsingPUT_11",
                 "consumes": [
                     "application/json"
                 ],
@@ -5453,8 +5800,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/QuartzJob",
-                            "originalRef": "QuartzJob"
+                            "originalRef": "QuartzJob",
+                            "$ref": "#/definitions/QuartzJob"
                         }
                     }
                 ],
@@ -5538,7 +5885,7 @@
                     "\u7cfb\u7edf:\u5b9a\u65f6\u4efb\u52a1\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u4efb\u52a1\u6570\u636e",
-                "operationId": "downloadUsingGET_15",
+                "operationId": "downloadUsingGET_16",
                 "produces": [
                     "*/*"
                 ],
@@ -6215,7 +6562,7 @@
                     "\u5de5\u5177\uff1a\u672c\u5730\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u4e0a\u4f20\u6587\u4ef6",
-                "operationId": "createUsingPOST_8",
+                "operationId": "createUsingPOST_9",
                 "consumes": [
                     "multipart/form-data"
                 ],
@@ -6273,7 +6620,7 @@
                     "\u5de5\u5177\uff1a\u672c\u5730\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u6587\u4ef6",
-                "operationId": "updateUsingPUT_8",
+                "operationId": "updateUsingPUT_9",
                 "consumes": [
                     "application/json"
                 ],
@@ -6295,8 +6642,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/LocalStorage",
-                            "originalRef": "LocalStorage"
+                            "originalRef": "LocalStorage",
+                            "$ref": "#/definitions/LocalStorage"
                         }
                     }
                 ],
@@ -6327,7 +6674,7 @@
                     "\u5de5\u5177\uff1a\u672c\u5730\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u591a\u9009\u5220\u9664",
-                "operationId": "deleteAllUsingDELETE_1",
+                "operationId": "deleteAllUsingDELETE_2",
                 "produces": [
                     "*/*"
                 ],
@@ -6380,7 +6727,7 @@
                     "\u5de5\u5177\uff1a\u672c\u5730\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e",
-                "operationId": "downloadUsingGET_8",
+                "operationId": "downloadUsingGET_9",
                 "produces": [
                     "*/*"
                 ],
@@ -6722,7 +7069,7 @@
                     "\u76d1\u63a7\uff1a\u65e5\u5fd7\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e",
-                "operationId": "downloadUsingGET_9",
+                "operationId": "downloadUsingGET_10",
                 "produces": [
                     "*/*"
                 ],
@@ -7420,7 +7767,7 @@
                     "\u7cfb\u7edf\uff1a\u83dc\u5355\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u83dc\u5355",
-                "operationId": "createUsingPOST_9",
+                "operationId": "createUsingPOST_10",
                 "consumes": [
                     "application/json"
                 ],
@@ -7442,8 +7789,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Menu",
-                            "originalRef": "Menu"
+                            "originalRef": "Menu",
+                            "$ref": "#/definitions/Menu"
                         }
                     }
                 ],
@@ -7474,7 +7821,7 @@
                     "\u7cfb\u7edf\uff1a\u83dc\u5355\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u83dc\u5355",
-                "operationId": "updateUsingPUT_9",
+                "operationId": "updateUsingPUT_10",
                 "consumes": [
                     "application/json"
                 ],
@@ -7496,8 +7843,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Menu",
-                            "originalRef": "Menu"
+                            "originalRef": "Menu",
+                            "$ref": "#/definitions/Menu"
                         }
                     }
                 ],
@@ -7621,7 +7968,7 @@
                     "\u7cfb\u7edf\uff1a\u83dc\u5355\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u83dc\u5355\u6570\u636e",
-                "operationId": "downloadUsingGET_10",
+                "operationId": "downloadUsingGET_11",
                 "produces": [
                     "*/*"
                 ],
@@ -7972,7 +8319,7 @@
                     "\u5de5\u5177\uff1a\u514d\u8d39\u56fe\u5e8a\u7ba1\u7406"
                 ],
                 "summary": "\u591a\u9009\u5220\u9664\u56fe\u7247",
-                "operationId": "deleteAllUsingDELETE_2",
+                "operationId": "deleteAllUsingDELETE_3",
                 "produces": [
                     "*/*"
                 ],
@@ -8025,7 +8372,7 @@
                     "\u5de5\u5177\uff1a\u514d\u8d39\u56fe\u5e8a\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e",
-                "operationId": "downloadUsingGET_12",
+                "operationId": "downloadUsingGET_13",
                 "produces": [
                     "*/*"
                 ],
@@ -8382,7 +8729,7 @@
                     "\u5de5\u5177\uff1a\u4e03\u725b\u4e91\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u5220\u9664\u591a\u5f20\u56fe\u7247",
-                "operationId": "deleteAllUsingDELETE_3",
+                "operationId": "deleteAllUsingDELETE_4",
                 "produces": [
                     "*/*"
                 ],
@@ -8495,8 +8842,8 @@
                         "description": "qiniuConfig",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/QiniuConfig",
-                            "originalRef": "QiniuConfig"
+                            "originalRef": "QiniuConfig",
+                            "$ref": "#/definitions/QiniuConfig"
                         }
                     }
                 ],
@@ -8529,7 +8876,7 @@
                     "\u5de5\u5177\uff1a\u4e03\u725b\u4e91\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e",
-                "operationId": "downloadUsingGET_14",
+                "operationId": "downloadUsingGET_15",
                 "produces": [
                     "*/*"
                 ],
@@ -8642,7 +8989,7 @@
                     "\u5de5\u5177\uff1a\u4e03\u725b\u4e91\u5b58\u50a8\u7ba1\u7406"
                 ],
                 "summary": "\u4e0b\u8f7d\u6587\u4ef6",
-                "operationId": "downloadUsingGET_13",
+                "operationId": "downloadUsingGET_14",
                 "produces": [
                     "*/*"
                 ],
@@ -8905,8 +9252,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/PageDto\u00abRoleDto\u00bb",
-                            "originalRef": "PageDto\u00abRoleDto\u00bb"
+                            "originalRef": "PageDto\u00abRoleDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abRoleDto\u00bb"
                         }
                     },
                     "401": {
@@ -8926,7 +9273,7 @@
                     "\u7cfb\u7edf\uff1a\u89d2\u8272\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u89d2\u8272",
-                "operationId": "createUsingPOST_11",
+                "operationId": "createUsingPOST_12",
                 "consumes": [
                     "application/json"
                 ],
@@ -8948,8 +9295,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Role",
-                            "originalRef": "Role"
+                            "originalRef": "Role",
+                            "$ref": "#/definitions/Role"
                         }
                     }
                 ],
@@ -8980,7 +9327,7 @@
                     "\u7cfb\u7edf\uff1a\u89d2\u8272\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u89d2\u8272",
-                "operationId": "updateUsingPUT_11",
+                "operationId": "updateUsingPUT_12",
                 "consumes": [
                     "application/json"
                 ],
@@ -9002,8 +9349,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Role",
-                            "originalRef": "Role"
+                            "originalRef": "Role",
+                            "$ref": "#/definitions/Role"
                         }
                     }
                 ],
@@ -9134,8 +9481,8 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/RoleDto",
-                                "originalRef": "RoleDto"
+                                "originalRef": "RoleDto",
+                                "$ref": "#/definitions/RoleDto"
                             }
                         }
                     },
@@ -9158,7 +9505,7 @@
                     "\u7cfb\u7edf\uff1a\u89d2\u8272\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u89d2\u8272\u6570\u636e",
-                "operationId": "downloadUsingGET_16",
+                "operationId": "downloadUsingGET_17",
                 "produces": [
                     "*/*"
                 ],
@@ -9333,8 +9680,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Role",
-                            "originalRef": "Role"
+                            "originalRef": "Role",
+                            "$ref": "#/definitions/Role"
                         }
                     }
                 ],
@@ -9393,8 +9740,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/RoleDto",
-                            "originalRef": "RoleDto"
+                            "originalRef": "RoleDto",
+                            "$ref": "#/definitions/RoleDto"
                         }
                     },
                     "401": {
@@ -9487,7 +9834,7 @@
                     "\u670d\u52a1\u76d1\u63a7\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u670d\u52a1\u76d1\u63a7",
-                "operationId": "createUsingPOST_12",
+                "operationId": "createUsingPOST_13",
                 "consumes": [
                     "application/json"
                 ],
@@ -9509,8 +9856,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Server",
-                            "originalRef": "Server"
+                            "originalRef": "Server",
+                            "$ref": "#/definitions/Server"
                         }
                     }
                 ],
@@ -9541,7 +9888,7 @@
                     "\u670d\u52a1\u76d1\u63a7\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u670d\u52a1\u76d1\u63a7",
-                "operationId": "updateUsingPUT_12",
+                "operationId": "updateUsingPUT_13",
                 "consumes": [
                     "application/json"
                 ],
@@ -9563,8 +9910,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Server",
-                            "originalRef": "Server"
+                            "originalRef": "Server",
+                            "$ref": "#/definitions/Server"
                         }
                     }
                 ],
@@ -9789,7 +10136,7 @@
                     "\u670d\u52a1\u5668\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u670d\u52a1\u5668",
-                "operationId": "createUsingPOST_13",
+                "operationId": "createUsingPOST_14",
                 "consumes": [
                     "application/json"
                 ],
@@ -9811,8 +10158,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ServerDeploy",
-                            "originalRef": "ServerDeploy"
+                            "originalRef": "ServerDeploy",
+                            "$ref": "#/definitions/ServerDeploy"
                         }
                     }
                 ],
@@ -9843,7 +10190,7 @@
                     "\u670d\u52a1\u5668\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u670d\u52a1\u5668",
-                "operationId": "updateUsingPUT_13",
+                "operationId": "updateUsingPUT_14",
                 "consumes": [
                     "application/json"
                 ],
@@ -9865,8 +10212,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ServerDeploy",
-                            "originalRef": "ServerDeploy"
+                            "originalRef": "ServerDeploy",
+                            "$ref": "#/definitions/ServerDeploy"
                         }
                     }
                 ],
@@ -9950,7 +10297,7 @@
                     "\u670d\u52a1\u5668\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u670d\u52a1\u5668\u6570\u636e",
-                "operationId": "downloadUsingGET_17",
+                "operationId": "downloadUsingGET_18",
                 "produces": [
                     "*/*"
                 ],
@@ -10085,8 +10432,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ServerDeploy",
-                            "originalRef": "ServerDeploy"
+                            "originalRef": "ServerDeploy",
+                            "$ref": "#/definitions/ServerDeploy"
                         }
                     }
                 ],
@@ -10271,8 +10618,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb",
-                            "originalRef": "PageDto\u00abUserDto\u00bb"
+                            "originalRef": "PageDto\u00abUserDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb"
                         }
                     },
                     "401": {
@@ -10292,7 +10639,7 @@
                     "\u7cfb\u7edf\uff1a\u7528\u6237\u7ba1\u7406"
                 ],
                 "summary": "\u65b0\u589e\u7528\u6237",
-                "operationId": "createUsingPOST_14",
+                "operationId": "createUsingPOST_15",
                 "consumes": [
                     "application/json"
                 ],
@@ -10314,8 +10661,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/User",
-                            "originalRef": "User"
+                            "originalRef": "User",
+                            "$ref": "#/definitions/User"
                         }
                     }
                 ],
@@ -10346,7 +10693,7 @@
                     "\u7cfb\u7edf\uff1a\u7528\u6237\u7ba1\u7406"
                 ],
                 "summary": "\u4fee\u6539\u7528\u6237",
-                "operationId": "updateUsingPUT_14",
+                "operationId": "updateUsingPUT_15",
                 "consumes": [
                     "application/json"
                 ],
@@ -10368,8 +10715,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/User",
-                            "originalRef": "User"
+                            "originalRef": "User",
+                            "$ref": "#/definitions/User"
                         }
                     }
                 ],
@@ -10475,8 +10822,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/User",
-                            "originalRef": "User"
+                            "originalRef": "User",
+                            "$ref": "#/definitions/User"
                         }
                     }
                 ],
@@ -10509,7 +10856,7 @@
                     "\u7cfb\u7edf\uff1a\u7528\u6237\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u7528\u6237\u6570\u636e",
-                "operationId": "downloadUsingGET_18",
+                "operationId": "downloadUsingGET_19",
                 "produces": [
                     "*/*"
                 ],
@@ -10675,8 +11022,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/User",
-                            "originalRef": "User"
+                            "originalRef": "User",
+                            "$ref": "#/definitions/User"
                         }
                     }
                 ],
@@ -10791,8 +11138,8 @@
                         "description": "user",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/User",
-                            "originalRef": "User"
+                            "originalRef": "User",
+                            "$ref": "#/definitions/User"
                         }
                     }
                 ],
@@ -10847,8 +11194,8 @@
                         "description": "passVo",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/UserPassVo",
-                            "originalRef": "UserPassVo"
+                            "originalRef": "UserPassVo",
+                            "$ref": "#/definitions/UserPassVo"
                         }
                     }
                 ],
@@ -10919,7 +11266,7 @@
                     "\u7cfb\u7edf:\u8bbf\u95ee\u8bb0\u5f55\u7ba1\u7406"
                 ],
                 "summary": "\u521b\u5efa\u8bbf\u95ee\u8bb0\u5f55",
-                "operationId": "createUsingPOST_15",
+                "operationId": "createUsingPOST_16",
                 "consumes": [
                     "application/json"
                 ],
@@ -10985,6 +11332,399 @@
                         "schema": {
                             "type": "object"
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/warehouseinfo": {
+            "get": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406"
+                ],
+                "summary": "\u67e5\u8be2\u51b7\u5e93\u4fe1\u606f",
+                "operationId": "getWarehouseinfosUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u9875\u7801 (0..N)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "\u6bcf\u9875\u663e\u793a\u7684\u6570\u76ee",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u4ee5\u4e0b\u5217\u683c\u5f0f\u6392\u5e8f\u6807\u51c6\uff1aproperty[,asc | desc]\u3002 \u9ed8\u8ba4\u6392\u5e8f\u987a\u5e8f\u4e3a\u5347\u5e8f\u3002 \u652f\u6301\u591a\u79cd\u6392\u5e8f\u6761\u4ef6\uff1a\u5982\uff1aid,asc",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "symbols",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406"
+                ],
+                "summary": "\u65b0\u589e\u51b7\u5e93\u4fe1\u606f",
+                "operationId": "createUsingPOST_17",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "Warehouseinfo",
+                            "$ref": "#/definitions/Warehouseinfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406"
+                ],
+                "summary": "\u4fee\u6539\u51b7\u5e93\u4fe1\u606f",
+                "operationId": "updateUsingPUT_16",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "Warehouseinfo",
+                            "$ref": "#/definitions/Warehouseinfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406"
+                ],
+                "summary": "\u5220\u9664\u51b7\u5e93\u4fe1\u606f",
+                "operationId": "deleteAllUsingDELETE_5",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "ids",
+                        "description": "ids",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/warehouseinfo/all": {
+            "get": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406"
+                ],
+                "summary": "\u67e5\u8be2\u6240\u6709\u51b7\u5e93\u4fe1\u606f",
+                "operationId": "getAllWarehouseinfosUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "symbols",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/warehouseinfo/download": {
+            "get": {
+                "tags": [
+                    "\u57fa\u7840\u4fe1\u606f\uff1a\u51b7\u5e93\u4fe1\u606f\u7ba1\u7406"
+                ],
+                "summary": "\u5bfc\u51fa\u6570\u636e",
+                "operationId": "downloadUsingGET_20",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "symbols",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -11107,8 +11847,8 @@
                         "description": "authUser",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AuthUserDto",
-                            "originalRef": "AuthUserDto"
+                            "originalRef": "AuthUserDto",
+                            "$ref": "#/definitions/AuthUserDto"
                         }
                     }
                 ],
@@ -11305,7 +12045,7 @@
                     "\u7cfb\u7edf\uff1a\u5728\u7ebf\u7528\u6237\u7ba1\u7406"
                 ],
                 "summary": "\u5bfc\u51fa\u6570\u636e",
-                "operationId": "downloadUsingGET_11",
+                "operationId": "downloadUsingGET_12",
                 "produces": [
                     "*/*"
                 ],
@@ -11392,8 +12132,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "deployPath": {
                     "type": "string"
@@ -11425,7 +12165,18 @@
             "type": "object",
             "properties": {
                 "cityLevel": {
-                    "type": "string"
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumCityLevel\n* NONE: \u65e0\u6548\u679a\u4e3e\u503c\n* COUNTRY: \u56fd\u5bb6/\u5730\u533a\n* PROV: \u7701/\u76f4\u8f96\u5e02\n* CITY: \u5e02\n* COUNTY: \u53bf/\u53bf\u7ea7\u5e02\n* TOWN: \u9547\n* VILLAGE: \u4e61/\u6751",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
                 },
                 "cname": {
                     "type": "string"
@@ -11433,7 +12184,14 @@
                 "code": {
                     "type": "string"
                 },
-                "enable": {
+                "createTime": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "enabled": {
                     "type": "boolean"
                 },
                 "enname": {
@@ -11444,7 +12202,10 @@
                 },
                 "id": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int64"
+                },
+                "isDelete": {
+                    "type": "boolean"
                 },
                 "level": {
                     "type": "integer",
@@ -11452,7 +12213,100 @@
                 },
                 "pid": {
                     "type": "integer",
+                    "format": "int64"
+                },
+                "pinyin": {
+                    "type": "string"
+                },
+                "postcode": {
+                    "type": "string"
+                },
+                "provinceShort": {
+                    "type": "string"
+                },
+                "py": {
+                    "type": "string"
+                },
+                "remarks": {
+                    "type": "string"
+                },
+                "space": {
+                    "type": "number"
+                },
+                "tb": {
+                    "type": "integer",
                     "format": "int32"
+                },
+                "tp": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "updateTime": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "zoneno": {
+                    "type": "string"
+                }
+            },
+            "title": "Area"
+        },
+        "AreaDto": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "originalRef": "AreaDto",
+                        "$ref": "#/definitions/AreaDto"
+                    }
+                },
+                "cityLevel": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumCityLevel\n* NONE: \u65e0\u6548\u679a\u4e3e\u503c\n* COUNTRY: \u56fd\u5bb6/\u5730\u533a\n* PROV: \u7701/\u76f4\u8f96\u5e02\n* CITY: \u5e02\n* COUNTY: \u53bf/\u53bf\u7ea7\u5e02\n* TOWN: \u9547\n* VILLAGE: \u4e61/\u6751",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                },
+                "cname": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "enname": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pid": {
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "pinyin": {
                     "type": "string"
@@ -11484,7 +12338,7 @@
                     "type": "string"
                 }
             },
-            "title": "Area"
+            "title": "AreaDto"
         },
         "AuthUserDto": {
             "type": "object",
@@ -11553,12 +12407,138 @@
             },
             "title": "ColumnInfo"
         },
+        "Consignor": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "bankCode": {
+                    "type": "string"
+                },
+                "bankName": {
+                    "type": "string"
+                },
+                "bankUser": {
+                    "type": "string"
+                },
+                "city": {
+                    "originalRef": "Area",
+                    "$ref": "#/definitions/Area"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "comeFrom": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "enname": {
+                    "type": "string"
+                },
+                "fax": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "identityType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumIdentityType\n* NONE: \u65e0\u6548\u679a\u4e3e\u503c\n* COMPANY: \u516c\u53f8\n* PERSON: \u4e2a\u4eba",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ]
+                },
+                "invoiceTitle": {
+                    "type": "string"
+                },
+                "isDelete": {
+                    "type": "boolean"
+                },
+                "memo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "pinyin": {
+                    "type": "string"
+                },
+                "property": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumConsignorProperty\n* NONE: \u65e0\u6548\u679a\u4e3e\u503c\n* LOGISTICS_COMPANY: \u7269\u6d41\u516c\u53f8\n* DISTRIBUTOR: \u7ecf\u9500\u5546\n* PERSON: \u4e2a\u4eba\n* OTHER: \u5176\u4ed6",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                "province": {
+                    "originalRef": "Area",
+                    "$ref": "#/definitions/Area"
+                },
+                "py": {
+                    "type": "string"
+                },
+                "recordDate": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "shortName": {
+                    "type": "string"
+                },
+                "socialCode": {
+                    "type": "string"
+                },
+                "tax": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "tel": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "web": {
+                    "type": "string"
+                },
+                "workDate": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                }
+            },
+            "title": "Consignor"
+        },
         "Database": {
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "id": {
                     "type": "string"
@@ -11582,18 +12562,18 @@
             "type": "object",
             "properties": {
                 "app": {
-                    "$ref": "#/definitions/App",
-                    "originalRef": "App"
+                    "originalRef": "App",
+                    "$ref": "#/definitions/App"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "deploys": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/ServerDeploy",
-                        "originalRef": "ServerDeploy"
+                        "originalRef": "ServerDeploy",
+                        "$ref": "#/definitions/ServerDeploy"
                     }
                 },
                 "id": {
@@ -11610,8 +12590,8 @@
                     "type": "string"
                 },
                 "deployDate": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "deployId": {
                     "type": "integer",
@@ -11633,15 +12613,15 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
                 },
                 "deptInfo": {
-                    "$ref": "#/definitions/DeptInfo",
-                    "originalRef": "DeptInfo"
+                    "originalRef": "DeptInfo",
+                    "$ref": "#/definitions/DeptInfo"
                 },
                 "enabled": {
                     "type": "boolean"
@@ -11665,8 +12645,8 @@
                     "format": "int64"
                 },
                 "updateTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -11680,17 +12660,17 @@
                 "children": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/DeptDto",
-                        "originalRef": "DeptDto"
+                        "originalRef": "DeptDto",
+                        "$ref": "#/definitions/DeptDto"
                     }
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "deptInfo": {
-                    "$ref": "#/definitions/DeptInfoDto",
-                    "originalRef": "DeptInfoDto"
+                    "originalRef": "DeptInfoDto",
+                    "$ref": "#/definitions/DeptInfoDto"
                 },
                 "enabled": {
                     "type": "boolean"
@@ -11727,8 +12707,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -11783,8 +12763,8 @@
                     "type": "string"
                 },
                 "updateTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -11878,14 +12858,14 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "dictDetails": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/DictDetail",
-                        "originalRef": "DictDetail"
+                        "originalRef": "DictDetail",
+                        "$ref": "#/definitions/DictDetail"
                     }
                 },
                 "id": {
@@ -11905,12 +12885,12 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "dict": {
-                    "$ref": "#/definitions/Dict",
-                    "originalRef": "Dict"
+                    "originalRef": "Dict",
+                    "$ref": "#/definitions/Dict"
                 },
                 "id": {
                     "type": "integer",
@@ -12021,8 +13001,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "enabled": {
                     "type": "boolean"
@@ -12045,8 +13025,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "deptSuperiorName": {
                     "type": "string"
@@ -12085,8 +13065,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -12129,8 +13109,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "hidden": {
                     "type": "boolean"
@@ -12178,8 +13158,8 @@
                 "children": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/MenuDto",
-                        "originalRef": "MenuDto"
+                        "originalRef": "MenuDto",
+                        "$ref": "#/definitions/MenuDto"
                     }
                 },
                 "component": {
@@ -12189,8 +13169,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "hidden": {
                     "type": "boolean"
@@ -12229,14 +13209,31 @@
             },
             "title": "MenuDto"
         },
+        "PageDto\u00abAreaDto\u00bb": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "originalRef": "AreaDto",
+                        "$ref": "#/definitions/AreaDto"
+                    }
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "PageDto\u00abAreaDto\u00bb"
+        },
         "PageDto\u00abDeptDto\u00bb": {
             "type": "object",
             "properties": {
                 "content": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/DeptDto",
-                        "originalRef": "DeptDto"
+                        "originalRef": "DeptDto",
+                        "$ref": "#/definitions/DeptDto"
                     }
                 },
                 "totalElements": {
@@ -12252,8 +13249,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/JobDto",
-                        "originalRef": "JobDto"
+                        "originalRef": "JobDto",
+                        "$ref": "#/definitions/JobDto"
                     }
                 },
                 "totalElements": {
@@ -12269,8 +13266,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/RoleDto",
-                        "originalRef": "RoleDto"
+                        "originalRef": "RoleDto",
+                        "$ref": "#/definitions/RoleDto"
                     }
                 },
                 "totalElements": {
@@ -12286,8 +13283,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/UserDto",
-                        "originalRef": "UserDto"
+                        "originalRef": "UserDto",
+                        "$ref": "#/definitions/UserDto"
                     }
                 },
                 "totalElements": {
@@ -12332,8 +13329,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "cronExpression": {
                     "type": "string"
@@ -12367,15 +13364,15 @@
                     "type": "string"
                 },
                 "file": {
-                    "$ref": "#/definitions/File",
-                    "originalRef": "File"
+                    "originalRef": "File",
+                    "$ref": "#/definitions/File"
                 },
                 "filename": {
                     "type": "string"
                 },
                 "inputStream": {
-                    "$ref": "#/definitions/InputStream",
-                    "originalRef": "InputStream"
+                    "originalRef": "InputStream",
+                    "$ref": "#/definitions/InputStream"
                 },
                 "open": {
                     "type": "boolean"
@@ -12384,12 +13381,12 @@
                     "type": "boolean"
                 },
                 "uri": {
-                    "$ref": "#/definitions/URI",
-                    "originalRef": "URI"
+                    "originalRef": "URI",
+                    "$ref": "#/definitions/URI"
                 },
                 "url": {
-                    "$ref": "#/definitions/URL",
-                    "originalRef": "URL"
+                    "originalRef": "URL",
+                    "$ref": "#/definitions/URL"
                 }
             },
             "title": "Resource"
@@ -12398,14 +13395,14 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "depts": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Dept",
-                        "originalRef": "Dept"
+                        "originalRef": "Dept",
+                        "$ref": "#/definitions/Dept"
                     }
                 },
                 "id": {
@@ -12419,8 +13416,8 @@
                 "menus": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Menu",
-                        "originalRef": "Menu"
+                        "originalRef": "Menu",
+                        "$ref": "#/definitions/Menu"
                     }
                 },
                 "name": {
@@ -12439,8 +13436,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "dataScope": {
                     "type": "string"
@@ -12448,8 +13445,8 @@
                 "depts": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/DeptDto",
-                        "originalRef": "DeptDto"
+                        "originalRef": "DeptDto",
+                        "$ref": "#/definitions/DeptDto"
                     }
                 },
                 "id": {
@@ -12463,8 +13460,8 @@
                 "menus": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/MenuDto",
-                        "originalRef": "MenuDto"
+                        "originalRef": "MenuDto",
+                        "$ref": "#/definitions/MenuDto"
                     }
                 },
                 "name": {
@@ -12565,8 +13562,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -12670,12 +13667,12 @@
             ],
             "properties": {
                 "company": {
-                    "$ref": "#/definitions/Dept",
-                    "originalRef": "Dept"
+                    "originalRef": "Dept",
+                    "$ref": "#/definitions/Dept"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -12699,13 +13696,13 @@
                 "dataScopeDepts": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Dept",
-                        "originalRef": "Dept"
+                        "originalRef": "Dept",
+                        "$ref": "#/definitions/Dept"
                     }
                 },
                 "dept": {
-                    "$ref": "#/definitions/Dept",
-                    "originalRef": "Dept"
+                    "originalRef": "Dept",
+                    "$ref": "#/definitions/Dept"
                 },
                 "email": {
                     "type": "string"
@@ -12721,8 +13718,8 @@
                     "type": "boolean"
                 },
                 "job": {
-                    "$ref": "#/definitions/Job",
-                    "originalRef": "Job"
+                    "originalRef": "Job",
+                    "$ref": "#/definitions/Job"
                 },
                 "nickName": {
                     "type": "string"
@@ -12731,33 +13728,33 @@
                     "type": "string"
                 },
                 "region": {
-                    "$ref": "#/definitions/Dept",
-                    "originalRef": "Dept"
+                    "originalRef": "Dept",
+                    "$ref": "#/definitions/Dept"
                 },
                 "roles": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Role",
-                        "originalRef": "Role"
+                        "originalRef": "Role",
+                        "$ref": "#/definitions/Role"
                     }
                 },
                 "sex": {
                     "type": "string"
                 },
                 "updateTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
                 },
                 "userAvatar": {
-                    "$ref": "#/definitions/UserAvatar",
-                    "originalRef": "UserAvatar"
+                    "originalRef": "UserAvatar",
+                    "$ref": "#/definitions/UserAvatar"
                 },
                 "userInfo": {
-                    "$ref": "#/definitions/UserInfo",
-                    "originalRef": "UserInfo"
+                    "originalRef": "UserInfo",
+                    "$ref": "#/definitions/UserInfo"
                 },
                 "username": {
                     "type": "string"
@@ -12769,8 +13766,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -12795,12 +13792,12 @@
                     "type": "string"
                 },
                 "company": {
-                    "$ref": "#/definitions/DeptSmallDto",
-                    "originalRef": "DeptSmallDto"
+                    "originalRef": "DeptSmallDto",
+                    "$ref": "#/definitions/DeptSmallDto"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "dataScope": {
                     "type": "integer",
@@ -12821,13 +13818,13 @@
                 "dataScopeDepts": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/DeptSmallDto",
-                        "originalRef": "DeptSmallDto"
+                        "originalRef": "DeptSmallDto",
+                        "$ref": "#/definitions/DeptSmallDto"
                     }
                 },
                 "dept": {
-                    "$ref": "#/definitions/DeptSmallDto",
-                    "originalRef": "DeptSmallDto"
+                    "originalRef": "DeptSmallDto",
+                    "$ref": "#/definitions/DeptSmallDto"
                 },
                 "email": {
                     "type": "string"
@@ -12836,8 +13833,8 @@
                     "type": "boolean"
                 },
                 "job": {
-                    "$ref": "#/definitions/JobSmallDto",
-                    "originalRef": "JobSmallDto"
+                    "originalRef": "JobSmallDto",
+                    "$ref": "#/definitions/JobSmallDto"
                 },
                 "lastPasswordResetTime": {
                     "type": "string",
@@ -12850,8 +13847,8 @@
                     "type": "string"
                 },
                 "region": {
-                    "$ref": "#/definitions/DeptSmallDto",
-                    "originalRef": "DeptSmallDto"
+                    "originalRef": "DeptSmallDto",
+                    "$ref": "#/definitions/DeptSmallDto"
                 },
                 "resetPwd": {
                     "type": "string"
@@ -12859,16 +13856,16 @@
                 "roles": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/RoleSmallDto",
-                        "originalRef": "RoleSmallDto"
+                        "originalRef": "RoleSmallDto",
+                        "$ref": "#/definitions/RoleSmallDto"
                     }
                 },
                 "sex": {
                     "type": "string"
                 },
                 "userInfo": {
-                    "$ref": "#/definitions/UserInfoDto",
-                    "originalRef": "UserInfoDto"
+                    "originalRef": "UserInfoDto",
+                    "$ref": "#/definitions/UserInfoDto"
                 },
                 "username": {
                     "type": "string"
@@ -12893,8 +13890,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -12934,8 +13931,8 @@
                     "type": "string"
                 },
                 "updateTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -13017,8 +14014,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "$ref": "#/definitions/Timestamp",
-                    "originalRef": "Timestamp"
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -13038,6 +14035,75 @@
                 }
             },
             "title": "VerificationCode"
+        },
+        "Warehouseinfo": {
+            "type": "object",
+            "properties": {
+                "acreage": {
+                    "type": "number"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "cond": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "flag": {
+                    "type": "boolean"
+                },
+                "floor": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isDelete": {
+                    "type": "boolean"
+                },
+                "isinsured": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "platform": {
+                    "type": "number"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "symbols": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "originalRef": "Timestamp",
+                    "$ref": "#/definitions/Timestamp"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "volume": {
+                    "type": "number"
+                }
+            },
+            "title": "Warehouseinfo"
         }
     }
 }

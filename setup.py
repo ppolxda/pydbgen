@@ -38,6 +38,7 @@ datas += findall('pydbgen/pbclass/_proto')
 datas += findall('pydbgen/pbclass/_templates')
 datas += findall('pydbgen/restful/_proto')
 datas += findall('pydbgen/restful/_templates')
+datas += findall('pydbgen/swagger/_templates')
 datas = [i[len('pydbgen/'):] for i in datas]
 
 setup(
@@ -48,6 +49,7 @@ setup(
         'mako',
         'pyyaml',
         'autopep8',
+        'requests',
         'grpcio-tools',
     ],
     packages=find_packages('.'),
@@ -68,6 +70,7 @@ setup(
             "protoc-gen-rfcjson=pydbgen.restful.protoc_gen_tmpl_multi:main",
             "protoc-gen-rfcts=pydbgen.restful.protoc_gen_typescript:main",
             "protoc-gen-rfcjava=pydbgen.restful.protoc_gen_java:main",
+            "genswagger=pydbgen.swagger.swagger_ts:main",
         ]
     },
     # scripts=bin_list_build(),

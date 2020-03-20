@@ -7,6 +7,7 @@
 @desc: swagger-apis
 """
 import os
+import six
 import json
 import yaml
 import copy
@@ -128,7 +129,8 @@ class Worker(object):
 
     def load_swagger(self):
         ''
-        if self.otps.input.startswith('http://') or self.otps.input.startswith('https://'):
+        if self.otps.input.startswith('http://') or \
+                self.otps.input.startswith('https://'):
             r = requests.get(self.otps.input)
             if r.status_code != 200:
                 raise TypeError(
@@ -147,7 +149,7 @@ class Worker(object):
 
         try:
             data = json.loads(data)
-        except json.JSONDecodeError as ex:
+        except json.JSONDecodeError:
             try:
                 data = yaml.load(data)
             except yaml.error.YAMLError as ex:
@@ -201,7 +203,7 @@ class Worker(object):
 
                 try:
                     os.makedirs(os.path.dirname(fpath))
-                except FileExistsError as ex:
+                except FileExistsError:
                     pass
 
                 if not config.upsert and os.path.exists(fpath):
@@ -214,7 +216,11 @@ class Worker(object):
 
                 fpath = fpath.format(filename=project)
 
-                with codecs.open(fpath, 'w', encoding=self.otps.encoding) as fs:
+                with codecs.open(
+                        fpath, 'w', encoding=self.otps.encoding
+                ) as fs:
+                    while '\n\n\n' in context:
+                        context = context.replace('\n\n\n', '\n\n')
                     fs.write(context)
 
     def gen_single(self, config: GenConfig, data: dict):

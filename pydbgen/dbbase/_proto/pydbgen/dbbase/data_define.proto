@@ -57,6 +57,11 @@ enum EnumShardingMode {
   SM_PARTITION_ID = 24;      // SM_PARTITION_ID
 }
 
+enum EnumIsNull {
+  NOT_NULL = 0;   // Is Not Null
+  ALLOW_NULL = 1; // Allow Null
+}
+
 enum EnumSortType {
   ASC = 0;    // ASC
   DESC = 1;   // DESC
@@ -111,6 +116,7 @@ extend google.protobuf.FieldOptions {
   string defval = 900010;
   // bool not_check = 900011;
   EnumSortType sort = 900012; // use for index
+  EnumIsNull null = 900025;   // is null
 
   //  ----------------------------------------------
   //              table options of database

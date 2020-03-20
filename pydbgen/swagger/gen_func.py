@@ -158,7 +158,7 @@ def enum_loop(src):
 
                 field = fmt_enum(field)
                 if field['ename'] in outlist:
-                    return None
+                    continue
 
                 outlist.add(field['ename'])
                 yield field['ename'], field

@@ -9,14 +9,21 @@
         "tmpl": "{tmpl}/ts/enums.ts.mako",
         "mode": "single",
         "output_fmt": "camel",
-        "output": "ts/Enums{filename}.ts",
+        "output": "ts/enums.ts",
         "disable": false
     },
     {
         "tmpl": "{tmpl}/ts/apis.ts.mako",
         "mode": "single",
         "output_fmt": "camel",
-        "output": "ts/Api{filename}.ts",
+        "output": "ts/api.ts",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/ts/interface.ts.mako",
+        "mode": "single",
+        "output_fmt": "camel",
+        "output": "ts/types.ts",
         "disable": false
     }
 ]

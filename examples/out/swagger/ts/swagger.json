@@ -1024,23 +1024,13 @@
                     },
                     {
                         "in": "body",
-                        "name": "ids",
-                        "description": "ids",
+                        "name": "req",
+                        "description": "req",
                         "required": true,
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
+                            "originalRef": "DelAreaIds",
+                            "$ref": "#/definitions/DelAreaIds"
                         }
-                    },
-                    {
-                        "name": "includeChildren",
-                        "in": "query",
-                        "description": "includeChildren",
-                        "required": false,
-                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -4766,6 +4756,7 @@
                                 "422 UNPROCESSABLE_ENTITY",
                                 "423 LOCKED",
                                 "424 FAILED_DEPENDENCY",
+                                "425 TOO_EARLY",
                                 "426 UPGRADE_REQUIRED",
                                 "428 PRECONDITION_REQUIRED",
                                 "429 TOO_MANY_REQUESTS",
@@ -4940,6 +4931,7 @@
                                 "422 UNPROCESSABLE_ENTITY",
                                 "423 LOCKED",
                                 "424 FAILED_DEPENDENCY",
+                                "425 TOO_EARLY",
                                 "426 UPGRADE_REQUIRED",
                                 "428 PRECONDITION_REQUIRED",
                                 "429 TOO_MANY_REQUESTS",
@@ -10465,7 +10457,7 @@
                 "tags": [
                     "\u7cfb\u7edf\uff1a\u7528\u6237\u7ba1\u7406"
                 ],
-                "summary": "\u67e5\u8be2\u7528\u6237",
+                "summary": "getUsers",
                 "operationId": "getUsersUsingGET",
                 "produces": [
                     "*/*"
@@ -10980,6 +10972,55 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/users/id": {
+            "get": {
+                "tags": [
+                    "\u7cfb\u7edf\uff1a\u7528\u6237\u7ba1\u7406"
+                ],
+                "summary": "\u67e5\u8be2\u5355\u4e2a\u7528\u6237",
+                "operationId": "getUsersByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "PageDto\u00abUserDto\u00bb",
+                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb"
+                        }
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -11763,7 +11804,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "originalRef": "CaptchaCodeDto",
+                            "$ref": "#/definitions/CaptchaCodeDto"
                         }
                     },
                     "401": {
@@ -11803,7 +11845,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "originalRef": "UserDetails",
+                            "$ref": "#/definitions/UserDetails"
                         }
                     },
                     "401": {
@@ -11856,7 +11899,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "originalRef": "AuthInfoDto",
+                            "$ref": "#/definitions/AuthInfoDto"
                         }
                     },
                     "201": {
@@ -12340,6 +12384,19 @@
             },
             "title": "AreaDto"
         },
+        "AuthInfoDto": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "user": {
+                    "originalRef": "JwtUserDto",
+                    "$ref": "#/definitions/JwtUserDto"
+                }
+            },
+            "title": "AuthInfoDto"
+        },
         "AuthUserDto": {
             "type": "object",
             "properties": {
@@ -12357,6 +12414,18 @@
                 }
             },
             "title": "AuthUserDto"
+        },
+        "CaptchaCodeDto": {
+            "type": "object",
+            "properties": {
+                "img": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                }
+            },
+            "title": "CaptchaCodeDto"
         },
         "ColumnInfo": {
             "type": "object",
@@ -12557,6 +12626,22 @@
                 }
             },
             "title": "Database"
+        },
+        "DelAreaIds": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "includeChildren": {
+                    "type": "boolean"
+                }
+            },
+            "title": "DelAreaIds"
         },
         "Deploy": {
             "type": "object",
@@ -12993,6 +13078,15 @@
             },
             "title": "GenConfig"
         },
+        "GrantedAuthority": {
+            "type": "object",
+            "properties": {
+                "authority": {
+                    "type": "string"
+                }
+            },
+            "title": "GrantedAuthority"
+        },
         "InputStream": {
             "type": "object",
             "title": "InputStream"
@@ -13060,6 +13154,22 @@
                 }
             },
             "title": "JobSmallDto"
+        },
+        "JwtUserDto": {
+            "type": "object",
+            "properties": {
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "user": {
+                    "originalRef": "UserDto",
+                    "$ref": "#/definitions/UserDto"
+                }
+            },
+            "title": "JwtUserDto"
         },
         "LocalStorage": {
             "type": "object",
@@ -13785,6 +13895,37 @@
             },
             "title": "UserAvatar"
         },
+        "UserDetails": {
+            "type": "object",
+            "properties": {
+                "accountNonExpired": {
+                    "type": "boolean"
+                },
+                "accountNonLocked": {
+                    "type": "boolean"
+                },
+                "authorities": {
+                    "type": "array",
+                    "items": {
+                        "originalRef": "GrantedAuthority",
+                        "$ref": "#/definitions/GrantedAuthority"
+                    }
+                },
+                "credentialsNonExpired": {
+                    "type": "boolean"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "title": "UserDetails"
+        },
         "UserDto": {
             "type": "object",
             "properties": {
@@ -14084,7 +14225,7 @@
                     "type": "string"
                 },
                 "platform": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "province": {
                     "type": "string"

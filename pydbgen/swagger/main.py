@@ -131,7 +131,7 @@ class Worker(object):
         ''
         if self.otps.input.startswith('http://') or \
                 self.otps.input.startswith('https://'):
-            r = requests.get(self.otps.input)
+            r = requests.get(self.otps.input, timeout=5)
             if r.status_code != 200:
                 raise TypeError(
                     '--input http error {}'.format(

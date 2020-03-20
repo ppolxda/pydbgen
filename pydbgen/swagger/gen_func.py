@@ -221,6 +221,7 @@ def paths_loop(src):
             config['xquery'] = query
             config['xheader'] = header
             config['xpath'] = path
+            config['xbody'] = body
 
             yield uri, method, config
 

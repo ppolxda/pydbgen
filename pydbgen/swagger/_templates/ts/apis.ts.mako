@@ -187,9 +187,9 @@
 
             if cname in DATETIME_TYPES:
                 if repeated:
-                    return 'moment.Moment[]'
+                    return 'number'
                 else:
-                    return 'moment.Moment'
+                    return 'number'
 
             return 'message'
 
@@ -285,10 +285,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 ## import * as enums from "./enums";
 import * as types from "./types";
-
-export function _(val: string): string {
-    return val;
-}
 
 ## // ----------------------------------------------
 ## //        enum define
@@ -719,7 +715,7 @@ export function _(val: string): string {
 //        Api define
 // ----------------------------------------------
 
-export abstract class BaseApi {
+export class BaseApi {
   private basePath = "";
 
   constructor(basePath: string) {
@@ -736,21 +732,24 @@ export abstract class BaseApi {
     ## <% header_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
   <%
         class_n = module['operationId']
-        class_n = class_n.replace('«', '').replace('»', '')
+        class_n = typename2class(class_n.replace('«', '').replace('»', ''))
         parames = []
         parames_pp = []
         rsp = module['responses'].get('200', {})
 
         if method in ['delete']:
-          if module['xpath']:
-              parames.append('data: {}'.format('Path' + class_n))
+          if module['xbody']:
+              parames.append('data: {}'.format('types.' + 'Body' + class_n))
           else:
               parames.append('data: types.INullObject')
         else:
-          if module['xpath']:
-              parames.append('req: {}'.format('Path' + class_n))
+          if module['xbody']:
+              parames.append('req: {}'.format('types.' + 'Body' + class_n))
           elif method in ['put', 'post', 'patch']:
               parames.append('req: types.INullObject')
+
+        if module['xpath']:
+            parames.append('path: {}'.format('types.' + 'Path' + class_n))
 
         if module['xquery']:
             parames.append('params: {}'.format('types.' + 'Query' + class_n))
@@ -767,21 +766,31 @@ export abstract class BaseApi {
     ## % if module['xheader']:
     ## config["headers"] = { ...config["headers"], ...headers };
     ## % endif
+    % if module['xpath']:
+    let paths = []
+    for (let key of Object.keys(path)) {
+        let val = path[key];
+        paths.append(val)
+    }
+    let upath = paths.join('/')
+    % else:
+    let upath = ''
+    % endif
     % if method in ['delete']:
       return axios
         .${method}<${'types.I' + datatype_interface(rsp)}>(
-          `${'${this.basePath}'}/auth/login`, 
+          `${'${this.basePath}'}${uri}${'${upath}'}`, 
           {data, ...config}
         ).then(rsp => rsp.data);
     % elif method in ['put', 'post', 'patch']:
     return axios
       .${method}<${'types.I' + datatype_interface(rsp)}>(
-          `${'${this.basePath}'}${uri}`, req, config
+          `${'${this.basePath}'}${uri}${'${upath}'}`, req, config
       ).then(rsp => rsp.data);
     % else:
     return axios
       .${method}<${'types.I' + datatype_interface(rsp)}>(
-          `${'${this.basePath}'}${uri}`, {params, ...config}
+          `${'${this.basePath}'}${uri}${'${upath}'}`, {params, ...config}
       ).then(rsp => rsp.data);
     % endif
   }

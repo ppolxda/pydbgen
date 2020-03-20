@@ -198,8 +198,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "AlipayConfig",
-                            "$ref": "#/definitions/AlipayConfig"
+                            "$ref": "#/definitions/AlipayConfig",
+                            "originalRef": "AlipayConfig"
                         }
                     },
                     "401": {
@@ -241,8 +241,8 @@
                         "description": "alipayConfig",
                         "required": true,
                         "schema": {
-                            "originalRef": "AlipayConfig",
-                            "$ref": "#/definitions/AlipayConfig"
+                            "$ref": "#/definitions/AlipayConfig",
+                            "originalRef": "AlipayConfig"
                         }
                     }
                 ],
@@ -297,8 +297,8 @@
                         "description": "trade",
                         "required": true,
                         "schema": {
-                            "originalRef": "TradeVo",
-                            "$ref": "#/definitions/TradeVo"
+                            "$ref": "#/definitions/TradeVo",
+                            "originalRef": "TradeVo"
                         }
                     }
                 ],
@@ -353,8 +353,8 @@
                         "description": "trade",
                         "required": true,
                         "schema": {
-                            "originalRef": "TradeVo",
-                            "$ref": "#/definitions/TradeVo"
+                            "$ref": "#/definitions/TradeVo",
+                            "originalRef": "TradeVo"
                         }
                     }
                 ],
@@ -550,8 +550,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "App",
-                            "$ref": "#/definitions/App"
+                            "$ref": "#/definitions/App",
+                            "originalRef": "App"
                         }
                     }
                 ],
@@ -604,8 +604,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "App",
-                            "$ref": "#/definitions/App"
+                            "$ref": "#/definitions/App",
+                            "originalRef": "App"
                         }
                     }
                 ],
@@ -880,8 +880,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abAreaDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abAreaDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abAreaDto\u00bb",
+                            "originalRef": "PageDto\u00abAreaDto\u00bb"
                         }
                     },
                     "401": {
@@ -923,8 +923,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Area",
-                            "$ref": "#/definitions/Area"
+                            "$ref": "#/definitions/Area",
+                            "originalRef": "Area"
                         }
                     }
                 ],
@@ -977,8 +977,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Area",
-                            "$ref": "#/definitions/Area"
+                            "$ref": "#/definitions/Area",
+                            "originalRef": "Area"
                         }
                     }
                 ],
@@ -1028,8 +1028,8 @@
                         "description": "req",
                         "required": true,
                         "schema": {
-                            "originalRef": "DelAreaIds",
-                            "$ref": "#/definitions/DelAreaIds"
+                            "$ref": "#/definitions/DelAreaIds",
+                            "originalRef": "DelAreaIds"
                         }
                     }
                 ],
@@ -1204,8 +1204,8 @@
                         "description": "code",
                         "required": true,
                         "schema": {
-                            "originalRef": "VerificationCode",
-                            "$ref": "#/definitions/VerificationCode"
+                            "$ref": "#/definitions/VerificationCode",
+                            "originalRef": "VerificationCode"
                         }
                     }
                 ],
@@ -1498,8 +1498,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Consignor",
-                            "$ref": "#/definitions/Consignor"
+                            "$ref": "#/definitions/Consignor",
+                            "originalRef": "Consignor"
                         }
                     }
                 ],
@@ -1552,8 +1552,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Consignor",
-                            "$ref": "#/definitions/Consignor"
+                            "$ref": "#/definitions/Consignor",
+                            "originalRef": "Consignor"
                         }
                     }
                 ],
@@ -1869,8 +1869,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Database",
-                            "$ref": "#/definitions/Database"
+                            "$ref": "#/definitions/Database",
+                            "originalRef": "Database"
                         }
                     }
                 ],
@@ -1923,8 +1923,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Database",
-                            "$ref": "#/definitions/Database"
+                            "$ref": "#/definitions/Database",
+                            "originalRef": "Database"
                         }
                     }
                 ],
@@ -2148,8 +2148,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Database",
-                            "$ref": "#/definitions/Database"
+                            "$ref": "#/definitions/Database",
+                            "originalRef": "Database"
                         }
                     }
                 ],
@@ -2398,8 +2398,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Deploy",
-                            "$ref": "#/definitions/Deploy"
+                            "$ref": "#/definitions/Deploy",
+                            "originalRef": "Deploy"
                         }
                     }
                 ],
@@ -2452,8 +2452,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Deploy",
-                            "$ref": "#/definitions/Deploy"
+                            "$ref": "#/definitions/Deploy",
+                            "originalRef": "Deploy"
                         }
                     }
                 ],
@@ -2672,8 +2672,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "DeployHistory",
-                            "$ref": "#/definitions/DeployHistory"
+                            "$ref": "#/definitions/DeployHistory",
+                            "originalRef": "DeployHistory"
                         }
                     }
                 ],
@@ -2728,8 +2728,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Deploy",
-                            "$ref": "#/definitions/Deploy"
+                            "$ref": "#/definitions/Deploy",
+                            "originalRef": "Deploy"
                         }
                     }
                 ],
@@ -2784,8 +2784,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Deploy",
-                            "$ref": "#/definitions/Deploy"
+                            "$ref": "#/definitions/Deploy",
+                            "originalRef": "Deploy"
                         }
                     }
                 ],
@@ -2840,8 +2840,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Deploy",
-                            "$ref": "#/definitions/Deploy"
+                            "$ref": "#/definitions/Deploy",
+                            "originalRef": "Deploy"
                         }
                     }
                 ],
@@ -3365,8 +3365,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abDeptDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb",
+                            "originalRef": "PageDto\u00abDeptDto\u00bb"
                         }
                     },
                     "401": {
@@ -3408,8 +3408,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Dept",
-                            "$ref": "#/definitions/Dept"
+                            "$ref": "#/definitions/Dept",
+                            "originalRef": "Dept"
                         }
                     }
                 ],
@@ -3462,8 +3462,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Dept",
-                            "$ref": "#/definitions/Dept"
+                            "$ref": "#/definitions/Dept",
+                            "originalRef": "Dept"
                         }
                     }
                 ],
@@ -3581,8 +3581,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abDeptDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb",
+                            "originalRef": "PageDto\u00abDeptDto\u00bb"
                         }
                     },
                     "401": {
@@ -3767,8 +3767,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abDeptDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abDeptDto\u00bb",
+                            "originalRef": "PageDto\u00abDeptDto\u00bb"
                         }
                     },
                     "401": {
@@ -3883,8 +3883,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Dict",
-                            "$ref": "#/definitions/Dict"
+                            "$ref": "#/definitions/Dict",
+                            "originalRef": "Dict"
                         }
                     }
                 ],
@@ -3937,8 +3937,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Dict",
-                            "$ref": "#/definitions/Dict"
+                            "$ref": "#/definitions/Dict",
+                            "originalRef": "Dict"
                         }
                     }
                 ],
@@ -4204,8 +4204,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "DictDetail",
-                            "$ref": "#/definitions/DictDetail"
+                            "$ref": "#/definitions/DictDetail",
+                            "originalRef": "DictDetail"
                         }
                     }
                 ],
@@ -4258,8 +4258,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "DictDetail",
-                            "$ref": "#/definitions/DictDetail"
+                            "$ref": "#/definitions/DictDetail",
+                            "originalRef": "DictDetail"
                         }
                     }
                 ],
@@ -4479,8 +4479,8 @@
                         "description": "emailVo",
                         "required": true,
                         "schema": {
-                            "originalRef": "EmailVo",
-                            "$ref": "#/definitions/EmailVo"
+                            "$ref": "#/definitions/EmailVo",
+                            "originalRef": "EmailVo"
                         }
                     }
                 ],
@@ -4533,8 +4533,8 @@
                         "description": "emailConfig",
                         "required": true,
                         "schema": {
-                            "originalRef": "EmailConfig",
-                            "$ref": "#/definitions/EmailConfig"
+                            "$ref": "#/definitions/EmailConfig",
+                            "originalRef": "EmailConfig"
                         }
                     }
                 ],
@@ -4589,8 +4589,8 @@
                         "description": "genConfig",
                         "required": true,
                         "schema": {
-                            "originalRef": "GenConfig",
-                            "$ref": "#/definitions/GenConfig"
+                            "$ref": "#/definitions/GenConfig",
+                            "originalRef": "GenConfig"
                         }
                     }
                 ],
@@ -4694,8 +4694,8 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "originalRef": "ColumnInfo",
-                                "$ref": "#/definitions/ColumnInfo"
+                                "$ref": "#/definitions/ColumnInfo",
+                                "originalRef": "ColumnInfo"
                             }
                         }
                     }
@@ -5139,7 +5139,7 @@
                 "tags": [
                     "\u7cfb\u7edf\uff1a\u5c97\u4f4d\u7ba1\u7406"
                 ],
-                "summary": "\u67e5\u8be2\u5c97\u4f4d",
+                "summary": "getJobs",
                 "operationId": "getJobsUsingGET",
                 "produces": [
                     "*/*"
@@ -5230,6 +5230,13 @@
                         "type": "boolean"
                     },
                     {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
                         "name": "name",
                         "in": "query",
                         "required": false,
@@ -5267,8 +5274,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abJobDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abJobDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abJobDto\u00bb",
+                            "originalRef": "PageDto\u00abJobDto\u00bb"
                         }
                     },
                     "401": {
@@ -5310,8 +5317,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Job",
-                            "$ref": "#/definitions/Job"
+                            "$ref": "#/definitions/Job",
+                            "originalRef": "Job"
                         }
                     }
                 ],
@@ -5319,8 +5326,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "JobDto",
-                            "$ref": "#/definitions/JobDto"
+                            "$ref": "#/definitions/JobDto",
+                            "originalRef": "JobDto"
                         }
                     },
                     "201": {
@@ -5365,8 +5372,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Job",
-                            "$ref": "#/definitions/Job"
+                            "$ref": "#/definitions/Job",
+                            "originalRef": "Job"
                         }
                     }
                 ],
@@ -5540,6 +5547,13 @@
                         "type": "boolean"
                     },
                     {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
                         "name": "name",
                         "in": "query",
                         "required": false,
@@ -5549,6 +5563,55 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/job/id": {
+            "get": {
+                "tags": [
+                    "\u7cfb\u7edf\uff1a\u5c97\u4f4d\u7ba1\u7406"
+                ],
+                "summary": "\u67e5\u8be2\u5355\u4e2a\u5c97\u4f4d",
+                "operationId": "getJobByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PageDto\u00abJobDto\u00bb",
+                            "originalRef": "PageDto\u00abJobDto\u00bb"
+                        }
                     },
                     "401": {
                         "description": "Unauthorized"
@@ -5738,8 +5801,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "QuartzJob",
-                            "$ref": "#/definitions/QuartzJob"
+                            "$ref": "#/definitions/QuartzJob",
+                            "originalRef": "QuartzJob"
                         }
                     }
                 ],
@@ -5792,8 +5855,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "QuartzJob",
-                            "$ref": "#/definitions/QuartzJob"
+                            "$ref": "#/definitions/QuartzJob",
+                            "originalRef": "QuartzJob"
                         }
                     }
                 ],
@@ -6634,8 +6697,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "LocalStorage",
-                            "$ref": "#/definitions/LocalStorage"
+                            "$ref": "#/definitions/LocalStorage",
+                            "originalRef": "LocalStorage"
                         }
                     }
                 ],
@@ -7781,8 +7844,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Menu",
-                            "$ref": "#/definitions/Menu"
+                            "$ref": "#/definitions/Menu",
+                            "originalRef": "Menu"
                         }
                     }
                 ],
@@ -7835,8 +7898,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Menu",
-                            "$ref": "#/definitions/Menu"
+                            "$ref": "#/definitions/Menu",
+                            "originalRef": "Menu"
                         }
                     }
                 ],
@@ -8834,8 +8897,8 @@
                         "description": "qiniuConfig",
                         "required": true,
                         "schema": {
-                            "originalRef": "QiniuConfig",
-                            "$ref": "#/definitions/QiniuConfig"
+                            "$ref": "#/definitions/QiniuConfig",
+                            "originalRef": "QiniuConfig"
                         }
                     }
                 ],
@@ -9244,8 +9307,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abRoleDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abRoleDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abRoleDto\u00bb",
+                            "originalRef": "PageDto\u00abRoleDto\u00bb"
                         }
                     },
                     "401": {
@@ -9287,8 +9350,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Role",
-                            "$ref": "#/definitions/Role"
+                            "$ref": "#/definitions/Role",
+                            "originalRef": "Role"
                         }
                     }
                 ],
@@ -9341,8 +9404,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Role",
-                            "$ref": "#/definitions/Role"
+                            "$ref": "#/definitions/Role",
+                            "originalRef": "Role"
                         }
                     }
                 ],
@@ -9473,8 +9536,8 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "originalRef": "RoleDto",
-                                "$ref": "#/definitions/RoleDto"
+                                "$ref": "#/definitions/RoleDto",
+                                "originalRef": "RoleDto"
                             }
                         }
                     },
@@ -9604,6 +9667,55 @@
                 "deprecated": false
             }
         },
+        "/api/roles/id": {
+            "get": {
+                "tags": [
+                    "\u7cfb\u7edf\uff1a\u89d2\u8272\u7ba1\u7406"
+                ],
+                "summary": "\u83b7\u53d6\u5355\u4e2arole",
+                "operationId": "getRolesByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RoleDto",
+                            "originalRef": "RoleDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/api/roles/level": {
             "get": {
                 "tags": [
@@ -9672,8 +9784,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Role",
-                            "$ref": "#/definitions/Role"
+                            "$ref": "#/definitions/Role",
+                            "originalRef": "Role"
                         }
                     }
                 ],
@@ -9705,7 +9817,7 @@
                 "tags": [
                     "\u7cfb\u7edf\uff1a\u89d2\u8272\u7ba1\u7406"
                 ],
-                "summary": "\u83b7\u53d6\u5355\u4e2arole",
+                "summary": "getRoles",
                 "operationId": "getRolesUsingGET_2",
                 "produces": [
                     "*/*"
@@ -9732,8 +9844,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "RoleDto",
-                            "$ref": "#/definitions/RoleDto"
+                            "$ref": "#/definitions/RoleDto",
+                            "originalRef": "RoleDto"
                         }
                     },
                     "401": {
@@ -9848,8 +9960,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Server",
-                            "$ref": "#/definitions/Server"
+                            "$ref": "#/definitions/Server",
+                            "originalRef": "Server"
                         }
                     }
                 ],
@@ -9902,8 +10014,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Server",
-                            "$ref": "#/definitions/Server"
+                            "$ref": "#/definitions/Server",
+                            "originalRef": "Server"
                         }
                     }
                 ],
@@ -10150,8 +10262,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "ServerDeploy",
-                            "$ref": "#/definitions/ServerDeploy"
+                            "$ref": "#/definitions/ServerDeploy",
+                            "originalRef": "ServerDeploy"
                         }
                     }
                 ],
@@ -10204,8 +10316,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "ServerDeploy",
-                            "$ref": "#/definitions/ServerDeploy"
+                            "$ref": "#/definitions/ServerDeploy",
+                            "originalRef": "ServerDeploy"
                         }
                     }
                 ],
@@ -10424,8 +10536,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "ServerDeploy",
-                            "$ref": "#/definitions/ServerDeploy"
+                            "$ref": "#/definitions/ServerDeploy",
+                            "originalRef": "ServerDeploy"
                         }
                     }
                 ],
@@ -10610,8 +10722,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abUserDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb",
+                            "originalRef": "PageDto\u00abUserDto\u00bb"
                         }
                     },
                     "401": {
@@ -10653,8 +10765,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "User",
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/User",
+                            "originalRef": "User"
                         }
                     }
                 ],
@@ -10707,8 +10819,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "User",
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/User",
+                            "originalRef": "User"
                         }
                     }
                 ],
@@ -10814,8 +10926,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "User",
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/User",
+                            "originalRef": "User"
                         }
                     }
                 ],
@@ -11018,8 +11130,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "PageDto\u00abUserDto\u00bb",
-                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb"
+                            "$ref": "#/definitions/PageDto\u00abUserDto\u00bb",
+                            "originalRef": "PageDto\u00abUserDto\u00bb"
                         }
                     },
                     "401": {
@@ -11063,8 +11175,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "User",
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/User",
+                            "originalRef": "User"
                         }
                     }
                 ],
@@ -11179,8 +11291,8 @@
                         "description": "user",
                         "required": true,
                         "schema": {
-                            "originalRef": "User",
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/User",
+                            "originalRef": "User"
                         }
                     }
                 ],
@@ -11235,8 +11347,8 @@
                         "description": "passVo",
                         "required": true,
                         "schema": {
-                            "originalRef": "UserPassVo",
-                            "$ref": "#/definitions/UserPassVo"
+                            "$ref": "#/definitions/UserPassVo",
+                            "originalRef": "UserPassVo"
                         }
                     }
                 ],
@@ -11510,8 +11622,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Warehouseinfo",
-                            "$ref": "#/definitions/Warehouseinfo"
+                            "$ref": "#/definitions/Warehouseinfo",
+                            "originalRef": "Warehouseinfo"
                         }
                     }
                 ],
@@ -11564,8 +11676,8 @@
                         "description": "resources",
                         "required": true,
                         "schema": {
-                            "originalRef": "Warehouseinfo",
-                            "$ref": "#/definitions/Warehouseinfo"
+                            "$ref": "#/definitions/Warehouseinfo",
+                            "originalRef": "Warehouseinfo"
                         }
                     }
                 ],
@@ -11804,8 +11916,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "CaptchaCodeDto",
-                            "$ref": "#/definitions/CaptchaCodeDto"
+                            "$ref": "#/definitions/CaptchaCodeDto",
+                            "originalRef": "CaptchaCodeDto"
                         }
                     },
                     "401": {
@@ -11845,8 +11957,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "UserDetails",
-                            "$ref": "#/definitions/UserDetails"
+                            "$ref": "#/definitions/UserDetails",
+                            "originalRef": "UserDetails"
                         }
                     },
                     "401": {
@@ -11890,8 +12002,8 @@
                         "description": "authUser",
                         "required": true,
                         "schema": {
-                            "originalRef": "AuthUserDto",
-                            "$ref": "#/definitions/AuthUserDto"
+                            "$ref": "#/definitions/AuthUserDto",
+                            "originalRef": "AuthUserDto"
                         }
                     }
                 ],
@@ -11899,8 +12011,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "originalRef": "AuthInfoDto",
-                            "$ref": "#/definitions/AuthInfoDto"
+                            "$ref": "#/definitions/AuthInfoDto",
+                            "originalRef": "AuthInfoDto"
                         }
                     },
                     "201": {
@@ -12176,8 +12288,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "deployPath": {
                     "type": "string"
@@ -12229,8 +12341,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -12286,8 +12398,8 @@
                     "format": "int32"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -12304,8 +12416,8 @@
                 "children": {
                     "type": "array",
                     "items": {
-                        "originalRef": "AreaDto",
-                        "$ref": "#/definitions/AreaDto"
+                        "$ref": "#/definitions/AreaDto",
+                        "originalRef": "AreaDto"
                     }
                 },
                 "cityLevel": {
@@ -12391,8 +12503,8 @@
                     "type": "string"
                 },
                 "user": {
-                    "originalRef": "JwtUserDto",
-                    "$ref": "#/definitions/JwtUserDto"
+                    "$ref": "#/definitions/JwtUserDto",
+                    "originalRef": "JwtUserDto"
                 }
             },
             "title": "AuthInfoDto"
@@ -12492,8 +12604,8 @@
                     "type": "string"
                 },
                 "city": {
-                    "originalRef": "Area",
-                    "$ref": "#/definitions/Area"
+                    "$ref": "#/definitions/Area",
+                    "originalRef": "Area"
                 },
                 "code": {
                     "type": "string"
@@ -12502,8 +12614,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -12562,15 +12674,15 @@
                     ]
                 },
                 "province": {
-                    "originalRef": "Area",
-                    "$ref": "#/definitions/Area"
+                    "$ref": "#/definitions/Area",
+                    "originalRef": "Area"
                 },
                 "py": {
                     "type": "string"
                 },
                 "recordDate": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "shortName": {
                     "type": "string"
@@ -12586,8 +12698,8 @@
                     "type": "string"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -12596,8 +12708,8 @@
                     "type": "string"
                 },
                 "workDate": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 }
             },
             "title": "Consignor"
@@ -12606,8 +12718,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "id": {
                     "type": "string"
@@ -12647,18 +12759,18 @@
             "type": "object",
             "properties": {
                 "app": {
-                    "originalRef": "App",
-                    "$ref": "#/definitions/App"
+                    "$ref": "#/definitions/App",
+                    "originalRef": "App"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "deploys": {
                     "type": "array",
                     "items": {
-                        "originalRef": "ServerDeploy",
-                        "$ref": "#/definitions/ServerDeploy"
+                        "$ref": "#/definitions/ServerDeploy",
+                        "originalRef": "ServerDeploy"
                     }
                 },
                 "id": {
@@ -12675,8 +12787,8 @@
                     "type": "string"
                 },
                 "deployDate": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "deployId": {
                     "type": "integer",
@@ -12698,15 +12810,15 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
                 },
                 "deptInfo": {
-                    "originalRef": "DeptInfo",
-                    "$ref": "#/definitions/DeptInfo"
+                    "$ref": "#/definitions/DeptInfo",
+                    "originalRef": "DeptInfo"
                 },
                 "enabled": {
                     "type": "boolean"
@@ -12730,8 +12842,8 @@
                     "format": "int64"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -12745,17 +12857,17 @@
                 "children": {
                     "type": "array",
                     "items": {
-                        "originalRef": "DeptDto",
-                        "$ref": "#/definitions/DeptDto"
+                        "$ref": "#/definitions/DeptDto",
+                        "originalRef": "DeptDto"
                     }
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "deptInfo": {
-                    "originalRef": "DeptInfoDto",
-                    "$ref": "#/definitions/DeptInfoDto"
+                    "$ref": "#/definitions/DeptInfoDto",
+                    "originalRef": "DeptInfoDto"
                 },
                 "enabled": {
                     "type": "boolean"
@@ -12792,8 +12904,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -12848,8 +12960,8 @@
                     "type": "string"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -12943,14 +13055,14 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "dictDetails": {
                     "type": "array",
                     "items": {
-                        "originalRef": "DictDetail",
-                        "$ref": "#/definitions/DictDetail"
+                        "$ref": "#/definitions/DictDetail",
+                        "originalRef": "DictDetail"
                     }
                 },
                 "id": {
@@ -12970,12 +13082,12 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "dict": {
-                    "originalRef": "Dict",
-                    "$ref": "#/definitions/Dict"
+                    "$ref": "#/definitions/Dict",
+                    "originalRef": "Dict"
                 },
                 "id": {
                     "type": "integer",
@@ -13095,8 +13207,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "enabled": {
                     "type": "boolean"
@@ -13119,8 +13231,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "deptSuperiorName": {
                     "type": "string"
@@ -13165,8 +13277,8 @@
                     }
                 },
                 "user": {
-                    "originalRef": "UserDto",
-                    "$ref": "#/definitions/UserDto"
+                    "$ref": "#/definitions/UserDto",
+                    "originalRef": "UserDto"
                 }
             },
             "title": "JwtUserDto"
@@ -13175,8 +13287,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -13219,8 +13331,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "hidden": {
                     "type": "boolean"
@@ -13268,8 +13380,8 @@
                 "children": {
                     "type": "array",
                     "items": {
-                        "originalRef": "MenuDto",
-                        "$ref": "#/definitions/MenuDto"
+                        "$ref": "#/definitions/MenuDto",
+                        "originalRef": "MenuDto"
                     }
                 },
                 "component": {
@@ -13279,8 +13391,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "hidden": {
                     "type": "boolean"
@@ -13325,8 +13437,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "originalRef": "AreaDto",
-                        "$ref": "#/definitions/AreaDto"
+                        "$ref": "#/definitions/AreaDto",
+                        "originalRef": "AreaDto"
                     }
                 },
                 "totalElements": {
@@ -13342,8 +13454,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "originalRef": "DeptDto",
-                        "$ref": "#/definitions/DeptDto"
+                        "$ref": "#/definitions/DeptDto",
+                        "originalRef": "DeptDto"
                     }
                 },
                 "totalElements": {
@@ -13359,8 +13471,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "originalRef": "JobDto",
-                        "$ref": "#/definitions/JobDto"
+                        "$ref": "#/definitions/JobDto",
+                        "originalRef": "JobDto"
                     }
                 },
                 "totalElements": {
@@ -13376,8 +13488,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "originalRef": "RoleDto",
-                        "$ref": "#/definitions/RoleDto"
+                        "$ref": "#/definitions/RoleDto",
+                        "originalRef": "RoleDto"
                     }
                 },
                 "totalElements": {
@@ -13393,8 +13505,8 @@
                 "content": {
                     "type": "array",
                     "items": {
-                        "originalRef": "UserDto",
-                        "$ref": "#/definitions/UserDto"
+                        "$ref": "#/definitions/UserDto",
+                        "originalRef": "UserDto"
                     }
                 },
                 "totalElements": {
@@ -13439,8 +13551,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "cronExpression": {
                     "type": "string"
@@ -13474,15 +13586,15 @@
                     "type": "string"
                 },
                 "file": {
-                    "originalRef": "File",
-                    "$ref": "#/definitions/File"
+                    "$ref": "#/definitions/File",
+                    "originalRef": "File"
                 },
                 "filename": {
                     "type": "string"
                 },
                 "inputStream": {
-                    "originalRef": "InputStream",
-                    "$ref": "#/definitions/InputStream"
+                    "$ref": "#/definitions/InputStream",
+                    "originalRef": "InputStream"
                 },
                 "open": {
                     "type": "boolean"
@@ -13491,12 +13603,12 @@
                     "type": "boolean"
                 },
                 "uri": {
-                    "originalRef": "URI",
-                    "$ref": "#/definitions/URI"
+                    "$ref": "#/definitions/URI",
+                    "originalRef": "URI"
                 },
                 "url": {
-                    "originalRef": "URL",
-                    "$ref": "#/definitions/URL"
+                    "$ref": "#/definitions/URL",
+                    "originalRef": "URL"
                 }
             },
             "title": "Resource"
@@ -13505,14 +13617,14 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "depts": {
                     "type": "array",
                     "items": {
-                        "originalRef": "Dept",
-                        "$ref": "#/definitions/Dept"
+                        "$ref": "#/definitions/Dept",
+                        "originalRef": "Dept"
                     }
                 },
                 "id": {
@@ -13526,8 +13638,8 @@
                 "menus": {
                     "type": "array",
                     "items": {
-                        "originalRef": "Menu",
-                        "$ref": "#/definitions/Menu"
+                        "$ref": "#/definitions/Menu",
+                        "originalRef": "Menu"
                     }
                 },
                 "name": {
@@ -13546,8 +13658,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "dataScope": {
                     "type": "string"
@@ -13555,8 +13667,8 @@
                 "depts": {
                     "type": "array",
                     "items": {
-                        "originalRef": "DeptDto",
-                        "$ref": "#/definitions/DeptDto"
+                        "$ref": "#/definitions/DeptDto",
+                        "originalRef": "DeptDto"
                     }
                 },
                 "id": {
@@ -13570,8 +13682,8 @@
                 "menus": {
                     "type": "array",
                     "items": {
-                        "originalRef": "MenuDto",
-                        "$ref": "#/definitions/MenuDto"
+                        "$ref": "#/definitions/MenuDto",
+                        "originalRef": "MenuDto"
                     }
                 },
                 "name": {
@@ -13672,8 +13784,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -13777,12 +13889,12 @@
             ],
             "properties": {
                 "company": {
-                    "originalRef": "Dept",
-                    "$ref": "#/definitions/Dept"
+                    "$ref": "#/definitions/Dept",
+                    "originalRef": "Dept"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -13806,13 +13918,13 @@
                 "dataScopeDepts": {
                     "type": "array",
                     "items": {
-                        "originalRef": "Dept",
-                        "$ref": "#/definitions/Dept"
+                        "$ref": "#/definitions/Dept",
+                        "originalRef": "Dept"
                     }
                 },
                 "dept": {
-                    "originalRef": "Dept",
-                    "$ref": "#/definitions/Dept"
+                    "$ref": "#/definitions/Dept",
+                    "originalRef": "Dept"
                 },
                 "email": {
                     "type": "string"
@@ -13828,8 +13940,8 @@
                     "type": "boolean"
                 },
                 "job": {
-                    "originalRef": "Job",
-                    "$ref": "#/definitions/Job"
+                    "$ref": "#/definitions/Job",
+                    "originalRef": "Job"
                 },
                 "nickName": {
                     "type": "string"
@@ -13838,33 +13950,33 @@
                     "type": "string"
                 },
                 "region": {
-                    "originalRef": "Dept",
-                    "$ref": "#/definitions/Dept"
+                    "$ref": "#/definitions/Dept",
+                    "originalRef": "Dept"
                 },
                 "roles": {
                     "type": "array",
                     "items": {
-                        "originalRef": "Role",
-                        "$ref": "#/definitions/Role"
+                        "$ref": "#/definitions/Role",
+                        "originalRef": "Role"
                     }
                 },
                 "sex": {
                     "type": "string"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
                 },
                 "userAvatar": {
-                    "originalRef": "UserAvatar",
-                    "$ref": "#/definitions/UserAvatar"
+                    "$ref": "#/definitions/UserAvatar",
+                    "originalRef": "UserAvatar"
                 },
                 "userInfo": {
-                    "originalRef": "UserInfo",
-                    "$ref": "#/definitions/UserInfo"
+                    "$ref": "#/definitions/UserInfo",
+                    "originalRef": "UserInfo"
                 },
                 "username": {
                     "type": "string"
@@ -13876,8 +13988,8 @@
             "type": "object",
             "properties": {
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -13907,8 +14019,8 @@
                 "authorities": {
                     "type": "array",
                     "items": {
-                        "originalRef": "GrantedAuthority",
-                        "$ref": "#/definitions/GrantedAuthority"
+                        "$ref": "#/definitions/GrantedAuthority",
+                        "originalRef": "GrantedAuthority"
                     }
                 },
                 "credentialsNonExpired": {
@@ -13933,12 +14045,12 @@
                     "type": "string"
                 },
                 "company": {
-                    "originalRef": "DeptSmallDto",
-                    "$ref": "#/definitions/DeptSmallDto"
+                    "$ref": "#/definitions/DeptSmallDto",
+                    "originalRef": "DeptSmallDto"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "dataScope": {
                     "type": "integer",
@@ -13959,13 +14071,13 @@
                 "dataScopeDepts": {
                     "type": "array",
                     "items": {
-                        "originalRef": "DeptSmallDto",
-                        "$ref": "#/definitions/DeptSmallDto"
+                        "$ref": "#/definitions/DeptSmallDto",
+                        "originalRef": "DeptSmallDto"
                     }
                 },
                 "dept": {
-                    "originalRef": "DeptSmallDto",
-                    "$ref": "#/definitions/DeptSmallDto"
+                    "$ref": "#/definitions/DeptSmallDto",
+                    "originalRef": "DeptSmallDto"
                 },
                 "email": {
                     "type": "string"
@@ -13974,8 +14086,8 @@
                     "type": "boolean"
                 },
                 "job": {
-                    "originalRef": "JobSmallDto",
-                    "$ref": "#/definitions/JobSmallDto"
+                    "$ref": "#/definitions/JobSmallDto",
+                    "originalRef": "JobSmallDto"
                 },
                 "lastPasswordResetTime": {
                     "type": "string",
@@ -13988,8 +14100,8 @@
                     "type": "string"
                 },
                 "region": {
-                    "originalRef": "DeptSmallDto",
-                    "$ref": "#/definitions/DeptSmallDto"
+                    "$ref": "#/definitions/DeptSmallDto",
+                    "originalRef": "DeptSmallDto"
                 },
                 "resetPwd": {
                     "type": "string"
@@ -13997,16 +14109,16 @@
                 "roles": {
                     "type": "array",
                     "items": {
-                        "originalRef": "RoleSmallDto",
-                        "$ref": "#/definitions/RoleSmallDto"
+                        "$ref": "#/definitions/RoleSmallDto",
+                        "originalRef": "RoleSmallDto"
                     }
                 },
                 "sex": {
                     "type": "string"
                 },
                 "userInfo": {
-                    "originalRef": "UserInfoDto",
-                    "$ref": "#/definitions/UserInfoDto"
+                    "$ref": "#/definitions/UserInfoDto",
+                    "originalRef": "UserInfoDto"
                 },
                 "username": {
                     "type": "string"
@@ -14031,8 +14143,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -14072,8 +14184,8 @@
                     "type": "string"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"
@@ -14155,8 +14267,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "id": {
                     "type": "integer",
@@ -14190,8 +14302,8 @@
                     "type": "string"
                 },
                 "createTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "createdBy": {
                     "type": "string"
@@ -14234,8 +14346,8 @@
                     "type": "string"
                 },
                 "updateTime": {
-                    "originalRef": "Timestamp",
-                    "$ref": "#/definitions/Timestamp"
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
                 },
                 "updatedBy": {
                     "type": "string"

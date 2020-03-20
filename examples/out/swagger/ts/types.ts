@@ -5,10 +5,390 @@ export class INullObject {
 }
 
 // ----------------------------------------------
+//        body define
+// ----------------------------------------------
+
+
+
+export interface BodypayConfigUsingPUT {
+    alipayconfig: IAlipayConfig; // alipayConfig
+}
+
+
+export interface BodytoPayAsPcUsingPOST {
+    trade: ITradeVo; // trade
+}
+
+
+export interface BodytoPayAsWebUsingPOST {
+    trade: ITradeVo; // trade
+}
+
+
+export interface BodycreateUsingPOST {
+    resources: IApp; // resources
+}
+
+
+export interface BodyupdateUsingPUT {
+    resources: IApp; // resources
+}
+
+
+export interface BodydeleteUsingDELETE {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_1 {
+    resources: IArea; // resources
+}
+
+
+export interface BodyupdateUsingPUT_1 {
+    resources: IArea; // resources
+}
+
+
+export interface BodydeleteAllUsingDELETE {
+    req: IDelAreaIds; // req
+}
+
+
+export interface BodyresetEmailUsingPOST {
+    code: IVerificationCode; // code
+}
+
+
+export interface BodycreateUsingPOST_2 {
+    resources: IConsignor; // resources
+}
+
+
+export interface BodyupdateUsingPUT_2 {
+    resources: IConsignor; // resources
+}
+
+
+export interface BodydeleteAllUsingDELETE_1 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_3 {
+    resources: IDatabase; // resources
+}
+
+
+export interface BodyupdateUsingPUT_3 {
+    resources: IDatabase; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_1 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodytestConnectUsingPOST {
+    resources: IDatabase; // resources
+}
+
+
+export interface BodycreateUsingPOST_4 {
+    resources: IDeploy; // resources
+}
+
+
+export interface BodyupdateUsingPUT_4 {
+    resources: IDeploy; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_2 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodyserverReductionUsingPOST {
+    resources: IDeployHistory; // resources
+}
+
+
+export interface BodyserverStatusUsingPOST {
+    resources: IDeploy; // resources
+}
+
+
+export interface BodystartServerUsingPOST {
+    resources: IDeploy; // resources
+}
+
+
+export interface BodystopServerUsingPOST {
+    resources: IDeploy; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_3 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_5 {
+    resources: IDept; // resources
+}
+
+
+export interface BodyupdateUsingPUT_5 {
+    resources: IDept; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_4 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_6 {
+    resources: IDict; // resources
+}
+
+
+export interface BodyupdateUsingPUT_6 {
+    resources: IDict; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_5 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_7 {
+    resources: IDictDetail; // resources
+}
+
+
+export interface BodyupdateUsingPUT_7 {
+    resources: IDictDetail; // resources
+}
+
+
+export interface BodysendUsingPOST {
+    emailvo: IEmailVo; // emailVo
+}
+
+
+export interface BodyemailConfigUsingPUT {
+    emailconfig: IEmailConfig; // emailConfig
+}
+
+
+export interface BodyemailConfigUsingPUT_1 {
+    genconfig: IGenConfig; // genConfig
+}
+
+
+export interface BodysaveUsingPUT {
+    columninfos: INullObject; // columnInfos
+}
+
+
+export interface BodysyncUsingPOST {
+    tables: INullObject; // tables
+}
+
+
+export interface BodycreateUsingPOST_8 {
+    resources: IJob; // resources
+}
+
+
+export interface BodyupdateUsingPUT_8 {
+    resources: IJob; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_7 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_11 {
+    resources: IQuartzJob; // resources
+}
+
+
+export interface BodyupdateUsingPUT_11 {
+    resources: IQuartzJob; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_11 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodyupdateUsingPUT_9 {
+    resources: ILocalStorage; // resources
+}
+
+
+export interface BodydeleteAllUsingDELETE_2 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_10 {
+    resources: IMenu; // resources
+}
+
+
+export interface BodyupdateUsingPUT_10 {
+    resources: IMenu; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_8 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodydeleteAllUsingDELETE_3 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodydeleteAllUsingDELETE_4 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodyemailConfigUsingPUT_2 {
+    qiniuconfig: IQiniuConfig; // qiniuConfig
+}
+
+
+export interface BodycreateUsingPOST_12 {
+    resources: IRole; // resources
+}
+
+
+export interface BodyupdateUsingPUT_12 {
+    resources: IRole; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_12 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodyupdateMenuUsingPUT {
+    resources: IRole; // resources
+}
+
+
+export interface BodycreateUsingPOST_13 {
+    resources: IServer; // resources
+}
+
+
+export interface BodyupdateUsingPUT_13 {
+    resources: IServer; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_13 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycreateUsingPOST_14 {
+    resources: IServerDeploy; // resources
+}
+
+
+export interface BodyupdateUsingPUT_14 {
+    resources: IServerDeploy; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_14 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodytestConnectUsingPOST_1 {
+    resources: IServerDeploy; // resources
+}
+
+
+export interface BodycreateUsingPOST_15 {
+    resources: IUser; // resources
+}
+
+
+export interface BodyupdateUsingPUT_15 {
+    resources: IUser; // resources
+}
+
+
+export interface BodydeleteUsingDELETE_15 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodycenterUsingPUT {
+    resources: IUser; // resources
+}
+
+
+export interface BodyresetPwdUsingPUT {
+    resources: IUser; // resources
+}
+
+
+export interface BodyupdateEmailUsingPOST {
+    user: IUser; // user
+}
+
+
+export interface BodyupdatePassUsingPOST {
+    passvo: IUserPassVo; // passVo
+}
+
+
+export interface BodycreateUsingPOST_17 {
+    resources: IWarehouseinfo; // resources
+}
+
+
+export interface BodyupdateUsingPUT_16 {
+    resources: IWarehouseinfo; // resources
+}
+
+
+export interface BodydeleteAllUsingDELETE_5 {
+    ids: INullObject; // ids
+}
+
+
+export interface BodyloginUsingPOST {
+    authuser: IAuthUserDto; // authUser
+}
+
+
+export interface BodydeleteUsingDELETE_9 {
+    keys: INullObject; // keys
+}
+
+// ----------------------------------------------
 //        query define
 // ----------------------------------------------
 
-                                            
+
 
 export interface QuerygetAppsUsingGET {
     name: string;
@@ -16,12 +396,12 @@ export interface QuerygetAppsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET {
     name: string;
 }
-    
+
 
 export interface QuerygetAreasUsingGET {
     citylevel: string;
@@ -32,7 +412,7 @@ export interface QuerygetAreasUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_1 {
     citylevel: string;
@@ -40,12 +420,12 @@ export interface QuerydownloadUsingGET_1 {
     code: string;
     enname: string;
 }
-    
+
 
 export interface QueryresetPassUsingPOST {
     email: string; // email
 }
-            
+
 
 export interface QueryvalidatedUsingGET {
     code: string;
@@ -55,7 +435,7 @@ export interface QueryvalidatedUsingGET {
     type: string;
     value: string;
 }
-    
+
 
 export interface QuerygetConsignorsUsingGET {
     city: number;
@@ -66,7 +446,7 @@ export interface QuerygetConsignorsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_2 {
     city: number;
@@ -74,7 +454,7 @@ export interface QuerydownloadUsingGET_2 {
     name: string;
     province: number;
 }
-    
+
 
 export interface QuerygetDatabasesUsingGET {
     jdbcurl: string;
@@ -83,13 +463,13 @@ export interface QuerygetDatabasesUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_3 {
     jdbcurl: string;
     name: string;
 }
-                    
+
 
 export interface QuerygetDeploysUsingGET {
     appname: string;
@@ -97,12 +477,12 @@ export interface QuerygetDeploysUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_4 {
     appname: string;
 }
-                                            
+
 
 export interface QuerygetDeployHistorysUsingGET {
     blurry: string;
@@ -111,13 +491,13 @@ export interface QuerygetDeployHistorysUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-            
+
 
 export interface QuerydownloadUsingGET_5 {
     blurry: string;
     deployid: number;
 }
-    
+
 
 export interface QuerygetDeptsUsingGET {
     enabled: boolean;
@@ -125,13 +505,13 @@ export interface QuerygetDeptsUsingGET {
     name: string;
     pid: number;
 }
-                            
+
 
 export interface QuerygetDeptsByPidUsingGET {
     pid: number; // pid
     props: number; // props
 }
-    
+
 
 export interface QuerydownloadUsingGET_6 {
     enabled: boolean;
@@ -139,12 +519,12 @@ export interface QuerydownloadUsingGET_6 {
     name: string;
     pid: number;
 }
-    
+
 
 export interface QuerygetDeptsByPropsUsingGET {
     props: number; // props
 }
-    
+
 
 export interface QuerygetDictsUsingGET {
     blurry: string;
@@ -152,12 +532,12 @@ export interface QuerygetDictsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                                    
+
 
 export interface QuerydownloadUsingGET_7 {
     blurry: string;
 }
-    
+
 
 export interface QuerygetDictDetailsUsingGET {
     dictname: string;
@@ -166,7 +546,7 @@ export interface QuerygetDictDetailsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                    
+
 
 export interface QuerygetDictDetailMapsUsingGET {
     dictname: string;
@@ -175,34 +555,41 @@ export interface QuerygetDictDetailMapsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                                                            
+
 
 export interface QuerygetTablesUsingGET {
     tablename: string; // tableName
 }
-            
+
 
 export interface QuerygetTablesUsingGET_2 {
     name: string; // name
     page: number; // page
     size: number; // size
 }
-                    
+
 
 export interface QuerygetJobsUsingGET {
     enabled: boolean;
+    id: number;
     name: string;
     page: number; // 页码 (0..N)
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_8 {
     enabled: boolean;
+    id: number;
     name: string;
 }
-    
+
+
+export interface QuerygetJobByIdUsingGET {
+    id: number; // id
+}
+
 
 export interface QuerygetJobsUsingGET_1 {
     issuccess: boolean;
@@ -211,13 +598,13 @@ export interface QuerygetJobsUsingGET_1 {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_16 {
     issuccess: boolean;
     jobname: string;
 }
-            
+
 
 export interface QuerygetJobLogsUsingGET {
     issuccess: boolean;
@@ -226,13 +613,13 @@ export interface QuerygetJobLogsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-    
+
 
 export interface QuerydownloadLogUsingGET {
     issuccess: boolean;
     jobname: string;
 }
-                    
+
 
 export interface QuerygetLocalStoragesUsingGET {
     blurry: string;
@@ -240,17 +627,17 @@ export interface QuerygetLocalStoragesUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-    
+
 
 export interface QuerycreateUsingPOST_9 {
     name: string; // name
 }
-                    
+
 
 export interface QuerydownloadUsingGET_9 {
     blurry: string;
 }
-    
+
 
 export interface QuerygetLogsUsingGET {
     blurry: string;
@@ -259,13 +646,13 @@ export interface QuerygetLogsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                    
+
 
 export interface QuerydownloadUsingGET_10 {
     blurry: string;
     logtype: string;
 }
-    
+
 
 export interface QuerygetErrorLogsUsingGET_1 {
     blurry: string;
@@ -274,13 +661,13 @@ export interface QuerygetErrorLogsUsingGET_1 {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-    
+
 
 export interface QueryerrorDownloadUsingGET {
     blurry: string;
     logtype: string;
 }
-            
+
 
 export interface QuerygetUserLogsUsingGET {
     blurry: string;
@@ -289,17 +676,17 @@ export interface QuerygetUserLogsUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-    
+
 
 export interface QuerygetMenusUsingGET {
     blurry: string;
 }
-                                    
+
 
 export interface QuerydownloadUsingGET_11 {
     blurry: string;
 }
-            
+
 
 export interface QuerygetRolesUsingGET {
     filename: string;
@@ -308,13 +695,13 @@ export interface QuerygetRolesUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
     username: string;
 }
-                    
+
 
 export interface QuerydownloadUsingGET_13 {
     filename: string;
     username: string;
 }
-            
+
 
 export interface QuerygetRolesUsingGET_1 {
     key: string;
@@ -322,12 +709,12 @@ export interface QuerygetRolesUsingGET_1 {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                                    
+
 
 export interface QuerydownloadUsingGET_15 {
     key: string;
 }
-                            
+
 
 export interface QuerygetRolesUsingGET_3 {
     blurry: string;
@@ -335,19 +722,19 @@ export interface QuerygetRolesUsingGET_3 {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerygetAllUsingGET_1 {
     page: number; // 页码 (0..N)
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-    
+
 
 export interface QuerydownloadUsingGET_17 {
     blurry: string;
 }
-                            
+
 
 export interface QuerygetServersUsingGET {
     blurry: string;
@@ -355,7 +742,7 @@ export interface QuerygetServersUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerygetServersUsingGET_1 {
     blurry: string;
@@ -363,12 +750,12 @@ export interface QuerygetServersUsingGET_1 {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                            
+
 
 export interface QuerydownloadUsingGET_18 {
     blurry: string;
 }
-            
+
 
 export interface QuerygetUsersUsingGET {
     blurry: string;
@@ -380,7 +767,7 @@ export interface QuerygetUsersUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-                                    
+
 
 export interface QuerydownloadUsingGET_19 {
     blurry: string;
@@ -389,12 +776,12 @@ export interface QuerydownloadUsingGET_19 {
     enabled: boolean;
     id: number;
 }
-    
+
 
 export interface QuerygetUsersByIdUsingGET {
     id: number; // id
 }
-                                                            
+
 
 export interface QuerygetWarehouseinfosUsingGET {
     address: string;
@@ -406,7 +793,7 @@ export interface QuerygetWarehouseinfosUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
     symbols: string;
 }
-                            
+
 
 export interface QuerygetAllWarehouseinfosUsingGET {
     address: string;
@@ -415,7 +802,7 @@ export interface QuerygetAllWarehouseinfosUsingGET {
     province: string;
     symbols: string;
 }
-    
+
 
 export interface QuerydownloadUsingGET_20 {
     address: string;
@@ -424,7 +811,7 @@ export interface QuerydownloadUsingGET_20 {
     province: string;
     symbols: string;
 }
-                                    
+
 
 export interface QuerygetAllUsingGET {
     filter: string; // filter
@@ -432,7 +819,7 @@ export interface QuerygetAllUsingGET {
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
-            
+
 
 export interface QuerydownloadUsingGET_12 {
     filter: string; // filter

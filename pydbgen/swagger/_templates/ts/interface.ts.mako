@@ -240,7 +240,22 @@
         r.append('{}: {};{}'.format(
             field['name'].lower(), 
             datatype_interface(field), 
-            ' // ' + field.get('description', '').replace('\n', ' ') if field.get('description', '') else ''
+            ' // ' + field.get('description', '').replace('\n', ' ') 
+            if field.get('description', '') else ''
+        ))
+      return '\n    '.join(r)
+
+    def format_body_fields(module):
+      r = []
+      for field in module['xbody']:
+        if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
+            continue
+
+        r.append('{}: I{};{}'.format(
+            field['name'].lower(), 
+            datatype_interface(field), 
+            ' // ' + field.get('description', '').replace('\n', ' ') 
+            if field.get('description', '') else ''
         ))
       return '\n    '.join(r)
 
@@ -287,6 +302,21 @@ import * as enums from "./enums";
 
 export class INullObject {
 }
+
+// ----------------------------------------------
+//        body define
+// ----------------------------------------------
+
+% for uri, method, module in paths_loop(src):
+    % if not module['xbody']:
+        <% continue %>
+    % endif
+    <% class_n = module['operationId'] %>
+
+export interface Body${typename2class(class_n)} {
+    ${format_body_fields(module)}
+}
+% endfor
 
 // ----------------------------------------------
 //        query define

@@ -70,7 +70,7 @@ setup(
             "protoc-gen-rfcjson=pydbgen.restful.protoc_gen_tmpl_multi:main",
             "protoc-gen-rfcts=pydbgen.restful.protoc_gen_typescript:main",
             "protoc-gen-rfcjava=pydbgen.restful.protoc_gen_java:main",
-            "genswagger=pydbgen.swagger.swagger_ts:main",
+            "genswagger=pydbgen.swagger.main:main",
         ]
     },
     # scripts=bin_list_build(),

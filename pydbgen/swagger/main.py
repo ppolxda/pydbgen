@@ -181,6 +181,21 @@ class Worker(object):
         else:
             raise TypeError('fixcode invaild[{}]'.format(fixcode))
 
+    @staticmethod
+    def format_line(context):
+        if not isinstance(context, str):
+            raise TypeError('format_line type error')
+
+        context = context.split('\n')
+        for i, line in enumerate(context):
+            context[i] = line.rstrip()
+
+        context = '\n'.join(context)
+
+        while '\n\n\n' in context:
+            context = context.replace('\n\n\n', '\n\n')
+        return context
+
     def main(self):
         for config in self.otps.json_conf:
             data = copy.deepcopy(self.data)
@@ -219,9 +234,7 @@ class Worker(object):
                 with codecs.open(
                         fpath, 'w', encoding=self.otps.encoding
                 ) as fs:
-                    while '\n\n\n' in context:
-                        context = context.replace('\n\n\n', '\n\n')
-                    fs.write(context)
+                    fs.write(self.format_line(context))
 
     def gen_single(self, config: GenConfig, data: dict):
         content = gfuncs.generate_file(config.tmpl_path, **data)

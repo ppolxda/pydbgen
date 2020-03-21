@@ -22,24 +22,143 @@
 
         return name.replace('.', '')
 
-    def datatype_interface(data, interface=False):
+    ## def datatype_interface(data, interface=False):
+    ##     if not isinstance(data, dict):
+    ##         raise TypeError('datatype_interface not dict')
+
+    ##     repeated = False
+    ##     _type = data.get('type', 'object')
+    ##     if _type == 'array':
+    ##         ## if 'type' not in data['items']:
+    ##         ##     raise TypeError('array has not items {}'.format(data['items']))
+    ##         repeated = True
+    ##         data = data.get('items', {})
+    ##         if not data:
+    ##             raise TypeError('array items is null')
+
+    ##         _type = data.get('type', 'object')
+
+    ##     if not _type:
+    ##         raise TypeError('module error {}'.format(data))
+
+    ##     if _type == 'string':
+    ##         if repeated:
+    ##             return 'string[]'
+    ##         else:
+    ##             return 'string'
+
+    ##     elif _type in NUMBER_TYPES:
+    ##         if repeated:
+    ##             return 'number[]'
+    ##         else:
+    ##             return 'number'
+
+    ##     ## elif _type in ['json', 'jsonb']:
+    ##     ##     return _type
+
+    ##     elif _type == 'object':
+    ##         cname = data.get('originalRef', '')
+    ##         if not cname:
+    ##             data = data.get('schema', {})
+    ##             cname = data.get('originalRef', 'NullObject')
+
+    ##         if cname in DATETIME_TYPES:
+    ##             if repeated:
+    ##                 return 'number[]'
+    ##             else:
+    ##                 return 'number'
+
+    ##         if not cname:
+    ##             raise TypeError('class originalRef not found {} {}'.format(cname, data))
+
+    ##         cname_def = src['definitions'].get(cname, {})
+    ##         if not cname_def and cname != 'NullObject':
+    ##             raise TypeError('class not found {} {}'.format(cname, data))
+
+    ##         ## TAG - UNKNUW CLASS
+    ##         subtype = cname_def.get('type', 'object')
+    ##         if subtype == 'object' and 'properties' not in cname_def:
+    ##             if cname == 'NullObject':
+    ##                 if repeated:
+    ##                     return 'NullObject' + '[]'
+    ##                 else:
+    ##                     return 'NullObject'
+    ##             else:
+    ##                 if repeated:
+    ##                     return 'any' + '[]'
+    ##                 else:
+    ##                     return 'any'
+    ##         else:
+    ##             cname = cname.replace('«', '').replace('»', '')
+    ##             if interface:
+    ##                 if repeated:
+    ##                     return 'I' + typename2class(cname) + '[]'
+    ##                 else:
+    ##                     return 'I' + typename2class(cname)
+    ##             else:
+    ##                 if repeated:
+    ##                     return typename2class(cname) + '[]'
+    ##                 else:
+    ##                     return typename2class(cname)
+
+    ##     elif _type == 'enum':
+    ##         if 'ename' not in data or not data['ename']:
+    ##             raise TypeError('ename not found {}'.format(data))
+
+    ##         if repeated:
+    ##             return 'enums.' + typename2class(data['ename']) + '[]'
+    ##         else:
+    ##             return 'enums.' + typename2class(data['ename'])
+
+    ##     elif _type in BOOL_TYPES:
+    ##         if repeated:
+    ##             return 'boolean[]'
+    ##         else:
+    ##             return 'boolean'
+
+    ##     else:
+    ##         raise Exception('unknow datatype [{}]'.format(_type))
+
+    def datatype_interface(data, interface=False, repeated=False, required=False, plevel=None, prefix='types.'):
         if not isinstance(data, dict):
-            raise TypeError('datatype_interface not dict')
+            raise TypeError('datatype not dict')
 
-        repeated = False
-        _type = data.get('type', 'object')
+        # try get required
+        if not required:
+            required = data.get('required', False)
+
+        # if query parame
+        _type = data.get('type', None)
         if _type == 'array':
-            ## if 'type' not in data['items']:
-            ##     raise TypeError('array has not items {}'.format(data['items']))
-            repeated = True
-            data = data.get('items', {})
-            if not data:
-                raise TypeError('array items is null')
+            return datatype_interface(
+                data.get('items', {}), interface, 
+                True, required, data, 
+                prefix=prefix
+            )
 
-            _type = data.get('type', 'object')
+        # if body parame
+        schema = data.get('schema', None)
+        if schema:
+            return datatype_interface(
+                schema, interface, 
+                False, required, data, 
+                prefix=prefix
+            )
 
-        if not _type:
-            raise TypeError('module error {}'.format(data))
+        if _type is None:
+            if data.get('originalRef', ''):
+                _type = 'refobject'
+            else:
+                if interface:
+                    if repeated:
+                        return prefix + 'INullObject[]'
+                    else:
+                        return prefix + 'INullObject'
+                else:
+                    if repeated:
+                        return prefix + 'NullObject[]'
+                    else:
+                        return prefix + 'NullObject'
 
         if _type == 'string':
             if repeated:
@@ -57,49 +176,44 @@
         ##     return _type
 
         elif _type == 'object':
-            cname = data.get('originalRef', '')
-            if not cname:
-                data = data.get('schema', {})
-                cname = data.get('originalRef', 'NullObject')
+            if repeated:
+                return prefix + 'INullObject[]'
+            else:
+                return prefix + 'INullObject'
 
-            if cname in DATETIME_TYPES:
+        elif _type == 'refobject':
+            refobject = data.get('originalRef', None)
+            assert isinstance(refobject, str) and refobject
+            if refobject in DATETIME_TYPES:
                 if repeated:
-                    return 'moment.Moment[]'
+                    return 'number[]'
                 else:
-                    return 'moment.Moment'
+                    return 'number'
 
-            if not cname:
-                raise TypeError('class originalRef not found {} {}'.format(cname, data))
-
-            cname_def = src['definitions'].get(cname, {})
-            if not cname_def and cname != 'NullObject':
-                raise TypeError('class not found {} {}'.format(cname, data))
+            refobject_def = src['definitions'].get(refobject, {})
+            if not refobject_def or not isinstance(refobject_def, dict):
+                raise TypeError('class not found or type error {} {}'.format(cname, data))
 
             ## TAG - UNKNUW CLASS
-            subtype = cname_def.get('type', 'object')
-            if subtype == 'object' and 'properties' not in cname_def:
-                if cname == 'NullObject':
-                    if repeated:
-                        return 'NullObject' + '[]'
-                    else:
-                        return 'NullObject'
+            subtype = refobject_def.get('type', None)
+            if subtype == 'object' and 'properties' not in refobject_def:
+                raise TypeError(refobject_def, refobject)
+                if repeated:
+                    return 'any' + '[]'
                 else:
-                    if repeated:
-                        return 'any' + '[]'
-                    else:
-                        return 'any'
+                    return 'any'
             else:
-                cname = cname.replace('«', '').replace('»', '')
+                refobject = refobject.replace('«', '').replace('»', '')
                 if interface:
                     if repeated:
-                        return 'I' + typename2class(cname) + '[]'
+                        return prefix + 'I' + typename2class(refobject) + '[]'
                     else:
-                        return 'I' + typename2class(cname)
+                        return prefix + 'I' + typename2class(refobject)
                 else:
                     if repeated:
-                        return typename2class(cname) + '[]'
+                        return prefix + typename2class(refobject) + '[]'
                     else:
-                        return typename2class(cname)
+                        return prefix + typename2class(refobject)
 
         elif _type == 'enum':
             if 'ename' not in data or not data['ename']:
@@ -187,7 +301,7 @@
 
             if cname in DATETIME_TYPES:
                 if repeated:
-                    return 'number'
+                    return 'number[]'
                 else:
                     return 'number'
 
@@ -239,8 +353,26 @@
 
         r.append('{}: {};{}'.format(
             field['name'].lower(), 
-            datatype_interface(field), 
-            ' // ' + field.get('description', '').replace('\n', ' ') if field.get('description', '') else ''
+            datatype_interface(field, True), 
+            ' // ' + field.get('description', '').replace('\n', ' ')
+            if field.get('description', '') else ''
+        ))
+      return '\n    '.join(r)
+
+    def format_body_fields(module):
+      if len(module['xbody']) > 1:
+        raise TypeError('xbody parames error')
+
+      r = []
+      for field in module['xbody']:
+        if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
+            continue
+
+        r.append('{}: I{};{}'.format(
+            field['name'].lower(), 
+            datatype_interface(field, True), 
+            ' // ' + field.get('description', '').replace('\n', ' ') 
+            if field.get('description', '') else ''
         ))
       return '\n    '.join(r)
 
@@ -249,7 +381,7 @@
       for key, field in table.get('properties', {}).items():
         r.append('{}: {};{}'.format(
             key.lower(), 
-            datatype_interface(field), 
+            datatype_interface(field, True), 
             ' // ' + field.get('description', '').replace('\n', ' ') if field.get('description', '') else ''
         ))
       return '\n    '.join(r)
@@ -281,6 +413,32 @@
             else:
                 r.append('{}: this.{},'.format(key.lower(), key.lower()))
       return '\n          '.join(r)
+
+    def format_uri(uri, path):
+        '''
+        path = [{
+            name: "id",
+            in: "path",
+            description: "id",
+            required: true,
+            type: "integer",
+            format: "int64",
+        }]
+        '''
+        if len(path) < 1 or not isinstance(path, list):
+            return uri
+            ## raise TypeError('path error. {}'.format(path))
+        
+        if '{' not in uri or '}' not in uri:
+            return uri
+            ## raise TypeError('uri error. {}'.format(uri))
+
+        return uri.format(
+            **{
+                p['name']: '${%s}' % ('path.' + p['name'].lower())
+                for p in path
+            }
+        )
 %>
 import axios, { AxiosRequestConfig } from "axios";
 ## import * as enums from "./enums";
@@ -738,15 +896,28 @@ export class BaseApi {
         rsp = module['responses'].get('200', {})
 
         if method in ['delete']:
-          if module['xbody']:
-              parames.append('data: {}'.format('types.' + 'Body' + class_n))
-          else:
-              parames.append('data: types.INullObject')
+            if module['xbody']:
+                xbody = module['xbody'][0]
+                parames.append('data: {}'.format(datatype_interface(xbody, True)))
+            elif module['xfrom']:
+                parames.append('data: {}'.format('types.' + 'From' + class_n))
+            else:
+                parames.append('data: types.INullObject')
+
+        elif method in ['put', 'post', 'patch']:
+            if module['xbody']:
+                xbody = module['xbody'][0]
+                parames.append('req: {}'.format(datatype_interface(xbody, True)))
+            elif module['xfrom']:
+                parames.append('req: {}'.format('types.' + 'From' + class_n))
+            else:
+                parames.append('req: types.INullObject')
         else:
-          if module['xbody']:
-              parames.append('req: {}'.format('types.' + 'Body' + class_n))
-          elif method in ['put', 'post', 'patch']:
-              parames.append('req: types.INullObject')
+            if module['xbody']:
+                xbody = module['xbody'][0]
+                parames.append('req: {}'.format(datatype_interface(xbody, True)))
+            elif module['xfrom']:
+                parames.append('req: {}'.format('types.' + 'From' + class_n))
 
         if module['xpath']:
             parames.append('path: {}'.format('types.' + 'Path' + class_n))
@@ -762,35 +933,28 @@ export class BaseApi {
 
         parames.append('config: AxiosRequestConfig = {}')
   %>
-  public ${typename2class(class_n)}(${', '.join(parames)}): Promise<${'types.I' + datatype_interface(rsp)}> {
+  public ${typename2class(class_n)}(${', '.join(parames)}): Promise<${datatype_interface(rsp, True)}> {
     ## % if module['xheader']:
     ## config["headers"] = { ...config["headers"], ...headers };
     ## % endif
-    % if module['xpath']:
-    let paths = []
-    for (let key of Object.keys(path)) {
-        let val = path[key];
-        paths.append(val)
-    }
-    let upath = paths.join('/')
-    % else:
-    let upath = ''
+    % if 'consumes' in module and module['consumes']:
+    config.headers['Content-Type'] = '${module['consumes'][0]}'
     % endif
     % if method in ['delete']:
       return axios
-        .${method}<${'types.I' + datatype_interface(rsp)}>(
-          `${'${this.basePath}'}${uri}${'${upath}'}`, 
+        .${method}<${datatype_interface(rsp, True)}>(
+          `${'${this.basePath}'}${format_uri(uri, module['xpath'])}`, 
           {data, ...config}
         ).then(rsp => rsp.data);
     % elif method in ['put', 'post', 'patch']:
     return axios
-      .${method}<${'types.I' + datatype_interface(rsp)}>(
-          `${'${this.basePath}'}${uri}${'${upath}'}`, req, config
+      .${method}<${datatype_interface(rsp, True)}>(
+          `${'${this.basePath}'}${format_uri(uri, module['xpath'])}`, req, config
       ).then(rsp => rsp.data);
     % else:
     return axios
-      .${method}<${'types.I' + datatype_interface(rsp)}>(
-          `${'${this.basePath}'}${uri}${'${upath}'}`, {params, ...config}
+      .${method}<${datatype_interface(rsp, True)}>(
+          `${'${this.basePath}'}${format_uri(uri, module['xpath'])}`, {params, ...config}
       ).then(rsp => rsp.data);
     % endif
   }

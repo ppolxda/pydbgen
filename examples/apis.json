@@ -12,8 +12,16 @@
             "description": "App Run"
         },
         {
-            "name": "地理信息管理管理",
+            "name": "基础信息：冷库信息管理",
+            "description": "Warehouseinfo Controller"
+        },
+        {
+            "name": "基础信息：地理信息管理管理",
             "description": "Area Controller"
+        },
+        {
+            "name": "基础信息：货主档案管理",
+            "description": "Consignor Controller"
         },
         {
             "name": "工具：七牛云存储管理",
@@ -127,10 +135,14 @@
     "paths": {
         "/": {
             "get": {
-                "tags": ["app-run"],
+                "tags": [
+                    "app-run"
+                ],
                 "summary": "index",
                 "operationId": "indexUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -163,10 +175,14 @@
         },
         "/api/aliPay": {
             "get": {
-                "tags": ["工具：支付宝管理"],
+                "tags": [
+                    "工具：支付宝管理"
+                ],
                 "summary": "get",
                 "operationId": "getUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -198,11 +214,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["工具：支付宝管理"],
+                "tags": [
+                    "工具：支付宝管理"
+                ],
                 "summary": "配置支付宝",
                 "operationId": "payConfigUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -248,11 +270,17 @@
         },
         "/api/aliPay/toPayAsPC": {
             "post": {
-                "tags": ["工具：支付宝管理"],
+                "tags": [
+                    "工具：支付宝管理"
+                ],
                 "summary": "PC网页支付",
                 "operationId": "toPayAsPcUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -298,11 +326,17 @@
         },
         "/api/aliPay/toPayAsWeb": {
             "post": {
-                "tags": ["工具：支付宝管理"],
+                "tags": [
+                    "工具：支付宝管理"
+                ],
                 "summary": "手机网页支付",
                 "operationId": "toPayAsWebUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -348,10 +382,14 @@
         },
         "/api/app": {
             "get": {
-                "tags": ["应用管理"],
+                "tags": [
+                    "应用管理"
+                ],
                 "summary": "查询应用",
                 "operationId": "getAppsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -485,11 +523,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["应用管理"],
+                "tags": [
+                    "应用管理"
+                ],
                 "summary": "新增应用",
                 "operationId": "createUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -533,11 +577,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["应用管理"],
+                "tags": [
+                    "应用管理"
+                ],
                 "summary": "修改应用",
                 "operationId": "updateUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -581,10 +631,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["应用管理"],
+                "tags": [
+                    "应用管理"
+                ],
                 "summary": "删除应用",
                 "operationId": "deleteUsingDELETE",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -630,10 +684,14 @@
         },
         "/api/app/download": {
             "get": {
-                "tags": ["应用管理"],
+                "tags": [
+                    "应用管理"
+                ],
                 "summary": "导出应用数据",
                 "operationId": "downloadUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -739,10 +797,14 @@
         },
         "/api/area": {
             "get": {
-                "tags": ["地理信息管理管理"],
+                "tags": [
+                    "基础信息：地理信息管理管理"
+                ],
                 "summary": "查询地理信息管理",
                 "operationId": "getAreasUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -751,6 +813,21 @@
                         "required": true,
                         "type": "string",
                         "default": "Bearer "
+                    },
+                    {
+                        "name": "cityLevel",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "NONE",
+                            "COUNTRY",
+                            "PROV",
+                            "CITY",
+                            "COUNTY",
+                            "TOWN",
+                            "VILLAGE"
+                        ]
                     },
                     {
                         "name": "cname",
@@ -802,7 +879,8 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "object"
+                            "$ref": "#/definitions/PageDto«AreaDto»",
+                            "originalRef": "PageDto«AreaDto»"
                         }
                     },
                     "401": {
@@ -818,11 +896,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["地理信息管理管理"],
+                "tags": [
+                    "基础信息：地理信息管理管理"
+                ],
                 "summary": "新增地理信息管理",
                 "operationId": "createUsingPOST_1",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -866,11 +950,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["地理信息管理管理"],
+                "tags": [
+                    "基础信息：地理信息管理管理"
+                ],
                 "summary": "修改地理信息管理",
                 "operationId": "updateUsingPUT_1",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -914,10 +1004,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["地理信息管理管理"],
+                "tags": [
+                    "基础信息：地理信息管理管理"
+                ],
                 "summary": "删除地理信息管理",
                 "operationId": "deleteAllUsingDELETE",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -929,15 +1023,12 @@
                     },
                     {
                         "in": "body",
-                        "name": "ids",
-                        "description": "ids",
+                        "name": "req",
+                        "description": "req",
                         "required": true,
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer",
-                                "format": "int32"
-                            }
+                            "$ref": "#/definitions/DelAreaIds",
+                            "originalRef": "DelAreaIds"
                         }
                     }
                 ],
@@ -963,10 +1054,14 @@
         },
         "/api/area/download": {
             "get": {
-                "tags": ["地理信息管理管理"],
+                "tags": [
+                    "基础信息：地理信息管理管理"
+                ],
                 "summary": "导出数据",
                 "operationId": "downloadUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -975,6 +1070,21 @@
                         "required": true,
                         "type": "string",
                         "default": "Bearer "
+                    },
+                    {
+                        "name": "cityLevel",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "NONE",
+                            "COUNTRY",
+                            "PROV",
+                            "CITY",
+                            "COUNTY",
+                            "TOWN",
+                            "VILLAGE"
+                        ]
                     },
                     {
                         "name": "cname",
@@ -1014,11 +1124,17 @@
         },
         "/api/code/email/resetPass": {
             "post": {
-                "tags": ["工具：验证码管理"],
+                "tags": [
+                    "工具：验证码管理"
+                ],
                 "summary": "重置密码，发送验证码",
                 "operationId": "resetPassUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1061,11 +1177,17 @@
         },
         "/api/code/resetEmail": {
             "post": {
-                "tags": ["工具：验证码管理"],
+                "tags": [
+                    "工具：验证码管理"
+                ],
                 "summary": "重置邮箱，发送验证码",
                 "operationId": "resetEmailUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1111,10 +1233,14 @@
         },
         "/api/code/validated": {
             "get": {
-                "tags": ["工具：验证码管理"],
+                "tags": [
+                    "工具：验证码管理"
+                ],
                 "summary": "验证码验证",
                 "operationId": "validatedUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1252,12 +1378,331 @@
                 "deprecated": false
             }
         },
+        "/api/consignor": {
+            "get": {
+                "tags": [
+                    "基础信息：货主档案管理"
+                ],
+                "summary": "查询货主档案",
+                "operationId": "getConsignorsUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码 (0..N)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "每页显示的数目",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "基础信息：货主档案管理"
+                ],
+                "summary": "新增货主档案",
+                "operationId": "createUsingPOST_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Consignor",
+                            "originalRef": "Consignor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "基础信息：货主档案管理"
+                ],
+                "summary": "修改货主档案",
+                "operationId": "updateUsingPUT_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Consignor",
+                            "originalRef": "Consignor"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "基础信息：货主档案管理"
+                ],
+                "summary": "删除货主档案",
+                "operationId": "deleteAllUsingDELETE_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "ids",
+                        "description": "ids",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/consignor/download": {
+            "get": {
+                "tags": [
+                    "基础信息：货主档案管理"
+                ],
+                "summary": "导出数据",
+                "operationId": "downloadUsingGET_2",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/api/database": {
             "get": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "查询数据库",
                 "operationId": "getDatabasesUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1397,11 +1842,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "新增数据库",
-                "operationId": "createUsingPOST_2",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1445,11 +1896,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "修改数据库",
-                "operationId": "updateUsingPUT_2",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1493,10 +1950,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "删除数据库",
                 "operationId": "deleteUsingDELETE_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1541,10 +2002,14 @@
         },
         "/api/database/download": {
             "get": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "导出数据库数据",
-                "operationId": "downloadUsingGET_2",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_3",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1656,11 +2121,17 @@
         },
         "/api/database/testConnect": {
             "post": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "测试数据库链接",
                 "operationId": "testConnectUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1706,11 +2177,17 @@
         },
         "/api/database/upload": {
             "post": {
-                "tags": ["数据库管理"],
+                "tags": [
+                    "数据库管理"
+                ],
                 "summary": "执行SQL脚本",
                 "operationId": "uploadUsingPOST",
-                "consumes": ["multipart/form-data"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1753,10 +2230,14 @@
         },
         "/api/deploy": {
             "get": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "查询部署",
                 "operationId": "getDeploysUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1890,11 +2371,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "新增部署",
-                "operationId": "createUsingPOST_3",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1938,11 +2425,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "修改部署",
-                "operationId": "updateUsingPUT_3",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -1986,10 +2479,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "删除部署",
                 "operationId": "deleteUsingDELETE_2",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2035,10 +2532,14 @@
         },
         "/api/deploy/download": {
             "get": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "导出部署数据",
-                "operationId": "downloadUsingGET_3",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_4",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2144,11 +2645,17 @@
         },
         "/api/deploy/serverReduction": {
             "post": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "系统还原",
                 "operationId": "serverReductionUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2194,11 +2701,17 @@
         },
         "/api/deploy/serverStatus": {
             "post": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "服务运行状态",
                 "operationId": "serverStatusUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2244,11 +2757,17 @@
         },
         "/api/deploy/startServer": {
             "post": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "启动服务",
                 "operationId": "startServerUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2294,11 +2813,17 @@
         },
         "/api/deploy/stopServer": {
             "post": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "停止服务",
                 "operationId": "stopServerUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2344,11 +2869,17 @@
         },
         "/api/deploy/upload": {
             "post": {
-                "tags": ["部署管理"],
+                "tags": [
+                    "部署管理"
+                ],
                 "summary": "上传文件部署",
                 "operationId": "uploadUsingPOST_1",
-                "consumes": ["multipart/form-data"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2391,10 +2922,14 @@
         },
         "/api/deployHistory": {
             "get": {
-                "tags": ["部署历史管理"],
+                "tags": [
+                    "部署历史管理"
+                ],
                 "summary": "查询部署历史",
                 "operationId": "getDeployHistorysUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2535,10 +3070,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["部署历史管理"],
+                "tags": [
+                    "部署历史管理"
+                ],
                 "summary": "删除部署历史",
                 "operationId": "deleteUsingDELETE_3",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2583,10 +3122,14 @@
         },
         "/api/deployHistory/download": {
             "get": {
-                "tags": ["部署历史管理"],
+                "tags": [
+                    "部署历史管理"
+                ],
                 "summary": "导出部署历史数据",
-                "operationId": "downloadUsingGET_4",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_5",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2699,10 +3242,14 @@
         },
         "/api/dept": {
             "get": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "查询部门",
                 "operationId": "getDeptsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2834,11 +3381,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "新增部门",
-                "operationId": "createUsingPOST_4",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2882,11 +3435,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "修改部门",
-                "operationId": "updateUsingPUT_4",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2930,10 +3489,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "删除部门",
                 "operationId": "deleteUsingDELETE_4",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -2979,10 +3542,14 @@
         },
         "/api/dept/byPid": {
             "get": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "查询本级和下级部门",
                 "operationId": "getDeptsByPidUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3032,10 +3599,14 @@
         },
         "/api/dept/download": {
             "get": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "导出部门数据",
-                "operationId": "downloadUsingGET_5",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_6",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3165,10 +3736,14 @@
         },
         "/api/dept/props": {
             "get": {
-                "tags": ["系统：部门管理"],
+                "tags": [
+                    "系统：部门管理"
+                ],
                 "summary": "通过属性查询部门",
                 "operationId": "getDeptsByPropsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3210,10 +3785,14 @@
         },
         "/api/dict": {
             "get": {
-                "tags": ["系统：字典管理"],
+                "tags": [
+                    "系统：字典管理"
+                ],
                 "summary": "查询字典",
                 "operationId": "getDictsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3277,11 +3856,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：字典管理"],
+                "tags": [
+                    "系统：字典管理"
+                ],
                 "summary": "新增字典",
-                "operationId": "createUsingPOST_5",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_6",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3325,11 +3910,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：字典管理"],
+                "tags": [
+                    "系统：字典管理"
+                ],
                 "summary": "修改字典",
-                "operationId": "updateUsingPUT_5",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_6",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3373,10 +3964,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：字典管理"],
+                "tags": [
+                    "系统：字典管理"
+                ],
                 "summary": "删除字典",
                 "operationId": "deleteUsingDELETE_5",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3422,10 +4017,14 @@
         },
         "/api/dict/all": {
             "get": {
-                "tags": ["系统：字典管理"],
+                "tags": [
+                    "系统：字典管理"
+                ],
                 "summary": "查询字典",
                 "operationId": "allUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3458,10 +4057,14 @@
         },
         "/api/dict/download": {
             "get": {
-                "tags": ["系统：字典管理"],
+                "tags": [
+                    "系统：字典管理"
+                ],
                 "summary": "导出字典数据",
-                "operationId": "downloadUsingGET_6",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_7",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3497,10 +4100,14 @@
         },
         "/api/dictDetail": {
             "get": {
-                "tags": ["系统：字典详情管理"],
+                "tags": [
+                    "系统：字典详情管理"
+                ],
                 "summary": "查询字典详情",
                 "operationId": "getDictDetailsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3570,11 +4177,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：字典详情管理"],
+                "tags": [
+                    "系统：字典详情管理"
+                ],
                 "summary": "新增字典详情",
-                "operationId": "createUsingPOST_6",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_7",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3618,11 +4231,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：字典详情管理"],
+                "tags": [
+                    "系统：字典详情管理"
+                ],
                 "summary": "修改字典详情",
-                "operationId": "updateUsingPUT_6",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_7",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3668,10 +4287,14 @@
         },
         "/api/dictDetail/map": {
             "get": {
-                "tags": ["系统：字典详情管理"],
+                "tags": [
+                    "系统：字典详情管理"
+                ],
                 "summary": "查询多个字典详情",
                 "operationId": "getDictDetailMapsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3743,10 +4366,14 @@
         },
         "/api/dictDetail/{id}": {
             "delete": {
-                "tags": ["系统：字典详情管理"],
+                "tags": [
+                    "系统：字典详情管理"
+                ],
                 "summary": "删除字典详情",
                 "operationId": "deleteUsingDELETE_6",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3787,10 +4414,14 @@
         },
         "/api/email": {
             "get": {
-                "tags": ["工具：邮件管理"],
+                "tags": [
+                    "工具：邮件管理"
+                ],
                 "summary": "get",
                 "operationId": "getUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3821,11 +4452,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["工具：邮件管理"],
+                "tags": [
+                    "工具：邮件管理"
+                ],
                 "summary": "发送邮件",
                 "operationId": "sendUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3869,11 +4506,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["工具：邮件管理"],
+                "tags": [
+                    "工具：邮件管理"
+                ],
                 "summary": "配置邮件",
                 "operationId": "emailConfigUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3919,11 +4562,17 @@
         },
         "/api/genConfig": {
             "put": {
-                "tags": ["系统：代码生成器配置管理"],
+                "tags": [
+                    "系统：代码生成器配置管理"
+                ],
                 "summary": "修改",
                 "operationId": "emailConfigUsingPUT_1",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -3969,10 +4618,14 @@
         },
         "/api/genConfig/{tableName}": {
             "get": {
-                "tags": ["系统：代码生成器配置管理"],
+                "tags": [
+                    "系统：代码生成器配置管理"
+                ],
                 "summary": "查询",
                 "operationId": "getUsingGET_2",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4012,11 +4665,17 @@
         },
         "/api/generator": {
             "put": {
-                "tags": ["系统：代码生成管理"],
+                "tags": [
+                    "系统：代码生成管理"
+                ],
                 "summary": "保存字段数据",
                 "operationId": "saveUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4096,6 +4755,7 @@
                                 "422 UNPROCESSABLE_ENTITY",
                                 "423 LOCKED",
                                 "424 FAILED_DEPENDENCY",
+                                "425 TOO_EARLY",
                                 "426 UPGRADE_REQUIRED",
                                 "428 PRECONDITION_REQUIRED",
                                 "429 TOO_MANY_REQUESTS",
@@ -4134,10 +4794,14 @@
         },
         "/api/generator/columns": {
             "get": {
-                "tags": ["系统：代码生成管理"],
+                "tags": [
+                    "系统：代码生成管理"
+                ],
                 "summary": "查询字段数据",
                 "operationId": "getTablesUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4177,11 +4841,17 @@
         },
         "/api/generator/sync": {
             "post": {
-                "tags": ["系统：代码生成管理"],
+                "tags": [
+                    "系统：代码生成管理"
+                ],
                 "summary": "同步字段数据",
                 "operationId": "syncUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4260,6 +4930,7 @@
                                 "422 UNPROCESSABLE_ENTITY",
                                 "423 LOCKED",
                                 "424 FAILED_DEPENDENCY",
+                                "425 TOO_EARLY",
                                 "426 UPGRADE_REQUIRED",
                                 "428 PRECONDITION_REQUIRED",
                                 "429 TOO_MANY_REQUESTS",
@@ -4298,10 +4969,14 @@
         },
         "/api/generator/tables": {
             "get": {
-                "tags": ["系统：代码生成管理"],
+                "tags": [
+                    "系统：代码生成管理"
+                ],
                 "summary": "查询数据库数据",
                 "operationId": "getTablesUsingGET_2",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4359,10 +5034,14 @@
         },
         "/api/generator/tables/all": {
             "get": {
-                "tags": ["系统：代码生成管理"],
+                "tags": [
+                    "系统：代码生成管理"
+                ],
                 "summary": "查询数据库数据",
                 "operationId": "getTablesUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4395,11 +5074,17 @@
         },
         "/api/generator/{tableName}/{type}": {
             "post": {
-                "tags": ["系统：代码生成管理"],
+                "tags": [
+                    "系统：代码生成管理"
+                ],
                 "summary": "生成代码",
                 "operationId": "generatorUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4450,10 +5135,14 @@
         },
         "/api/job": {
             "get": {
-                "tags": ["系统：岗位管理"],
-                "summary": "查询岗位",
+                "tags": [
+                    "系统：岗位管理"
+                ],
+                "summary": "getJobs",
                 "operationId": "getJobsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4534,17 +5223,17 @@
                         "format": "int32"
                     },
                     {
-                        "name": "deptId",
-                        "in": "query",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
                         "name": "enabled",
                         "in": "query",
                         "required": false,
                         "type": "boolean"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "name": "name",
@@ -4601,11 +5290,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：岗位管理"],
+                "tags": [
+                    "系统：岗位管理"
+                ],
                 "summary": "新增岗位",
-                "operationId": "createUsingPOST_7",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_8",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4650,11 +5345,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：岗位管理"],
+                "tags": [
+                    "系统：岗位管理"
+                ],
                 "summary": "修改岗位",
-                "operationId": "updateUsingPUT_7",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_8",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4698,10 +5399,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：岗位管理"],
+                "tags": [
+                    "系统：岗位管理"
+                ],
                 "summary": "删除岗位",
                 "operationId": "deleteUsingDELETE_7",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4747,10 +5452,14 @@
         },
         "/api/job/download": {
             "get": {
-                "tags": ["系统：岗位管理"],
+                "tags": [
+                    "系统：岗位管理"
+                ],
                 "summary": "导出岗位数据",
-                "operationId": "downloadUsingGET_7",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_8",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -4831,17 +5540,17 @@
                         "format": "int32"
                     },
                     {
-                        "name": "deptId",
-                        "in": "query",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    {
                         "name": "enabled",
                         "in": "query",
                         "required": false,
                         "type": "boolean"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "name": "name",
@@ -4867,12 +5576,65 @@
                 "deprecated": false
             }
         },
+        "/api/job/id": {
+            "get": {
+                "tags": [
+                    "系统：岗位管理"
+                ],
+                "summary": "查询单个岗位",
+                "operationId": "getJobByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PageDto«JobDto»",
+                            "originalRef": "PageDto«JobDto»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/api/jobs": {
             "get": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "查询定时任务",
                 "operationId": "getJobsUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5012,11 +5774,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "新增定时任务",
-                "operationId": "createUsingPOST_10",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_11",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5060,11 +5828,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "修改定时任务",
-                "operationId": "updateUsingPUT_10",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_11",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5108,10 +5882,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "删除定时任务",
                 "operationId": "deleteUsingDELETE_11",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5157,10 +5935,14 @@
         },
         "/api/jobs/download": {
             "get": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "导出任务数据",
-                "operationId": "downloadUsingGET_15",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_16",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5272,11 +6054,17 @@
         },
         "/api/jobs/exec/{id}": {
             "put": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "执行定时任务",
                 "operationId": "executionUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5320,10 +6108,14 @@
         },
         "/api/jobs/logs": {
             "get": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "查询任务执行日志",
                 "operationId": "getJobLogsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5465,10 +6257,14 @@
         },
         "/api/jobs/logs/download": {
             "get": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "导出日志数据",
                 "operationId": "downloadLogUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5580,11 +6376,17 @@
         },
         "/api/jobs/{id}": {
             "put": {
-                "tags": ["系统:定时任务管理"],
+                "tags": [
+                    "系统:定时任务管理"
+                ],
                 "summary": "更改定时任务状态",
                 "operationId": "updateIsPauseUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5628,10 +6430,14 @@
         },
         "/api/limit": {
             "get": {
-                "tags": ["系统：限流测试管理"],
+                "tags": [
+                    "系统：限流测试管理"
+                ],
                 "summary": "测试",
                 "operationId": "testLimitUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5665,10 +6471,14 @@
         },
         "/api/localStorage": {
             "get": {
-                "tags": ["工具：本地存储管理"],
+                "tags": [
+                    "工具：本地存储管理"
+                ],
                 "summary": "查询文件",
                 "operationId": "getLocalStoragesUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5802,11 +6612,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["工具：本地存储管理"],
+                "tags": [
+                    "工具：本地存储管理"
+                ],
                 "summary": "上传文件",
-                "operationId": "createUsingPOST_8",
-                "consumes": ["multipart/form-data"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_9",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5854,11 +6670,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["工具：本地存储管理"],
+                "tags": [
+                    "工具：本地存储管理"
+                ],
                 "summary": "修改文件",
-                "operationId": "updateUsingPUT_8",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_9",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5902,10 +6724,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["工具：本地存储管理"],
+                "tags": [
+                    "工具：本地存储管理"
+                ],
                 "summary": "多选删除",
-                "operationId": "deleteAllUsingDELETE_1",
-                "produces": ["*/*"],
+                "operationId": "deleteAllUsingDELETE_2",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -5951,10 +6777,14 @@
         },
         "/api/localStorage/download": {
             "get": {
-                "tags": ["工具：本地存储管理"],
+                "tags": [
+                    "工具：本地存储管理"
+                ],
                 "summary": "导出数据",
-                "operationId": "downloadUsingGET_8",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_9",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6060,10 +6890,14 @@
         },
         "/api/logs": {
             "get": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "日志查询",
                 "operationId": "getLogsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6205,10 +7039,14 @@
         },
         "/api/logs/del/error": {
             "delete": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "删除所有ERROR日志",
                 "operationId": "delAllByErrorUsingDELETE",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6241,10 +7079,14 @@
         },
         "/api/logs/del/info": {
             "delete": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "删除所有INFO日志",
                 "operationId": "delAllByInfoUsingDELETE",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6277,10 +7119,14 @@
         },
         "/api/logs/download": {
             "get": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "导出数据",
-                "operationId": "downloadUsingGET_9",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_10",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6392,10 +7238,14 @@
         },
         "/api/logs/error": {
             "get": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "错误日志查询",
                 "operationId": "getErrorLogsUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6537,10 +7387,14 @@
         },
         "/api/logs/error/download": {
             "get": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "导出错误数据",
                 "operationId": "errorDownloadUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6652,10 +7506,14 @@
         },
         "/api/logs/error/{id}": {
             "get": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "日志异常详情查询",
                 "operationId": "getErrorLogsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6696,10 +7554,14 @@
         },
         "/api/logs/user": {
             "get": {
-                "tags": ["监控：日志管理"],
+                "tags": [
+                    "监控：日志管理"
+                ],
                 "summary": "用户日志查询",
                 "operationId": "getUserLogsUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6841,10 +7703,14 @@
         },
         "/api/menus": {
             "get": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "查询菜单",
                 "operationId": "getMenusUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6951,11 +7817,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "新增菜单",
-                "operationId": "createUsingPOST_9",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_10",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -6999,11 +7871,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "修改菜单",
-                "operationId": "updateUsingPUT_9",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_10",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7047,10 +7925,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "删除菜单",
                 "operationId": "deleteUsingDELETE_8",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7096,10 +7978,14 @@
         },
         "/api/menus/build": {
             "get": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "获取前端所需菜单",
                 "operationId": "buildMenusUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7132,10 +8018,14 @@
         },
         "/api/menus/download": {
             "get": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "导出菜单数据",
-                "operationId": "downloadUsingGET_10",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_11",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7241,10 +8131,14 @@
         },
         "/api/menus/tree": {
             "get": {
-                "tags": ["系统：菜单管理"],
+                "tags": [
+                    "系统：菜单管理"
+                ],
                 "summary": "返回全部的菜单",
                 "operationId": "getMenuTreeUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7277,10 +8171,14 @@
         },
         "/api/pictures": {
             "get": {
-                "tags": ["工具：免费图床管理"],
+                "tags": [
+                    "工具：免费图床管理"
+                ],
                 "summary": "查询图片",
                 "operationId": "getRolesUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7420,11 +8318,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["工具：免费图床管理"],
+                "tags": [
+                    "工具：免费图床管理"
+                ],
                 "summary": "上传图片",
                 "operationId": "uploadUsingPOST_2",
-                "consumes": ["multipart/form-data"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7465,10 +8369,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["工具：免费图床管理"],
+                "tags": [
+                    "工具：免费图床管理"
+                ],
                 "summary": "多选删除图片",
-                "operationId": "deleteAllUsingDELETE_2",
-                "produces": ["*/*"],
+                "operationId": "deleteAllUsingDELETE_3",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7514,10 +8422,14 @@
         },
         "/api/pictures/download": {
             "get": {
-                "tags": ["工具：免费图床管理"],
+                "tags": [
+                    "工具：免费图床管理"
+                ],
                 "summary": "导出数据",
-                "operationId": "downloadUsingGET_12",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_13",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7629,11 +8541,17 @@
         },
         "/api/pictures/synchronize": {
             "post": {
-                "tags": ["工具：免费图床管理"],
+                "tags": [
+                    "工具：免费图床管理"
+                ],
                 "summary": "同步图床数据",
                 "operationId": "synchronizeUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7669,10 +8587,14 @@
         },
         "/api/qiNiuContent": {
             "get": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "查询文件",
                 "operationId": "getRolesUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7806,11 +8728,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "上传文件",
                 "operationId": "uploadUsingPOST_3",
-                "consumes": ["multipart/form-data"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7851,10 +8779,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "删除多张图片",
-                "operationId": "deleteAllUsingDELETE_3",
-                "produces": ["*/*"],
+                "operationId": "deleteAllUsingDELETE_4",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7900,10 +8832,14 @@
         },
         "/api/qiNiuContent/config": {
             "get": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "get",
                 "operationId": "getUsingGET_3",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7934,11 +8870,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "配置七牛云存储",
                 "operationId": "emailConfigUsingPUT_2",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -7984,10 +8926,14 @@
         },
         "/api/qiNiuContent/download": {
             "get": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "导出数据",
-                "operationId": "downloadUsingGET_14",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_15",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8093,10 +9039,14 @@
         },
         "/api/qiNiuContent/download/{id}": {
             "get": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "下载文件",
-                "operationId": "downloadUsingGET_13",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_14",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8137,11 +9087,17 @@
         },
         "/api/qiNiuContent/synchronize": {
             "post": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "同步七牛云数据",
                 "operationId": "synchronizeUsingPOST_1",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8177,10 +9133,14 @@
         },
         "/api/qiNiuContent/{id}": {
             "delete": {
-                "tags": ["工具：七牛云存储管理"],
+                "tags": [
+                    "工具：七牛云存储管理"
+                ],
                 "summary": "删除文件",
                 "operationId": "deleteUsingDELETE_10",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8221,10 +9181,14 @@
         },
         "/api/roles": {
             "get": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "查询角色",
                 "operationId": "getRolesUsingGET_3",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8359,11 +9323,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "新增角色",
-                "operationId": "createUsingPOST_11",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_12",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8407,11 +9377,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "修改角色",
-                "operationId": "updateUsingPUT_11",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_12",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8455,10 +9431,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "删除角色",
                 "operationId": "deleteUsingDELETE_12",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8504,10 +9484,14 @@
         },
         "/api/roles/all": {
             "get": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "返回全部的角色",
                 "operationId": "getAllUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8571,10 +9555,14 @@
         },
         "/api/roles/download": {
             "get": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "导出角色数据",
-                "operationId": "downloadUsingGET_16",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_17",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8678,12 +9666,65 @@
                 "deprecated": false
             }
         },
+        "/api/roles/id": {
+            "get": {
+                "tags": [
+                    "系统：角色管理"
+                ],
+                "summary": "获取单个role",
+                "operationId": "getRolesByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RoleDto",
+                            "originalRef": "RoleDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/api/roles/level": {
             "get": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "获取用户级别",
                 "operationId": "getLevelUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8716,11 +9757,17 @@
         },
         "/api/roles/menu": {
             "put": {
-                "tags": ["系统：角色管理"],
+                "tags": [
+                    "系统：角色管理"
+                ],
                 "summary": "修改角色菜单",
                 "operationId": "updateMenuUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8766,10 +9813,14 @@
         },
         "/api/roles/{id}": {
             "get": {
-                "tags": ["系统：角色管理"],
-                "summary": "获取单个role",
+                "tags": [
+                    "系统：角色管理"
+                ],
+                "summary": "getRoles",
                 "operationId": "getRolesUsingGET_2",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8811,10 +9862,14 @@
         },
         "/api/server": {
             "get": {
-                "tags": ["服务监控管理"],
+                "tags": [
+                    "服务监控管理"
+                ],
                 "summary": "查询服务监控",
                 "operationId": "getServersUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8878,11 +9933,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["服务监控管理"],
+                "tags": [
+                    "服务监控管理"
+                ],
                 "summary": "新增服务监控",
-                "operationId": "createUsingPOST_12",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_13",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8926,11 +9987,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["服务监控管理"],
+                "tags": [
+                    "服务监控管理"
+                ],
                 "summary": "修改服务监控",
-                "operationId": "updateUsingPUT_12",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_13",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -8974,10 +10041,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["服务监控管理"],
+                "tags": [
+                    "服务监控管理"
+                ],
                 "summary": "删除服务监控",
                 "operationId": "deleteUsingDELETE_13",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9023,10 +10094,14 @@
         },
         "/api/serverDeploy": {
             "get": {
-                "tags": ["服务器管理"],
+                "tags": [
+                    "服务器管理"
+                ],
                 "summary": "查询服务器",
                 "operationId": "getServersUsingGET_1",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9160,11 +10235,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["服务器管理"],
+                "tags": [
+                    "服务器管理"
+                ],
                 "summary": "新增服务器",
-                "operationId": "createUsingPOST_13",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_14",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9208,11 +10289,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["服务器管理"],
+                "tags": [
+                    "服务器管理"
+                ],
                 "summary": "修改服务器",
-                "operationId": "updateUsingPUT_13",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_14",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9256,10 +10343,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["服务器管理"],
+                "tags": [
+                    "服务器管理"
+                ],
                 "summary": "删除Server",
                 "operationId": "deleteUsingDELETE_14",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9305,10 +10396,14 @@
         },
         "/api/serverDeploy/download": {
             "get": {
-                "tags": ["服务器管理"],
+                "tags": [
+                    "服务器管理"
+                ],
                 "summary": "导出服务器数据",
-                "operationId": "downloadUsingGET_17",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_18",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9414,11 +10509,17 @@
         },
         "/api/serverDeploy/testConnect": {
             "post": {
-                "tags": ["服务器管理"],
+                "tags": [
+                    "服务器管理"
+                ],
                 "summary": "测试连接服务器",
                 "operationId": "testConnectUsingPOST_1",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9464,10 +10565,14 @@
         },
         "/api/users": {
             "get": {
-                "tags": ["系统：用户管理"],
-                "summary": "查询用户",
+                "tags": [
+                    "系统：用户管理"
+                ],
+                "summary": "getUsers",
                 "operationId": "getUsersUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9633,11 +10738,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "新增用户",
-                "operationId": "createUsingPOST_14",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_15",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9681,11 +10792,17 @@
                 "deprecated": false
             },
             "put": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "修改用户",
-                "operationId": "updateUsingPUT_14",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "updateUsingPUT_15",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9729,10 +10846,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "删除用户",
                 "operationId": "deleteUsingDELETE_15",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9778,11 +10899,17 @@
         },
         "/api/users/center": {
             "put": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "修改用户：个人中心",
                 "operationId": "centerUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9828,10 +10955,14 @@
         },
         "/api/users/download": {
             "get": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "导出用户数据",
-                "operationId": "downloadUsingGET_18",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_19",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -9966,13 +11097,68 @@
                 "deprecated": false
             }
         },
+        "/api/users/id": {
+            "get": {
+                "tags": [
+                    "系统：用户管理"
+                ],
+                "summary": "查询单个用户",
+                "operationId": "getUsersByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PageDto«UserDto»",
+                            "originalRef": "PageDto«UserDto»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/api/users/resetPwd": {
             "put": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "重置用户密码",
                 "operationId": "resetPwdUsingPUT",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10018,11 +11204,17 @@
         },
         "/api/users/updateAvatar": {
             "post": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "修改头像",
                 "operationId": "updateAvatarUsingPOST",
-                "consumes": ["multipart/form-data"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10065,11 +11257,17 @@
         },
         "/api/users/updateEmail/{code}": {
             "post": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "修改邮箱",
                 "operationId": "updateEmailUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10122,11 +11320,17 @@
         },
         "/api/users/updatePass": {
             "post": {
-                "tags": ["系统：用户管理"],
+                "tags": [
+                    "系统：用户管理"
+                ],
                 "summary": "修改密码",
                 "operationId": "updatePassUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10172,10 +11376,14 @@
         },
         "/api/visits": {
             "get": {
-                "tags": ["系统:访问记录管理"],
+                "tags": [
+                    "系统:访问记录管理"
+                ],
                 "summary": "查询",
                 "operationId": "getUsingGET_4",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10206,11 +11414,17 @@
                 "deprecated": false
             },
             "post": {
-                "tags": ["系统:访问记录管理"],
+                "tags": [
+                    "系统:访问记录管理"
+                ],
                 "summary": "创建访问记录",
-                "operationId": "createUsingPOST_15",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "operationId": "createUsingPOST_16",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10246,10 +11460,14 @@
         },
         "/api/visits/chartData": {
             "get": {
-                "tags": ["系统:访问记录管理"],
+                "tags": [
+                    "系统:访问记录管理"
+                ],
                 "summary": "查询图表数据",
                 "operationId": "getChartDataUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10280,12 +11498,16 @@
                 "deprecated": false
             }
         },
-        "/auth/code": {
+        "/api/warehouseinfo": {
             "get": {
-                "tags": ["系统：系统授权接口"],
-                "summary": "获取验证码",
-                "operationId": "getCodeUsingGET",
-                "produces": ["*/*"],
+                "tags": [
+                    "基础信息：冷库信息管理"
+                ],
+                "summary": "查询冷库信息",
+                "operationId": "getWarehouseinfosUsingGET",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10294,6 +11516,63 @@
                         "required": true,
                         "type": "string",
                         "default": "Bearer "
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "页码 (0..N)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "每页显示的数目",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    },
+                    {
+                        "name": "symbols",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -10314,51 +11593,19 @@
                     }
                 },
                 "deprecated": false
-            }
-        },
-        "/auth/info": {
-            "get": {
-                "tags": ["系统：系统授权接口"],
-                "summary": "获取用户信息",
-                "operationId": "getUserInfoUsingGET",
-                "produces": ["*/*"],
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "token",
-                        "required": true,
-                        "type": "string",
-                        "default": "Bearer "
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/auth/login": {
+            },
             "post": {
-                "tags": ["系统：系统授权接口"],
-                "summary": "登录授权",
-                "operationId": "loginUsingPOST",
-                "consumes": ["application/json"],
-                "produces": ["*/*"],
+                "tags": [
+                    "基础信息：冷库信息管理"
+                ],
+                "summary": "新增冷库信息",
+                "operationId": "createUsingPOST_17",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10370,12 +11617,12 @@
                     },
                     {
                         "in": "body",
-                        "name": "authUser",
-                        "description": "authUser",
+                        "name": "resources",
+                        "description": "resources",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/AuthUserDto",
-                            "originalRef": "AuthUserDto"
+                            "$ref": "#/definitions/Warehouseinfo",
+                            "originalRef": "Warehouseinfo"
                         }
                     }
                 ],
@@ -10400,14 +11647,399 @@
                     }
                 },
                 "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "基础信息：冷库信息管理"
+                ],
+                "summary": "修改冷库信息",
+                "operationId": "updateUsingPUT_16",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "resources",
+                        "description": "resources",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Warehouseinfo",
+                            "originalRef": "Warehouseinfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "基础信息：冷库信息管理"
+                ],
+                "summary": "删除冷库信息",
+                "operationId": "deleteAllUsingDELETE_5",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "ids",
+                        "description": "ids",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/warehouseinfo/all": {
+            "get": {
+                "tags": [
+                    "基础信息：冷库信息管理"
+                ],
+                "summary": "查询所有冷库信息",
+                "operationId": "getAllWarehouseinfosUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "symbols",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/api/warehouseinfo/download": {
+            "get": {
+                "tags": [
+                    "基础信息：冷库信息管理"
+                ],
+                "summary": "导出数据",
+                "operationId": "downloadUsingGET_20",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "province",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "symbols",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/auth/code": {
+            "get": {
+                "tags": [
+                    "系统：系统授权接口"
+                ],
+                "summary": "获取验证码",
+                "operationId": "getCodeUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/CaptchaCodeDto",
+                            "originalRef": "CaptchaCodeDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/auth/info": {
+            "get": {
+                "tags": [
+                    "系统：系统授权接口"
+                ],
+                "summary": "获取用户信息",
+                "operationId": "getUserInfoUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserDetails",
+                            "originalRef": "UserDetails"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "系统：系统授权接口"
+                ],
+                "summary": "登录授权",
+                "operationId": "loginUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "token",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bearer "
+                    },
+                    {
+                        "in": "body",
+                        "name": "authUser",
+                        "description": "authUser",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AuthUserDto",
+                            "originalRef": "AuthUserDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/AuthInfoDto",
+                            "originalRef": "AuthInfoDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
             }
         },
         "/auth/logout": {
             "delete": {
-                "tags": ["系统：系统授权接口"],
+                "tags": [
+                    "系统：系统授权接口"
+                ],
                 "summary": "退出登录",
                 "operationId": "logoutUsingDELETE",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10440,10 +12072,14 @@
         },
         "/auth/online": {
             "get": {
-                "tags": ["系统：在线用户管理"],
+                "tags": [
+                    "系统：在线用户管理"
+                ],
                 "summary": "查询在线用户",
                 "operationId": "getAllUsingGET",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10508,10 +12144,14 @@
                 "deprecated": false
             },
             "delete": {
-                "tags": ["系统：在线用户管理"],
+                "tags": [
+                    "系统：在线用户管理"
+                ],
                 "summary": "踢出用户",
                 "operationId": "deleteUsingDELETE_9",
-                "produces": ["*/*"],
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10556,10 +12196,14 @@
         },
         "/auth/online/download": {
             "get": {
-                "tags": ["系统：在线用户管理"],
+                "tags": [
+                    "系统：在线用户管理"
+                ],
                 "summary": "导出数据",
-                "operationId": "downloadUsingGET_11",
-                "produces": ["*/*"],
+                "operationId": "downloadUsingGET_12",
+                "produces": [
+                    "*/*"
+                ],
                 "parameters": [
                     {
                         "name": "Authorization",
@@ -10676,7 +12320,18 @@
             "type": "object",
             "properties": {
                 "cityLevel": {
-                    "type": "string"
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumCityLevel\n* NONE: 无效枚举值\n* COUNTRY: 国家/地区\n* PROV: 省/直辖市\n* CITY: 市\n* COUNTY: 县/县级市\n* TOWN: 镇\n* VILLAGE: 乡/村",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
                 },
                 "cname": {
                     "type": "string"
@@ -10684,7 +12339,14 @@
                 "code": {
                     "type": "string"
                 },
-                "enable": {
+                "createTime": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "enabled": {
                     "type": "boolean"
                 },
                 "enname": {
@@ -10695,7 +12357,10 @@
                 },
                 "id": {
                     "type": "integer",
-                    "format": "int32"
+                    "format": "int64"
+                },
+                "isDelete": {
+                    "type": "boolean"
                 },
                 "level": {
                     "type": "integer",
@@ -10703,7 +12368,100 @@
                 },
                 "pid": {
                     "type": "integer",
+                    "format": "int64"
+                },
+                "pinyin": {
+                    "type": "string"
+                },
+                "postcode": {
+                    "type": "string"
+                },
+                "provinceShort": {
+                    "type": "string"
+                },
+                "py": {
+                    "type": "string"
+                },
+                "remarks": {
+                    "type": "string"
+                },
+                "space": {
+                    "type": "number"
+                },
+                "tb": {
+                    "type": "integer",
                     "format": "int32"
+                },
+                "tp": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "updateTime": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "zoneno": {
+                    "type": "string"
+                }
+            },
+            "title": "Area"
+        },
+        "AreaDto": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AreaDto",
+                        "originalRef": "AreaDto"
+                    }
+                },
+                "cityLevel": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumCityLevel\n* NONE: 无效枚举值\n* COUNTRY: 国家/地区\n* PROV: 省/直辖市\n* CITY: 市\n* COUNTY: 县/县级市\n* TOWN: 镇\n* VILLAGE: 乡/村",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                },
+                "cname": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "enname": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pid": {
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "pinyin": {
                     "type": "string"
@@ -10735,7 +12493,20 @@
                     "type": "string"
                 }
             },
-            "title": "Area"
+            "title": "AreaDto"
+        },
+        "AuthInfoDto": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/JwtUserDto",
+                    "originalRef": "JwtUserDto"
+                }
+            },
+            "title": "AuthInfoDto"
         },
         "AuthUserDto": {
             "type": "object",
@@ -10754,6 +12525,18 @@
                 }
             },
             "title": "AuthUserDto"
+        },
+        "CaptchaCodeDto": {
+            "type": "object",
+            "properties": {
+                "img": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                }
+            },
+            "title": "CaptchaCodeDto"
         },
         "ColumnInfo": {
             "type": "object",
@@ -10804,6 +12587,132 @@
             },
             "title": "ColumnInfo"
         },
+        "Consignor": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "bankCode": {
+                    "type": "string"
+                },
+                "bankName": {
+                    "type": "string"
+                },
+                "bankUser": {
+                    "type": "string"
+                },
+                "city": {
+                    "$ref": "#/definitions/Area",
+                    "originalRef": "Area"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "comeFrom": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "enname": {
+                    "type": "string"
+                },
+                "fax": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "identityType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumIdentityType\n* NONE: 无效枚举值\n* COMPANY: 公司\n* PERSON: 个人",
+                    "enum": [
+                        0,
+                        1,
+                        2
+                    ]
+                },
+                "invoiceTitle": {
+                    "type": "string"
+                },
+                "isDelete": {
+                    "type": "boolean"
+                },
+                "memo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "pinyin": {
+                    "type": "string"
+                },
+                "property": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "EnumConsignorProperty\n* NONE: 无效枚举值\n* LOGISTICS_COMPANY: 物流公司\n* DISTRIBUTOR: 经销商\n* PERSON: 个人\n* OTHER: 其他",
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                "province": {
+                    "$ref": "#/definitions/Area",
+                    "originalRef": "Area"
+                },
+                "py": {
+                    "type": "string"
+                },
+                "recordDate": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "shortName": {
+                    "type": "string"
+                },
+                "socialCode": {
+                    "type": "string"
+                },
+                "tax": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "tel": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "web": {
+                    "type": "string"
+                },
+                "workDate": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                }
+            },
+            "title": "Consignor"
+        },
         "Database": {
             "type": "object",
             "properties": {
@@ -10828,6 +12737,22 @@
                 }
             },
             "title": "Database"
+        },
+        "DelAreaIds": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "includeChildren": {
+                    "type": "boolean"
+                }
+            },
+            "title": "DelAreaIds"
         },
         "Deploy": {
             "type": "object",
@@ -11264,6 +13189,15 @@
             },
             "title": "GenConfig"
         },
+        "GrantedAuthority": {
+            "type": "object",
+            "properties": {
+                "authority": {
+                    "type": "string"
+                }
+            },
+            "title": "GrantedAuthority"
+        },
         "InputStream": {
             "type": "object",
             "title": "InputStream"
@@ -11331,6 +13265,22 @@
                 }
             },
             "title": "JobSmallDto"
+        },
+        "JwtUserDto": {
+            "type": "object",
+            "properties": {
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "user": {
+                    "$ref": "#/definitions/UserDto",
+                    "originalRef": "UserDto"
+                }
+            },
+            "title": "JwtUserDto"
         },
         "LocalStorage": {
             "type": "object",
@@ -11479,6 +13429,23 @@
                 }
             },
             "title": "MenuDto"
+        },
+        "PageDto«AreaDto»": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AreaDto",
+                        "originalRef": "AreaDto"
+                    }
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "PageDto«AreaDto»"
         },
         "PageDto«DeptDto»": {
             "type": "object",
@@ -11935,7 +13902,17 @@
                     "type": "integer",
                     "format": "int32",
                     "description": "EnumDataScope\n* NONE: 无效枚举值\n* ALL: 全部\n* SELF_DEPT: 本部门\n* SELF_AND_CHILDREN: 本部门及以下\n* SELF_REGION: 本区域\n* SELF_REGION_AND_CHILDREN: 本区域及以下\n* SELF_COMPANY: 本公司\n* SELF_COMPANY_AND_CHILDREN: 本公司及以下\n* CUSTOM: 自定义",
-                    "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ]
                 },
                 "dataScopeDepts": {
                     "type": "array",
@@ -12029,6 +14006,37 @@
             },
             "title": "UserAvatar"
         },
+        "UserDetails": {
+            "type": "object",
+            "properties": {
+                "accountNonExpired": {
+                    "type": "boolean"
+                },
+                "accountNonLocked": {
+                    "type": "boolean"
+                },
+                "authorities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GrantedAuthority",
+                        "originalRef": "GrantedAuthority"
+                    }
+                },
+                "credentialsNonExpired": {
+                    "type": "boolean"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "title": "UserDetails"
+        },
         "UserDto": {
             "type": "object",
             "properties": {
@@ -12047,7 +14055,17 @@
                     "type": "integer",
                     "format": "int32",
                     "description": "EnumDataScope\n* NONE: 无效枚举值\n* ALL: 全部\n* SELF_DEPT: 本部门\n* SELF_AND_CHILDREN: 本部门及以下\n* SELF_REGION: 本区域\n* SELF_REGION_AND_CHILDREN: 本区域及以下\n* SELF_COMPANY: 本公司\n* SELF_COMPANY_AND_CHILDREN: 本公司及以下\n* CUSTOM: 自定义",
-                    "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ]
                 },
                 "dataScopeDepts": {
                     "type": "array",
@@ -12269,6 +14287,75 @@
                 }
             },
             "title": "VerificationCode"
+        },
+        "Warehouseinfo": {
+            "type": "object",
+            "properties": {
+                "acreage": {
+                    "type": "number"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "cond": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "flag": {
+                    "type": "boolean"
+                },
+                "floor": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isDelete": {
+                    "type": "boolean"
+                },
+                "isinsured": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "platform": {
+                    "type": "string"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "symbols": {
+                    "type": "string"
+                },
+                "updateTime": {
+                    "$ref": "#/definitions/Timestamp",
+                    "originalRef": "Timestamp"
+                },
+                "updatedBy": {
+                    "type": "string"
+                },
+                "volume": {
+                    "type": "number"
+                }
+            },
+            "title": "Warehouseinfo"
         }
     }
 }

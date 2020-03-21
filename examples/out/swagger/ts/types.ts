@@ -5,390 +5,36 @@ export class INullObject {
 }
 
 // ----------------------------------------------
-//        body define
+//        from define
 // ----------------------------------------------
 
-
-
-export interface BodypayConfigUsingPUT {
-    alipayconfig: IAlipayConfig; // alipayConfig
-}
-
-
-export interface BodytoPayAsPcUsingPOST {
-    trade: ITradeVo; // trade
-}
-
-
-export interface BodytoPayAsWebUsingPOST {
-    trade: ITradeVo; // trade
-}
-
-
-export interface BodycreateUsingPOST {
-    resources: IApp; // resources
-}
-
-
-export interface BodyupdateUsingPUT {
-    resources: IApp; // resources
-}
-
-
-export interface BodydeleteUsingDELETE {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_1 {
-    resources: IArea; // resources
-}
-
-
-export interface BodyupdateUsingPUT_1 {
-    resources: IArea; // resources
-}
-
-
-export interface BodydeleteAllUsingDELETE {
-    req: IDelAreaIds; // req
-}
-
-
-export interface BodyresetEmailUsingPOST {
-    code: IVerificationCode; // code
-}
-
-
-export interface BodycreateUsingPOST_2 {
-    resources: IConsignor; // resources
-}
-
-
-export interface BodyupdateUsingPUT_2 {
-    resources: IConsignor; // resources
-}
-
-
-export interface BodydeleteAllUsingDELETE_1 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_3 {
-    resources: IDatabase; // resources
-}
-
-
-export interface BodyupdateUsingPUT_3 {
-    resources: IDatabase; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_1 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodytestConnectUsingPOST {
-    resources: IDatabase; // resources
-}
-
-
-export interface BodycreateUsingPOST_4 {
-    resources: IDeploy; // resources
-}
-
-
-export interface BodyupdateUsingPUT_4 {
-    resources: IDeploy; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_2 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodyserverReductionUsingPOST {
-    resources: IDeployHistory; // resources
-}
-
-
-export interface BodyserverStatusUsingPOST {
-    resources: IDeploy; // resources
-}
-
-
-export interface BodystartServerUsingPOST {
-    resources: IDeploy; // resources
-}
-
-
-export interface BodystopServerUsingPOST {
-    resources: IDeploy; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_3 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_5 {
-    resources: IDept; // resources
-}
-
-
-export interface BodyupdateUsingPUT_5 {
-    resources: IDept; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_4 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_6 {
-    resources: IDict; // resources
-}
-
-
-export interface BodyupdateUsingPUT_6 {
-    resources: IDict; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_5 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_7 {
-    resources: IDictDetail; // resources
-}
-
-
-export interface BodyupdateUsingPUT_7 {
-    resources: IDictDetail; // resources
-}
-
-
-export interface BodysendUsingPOST {
-    emailvo: IEmailVo; // emailVo
-}
-
-
-export interface BodyemailConfigUsingPUT {
-    emailconfig: IEmailConfig; // emailConfig
-}
-
-
-export interface BodyemailConfigUsingPUT_1 {
-    genconfig: IGenConfig; // genConfig
+export interface FromuploadUsingPOST {
+    file: FormData; // file
 }
 
-
-export interface BodysaveUsingPUT {
-    columninfos: INullObject; // columnInfos
-}
-
-
-export interface BodysyncUsingPOST {
-    tables: INullObject; // tables
-}
-
-
-export interface BodycreateUsingPOST_8 {
-    resources: IJob; // resources
-}
-
-
-export interface BodyupdateUsingPUT_8 {
-    resources: IJob; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_7 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_11 {
-    resources: IQuartzJob; // resources
-}
-
-
-export interface BodyupdateUsingPUT_11 {
-    resources: IQuartzJob; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_11 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodyupdateUsingPUT_9 {
-    resources: ILocalStorage; // resources
-}
-
-
-export interface BodydeleteAllUsingDELETE_2 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_10 {
-    resources: IMenu; // resources
-}
-
-
-export interface BodyupdateUsingPUT_10 {
-    resources: IMenu; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_8 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodydeleteAllUsingDELETE_3 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodydeleteAllUsingDELETE_4 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodyemailConfigUsingPUT_2 {
-    qiniuconfig: IQiniuConfig; // qiniuConfig
-}
-
-
-export interface BodycreateUsingPOST_12 {
-    resources: IRole; // resources
-}
-
-
-export interface BodyupdateUsingPUT_12 {
-    resources: IRole; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_12 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodyupdateMenuUsingPUT {
-    resources: IRole; // resources
-}
-
-
-export interface BodycreateUsingPOST_13 {
-    resources: IServer; // resources
-}
-
-
-export interface BodyupdateUsingPUT_13 {
-    resources: IServer; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_13 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycreateUsingPOST_14 {
-    resources: IServerDeploy; // resources
-}
-
-
-export interface BodyupdateUsingPUT_14 {
-    resources: IServerDeploy; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_14 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodytestConnectUsingPOST_1 {
-    resources: IServerDeploy; // resources
-}
-
-
-export interface BodycreateUsingPOST_15 {
-    resources: IUser; // resources
-}
-
-
-export interface BodyupdateUsingPUT_15 {
-    resources: IUser; // resources
-}
-
-
-export interface BodydeleteUsingDELETE_15 {
-    ids: INullObject; // ids
-}
-
-
-export interface BodycenterUsingPUT {
-    resources: IUser; // resources
-}
-
-
-export interface BodyresetPwdUsingPUT {
-    resources: IUser; // resources
-}
-
-
-export interface BodyupdateEmailUsingPOST {
-    user: IUser; // user
-}
-
-
-export interface BodyupdatePassUsingPOST {
-    passvo: IUserPassVo; // passVo
+export interface FromuploadUsingPOST_1 {
+    file: FormData; // file
 }
 
-
-export interface BodycreateUsingPOST_17 {
-    resources: IWarehouseinfo; // resources
-}
-
-
-export interface BodyupdateUsingPUT_16 {
-    resources: IWarehouseinfo; // resources
+export interface FromcreateUsingPOST_9 {
+    file: FormData; // file
 }
-
 
-export interface BodydeleteAllUsingDELETE_5 {
-    ids: INullObject; // ids
+export interface FromuploadUsingPOST_2 {
+    file: FormData; // file
 }
 
-
-export interface BodyloginUsingPOST {
-    authuser: IAuthUserDto; // authUser
+export interface FromuploadUsingPOST_3 {
+    file: FormData; // file
 }
-
 
-export interface BodydeleteUsingDELETE_9 {
-    keys: INullObject; // keys
+export interface FromupdateAvatarUsingPOST {
+    file: FormData; // file
 }
 
 // ----------------------------------------------
 //        query define
 // ----------------------------------------------
-
-
 
 export interface QuerygetAppsUsingGET {
     name: string;
@@ -397,11 +43,9 @@ export interface QuerygetAppsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET {
     name: string;
 }
-
 
 export interface QuerygetAreasUsingGET {
     citylevel: string;
@@ -413,7 +57,6 @@ export interface QuerygetAreasUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_1 {
     citylevel: string;
     cname: string;
@@ -421,11 +64,9 @@ export interface QuerydownloadUsingGET_1 {
     enname: string;
 }
 
-
 export interface QueryresetPassUsingPOST {
     email: string; // email
 }
-
 
 export interface QueryvalidatedUsingGET {
     code: string;
@@ -435,7 +76,6 @@ export interface QueryvalidatedUsingGET {
     type: string;
     value: string;
 }
-
 
 export interface QuerygetConsignorsUsingGET {
     city: number;
@@ -447,14 +87,12 @@ export interface QuerygetConsignorsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_2 {
     city: number;
     code: string;
     name: string;
     province: number;
 }
-
 
 export interface QuerygetDatabasesUsingGET {
     jdbcurl: string;
@@ -464,12 +102,10 @@ export interface QuerygetDatabasesUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_3 {
     jdbcurl: string;
     name: string;
 }
-
 
 export interface QuerygetDeploysUsingGET {
     appname: string;
@@ -478,11 +114,9 @@ export interface QuerygetDeploysUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_4 {
     appname: string;
 }
-
 
 export interface QuerygetDeployHistorysUsingGET {
     blurry: string;
@@ -492,12 +126,10 @@ export interface QuerygetDeployHistorysUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_5 {
     blurry: string;
     deployid: number;
 }
-
 
 export interface QuerygetDeptsUsingGET {
     enabled: boolean;
@@ -506,12 +138,10 @@ export interface QuerygetDeptsUsingGET {
     pid: number;
 }
 
-
 export interface QuerygetDeptsByPidUsingGET {
     pid: number; // pid
     props: number; // props
 }
-
 
 export interface QuerydownloadUsingGET_6 {
     enabled: boolean;
@@ -520,11 +150,9 @@ export interface QuerydownloadUsingGET_6 {
     pid: number;
 }
 
-
 export interface QuerygetDeptsByPropsUsingGET {
     props: number; // props
 }
-
 
 export interface QuerygetDictsUsingGET {
     blurry: string;
@@ -533,11 +161,9 @@ export interface QuerygetDictsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_7 {
     blurry: string;
 }
-
 
 export interface QuerygetDictDetailsUsingGET {
     dictname: string;
@@ -547,7 +173,6 @@ export interface QuerygetDictDetailsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerygetDictDetailMapsUsingGET {
     dictname: string;
     label: string;
@@ -556,18 +181,15 @@ export interface QuerygetDictDetailMapsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerygetTablesUsingGET {
     tablename: string; // tableName
 }
-
 
 export interface QuerygetTablesUsingGET_2 {
     name: string; // name
     page: number; // page
     size: number; // size
 }
-
 
 export interface QuerygetJobsUsingGET {
     enabled: boolean;
@@ -578,18 +200,15 @@ export interface QuerygetJobsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_8 {
     enabled: boolean;
     id: number;
     name: string;
 }
 
-
 export interface QuerygetJobByIdUsingGET {
     id: number; // id
 }
-
 
 export interface QuerygetJobsUsingGET_1 {
     issuccess: boolean;
@@ -599,12 +218,10 @@ export interface QuerygetJobsUsingGET_1 {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_16 {
     issuccess: boolean;
     jobname: string;
 }
-
 
 export interface QuerygetJobLogsUsingGET {
     issuccess: boolean;
@@ -614,12 +231,10 @@ export interface QuerygetJobLogsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadLogUsingGET {
     issuccess: boolean;
     jobname: string;
 }
-
 
 export interface QuerygetLocalStoragesUsingGET {
     blurry: string;
@@ -628,16 +243,13 @@ export interface QuerygetLocalStoragesUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerycreateUsingPOST_9 {
     name: string; // name
 }
 
-
 export interface QuerydownloadUsingGET_9 {
     blurry: string;
 }
-
 
 export interface QuerygetLogsUsingGET {
     blurry: string;
@@ -647,12 +259,10 @@ export interface QuerygetLogsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_10 {
     blurry: string;
     logtype: string;
 }
-
 
 export interface QuerygetErrorLogsUsingGET_1 {
     blurry: string;
@@ -662,12 +272,10 @@ export interface QuerygetErrorLogsUsingGET_1 {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QueryerrorDownloadUsingGET {
     blurry: string;
     logtype: string;
 }
-
 
 export interface QuerygetUserLogsUsingGET {
     blurry: string;
@@ -677,16 +285,13 @@ export interface QuerygetUserLogsUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerygetMenusUsingGET {
     blurry: string;
 }
 
-
 export interface QuerydownloadUsingGET_11 {
     blurry: string;
 }
-
 
 export interface QuerygetRolesUsingGET {
     filename: string;
@@ -696,12 +301,10 @@ export interface QuerygetRolesUsingGET {
     username: string;
 }
 
-
 export interface QuerydownloadUsingGET_13 {
     filename: string;
     username: string;
 }
-
 
 export interface QuerygetRolesUsingGET_1 {
     key: string;
@@ -710,11 +313,9 @@ export interface QuerygetRolesUsingGET_1 {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_15 {
     key: string;
 }
-
 
 export interface QuerygetRolesUsingGET_3 {
     blurry: string;
@@ -723,18 +324,15 @@ export interface QuerygetRolesUsingGET_3 {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerygetAllUsingGET_1 {
     page: number; // 页码 (0..N)
     size: number; // 每页显示的数目
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_17 {
     blurry: string;
 }
-
 
 export interface QuerygetServersUsingGET {
     blurry: string;
@@ -743,7 +341,6 @@ export interface QuerygetServersUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerygetServersUsingGET_1 {
     blurry: string;
     page: number; // 页码 (0..N)
@@ -751,11 +348,9 @@ export interface QuerygetServersUsingGET_1 {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_18 {
     blurry: string;
 }
-
 
 export interface QuerygetUsersUsingGET {
     blurry: string;
@@ -768,7 +363,6 @@ export interface QuerygetUsersUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_19 {
     blurry: string;
     deptid: number;
@@ -777,11 +371,9 @@ export interface QuerydownloadUsingGET_19 {
     id: number;
 }
 
-
 export interface QuerygetUsersByIdUsingGET {
     id: number; // id
 }
-
 
 export interface QuerygetWarehouseinfosUsingGET {
     address: string;
@@ -794,7 +386,6 @@ export interface QuerygetWarehouseinfosUsingGET {
     symbols: string;
 }
 
-
 export interface QuerygetAllWarehouseinfosUsingGET {
     address: string;
     location: string;
@@ -802,7 +393,6 @@ export interface QuerygetAllWarehouseinfosUsingGET {
     province: string;
     symbols: string;
 }
-
 
 export interface QuerydownloadUsingGET_20 {
     address: string;
@@ -812,7 +402,6 @@ export interface QuerydownloadUsingGET_20 {
     symbols: string;
 }
 
-
 export interface QuerygetAllUsingGET {
     filter: string; // filter
     page: number; // 页码 (0..N)
@@ -820,9 +409,81 @@ export interface QuerygetAllUsingGET {
     sort: string[]; // 以下列格式排序标准：property[,asc | desc]。 默认排序顺序为升序。 支持多种排序条件：如：id,asc
 }
 
-
 export interface QuerydownloadUsingGET_12 {
     filter: string; // filter
+}
+
+// ----------------------------------------------
+//        path define
+// ----------------------------------------------
+
+export interface PathdeleteUsingDELETE_6 {
+
+    // id
+    id: number;
+}
+
+export interface PathgetUsingGET_2 {
+
+    // tableName
+    tablename: string;
+}
+
+export interface PathgeneratorUsingPOST {
+
+    // tableName
+    tablename: string;
+
+    // type
+    type: number;
+}
+
+export interface PathexecutionUsingPUT {
+
+    // id
+    id: number;
+}
+
+export interface PathupdateIsPauseUsingPUT {
+
+    // id
+    id: number;
+}
+
+export interface PathgetErrorLogsUsingGET {
+
+    // id
+    id: number;
+}
+
+export interface PathdownloadUsingGET_14 {
+
+    // id
+    id: number;
+}
+
+export interface PathdeleteUsingDELETE_10 {
+
+    // id
+    id: number;
+}
+
+export interface PathgetRolesByIdUsingGET {
+
+    // id
+    id: number;
+}
+
+export interface PathgetRolesUsingGET_2 {
+
+    // id
+    id: number;
+}
+
+export interface PathupdateEmailUsingPOST {
+
+    // code
+    code: string;
 }
 
 // ----------------------------------------------
@@ -882,7 +543,7 @@ export interface IArea {
 }
 
 export interface IAreaDto {
-    children: IAreaDto[];
+    children: any[];
     citylevel: enums.EnumCityLevel; // EnumCityLevel * NONE: 无效枚举值 * COUNTRY: 国家/地区 * PROV: 省/直辖市 * CITY: 市 * COUNTY: 县/县级市 * TOWN: 镇 * VILLAGE: 乡/村
     cname: string;
     code: string;
@@ -906,7 +567,7 @@ export interface IAreaDto {
 
 export interface IAuthInfoDto {
     token: string;
-    user: IJwtUserDto;
+    user: any;
 }
 
 export interface IAuthUserDto {
@@ -943,7 +604,7 @@ export interface IConsignor {
     bankcode: string;
     bankname: string;
     bankuser: string;
-    city: IArea;
+    city: any;
     code: string;
     comefrom: string;
     createtime: number;
@@ -960,7 +621,7 @@ export interface IConsignor {
     phone: string;
     pinyin: string;
     property: enums.EnumConsignorProperty; // EnumConsignorProperty * NONE: 无效枚举值 * LOGISTICS_COMPANY: 物流公司 * DISTRIBUTOR: 经销商 * PERSON: 个人 * OTHER: 其他
-    province: IArea;
+    province: any;
     py: string;
     recorddate: number;
     shortname: string;
@@ -988,9 +649,9 @@ export interface IDelAreaIds {
 }
 
 export interface IDeploy {
-    app: IApp;
+    app: any;
     createtime: number;
-    deploys: IServerDeploy[];
+    deploys: any[];
     id: number;
 }
 
@@ -1006,7 +667,7 @@ export interface IDeployHistory {
 export interface IDept {
     createtime: number;
     createdby: string;
-    deptinfo: IDeptInfo;
+    deptinfo: any;
     enabled: boolean;
     id: number;
     isdelete: boolean;
@@ -1018,9 +679,9 @@ export interface IDept {
 }
 
 export interface IDeptDto {
-    children: IDeptDto[];
+    children: any[];
     createtime: number;
-    deptinfo: IDeptInfoDto;
+    deptinfo: any;
     enabled: boolean;
     id: number;
     label: string;
@@ -1084,7 +745,7 @@ export interface IDeptSmallDto {
 
 export interface IDict {
     createtime: number;
-    dictdetails: IDictDetail[];
+    dictdetails: any[];
     id: number;
     name: string;
     remark: string;
@@ -1092,7 +753,7 @@ export interface IDict {
 
 export interface IDictDetail {
     createtime: number;
-    dict: IDict;
+    dict: any;
     id: number;
     label: string;
     sort: number;
@@ -1155,7 +816,7 @@ export interface IJobSmallDto {
 
 export interface IJwtUserDto {
     roles: string[];
-    user: IUserDto;
+    user: any;
 }
 
 export interface ILocalStorage {
@@ -1189,7 +850,7 @@ export interface IMenu {
 
 export interface IMenuDto {
     cache: boolean;
-    children: IMenuDto[];
+    children: any[];
     component: string;
     componentname: string;
     createtime: number;
@@ -1206,27 +867,27 @@ export interface IMenuDto {
 }
 
 export interface IPageDtoAreaDto {
-    content: IAreaDto[];
+    content: any[];
     totalelements: number;
 }
 
 export interface IPageDtoDeptDto {
-    content: IDeptDto[];
+    content: any[];
     totalelements: number;
 }
 
 export interface IPageDtoJobDto {
-    content: IJobDto[];
+    content: any[];
     totalelements: number;
 }
 
 export interface IPageDtoRoleDto {
-    content: IRoleDto[];
+    content: any[];
     totalelements: number;
 }
 
 export interface IPageDtoUserDto {
-    content: IUserDto[];
+    content: any[];
     totalelements: number;
 }
 
@@ -1265,10 +926,10 @@ export interface IResource {
 
 export interface IRole {
     createtime: number;
-    depts: IDept[];
+    depts: any[];
     id: number;
     level: number;
-    menus: IMenu[];
+    menus: any[];
     name: string;
     permission: string;
     remark: string;
@@ -1277,10 +938,10 @@ export interface IRole {
 export interface IRoleDto {
     createtime: number;
     datascope: string;
-    depts: IDeptDto[];
+    depts: any[];
     id: number;
     level: number;
-    menus: IMenuDto[];
+    menus: any[];
     name: string;
     permission: string;
     remark: string;
@@ -1340,26 +1001,26 @@ export interface ITradeVo {
 }
 
 export interface IUser {
-    company: IDept;
+    company: any;
     createtime: number;
     createdby: string;
     datascope: enums.EnumDataScope; // EnumDataScope * NONE: 无效枚举值 * ALL: 全部 * SELF_DEPT: 本部门 * SELF_AND_CHILDREN: 本部门及以下 * SELF_REGION: 本区域 * SELF_REGION_AND_CHILDREN: 本区域及以下 * SELF_COMPANY: 本公司 * SELF_COMPANY_AND_CHILDREN: 本公司及以下 * CUSTOM: 自定义
-    datascopedepts: IDept[];
-    dept: IDept;
+    datascopedepts: any[];
+    dept: any;
     email: string;
     enabled: boolean;
     id: number;
     isdelete: boolean;
-    job: IJob;
+    job: any;
     nickname: string;
     phone: string;
-    region: IDept;
-    roles: IRole[];
+    region: any;
+    roles: any[];
     sex: string;
     updatetime: number;
     updatedby: string;
-    useravatar: IUserAvatar;
-    userinfo: IUserInfo;
+    useravatar: any;
+    userinfo: any;
     username: string;
 }
 
@@ -1374,7 +1035,7 @@ export interface IUserAvatar {
 export interface IUserDetails {
     accountnonexpired: boolean;
     accountnonlocked: boolean;
-    authorities: IGrantedAuthority[];
+    authorities: any[];
     credentialsnonexpired: boolean;
     enabled: boolean;
     password: string;
@@ -1383,22 +1044,22 @@ export interface IUserDetails {
 
 export interface IUserDto {
     avatar: string;
-    company: IDeptSmallDto;
+    company: any;
     createtime: number;
     datascope: enums.EnumDataScope; // EnumDataScope * NONE: 无效枚举值 * ALL: 全部 * SELF_DEPT: 本部门 * SELF_AND_CHILDREN: 本部门及以下 * SELF_REGION: 本区域 * SELF_REGION_AND_CHILDREN: 本区域及以下 * SELF_COMPANY: 本公司 * SELF_COMPANY_AND_CHILDREN: 本公司及以下 * CUSTOM: 自定义
-    datascopedepts: IDeptSmallDto[];
-    dept: IDeptSmallDto;
+    datascopedepts: any[];
+    dept: any;
     email: string;
     enabled: boolean;
-    job: IJobSmallDto;
+    job: any;
     lastpasswordresettime: string;
     nickname: string;
     phone: string;
-    region: IDeptSmallDto;
+    region: any;
     resetpwd: string;
-    roles: IRoleSmallDto[];
+    roles: any[];
     sex: string;
-    userinfo: IUserInfoDto;
+    userinfo: any;
     username: string;
 }
 

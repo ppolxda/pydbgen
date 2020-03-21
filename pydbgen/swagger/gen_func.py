@@ -204,6 +204,7 @@ def paths_loop(src):
             query = []
             path = []
             body = []
+            body_from = []
 
             for i in config['parameters']:
                 if i['in'] == 'query':
@@ -213,15 +214,19 @@ def paths_loop(src):
                     header.append(i)
 
                 elif i['in'] == 'path':
-                    header.append(i)
+                    path.append(i)
 
                 elif i['in'] == 'body':
                     body.append(i)
+
+                elif i['in'] == 'formData':
+                    body_from.append(i)
 
             config['xquery'] = query
             config['xheader'] = header
             config['xpath'] = path
             config['xbody'] = body
+            config['xfrom'] = body_from
 
             yield uri, method, config
 

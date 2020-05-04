@@ -1,3 +1,9 @@
+
+// EnumXNull
+export enum EnumXNull {
+    NONE = 0,
+}
+
 % for ename, field in enum_loop(src):
 
 ${ '// ' + '// '.join(map(lambda x: x + '\n', field['description'].split('\n')))  }export enum ${ snake_to_camel(ename) } {
@@ -8,7 +14,7 @@ ${ '// ' + '// '.join(map(lambda x: x + '\n', field['description'].split('\n')))
 
 ${ '// ' + '// '.join(map(lambda x: x + '\n', field['description'].split('\n')))  }export const ${ snake_to_camel(ename) }Translate = {
     % for key, _val in field['enums_desc'].items():
-    ${ key.upper() }: '${_val }',
+    [${ snake_to_camel(ename) }.${ key.upper() }]: '${_val }',
     % endfor
 }
 

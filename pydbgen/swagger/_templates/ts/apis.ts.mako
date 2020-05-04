@@ -13,6 +13,16 @@
     ## if not API_NAME:
     ##     raise TypeError('api_name not set')
 
+    def api_name(uri, method):
+        # uri = uri.replace('{', '').replace('}', '')
+        return snake_to_camel(uri.replace('/', '_')).replace('_', '') + snake_to_camel(method).replace('_', '')
+
+    def get_ref(data):
+        cname = data.get('originalRef', '')
+        if not cname:
+            cname = data.get('$ref', '').split('/')[-1]
+        return cname
+
     def typename2class(name):
         if not name:
             raise TypeError('name error')
@@ -146,7 +156,8 @@
             )
 
         if _type is None:
-            if data.get('originalRef', ''):
+            ref = get_ref(data)
+            if ref:
                 _type = 'refobject'
             else:
                 if interface:
@@ -182,7 +193,8 @@
                 return prefix + 'INullObject'
 
         elif _type == 'refobject':
-            refobject = data.get('originalRef', None)
+            refobject = get_ref(data)
+                
             assert isinstance(refobject, str) and refobject
             if refobject in DATETIME_TYPES:
                 if repeated:
@@ -297,9 +309,9 @@
         ##     return val
 
         elif val == 'object':
-            cname = data.get('originalRef', '')
+            ref = get_ref(data)
 
-            if cname in DATETIME_TYPES:
+            if ref in DATETIME_TYPES:
                 if repeated:
                     return 'number[]'
                 else:
@@ -352,7 +364,7 @@
             continue
 
         r.append('{}: {};{}'.format(
-            field['name'].lower(), 
+            field['name'], 
             datatype_interface(field, True), 
             ' // ' + field.get('description', '').replace('\n', ' ')
             if field.get('description', '') else ''
@@ -369,7 +381,7 @@
             continue
 
         r.append('{}: I{};{}'.format(
-            field['name'].lower(), 
+            field['name'], 
             datatype_interface(field, True), 
             ' // ' + field.get('description', '').replace('\n', ' ') 
             if field.get('description', '') else ''
@@ -380,7 +392,7 @@
       r = []
       for key, field in table.get('properties', {}).items():
         r.append('{}: {};{}'.format(
-            key.lower(), 
+            key, 
             datatype_interface(field, True), 
             ' // ' + field.get('description', '').replace('\n', ' ') if field.get('description', '') else ''
         ))
@@ -392,26 +404,26 @@
         _type = field.get('type', 'object')
         if field.get('repeated', False):
             if _type == 'object':
-                cname = field.get('originalRef', '')
+                cname = get_ref(data)
                 if cname == 'date':
-                  r.append('{}: this.arrayToDate(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.arrayToDate(this.{}),'.format(key, key))
                 elif cname == 'datetime' or cname == 'Timestamp':
-                  r.append('{}: this.arrayToDatetime(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.arrayToDatetime(this.{}),'.format(key, key))
                 else:
-                  r.append('{}: this.arrayToJson(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.arrayToJson(this.{}),'.format(key, key))
             else:
-                r.append('{}: this.{},'.format(key.lower(), key.lower()))
+                r.append('{}: this.{},'.format(key, key))
         else:
             if _type == 'object':
-                cname = field.get('originalRef', '')
+                cname = get_ref(field)
                 if cname == 'date':
-                  r.append('{}: this.dateFmt(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.dateFmt(this.{}),'.format(key, key))
                 elif cname == 'datetime' or cname == 'Timestamp':
-                  r.append('{}: this.datetimeFmt(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.datetimeFmt(this.{}),'.format(key, key))
                 else:
-                  r.append('{}: this.{}.toJson(),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.{}.toJson(),'.format(key, key))
             else:
-                r.append('{}: this.{},'.format(key.lower(), key.lower()))
+                r.append('{}: this.{},'.format(key, key))
       return '\n          '.join(r)
 
     def format_uri(uri, path):
@@ -435,7 +447,7 @@
 
         return uri.format(
             **{
-                p['name']: '${%s}' % ('path.' + p['name'].lower())
+                p['name']: '${%s}' % ('path.' + p['name'])
                 for p in path
             }
         )
@@ -443,430 +455,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 ## import * as enums from "./enums";
 import * as types from "./types";
-
-## // ----------------------------------------------
-## //        enum define
-## // ----------------------------------------------
-
-## % for ename, field in enum_loop(src):
-
-## ${ '// ' + '\n// '.join(map(lambda x: x, field['description'].split('\n')))  }
-## export enum ${ snake_to_camel(ename) } {
-##     % for key, _val in field['enums'].items():
-##     ${ key.upper() } = ${ _val },
-##     % endfor
-## }
-
-## ${ '// ' + '\n// '.join(map(lambda x: x, field['description'].split('\n')))  }
-## export const ${ snake_to_camel(ename) }Translate = {
-##     % for key, _val in field['enums_desc'].items():
-##     ${ key.upper() }: '${_val }',
-##     % endfor
-## }
-
-## % endfor
-
-## // ----------------------------------------------
-## //        FieldChecker define
-## // ----------------------------------------------
-
-## class FieldOptions {
-##   public type: string = "";
-##   public array: boolean = false;
-##   public required: boolean = false;
-##   public maxlen: number | null = null;
-##   public minlen: number | null = null;
-##   public maxval: number | null = null;
-##   public minval: number | null = null;
-##   // TODO - regex compatible
-##   public regex: RegExp | null = null;
-
-##   constructor(
-##     type: string,
-##     array: boolean,
-##     required: boolean,
-##     maxlen: number | null = null,
-##     minlen: number | null = null,
-##     maxval: number | null = null,
-##     minval: number | null = null,
-##     regex: RegExp | null = null
-##   ) {
-##     this.type = type;
-##     this.array = array;
-##     this.required = required;
-##     this.maxlen = maxlen;
-##     this.minlen = minlen;
-##     this.maxval = maxval;
-##     this.minval = minval;
-##     this.regex = regex;
-##   }
-
-##   static check_enum(opt: FieldOptions, val: number): boolean {
-##     // TODO - enum range check
-##     // if (val == null) {
-##     //   return true;
-##     // }
-
-##     if (typeof val !== "number") {
-##       return false;
-##     }
-##     return true;
-##   }
-
-##   static check_boolean(opt: FieldOptions, val: boolean): boolean {
-##     // if (val == null) {
-##     //   return true;
-##     // }
-
-##     if (typeof val !== "boolean") {
-##       return false;
-##     }
-##     return true;
-##   }
-
-##   static check_number(opt: FieldOptions, val: number): boolean {
-##     // if (val == null) {
-##     //   return true;
-##     // }
-
-##     if (typeof val !== "number") {
-##       return false;
-##     }
-
-##     if (opt.maxval !== null && val > opt.maxval) {
-##       return false;
-##     }
-
-##     if (opt.minval !== null && val < opt.minval) {
-##       return false;
-##     }
-##     return true;
-##   }
-
-##   static check_string(opt: FieldOptions, val: string): boolean {
-##     // if (val == null) {
-##     //   return true;
-##     // }
-
-##     if (typeof val !== "string") {
-##       return false;
-##     }
-
-##     if (opt.maxlen !== null && val.length > opt.maxlen) {
-##       return false;
-##     }
-
-##     if (opt.minlen !== null && val.length < opt.minlen) {
-##       return false;
-##     }
-
-##     // TODO - regex compatible
-##     if (opt.regex !== null) {
-##       if (!opt.regex.test(val)) {
-##         return false;
-##       }
-##     }
-##     return true;
-##   }
-
-##   static check_datetime(opt: FieldOptions, val: moment.Moment): boolean {
-##     // if (val == null) {
-##     //   return true;
-##     // }
-
-##     if (!moment.isMoment(val)) {
-##       return false;
-##     }
-
-##     ## if (val === MINDATE) {
-##     ##     return false;
-##     ## }
-##     return true;
-##   }
-
-##   public check(key: string, val: any, ignore_array: boolean = false): FieldError | null {
-##     if (this.array) {
-##       if (!(val instanceof Array)) {
-##         return new FieldError(1, key, _(`${"${key}"} is not Array`));
-##       }
-
-##       let error: FieldError | null = null;
-
-##       for (let el of val) {
-##         error = this.check(el, true);
-##         if (error) {
-##           break;
-##         }
-##       }
-
-##       if (error) {
-##         return error;
-##       }
-
-##     }
-
-##     if (!this.required && val == null) {
-##         return new FieldError(7, key, _(`${"${key}"} Invaild`));;
-##     }
-
-##     if (this.type == "enum" && !FieldOptions.check_enum(this, val)) {
-##       return new FieldError(2, key, _(`${"${key}"} Invaild`));
-##     } else if (this.type == "string" && !FieldOptions.check_string(this, val)) {
-##       return new FieldError(3, key, _(`${"${key}"} Invaild`));
-##     } else if (this.type == "number" && !FieldOptions.check_number(this, val)) {
-##       return new FieldError(4, key, _(`${"${key}"} Invaild`));
-##     } else if ((this.type == "datetime" || this.type == "date") && !FieldOptions.check_datetime(this, val)) {
-##       return new FieldError(5, key, _(`${"${key}"} Invaild`));;
-##     } else if (
-##       this.type == "boolean" &&
-##       !FieldOptions.check_boolean(this, val)
-##     ) {
-##       return new FieldError(6, key, _(`${"${key}"} Invaild`));
-##     } else if (this.type == "message") {
-##       let error = val.check();
-##       if (error) {
-##         return error;
-##       }
-##     }
-##     return null;
-##   }
-## }
-
-## type FieldData = { [key: string]: any };
-## type FieldOptionType = { [key: string]: FieldOptions };
-
-## abstract class DataModule {
-##   abstract getFieldKeys(): string[];
-##   abstract getFieldOptionType(): FieldOptionType;
-## ##   abstract toJson(): FieldData;
-
-##   public dateFmt(date: moment.Moment): string {
-##     return date.format("YYYYMMDD");
-##   }
-
-##   public datetimeFmt(date: moment.Moment): string {
-##     return date.format("YYYYMMDDHHmmSS");
-##   }
-
-##   public arrayToDate(datas: moment.Moment[]): string[] {
-##     let result: any[] = [];
-##     for (let el of datas) {
-##       result.push(this.dateFmt(el));
-##     }
-##     return result;
-##   }
-
-##   public arrayToDatetime(datas: moment.Moment[]): string[] {
-##     let result: any[] = [];
-##     for (let el of datas) {
-##       result.push(this.datetimeFmt(el));
-##     }
-##     return result;
-##   }
-
-##   public arrayToJson(datas: any[]): any[] {
-##     let result: any[] = [];
-##     for (let el of datas) {
-##       result.push(el.toJson());
-##     }
-##     return result;
-##   }
-
-##   public toJsonString(): string {
-##     return JSON.stringify(this.toJson());
-##   }
-
-##   public check(): FieldError | null {
-##     let opt: FieldOptions | null = null;
-##     let error: FieldError | null = null;
-##     let value: PropertyDescriptor | undefined = undefined;
-##     let fkeys = this.getFieldKeys();
-##     let foptions = this.getFieldOptionType();
-
-##     for (let fkey of fkeys) {
-##       opt = foptions[fkey];
-##       if (!opt) {
-##         return new FieldError(10, fkey, _(`${"${fkey}"} Invaild, Option not found`));
-##       }
-##       value = Object.getOwnPropertyDescriptor(this, fkey);
-##       if (!value) {
-##         return new FieldError(10, fkey, _(`${"${fkey}"} Invaild, Value not found`));
-##       }
-##       error = opt.check(fkey, value.value);
-##       if (error) {
-##         return error;
-##       }
-##     }
-##     return null;
-##   }
-
-
-##   public conv_field(
-##     key: string,
-##     val: any,
-##     opt: FieldOptions,
-##     ignore_array: boolean = false
-##   ): any {
-##     if (!ignore_array && opt.array) {
-##       if (opt.type == "message") {
-##         return this.arrayToJson(val);
-##       } else {
-##         return this.conv_field(key, val, opt, ignore_array);
-##       }
-##     } else {
-##       switch (opt.type) {
-##         case "date": {
-##           return this.dateFmt(val);
-##         }
-##         case "datetime": {
-##           return this.datetimeFmt(val);
-##         }
-##         case "message": {
-##           return val.toJson();
-##         }
-##         default:
-##           return val;
-##       }
-##     }
-##   }
-
-##   public toJson(do_check: boolean = false): FieldData {
-##     let opt: FieldOptions | null = null;
-##     let error: FieldError | null = null;
-##     let value: PropertyDescriptor | undefined = undefined;
-##     let fkeys = this.getFieldKeys();
-##     let foptions = this.getFieldOptionType();
-##     let result: { [key: string]: any } = {};
-
-##     for (let fkey of fkeys) {
-##       opt = foptions[fkey];
-##       if (!opt) {
-##         throw new FieldError(10, fkey, _(`${"${fkey}"} Invaild, Option not found`));
-##       }
-##       value = Object.getOwnPropertyDescriptor(this, fkey);
-##       if (!value) {
-##         throw new FieldError(10, fkey, _(`${"${fkey}"} Invaild, Value not found`));
-##       }
-##       if (do_check) {
-##         error = opt.check(fkey, value.value);
-##         if (error) {
-##           throw error;
-##         }
-##       }
-##       result[fkey] = this.conv_field(fkey, value.value, opt);
-##     }
-##     return result;
-##   }
-## }
-
-
-## // ----------------------------------------------
-## //        module define
-## // ----------------------------------------------
-
-## % for class_n, table in module_loop(src):
-## <% class_n = class_n.replace('«', '').replace('»', '') %>
-## export interface I${typename2class(class_n)} {
-##     ${format_interface_fields(table.get('properties', {}))}
-## }
-
-## export class ${typename2class(class_n)} extends DataModule {
-##     ${format_interface_fields(table.get('properties', {}))}
-
-##     static readonly foptions: FieldOptionType = {
-##         % for key, field in loop_opts(table.get('required', []), table.get('properties', {})):
-##         ${key.lower()}: new FieldOptions(${ field }),
-##         % endfor
-##     };
-##     static readonly fkeys: string[] = [
-##         ${',\n        '.join(["'{}'".format(key.lower()) for key, field in table.get('properties', {}).items()])}
-##     ];
-
-##     constructor(data?: I${typename2class(class_n)}) {
-##         super();
-##         if (!data){
-##             return;
-##         }
-
-##         % for key, field in table.get('properties', {}).items():
-##         this.${key.lower()} = data.${key.lower()}
-##         % endfor
-##     }
-
-##     public getFieldKeys(): string[] {
-##         return ${typename2class(class_n)}.fkeys
-##     }
-
-##     public getFieldOptionType(): FieldOptionType {
-##         return ${typename2class(class_n)}.foptions
-##     }
-
-##     public toJson(): FieldData {
-##         return {
-##           ${format_tojson(table)}
-##         };
-##     }
-## }
-## % endfor
-
-## // ----------------------------------------------
-## //        query define
-## // ----------------------------------------------
-
-## % for uri, method, module in paths_loop(src):
-##     % if not module['xquery']:
-##         <% continue %>
-##     % endif
-##     <% class_n = module['operationId'] %>
-
-## export interface Query${typename2class(class_n)} {
-##     ${format_query_fields(module)}
-## }
-## % endfor
-
-## // ----------------------------------------------
-## //        header define
-## // ----------------------------------------------
-
-## % for uri, method, module in paths_loop(src):
-##     % if not module['xheader']:
-##         <% continue %>
-##     % endif
-##     <% class_n = module['operationId'] %>
-
-## export interface Header${typename2class(class_n)} {
-##     % for field in module['xheader']:
-##         % if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
-##             <% continue %>
-##         % endif
-
-##     ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
-##     ${field['name'].lower()}: ${datatype_interface(field)};
-##     % endfor
-## }
-## % endfor
-
-## // ----------------------------------------------
-## //        xpath define
-## // ----------------------------------------------
-
-## % for uri, method, module in paths_loop(src):
-##     % if not module['xpath']:
-##         <% continue %>
-##     % endif
-##     <% class_n = module['operationId'] %>
-
-## export interface Path${typename2class(class_n)} {
-##     % for field in module['xpath']:
-##         % if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
-##             <% continue %>
-##         % endif
-
-##     ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }
-##     ${field['name'].lower()}: ${datatype_interface(field)};
-##     % endfor
-## }
-## % endfor
 
 
 // ----------------------------------------------
@@ -889,7 +477,7 @@ export class BaseApi {
     ## <% query_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
     ## <% header_field = DATA_MAP.get(table['fields']['querys']['options']['type_name'], None) %>
   <%
-        class_n = module['operationId']
+        class_n = api_name(uri, method)
         class_n = typename2class(class_n.replace('«', '').replace('»', ''))
         parames = []
         parames_pp = []
@@ -920,6 +508,7 @@ export class BaseApi {
                 parames.append('req: {}'.format('types.' + 'From' + class_n))
 
         if module['xpath']:
+            class_n = api_name(uri.replace('{', '').replace('}', ''), method)
             parames.append('path: {}'.format('types.' + 'Path' + class_n))
 
         if module['xquery']:
@@ -938,6 +527,9 @@ export class BaseApi {
     ## config["headers"] = { ...config["headers"], ...headers };
     ## % endif
     % if 'consumes' in module and module['consumes']:
+    if (config.headers == undefined) {
+        config.headers = {};
+    }
     config.headers['Content-Type'] = '${module['consumes'][0]}'
     % endif
     % if method in ['delete']:
@@ -961,6 +553,3 @@ export class BaseApi {
 
 % endfor
 }
-
-declare const apis: BaseApi;
-export default apis;

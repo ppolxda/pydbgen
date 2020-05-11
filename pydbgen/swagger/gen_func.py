@@ -112,7 +112,11 @@ def snake_to_camel(word):
     return ''.join(x.capitalize() or '_' for x in word.split('_'))
 
 
+enums_index = 0
+
+
 def fmt_enum(field):
+    global enums_index
     enum_re = re.compile(r'^\* (.*?): (.*?)$')
 
     def get_keyval(desc, i=1):
@@ -127,19 +131,56 @@ def fmt_enum(field):
 
     ename = enum_desc[0]
     enum_desc = enum_desc[1:]
-    field['ename'] = ename
-    field['type'] = 'enum'
 
-    field['enums_desc'] = {
-        get_keyval(enum_desc[i], 1):
-        get_keyval(enum_desc[i], 2)
-        for i, f in enumerate(field['enum'])
-    }
+    try:
+        get_keyval(enum_desc[0], 1)
+    except TypeError:
+        mode = 'base'
+    except IndexError:
+        mode = 'base'
+    else:
+        mode = 'int'
 
-    field['enums'] = {
-        get_keyval(enum_desc[i], 1): f
-        for i, f in enumerate(field['enum'])
-    }
+    field['mode'] = mode
+
+    if mode == 'base':
+        ename = field.get('name', None)
+        if not ename:
+            enums_index += 1
+            ename = 'EnumObject' + str(enums_index)
+        elif not ename.startswith('Enum'):
+            ename = 'Enum' + ename
+
+        field['ename'] =  snake_to_camel(ename)
+        field['type'] = 'enum'
+
+        field['enums_desc'] = {
+            f: f
+            for i, f in enumerate(field['enum'])
+        }
+
+        field['enums'] = {
+            f: f
+            for i, f in enumerate(field['enum'])
+        }
+
+    elif mode == 'int':
+        field['ename'] = ename
+        field['type'] = 'enum'
+
+        field['enums_desc'] = {
+            get_keyval(enum_desc[i], 1):
+            get_keyval(enum_desc[i], 2)
+            for i, f in enumerate(field['enum'])
+        }
+
+        field['enums'] = {
+            get_keyval(enum_desc[i], 1): f
+            for i, f in enumerate(field['enum'])
+        }
+    else:
+        raise TypeError('enum invaild')
+
     return field
 
 

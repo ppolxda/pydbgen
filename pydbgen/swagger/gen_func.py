@@ -191,11 +191,12 @@ def enum_loop(src):
             # ename = '_'.join(['Enum', mname, fname])
             if 'enum' in field:
                 if 'description' not in field or not field['description']:
-                    raise TypeError(
-                        'enum description not found [{}][{}]'.format(
-                            field, module
-                        )
-                    )
+                    field['description'] = ''
+                    # raise TypeError(
+                    #     'enum description not found [{}][{}]'.format(
+                    #         field, module
+                    #     )
+                    # )
 
                 field = fmt_enum(field)
                 if field['ename'] in outlist:
@@ -212,11 +213,12 @@ def module_loop(src):
         for fname, field in module.get('properties', {}).items():
             if 'enum' in field:
                 if 'description' not in field or not field['description']:
-                    raise TypeError(
-                        'enum description not found [{}][{}]'.format(
-                            field, module
-                        )
-                    )
+                    field['description'] = ''
+                    # raise TypeError(
+                    #     'enum description not found [{}][{}]'.format(
+                    #         field, module
+                    #     )
+                    # )
 
                 field = fmt_enum(field)
                 continue

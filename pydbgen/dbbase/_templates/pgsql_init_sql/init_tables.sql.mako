@@ -76,6 +76,10 @@ ${field['name']} decimal(${declen_fmt(field)})${array_fmt(field)} NOT NULL ${def
 ${field['name']} timestamp NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] == 'date':
 ${field['name']} date NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
+    % elif field['type'] in ['blob', 'bytea']:
+${field['name']} bytea NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
+    % elif field['type'] == 'text':
+${field['name']} text NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] in ['json', 'jsonb']:
 ${field['name']} ${field['type']}${array_fmt(field)} NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] in ['oneof', 'message']:

@@ -68,6 +68,10 @@ CREATE ${TEMP_KEY}TABLE `${dbname}`.`${tname}` (
 `${field['name']}` datetime NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] == 'date':
 `${field['name']}` date NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
+    % elif field['type'] in ['blob', 'bytea']:
+`${field['name']}` blob NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
+    % elif field['type'] == 'text':
+`${field['name']}` text NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] == 'geometry':
 `${field['name']}` geometry NOT NULL ${default_fmt(field)}${line_fmt(tconfig['fields'], field, has_pkey)}
     % elif field['type'] in ['json', 'jsonb']:

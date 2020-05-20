@@ -13,6 +13,12 @@ message jsonb {}
 
 message geometry {}
 
+message blob {}
+
+message bytea {}
+
+message text {}
+
 enum EnumDefineType {
   NONE = 0;        // NONE
   TABLE = 1;       // TABLE

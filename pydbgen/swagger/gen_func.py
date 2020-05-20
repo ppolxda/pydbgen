@@ -112,7 +112,11 @@ def snake_to_camel(word):
     return ''.join(x.capitalize() or '_' for x in word.split('_'))
 
 
+enums_index = 0
+
+
 def fmt_enum(field):
+    global enums_index
     enum_re = re.compile(r'^\* (.*?): (.*?)$')
 
     def get_keyval(desc, i=1):
@@ -127,19 +131,56 @@ def fmt_enum(field):
 
     ename = enum_desc[0]
     enum_desc = enum_desc[1:]
-    field['ename'] = ename
-    field['type'] = 'enum'
 
-    field['enums_desc'] = {
-        get_keyval(enum_desc[i], 1):
-        get_keyval(enum_desc[i], 2)
-        for i, f in enumerate(field['enum'])
-    }
+    try:
+        get_keyval(enum_desc[0], 1)
+    except TypeError:
+        mode = 'base'
+    except IndexError:
+        mode = 'base'
+    else:
+        mode = 'int'
 
-    field['enums'] = {
-        get_keyval(enum_desc[i], 1): f
-        for i, f in enumerate(field['enum'])
-    }
+    field['mode'] = mode
+
+    if mode == 'base':
+        ename = field.get('name', None)
+        if not ename:
+            enums_index += 1
+            ename = 'EnumObject' + str(enums_index)
+        elif not ename.startswith('Enum'):
+            ename = 'Enum' + ename
+
+        field['ename'] =  snake_to_camel(ename)
+        field['type'] = 'enum'
+
+        field['enums_desc'] = {
+            f: f
+            for i, f in enumerate(field['enum'])
+        }
+
+        field['enums'] = {
+            f: f
+            for i, f in enumerate(field['enum'])
+        }
+
+    elif mode == 'int':
+        field['ename'] = ename
+        field['type'] = 'enum'
+
+        field['enums_desc'] = {
+            get_keyval(enum_desc[i], 1):
+            get_keyval(enum_desc[i], 2)
+            for i, f in enumerate(field['enum'])
+        }
+
+        field['enums'] = {
+            get_keyval(enum_desc[i], 1): f
+            for i, f in enumerate(field['enum'])
+        }
+    else:
+        raise TypeError('enum invaild')
+
     return field
 
 
@@ -150,11 +191,12 @@ def enum_loop(src):
             # ename = '_'.join(['Enum', mname, fname])
             if 'enum' in field:
                 if 'description' not in field or not field['description']:
-                    raise TypeError(
-                        'enum description not found [{}][{}]'.format(
-                            field, module
-                        )
-                    )
+                    field['description'] = ''
+                    # raise TypeError(
+                    #     'enum description not found [{}][{}]'.format(
+                    #         field, module
+                    #     )
+                    # )
 
                 field = fmt_enum(field)
                 if field['ename'] in outlist:
@@ -171,14 +213,35 @@ def module_loop(src):
         for fname, field in module.get('properties', {}).items():
             if 'enum' in field:
                 if 'description' not in field or not field['description']:
-                    raise TypeError(
-                        'enum description not found [{}][{}]'.format(
-                            field, module
-                        )
-                    )
+                    field['description'] = ''
+                    # raise TypeError(
+                    #     'enum description not found [{}][{}]'.format(
+                    #         field, module
+                    #     )
+                    # )
 
                 field = fmt_enum(field)
                 continue
+
+            # OAS 3 TO 2
+            # TODO - Only supports a single association type
+            for i in ['allOf', 'anyOf', 'oneOf']:
+                if i not in field:
+                    continue
+
+                if len(field[i]) != 1:
+                    raise TypeError(
+                        'Only supports a single association type [{}][{}][{}]'.format(
+                            field, field[i],  module
+                        )
+                    )
+                    
+                module['properties'][fname] = {
+                    'type': 'object',
+                    'schema': {
+                        '$ref':field[i][0]['$ref']
+                    }
+                }
 
         if 'properties' not in module:
             continue
@@ -198,6 +261,14 @@ def module_loop(src):
 
 
 def paths_loop(src):
+    # OAS 3 TO 2
+    if 'components' in src:
+        src['definitions'] = src['components']['schemas']
+
+    # OAS 3 TO 2
+    for i in module_loop(src):
+        continue
+
     for uri, pconfig in src.get('paths', {}).items():
         for method, config in pconfig.items():
             header = []
@@ -206,7 +277,7 @@ def paths_loop(src):
             body = []
             body_from = []
 
-            for i in config['parameters']:
+            for i in config.get('parameters', []):
                 if i['in'] == 'query':
                     query.append(i)
 
@@ -228,6 +299,62 @@ def paths_loop(src):
             config['xbody'] = body
             config['xfrom'] = body_from
 
+            # OAS 3 TO 2
+            ctypes = ['application/json', 'application/xml', 'application/x-www-form-urlencoded', 'text/plain']
+            if 'requestBody' in config:
+                for i in ctypes:
+                    if i in config['requestBody']['content']:
+                        content = config['requestBody']['content'][i]
+                        config['xbody'] = [{
+                            'in': 'body',
+                            **content
+                        }]
+
+            # OAS 3 TO 2
+            if 'responses' in config:
+                for key, val in config['responses'].items():
+                    if 'content' not in val:
+                        continue
+
+                    for i in ctypes:
+                        if i in val['content']:
+                            config['responses'][key] = {
+                                **config['responses'][key],
+                                **val['content'][i]
+                            }
+
+            #   requestBody:
+            #     content:
+            #       application/json:
+            #         schema:
+            #           $ref: '#/components/schemas/Pet'
+            #         examples:
+            #           dog:  # <--- example name
+            #             summary: An example of a dog
+            #             value:
+            #               # vv Actual payload goes here vv
+            #               name: Fluffy
+            #               petType: dog
+            #           cat:  # <--- example name
+            #             summary: An example of a cat
+            #             externalValue: http://api.example.com/examples/cat.json   # cat.json contains {"name": "Tiger", "petType": "cat"}
+            #           hamster:  # <--- example name
+            #             $ref: '#/components/examples/hamster'
+
+            # in: body
+            # name: user
+            # description: The user to create.
+            # schema:
+            #     type: object
+            #     required:
+            #     - userName
+            #     properties:
+            #     userName:
+            #         type: string
+            #     firstName:
+            #         type: string
+            #     lastName:
+            #         type: string
             yield uri, method, config
 
 

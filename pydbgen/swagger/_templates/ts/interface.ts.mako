@@ -13,6 +13,21 @@
     ## if not API_NAME:
     ##     raise TypeError('api_name not set')
 
+    def api_name(uri, method):
+        # uri = uri.replace('{', '').replace('}', '')
+        return snake_to_camel(uri.replace('/', '_')).replace('_', '') + snake_to_camel(method).replace('_', '')
+
+    def get_ref(data):
+        cname = data.get('originalRef', '')
+        if not cname:
+            cname = data.get('$ref', '').split('/')[-1]
+        return cname
+
+    def fix_operationid(oid):
+        while '_' == oid[0]:
+            oid = oid[1:]
+        return oid
+
     def typename2class(name):
         if not name:
             raise TypeError('name error')
@@ -119,6 +134,18 @@
     ##     else:
     ##         raise Exception('unknow datatype [{}]'.format(_type))
 
+    ## def fixid(func):
+    ##     def wapper(*args, **kwargs):
+    ##         try:
+    ##             result = func(*args, **kwargs)
+    ##             if result.endswith('id'):
+    ##                 result += 'asdasdasd'
+    ##             return result
+    ##         except Exception:
+    ##             raise
+    ##     return wapper
+
+    ## @fixid
     def datatype_interface(data, interface=False, repeated=False, required=False, plevel=None, prefix='types.'):
         if not isinstance(data, dict):
             raise TypeError('datatype not dict')
@@ -146,7 +173,7 @@
             )
 
         if _type is None:
-            if data.get('originalRef', ''):
+            if get_ref(data):
                 _type = 'refobject'
             else:
                 if interface:
@@ -188,7 +215,7 @@
                 return prefix + 'INullObject'
 
         elif _type == 'refobject':
-            refobject = data.get('originalRef', None)
+            refobject = get_ref(data)
             assert isinstance(refobject, str) and refobject
             if refobject in DATETIME_TYPES:
                 if repeated:
@@ -202,7 +229,7 @@
 
             ## TAG - UNKNUW CLASS
             subtype = refobject_def.get('type', None)
-            if subtype == 'object':
+            if 'properties' not in refobject_def:
                 if repeated:
                     return 'any' + '[]'
                 else:
@@ -302,7 +329,7 @@
         ##     return val
 
         elif val == 'object':
-            cname = data.get('originalRef', '')
+            cname = get_ref(data)
 
             if cname in DATETIME_TYPES:
                 if repeated:
@@ -350,7 +377,7 @@
             ])
             yield (key, opts)
 
-    def format_parame_fields(module, key='xquery'):
+    def format_parame_fields(module, key='xquery', prefix='types.'):
       r = []
       for field in module[key]:
         if field['name'].find('[') >= 0 or field['name'].find('.') >= 0:
@@ -361,15 +388,15 @@
             ))
             continue
 
-        r.append('{}: {};{}'.format(
-            field['name'].lower(), 
-            datatype_interface(field, True), 
+        r.append('{}{}: {};{}'.format(
+            field['name'], '?' if not field.get('required', False) or field['name'] == 'id' else '',
+            datatype_interface(field, True, prefix=prefix), 
             ' // ' + field.get('description', '').replace('\n', ' ')
             if field.get('description', '') else ''
         ))
       return '\n    '.join(r)
 
-    def format_body_fields(module):
+    def format_body_fields(module, prefix='types.'):
       if len(module['xbody']) > 1:
         raise TypeError('xbody parames error')
 
@@ -379,19 +406,19 @@
             continue
 
         r.append('{}: I{};{}'.format(
-            field['name'].lower(), 
-            datatype_interface(field, True), 
+            field['name'], 
+            datatype_interface(field, True, prefix=prefix), 
             ' // ' + field.get('description', '').replace('\n', ' ') 
             if field.get('description', '') else ''
         ))
       return '\n    '.join(r)
 
-    def format_interface_fields(field, interface=True):
+    def format_interface_fields(field, interface=True, prefix='types.'):
       r = []
       for key, field in table.get('properties', {}).items():
-        r.append('{}: {};{}'.format(
-            key.lower(), 
-            datatype_interface(field, interface), 
+        r.append('{}{}: {};{}'.format(
+            key, '?' if key not in table.get('required', []) or key == 'id' else '',
+            datatype_interface(field, interface, prefix=prefix), 
             ' // ' + field.get('description', '').replace('\n', ' ') if field.get('description', '') else ''
         ))
       return '\n    '.join(r)
@@ -402,26 +429,26 @@
         _type = field.get('type', 'object')
         if field.get('repeated', False):
             if _type == 'object':
-                cname = field.get('originalRef', '')
+                cname = get_ref(field)
                 if cname == 'date':
-                  r.append('{}: this.arrayToDate(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.arrayToDate(this.{}),'.format(key, key))
                 elif cname == 'datetime' or cname == 'Timestamp':
-                  r.append('{}: this.arrayToDatetime(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.arrayToDatetime(this.{}),'.format(key, key))
                 else:
-                  r.append('{}: this.arrayToJson(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.arrayToJson(this.{}),'.format(key, key))
             else:
-                r.append('{}: this.{},'.format(key.lower(), key.lower()))
+                r.append('{}: this.{},'.format(key, key))
         else:
             if _type == 'object':
-                cname = field.get('originalRef', '')
+                cname = get_ref(field)
                 if cname == 'date':
-                  r.append('{}: this.dateFmt(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.dateFmt(this.{}),'.format(key, key))
                 elif cname == 'datetime' or cname == 'Timestamp':
-                  r.append('{}: this.datetimeFmt(this.{}),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.datetimeFmt(this.{}),'.format(key, key))
                 else:
-                  r.append('{}: this.{}.toJson(),'.format(key.lower(), key.lower()))
+                  r.append('{}: this.{}.toJson(),'.format(key, key))
             else:
-                r.append('{}: this.{},'.format(key.lower(), key.lower()))
+                r.append('{}: this.{},'.format(key, key))
       return '\n          '.join(r)
 
     def format_uri(uri, path):
@@ -445,13 +472,17 @@
 
         return uri.format(
             **{
-                p['name']: '${%s}' % ('path.' + p['name'].lower())
+                p['name']: '${%s}' % ('path.' + p['name'])
                 for p in path
             }
         )
 %>
 import * as enums from "./enums";
 ## import * as types from "./types";
+
+
+const xenum = enums.EnumXNull;
+
 
 export class INullObject {
 }
@@ -464,7 +495,7 @@ export class INullObject {
 ##     % if not module['xbody']:
 ##         <% continue %>
 ##     % endif
-##     <% class_n = module['operationId'] %>
+##     <% class_n = class_name(fix_operationid(module['operationId'])) %>
 
 ## export interface Body${typename2class(class_n)} {
 ##     ${format_body_fields(module)}
@@ -479,10 +510,10 @@ export class INullObject {
     % if not module['xfrom']:
         <% continue %>
     % endif
-    <% class_n = module['operationId'] %>
+    <% class_n = api_name(uri, method) %>
 
 export interface From${typename2class(class_n)} {
-    ${format_parame_fields(module, 'xfrom')}
+    ${format_parame_fields(module, 'xfrom', prefix='')}
 }
 % endfor
 
@@ -494,10 +525,10 @@ export interface From${typename2class(class_n)} {
     % if not module['xquery']:
         <% continue %>
     % endif
-    <% class_n = module['operationId'] %>
+    <% class_n = api_name(uri, method) %>
 
 export interface Query${typename2class(class_n)} {
-    ${format_parame_fields(module, 'xquery')}
+    ${format_parame_fields(module, 'xquery', prefix='')}
 }
 % endfor
 
@@ -509,7 +540,7 @@ export interface Query${typename2class(class_n)} {
     % if not module['xpath']:
         <% continue %>
     % endif
-    <% class_n = module['operationId'] %>
+    <% class_n = api_name(uri.replace('{', '').replace('}', ''), method) %>
 
 export interface Path${typename2class(class_n)} {
     % for field in module['xpath']:
@@ -517,7 +548,7 @@ export interface Path${typename2class(class_n)} {
             <% continue %>
         % endif
 
-    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }    ${field['name'].lower()}: ${datatype_interface(field, False)};
+    ${ '// ' + '    // '.join(map(lambda x: x + '\n', field.get('description', '').split('\n'))) if field.get('description', '') else ''  }    ${field['name']}: ${datatype_interface(field, False, prefix='')};
     % endfor
 }
 % endfor
@@ -529,6 +560,6 @@ export interface Path${typename2class(class_n)} {
 % for class_n, table in module_loop(src):
 <% class_n = class_n.replace('«', '').replace('»', '') %>
 export interface I${typename2class(class_n)} {
-    ${format_interface_fields(table.get('properties', {}), False)}
+    ${format_interface_fields(table.get('properties', {}), True, prefix='')}
 }
 % endfor

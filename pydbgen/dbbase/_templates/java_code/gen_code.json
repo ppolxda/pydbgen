@@ -1,0 +1,14 @@
+[
+    {
+        "tmpl": "{tmpl}/java_code/dbjson.json.mako",
+        "mode": "single",
+        "output": "{filename}_json.json",
+        "disable": false
+    },
+    {
+        "tmpl": "{tmpl}/java_code/entity.java.mako",
+        "mode": "java_tables_multi",
+        "output": "java_code/Dto{db}{table}.java",
+        "disable": false
+    }
+]

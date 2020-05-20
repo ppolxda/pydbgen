@@ -155,10 +155,20 @@ class ProtoPlugins(object):
             mode_match = re.match(
                 r'^(tables|enums|table_groups|databases|classs)_multi$', mode
             )
+            java_mode_match = re.match(
+                r'^java_(tables|enums|table_groups|databases|classs)_multi$', mode  # noqa
+            )
             if mode_match:
                 _obj = mode_match.group(1)
 
                 self.generate_code_multi(
+                    request, response, tmpl,
+                    config, json_data, _obj
+                )
+            elif java_mode_match:
+                _obj = java_mode_match.group(1)
+
+                self.generate_code_java_multi(
                     request, response, tmpl,
                     config, json_data, _obj
                 )
@@ -190,8 +200,9 @@ class ProtoPlugins(object):
             else:
                 filename = filepath0[:filepath0.rfind('.')]
 
-            fpath = filename1 + \
-                output.format(filename=gfuncs.camel_to_snake(filename))
+            fpath = filename1 + output.format(
+                filename=gfuncs.camel_to_snake(filename)
+            )
 
         fpath2 = os.path.abspath(fpath)
         if not upsert and os.path.exists(fpath2):
@@ -216,8 +227,9 @@ class ProtoPlugins(object):
         _objects = json_data.get(objects.upper(), {}).get('members', {})
 
         def gen_file(_upsert, objname, tconfig):
-            fpath = filename1 + \
-                output.format(objname=gfuncs.camel_to_snake(objname))
+            fpath = filename1 + output.format(
+                objname=gfuncs.camel_to_snake(objname)
+            )
 
             fpath2 = os.path.abspath(fpath)
             if not _upsert and os.path.exists(fpath2):
@@ -246,6 +258,68 @@ class ProtoPlugins(object):
 
                 fout = response.file.add()
                 tconfig['db'] = dbname
+                fout.content = gfuncs.generate_file(tmpl, **tconfig)
+                fout.content = self.auto_fmt(fout.content, fixcode)
+                fout.name = fpath
+
+            for table, tconfig in _objects.items():
+                tconfig['json_data'] = json_data
+
+                if output.find('{db}') >= 0:
+                    for dbname in tconfig.get('database', []):
+                        gen_file2(upsert, dbname, table, tconfig)
+                else:
+                    gen_file2(upsert, '', table, tconfig)
+        else:
+            for objname, tconfig in _objects.items():
+                gen_file(upsert, objname, tconfig)
+
+    def generate_code_java_multi(self, request, response,
+                                 tmpl, config, json_data,
+                                 objects):
+        output = config.get('output', 'auto')
+        fixcode = config.get('fixcode', None)
+        upsert = config.get('upsert', True)
+        filepath0 = request.file_to_generate[0]
+        filepath0 = filepath0.replace('\\', '/')
+        filename1 = filepath0[:filepath0.rfind('/') + 1]
+        keys = '{%s}' % objects[:-1]
+
+        _objects = json_data.get(objects.upper(), {}).get('members', {})
+
+        def gen_file(_upsert, objname, tconfig):
+            fpath = filename1 + output.format(
+                objname=gfuncs.snake_to_camel(objname)
+            )
+
+            fpath2 = os.path.abspath(fpath)
+            if not _upsert and os.path.exists(fpath2):
+                return
+
+            fout = response.file.add()
+            tconfig['objname'] = objname
+            tconfig['json_data'] = json_data
+            fout.content = gfuncs.generate_file(tmpl, **tconfig)
+            fout.content = self.auto_fmt(fout.content, fixcode)
+            fout.name = fpath
+
+        if objects == 'tables':
+            if keys not in output:
+                raise TypeError('config output error, missing ' + keys)
+
+            def gen_file2(_upsert, dbname, table, tconfig):
+                fpath = filename1 + output.format(
+                    db=gfuncs.snake_to_camel(dbname),
+                    table=gfuncs.snake_to_camel(table)
+                )
+
+                fpath2 = os.path.abspath(fpath)
+                if not _upsert and os.path.exists(fpath2):
+                    return
+
+                fout = response.file.add()
+                tconfig['db'] = dbname
+                tconfig['filename'] = os.path.basename(fpath)
                 fout.content = gfuncs.generate_file(tmpl, **tconfig)
                 fout.content = self.auto_fmt(fout.content, fixcode)
                 fout.name = fpath

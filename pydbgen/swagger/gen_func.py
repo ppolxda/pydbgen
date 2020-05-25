@@ -185,6 +185,14 @@ def fmt_enum(field):
 
 
 def enum_loop(src):
+    # OAS 3 TO 2
+    if 'components' in src:
+        src['definitions'] = src['components']['schemas']
+
+    # OAS 3 TO 2
+    for i in module_loop(src):
+        continue
+
     outlist = set()
     for mname, module in src.get('definitions', {}).items():
         for fname, field in module.get('properties', {}).items():
@@ -199,6 +207,9 @@ def enum_loop(src):
                     # )
 
                 field = fmt_enum(field)
+                if field['mode'] != 'int':
+                    continue
+
                 if field['ename'] in outlist:
                     continue
 

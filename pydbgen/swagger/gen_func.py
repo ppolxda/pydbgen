@@ -243,7 +243,7 @@ def module_loop(src):
                 if len(field[i]) != 1:
                     raise TypeError(
                         'Only supports a single association type [{}][{}][{}]'.format(
-                            field, field[i],  module
+                            field[i], field, module
                         )
                     )
                     

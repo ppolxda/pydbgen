@@ -289,6 +289,9 @@ def paths_loop(src):
             body_from = []
 
             for i in config.get('parameters', []):
+                if 'in' not in i:
+                    i['in'] = 'query'
+
                 if i['in'] == 'query':
                     query.append(i)
 

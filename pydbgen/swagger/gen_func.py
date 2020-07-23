@@ -194,27 +194,34 @@ def enum_loop(src):
         continue
 
     outlist = set()
-    for mname, module in src.get('definitions', {}).items():
-        for fname, field in module.get('properties', {}).items():
-            # ename = '_'.join(['Enum', mname, fname])
-            if 'enum' in field:
-                if 'description' not in field or not field['description']:
-                    field['description'] = ''
-                    # raise TypeError(
-                    #     'enum description not found [{}][{}]'.format(
-                    #         field, module
-                    #     )
-                    # )
+    def _enum_loop():
+        for mname, module in src.get('definitions', {}).items():
+            # fix openapi, enum set in definitions
+            if 'enum' in module:
+                yield module
 
-                field = fmt_enum(field)
-                if field['mode'] != 'int':
-                    continue
+            for fname, field in module.get('properties', {}).items():
+                # ename = '_'.join(['Enum', mname, fname])
+                if 'enum' in field:
+                    if 'description' not in field or not field['description']:
+                        field['description'] = ''
+                        # raise TypeError(
+                        #     'enum description not found [{}][{}]'.format(
+                        #         field, module
+                        #     )
+                        # )
+                    yield field
+            
+    for field in _enum_loop():
+        field = fmt_enum(field)
+        if field['mode'] != 'int':
+            continue
 
-                if field['ename'] in outlist:
-                    continue
+        if field['ename'] in outlist:
+            continue
 
-                outlist.add(field['ename'])
-                yield field['ename'], field
+        outlist.add(field['ename'])
+        yield field['ename'], field
 
 
 def module_loop(src):

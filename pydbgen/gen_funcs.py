@@ -582,6 +582,11 @@ def loop_indexs(_json, p2r=False):
             yield (dbname, tname, iname, iconfig, tconfig, topts)
 
 
+def loop_classs(_json):
+    for o_name, o_config in _json['CLASSS']['members'].items():
+        yield o_name, o_config
+
+
 def loop_tablespaces(_json):
     for tsname, tsconfig in _json['TABLESPACES']['members'].items():
         yield tsname, tsconfig
@@ -620,6 +625,7 @@ def generate_file(tmpl_path, **kwargs):
     kwargs['loop_sharding_range2'] = loop_sharding_range2
     kwargs['loop_datbases'] = functools.partial(loop_datbases, kwargs.copy())
     kwargs['loop_tables'] = functools.partial(loop_tables, kwargs.copy())
+    kwargs['loop_classs'] = functools.partial(loop_classs, kwargs.copy())
     kwargs['loop_temp_tables'] = functools.partial(
         loop_temp_tables, kwargs.copy()
     )

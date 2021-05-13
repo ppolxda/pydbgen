@@ -109,6 +109,7 @@ def snake_to_camel(word):
         if word and word[0] in string.ascii_lowercase:
             return word[0].upper() + word[1:]
         return word
+
     return ''.join(x.capitalize() or '_' for x in word.split('_'))
 
 
@@ -227,6 +228,9 @@ def enum_loop(src):
 def module_loop(src):
     outlist = set()
     for mname, module in src.get('definitions', {}).items():
+        if 'enum' in module:
+            module = fmt_enum(module)
+
         # format enum
         for fname, field in module.get('properties', {}).items():
             if 'enum' in field:
@@ -257,7 +261,7 @@ def module_loop(src):
                 module['properties'][fname] = {
                     'type': 'object',
                     'schema': {
-                        '$ref':field[i][0]['$ref']
+                        '$ref': field[i][0]['$ref']
                     }
                 }
 
@@ -321,11 +325,16 @@ def paths_loop(src):
             config['xfrom'] = body_from
 
             # OAS 3 TO 2
-            ctypes = ['application/json', 'application/xml', 'application/x-www-form-urlencoded', 'text/plain']
+            ctypes = ['application/json', 'application/xml',
+                      'application/x-www-form-urlencoded',
+                      'text/plain', 'multipart/form-data']
             if 'requestBody' in config:
                 for i in ctypes:
                     if i in config['requestBody']['content']:
                         content = config['requestBody']['content'][i]
+                        if 'consumes' not in config:
+                            config['consumes'] = []
+                        config['consumes'].append(i)
                         config['xbody'] = [{
                             'in': 'body',
                             **content

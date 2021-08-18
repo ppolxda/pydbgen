@@ -82,7 +82,7 @@ MY_OPTIONS = [
 MY_OPTIONS_NAME = {
     'sharding_mode': EnumShardingMode,
     'bulk_ordered': EnumBulkOrdered,
-    'sort': EnumSortType,
+    'sort': EnumSortType
 }
 
 SORT_KEYS = ['type', 'name', 'msg_type', 'database', 'sharding',
@@ -523,6 +523,9 @@ def generate_json(request, step_files=['pydbgen', 'google/protobuf']):
                     )
 
                 for tname, topt in index['members'].items():
+                    if tname == 'own_table':
+                        continue
+
                     if tname not in tables:
                         raise TypeError(
                             'foreign key references table invaild'

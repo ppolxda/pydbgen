@@ -150,3 +150,7 @@ extend google.protobuf.FieldOptions {
   string sharding_date_begin = 900020;  // sharding_date_begin
   string sharding_date_end = 900021;    // sharding_date_end
 }
+
+message own_table {
+  option (msg_type) = TABLE;
+}

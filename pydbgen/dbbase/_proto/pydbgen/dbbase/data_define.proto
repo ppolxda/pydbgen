@@ -20,115 +20,115 @@ message bytea {}
 message text {}
 
 enum EnumDefineType {
-  NONE = 0;        // NONE
-  TABLE = 1;       // TABLE
-  TABLE_GROUP = 2; // TABLE_GROUP
-  DATABASE = 3;    // DATABASE
-  TABLESPACE = 4;  // pgsql TABLESPACE
-  CLASS = 5;       // CLASS
-  OUTPUT = 6;      // OUPUT
-  INDEX = 7;       // INDEX
+  NONE = 0;         // NONE
+  TABLE = 1;        // TABLE
+  TABLE_GROUP = 2;  // TABLE_GROUP
+  DATABASE = 3;     // DATABASE
+  TABLESPACE = 4;   // pgsql TABLESPACE
+  CLASS = 5;        // CLASS
+  OUTPUT = 6;       // OUPUT
+  INDEX = 7;        // INDEX
 }
 
 enum EnumIndexType {
-  NONE_KEY = 0;     // NONE_KEY
-  INDEX_KEY = 1;    // INDEX_KEY
-  UNIQUE_KEY = 2;   // UNIQUE_KEY
-  FOREIGN_KEY = 3;  // FOREIGN_KEY
-  SHARDING_KEY = 4; // SHARDING_KEY or PARTITION_KEY
+  NONE_KEY = 0;      // NONE_KEY
+  INDEX_KEY = 1;     // INDEX_KEY
+  UNIQUE_KEY = 2;    // UNIQUE_KEY
+  FOREIGN_KEY = 3;   // FOREIGN_KEY
+  SHARDING_KEY = 4;  // SHARDING_KEY or PARTITION_KEY
 }
 
 enum EnumIsEnable {
-  DISABLE = 0; // DISABLE
-  ENABLE = 1;  // ENABLE
+  DISABLE = 0;  // DISABLE
+  ENABLE = 1;   // ENABLE
 }
 
 enum EnumShardingMode {
-  SM_DISABLE = 0; // SM_DISABLE
-  SM_ENABLE = 1;  // SM_ENABLE
+  SM_DISABLE = 0;  // SM_DISABLE
+  SM_ENABLE = 1;   // SM_ENABLE
 
-  SM_HASHED = 2; // SM_HASHED
-  SM_RANGE = 3;  // SM_RANGE
+  SM_HASHED = 2;  // SM_HASHED
+  SM_RANGE = 3;   // SM_RANGE
 
-  SM_RANGE_YEAR = 10;    // SM_RANGE_YEAR
-  SM_RANGE_QUARTER = 11; // SM_RANGE_MONTH
-  SM_RANGE_MONTH = 12;   // SM_RANGE_MONTH
-  SM_RANGE_DAY = 13;     // SM_RANGE_MONTH
-  SM_RANGE_ID = 14;      // SM_RANGE_ID
+  SM_RANGE_YEAR = 10;     // SM_RANGE_YEAR
+  SM_RANGE_QUARTER = 11;  // SM_RANGE_MONTH
+  SM_RANGE_MONTH = 12;    // SM_RANGE_MONTH
+  SM_RANGE_DAY = 13;      // SM_RANGE_MONTH
+  SM_RANGE_ID = 14;       // SM_RANGE_ID
 
-  SM_PARTITION_YEAR = 20;    // SM_PARTITION_YEAR
-  SM_PARTITION_QUARTER = 21; // SM_RANGE_MONTH
-  SM_PARTITION_MONTH = 22;   // SM_PARTITION_MONTH
-  SM_PARTITION_DAY = 23;     // SM_PARTITION_DAY
-  SM_PARTITION_ID = 24;      // SM_PARTITION_ID
+  SM_PARTITION_YEAR = 20;     // SM_PARTITION_YEAR
+  SM_PARTITION_QUARTER = 21;  // SM_RANGE_MONTH
+  SM_PARTITION_MONTH = 22;    // SM_PARTITION_MONTH
+  SM_PARTITION_DAY = 23;      // SM_PARTITION_DAY
+  SM_PARTITION_ID = 24;       // SM_PARTITION_ID
 }
 
-enum EnumIsNull {
-  NOT_NULL = 0;   // Is Not Null
-  ALLOW_NULL = 1; // Allow Null
-}
+// enum EnumIsNull {
+//   NOT_NULL = 0;   // Is Not Null
+//   ALLOW_NULL = 1; // Allow Null
+// }
 
 enum EnumSortType {
-  ASC = 0;    // ASC
-  DESC = 1;   // DESC
-  HASHED = 2; // HASHED
+  ASC = 0;     // ASC
+  DESC = 1;    // DESC
+  HASHED = 2;  // HASHED
 }
 
 enum EnumBulkOrdered {
-  ORDERED = 0;   // ORDERED
-  UNORDERED = 1; // UNORDERED
+  ORDERED = 0;    // ORDERED
+  UNORDERED = 1;  // UNORDERED
 }
 
 enum EnumForeignAction {
-  FA_NONE = 0;        // FA_NONE
-  FA_RESTRICT = 1;    // FA_RESTRICT
-  FA_NO_ACTION = 2;   // FA_NO_ACTION
-  FA_CASCADE = 3;     // FA_CASCADE
-  FA_SET_NULL = 4;    // FA_SET_NULL
-  FA_SET_DEFAULT = 5; // FA_SET_DEFAULT
+  FA_NONE = 0;         // FA_NONE
+  FA_RESTRICT = 1;     // FA_RESTRICT
+  FA_NO_ACTION = 2;    // FA_NO_ACTION
+  FA_CASCADE = 3;      // FA_CASCADE
+  FA_SET_NULL = 4;     // FA_SET_NULL
+  FA_SET_DEFAULT = 5;  // FA_SET_DEFAULT
 }
 
 extend google.protobuf.MessageOptions {
-  EnumDefineType msg_type = 100001;          // Message DefineType
-  EnumIndexType index_type = 100011;         // Message DefineType
-  bool is_unique = 100012;                   // Message DefineType
-  bool is_sharding_not_unique = 100002;      // Message is_sharding_not_unique
-  EnumForeignAction foreign_update = 100013; // Message foreign_update
-  EnumForeignAction foreign_delete = 100014; // Message foreign_update
+  EnumDefineType msg_type = 100001;           // Message DefineType
+  EnumIndexType index_type = 100011;          // Message DefineType
+  bool is_unique = 100012;                    // Message DefineType
+  bool is_sharding_not_unique = 100002;       // Message is_sharding_not_unique
+  EnumForeignAction foreign_update = 100013;  // Message foreign_update
+  EnumForeignAction foreign_delete = 100014;  // Message foreign_update
 
   // mongodb options
-  EnumBulkOrdered bulk_ordered = 100009; // bulk_ordered
+  EnumBulkOrdered bulk_ordered = 100009;  // bulk_ordered
 
   // pgsql TABLESPACE path
-  string location = 100010; // location
+  string location = 100010;  // location
 }
 
 extend google.protobuf.FieldOptions {
   //  ----------------------------------------------
   //              field options of table
   //  ----------------------------------------------
-  int32 maxlen = 90001; // string|byte max length
-  int32 minlen = 90002; // string|byte min length
+  int32 maxlen = 90001;  // string|byte max length
+  int32 minlen = 90002;  // string|byte min length
 
-  float maxval = 90003; // int|float max value
-  float minval = 90004; // int|float min value
+  float maxval = 90003;  // int|float max value
+  float minval = 90004;  // int|float min value
 
-  int32 declen = 90005;   // decimal length
-  int32 decpoint = 90006; // decimal point length
+  int32 declen = 90005;    // decimal length
+  int32 decpoint = 90006;  // decimal point length
 
-  bool key = 90007;    // PRIMARY
-  bool inc = 90008;    // AUTO_INCREMENT
-  bool update = 90009; // is allow update
+  bool key = 90007;     // PRIMARY
+  bool inc = 90008;     // AUTO_INCREMENT
+  bool update = 90009;  // is allow update
   string defval = 900010;
   // bool not_check = 900011;
-  EnumSortType sort = 900012; // use for index
-  EnumIsNull null = 900025;   // is null
+  EnumSortType sort = 900012;  // use for index
+  bool allow_null = 900025;    // is null
 
   //  ----------------------------------------------
   //              table options of database
   //  ----------------------------------------------
   // pgsql TABLESPACE name
-  string space = 900015; // table_key
+  string space = 900015;  // table_key
   // relational database
   // define a temp table
   bool is_temp = 900023;
@@ -140,13 +140,13 @@ extend google.protobuf.FieldOptions {
   string suffix_tables = 900024;
 
   // sharding_mode config
-  EnumShardingMode sharding_mode = 900016; // Message sharding_mode
-  string sharding_key = 900022;            // sharding_key
+  EnumShardingMode sharding_mode = 900016;  // Message sharding_mode
+  string sharding_key = 900022;             // sharding_key
 
-  int32 sharding_step = 900017; // sharding_step
-  int32 sharding_max = 900018;  // sharding_max
-  int32 sharding_min = 900019;  // sharding_min
+  int32 sharding_step = 900017;  // sharding_step
+  int32 sharding_max = 900018;   // sharding_max
+  int32 sharding_min = 900019;   // sharding_min
 
-  string sharding_date_begin = 900020; // sharding_date_begin
-  string sharding_date_end = 900021;   // sharding_date_end
+  string sharding_date_begin = 900020;  // sharding_date_begin
+  string sharding_date_end = 900021;    // sharding_date_end
 }

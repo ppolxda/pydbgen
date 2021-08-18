@@ -82,7 +82,7 @@ MY_OPTIONS = [
 MY_OPTIONS_NAME = {
     'sharding_mode': EnumShardingMode,
     'bulk_ordered': EnumBulkOrdered,
-    'sort': EnumSortType
+    'sort': EnumSortType,
 }
 
 SORT_KEYS = ['type', 'name', 'msg_type', 'database', 'sharding',

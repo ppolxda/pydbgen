@@ -212,7 +212,7 @@ def enum_loop(src):
                         #     )
                         # )
                     yield field
-            
+
     for field in _enum_loop():
         field = fmt_enum(field)
         if field['mode'] != 'int':
@@ -230,6 +230,9 @@ def module_loop(src):
     for mname, module in src.get('definitions', {}).items():
         if 'enum' in module:
             module = fmt_enum(module)
+
+        if 'properties' not in module:
+            module['properties'] = {}
 
         # format enum
         for fname, field in module.get('properties', {}).items():
@@ -257,19 +260,13 @@ def module_loop(src):
                             field[i], field, module
                         )
                     )
-                    
+
                 module['properties'][fname] = {
                     'type': 'object',
                     'schema': {
                         '$ref': field[i][0]['$ref']
                     }
                 }
-
-        if 'properties' not in module:
-            continue
-            # raise TypeError(
-            #     'module error, properties not found {}'.format(module)
-            # )
 
         for key, field in module.get('properties', {}).items():
             repeated = False
